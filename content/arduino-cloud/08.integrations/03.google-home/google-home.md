@@ -2,7 +2,7 @@
 title: Google Home
 description: Expose an Arduino Cloud variable as a Google Home smart home device and control it with Google Assistant.
 tags: [Arduino Cloud, Google Home, Smart Home]
-author: TODO
+author: Hannes Siebeneicher
 ---
 
 Arduino Cloud integrates with Google Home, exposing compatible Cloud Variables

@@ -2,7 +2,7 @@
 title: Widget Catalog
 description: Every Arduino Cloud dashboard widget, grouped by category, with a preview and a note on the three plan-gated widgets.
 tags: [Arduino Cloud, Dashboards, Widgets, Reference]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 The full catalog of [Dashboard](/arduino-cloud/dashboards/dashboards) widgets,

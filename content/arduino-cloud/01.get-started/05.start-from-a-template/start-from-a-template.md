@@ -2,7 +2,7 @@
 title: Start From a Template
 description: Use a ready-made Thing and Dashboard template to skip manual setup and get a working project in one step.
 tags: [Arduino Cloud, Getting Started, Templates]
-author: TODO
+author: Lenard George, Hannes Siebeneicher
 ---
 
 A **Template** bundles a Thing's variable layout with a matching Dashboard, so

@@ -2,7 +2,7 @@
 title: Upload a Sketch Over USB
 description: Compile and flash a sketch to a board connected over USB using the Cloud Agent, then watch it run in the Serial Monitor.
 tags: [Arduino Cloud, Cloud Editor, Upload]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Uploading over **USB** is the standard way to flash a sketch the first time a

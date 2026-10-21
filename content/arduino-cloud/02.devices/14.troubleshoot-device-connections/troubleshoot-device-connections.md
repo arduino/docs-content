@@ -2,7 +2,7 @@
 title: Troubleshoot Device Connections
 description: A practical reference for fixing common Arduino Cloud device issues — USB detection, Wi-Fi failures, offline devices, credentials, and OTA prerequisites.
 tags: [Arduino Cloud, Troubleshooting, Devices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 When a device won't connect, the cause is usually in one of a few places: the

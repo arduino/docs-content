@@ -2,7 +2,7 @@
 title: Cloud Agent
 description: Install and troubleshoot the Arduino Cloud Agent, the local helper that lets your browser talk to a board over USB.
 tags: [Arduino Cloud, Cloud Agent, Devices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 The **Cloud Agent** (also called the **Arduino Create Agent** in its underlying

@@ -2,7 +2,7 @@
 title: Troubleshooting & FAQ
 description: Common Arduino Cloud questions and quick fixes, grouped by area — devices, sketches and upload, dashboards, data, and account/plans.
 tags: [Arduino Cloud, Troubleshooting, FAQ, Reference]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Quick answers to the most common Arduino Cloud questions and issues. For the
@@ -61,7 +61,7 @@ Historical retention depends on your plan — see the
 
 **How do I get my data out?**
 Use [Historical Data Export](/arduino-cloud/things-data/historical-data-export)
-or the [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3-exporter).
+or the [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3).
 
 ## Account & Plans
 

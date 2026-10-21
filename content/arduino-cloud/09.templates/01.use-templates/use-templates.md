@@ -2,7 +2,7 @@
 title: Use Templates
 description: Browse the Arduino Cloud template gallery and apply a template to a connected board in one step.
 tags: [Arduino Cloud, Templates]
-author: TODO
+author: Lenard George, Hannes Siebeneicher
 ---
 
 A **Template** bundles a Thing's variable layout with a matching Dashboard, so

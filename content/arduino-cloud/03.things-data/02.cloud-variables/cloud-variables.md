@@ -2,7 +2,7 @@
 title: Cloud Variables
 description: Cloud Variables are the data your Thing exchanges with a device and shows on dashboards — create them, set permissions, and update policies.
 tags: [Arduino Cloud, Variables]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 **Cloud Variables** are the data points a [Thing](/arduino-cloud/things-data/things)

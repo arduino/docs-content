@@ -2,7 +2,7 @@
 title: Choose Your Setup Path
 description: Pick the right onboarding path for your board, client, or connectivity type.
 tags: [Arduino Cloud, Getting Started]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Arduino Cloud supports many kinds of hardware and clients, and each has a

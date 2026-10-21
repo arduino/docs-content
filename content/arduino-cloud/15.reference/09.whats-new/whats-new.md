@@ -2,7 +2,7 @@
 title: What's New
 description: A changelog-style record of notable Arduino Cloud updates — new features, widgets, board support, and platform changes.
 tags: [Arduino Cloud, Changelog, Reference]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 This page tracks notable changes to Arduino Cloud — new features, widgets,

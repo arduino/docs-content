@@ -2,7 +2,7 @@
 title: Work Offline with the Arduino IDE
 description: Develop Arduino Cloud sketches in the offline Arduino IDE, and keep them in sync with your Thing.
 tags: [Arduino Cloud, Arduino IDE, Offline]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Arduino Cloud handles configuration — Things, variables, provisioning — but you

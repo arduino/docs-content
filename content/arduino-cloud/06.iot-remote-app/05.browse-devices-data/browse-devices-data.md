@@ -2,7 +2,7 @@
 title: Browse Devices & Data
 description: View your Arduino Cloud devices and their latest and historical Cloud Variable data from the IoT Remote mobile app.
 tags: [Arduino Cloud, Remote App, Devices, Data]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Beyond [Dashboards](/arduino-cloud/iot-remote-app/use-dashboards-on-phone),

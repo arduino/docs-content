@@ -2,7 +2,7 @@
 title: Add & Link Widgets
 description: Add widgets to an Arduino Cloud Dashboard and link them to Cloud Variables to read and control your project.
 tags: [Arduino Cloud, Dashboards, Widgets]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Widgets are the building blocks of a [Dashboard](/arduino-cloud/dashboards/dashboards):

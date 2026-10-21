@@ -2,7 +2,7 @@
 title: Add an UNO Q
 description: Provision an Arduino UNO Q — a Linux-based board — in Arduino Cloud through Arduino App Lab.
 tags: [Arduino Cloud, UNO Q, App Lab, Devices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 The Arduino **UNO Q** (and Ventuno Q) run a full Linux OS and connect to

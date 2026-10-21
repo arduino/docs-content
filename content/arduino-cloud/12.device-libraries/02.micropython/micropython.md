@@ -2,7 +2,7 @@
 title: MicroPython
 description: Connect a MicroPython board to Arduino Cloud with arduino-iot-cloud-py — install the library, register variables, and control hardware from a dashboard.
 tags: [Arduino Cloud, MicroPython, Device Libraries]
-author: TODO
+author: Sebastian Romero
 ---
 
 A board running MicroPython (GIGA R1 WiFi, Portenta H7, Nano ESP32, and others

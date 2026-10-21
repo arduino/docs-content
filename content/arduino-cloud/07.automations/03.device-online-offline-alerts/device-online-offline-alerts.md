@@ -2,7 +2,7 @@
 title: Device Online/Offline Alerts
 description: Get alerted when an Arduino Cloud device connects or disconnects, using its connection status as an automation condition.
 tags: [Arduino Cloud, Device Status, Alerts, Automation]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Every [device](/arduino-cloud/devices/devices-overview) in Arduino Cloud

@@ -2,7 +2,7 @@
 title: Webhooks
 description: Forward Cloud Variable updates or Trigger events to an external URL to integrate Arduino Cloud with third-party services.
 tags: [Arduino Cloud, Webhooks, Automation]
-author: TODO
+author: Liam Aljundi
 ---
 
 A **webhook** sends an HTTP request to a URL you specify whenever something

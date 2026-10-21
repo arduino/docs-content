@@ -2,7 +2,7 @@
 title: IFTTT, Zapier & Webhooks
 description: Connect Arduino Cloud to IFTTT, Zapier, and Google services by pointing a Thing's webhook at the platform's incoming URL.
 tags: [Arduino Cloud, Webhooks, IFTTT, Zapier]
-author: TODO
+author: Liam Aljundi
 ---
 
 Any automation platform that accepts an incoming HTTP request can receive

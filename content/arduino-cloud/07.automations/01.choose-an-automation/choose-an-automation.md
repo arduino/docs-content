@@ -2,7 +2,7 @@
 title: Choose an Automation
 description: A decision guide to pick between Triggers, the Scheduler, Webhooks, and device connectivity alerts based on your goal.
 tags: [Arduino Cloud, Automation]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Arduino Cloud offers several ways to act on your project automatically. They

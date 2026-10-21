@@ -2,7 +2,7 @@
 title: Supported Wi-Fi Frequencies
 description: Which Wi-Fi® frequency bands official Arduino boards support for connecting to Arduino Cloud.
 tags: [Arduino Cloud, WiFi, Reference]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 A quick reference for the Wi-Fi® frequency bands supported by Arduino boards

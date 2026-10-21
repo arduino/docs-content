@@ -2,7 +2,7 @@
 title: Developer Overview
 description: How the Arduino Cloud developer surface fits together — the REST management API vs. the device-connection libraries, and which to reach for.
 tags: [Arduino Cloud, API, Developer]
-author: TODO
+author: Karl Söderby, Fabrizio Mirabito
 ---
 
 "The API" for Arduino Cloud actually covers two distinct things. Keeping them

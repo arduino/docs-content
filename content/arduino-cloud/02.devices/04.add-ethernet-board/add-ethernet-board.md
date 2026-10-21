@@ -2,7 +2,7 @@
 title: Add an Ethernet Board
 description: Connect an Arduino board to Arduino Cloud over wired Ethernet, including supported hardware and the sketch pattern.
 tags: [Arduino Cloud, Ethernet, Devices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Ethernet is used when Wi-Fi® isn't practical — industrial settings, reliability

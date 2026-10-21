@@ -2,7 +2,7 @@
 title: Amazon Alexa
 description: Expose an Arduino Cloud variable as an Alexa smart home device and control it by voice or from the Alexa app.
 tags: [Arduino Cloud, Alexa, Smart Home]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Arduino Cloud integrates with Amazon Alexa through the official **Arduino**

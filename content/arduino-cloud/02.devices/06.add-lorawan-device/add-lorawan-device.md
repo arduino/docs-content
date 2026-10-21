@@ -2,7 +2,7 @@
 title: Add a LoRaWAN Device
 description: Provision an Arduino LoRaWAN board in Arduino Cloud through The Things Stack, including frequency plans and credentials.
 tags: [Arduino Cloud, LoRa, LoRaWAN, Devices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 **LoRa®** connectivity is for long-range, low-power devices that communicate

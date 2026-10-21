@@ -2,7 +2,7 @@
 title: Add an ESP32/ESP8266
 description: Set up a third-party ESP32 or ESP8266 board in Arduino Cloud using a Device ID, Secret Key, and Wi-Fi credentials.
 tags: [Arduino Cloud, ESP32, ESP8266, Devices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Arduino Cloud supports a wide range of ESP32 and ESP8266 based boards. They

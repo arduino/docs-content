@@ -2,7 +2,7 @@
 title: Share & Embed Sketches
 description: Share a sketch by URL or embed it as an iframe in a website, blog post, or documentation page.
 tags: [Arduino Cloud, Cloud Editor, Embedding]
-author: TODO
+author: Karl Söderby, Hannes Siebeneicher
 ---
 
 Any sketch in the [Cloud Editor](/arduino-cloud/sketches-editor/cloud-editor-overview)

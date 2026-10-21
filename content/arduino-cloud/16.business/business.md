@@ -73,7 +73,7 @@ Stream historical data to your own storage for analytics and long-term
 retention. Export on demand, or pipe it continuously to object storage.
 
 → [Historical Data Export](/arduino-cloud/things-data/historical-data-export)
-· [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3-exporter)
+· [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3)
 
 ### 6. Apply Custom Branding
 

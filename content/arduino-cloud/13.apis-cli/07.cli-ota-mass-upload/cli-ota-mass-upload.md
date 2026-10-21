@@ -2,7 +2,7 @@
 title: 'CLI: OTA & Mass Upload'
 description: Push firmware over-the-air to one or many Arduino Cloud devices from the terminal, by device ID or by tags.
 tags: [Arduino Cloud, CLI, OTA]
-author: TODO
+author: Karl Söderby, Paolo Calao
 ---
 
 See [Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials)

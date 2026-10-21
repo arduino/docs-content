@@ -2,7 +2,7 @@
 title: Arduino / C++ Library
 description: The ArduinoIoTCloud C++ library — connection classes, initProperties/begin/update, thingProperties.h, and variable callbacks that run on an Arduino board.
 tags: [Arduino Cloud, C++, Device Libraries]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) is the

@@ -2,7 +2,7 @@
 title: Spaces
 description: Personal and shared spaces in Arduino Cloud — what each is for, how to create and switch between them, and where to find space settings.
 tags: [Arduino Cloud, Spaces, Account]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 A **space** is a self-contained workspace in Arduino Cloud holding its own

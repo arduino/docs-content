@@ -2,7 +2,7 @@
 title: Triggers & Alerts
 description: Fire an email, push notification, or webhook when a Cloud Variable meets a condition. Requires a paid Arduino Cloud plan.
 tags: [Arduino Cloud, Triggers, Automation, Alerts]
-author: TODO
+author: Hannes Siebeneicher
 ---
 
 A **Trigger** watches a

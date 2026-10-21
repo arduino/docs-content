@@ -2,7 +2,7 @@
 title: The Things Stack
 description: How Arduino Cloud connects to The Things Stack LoRaWAN network server when adding a LoRaWAN device.
 tags: [Arduino Cloud, LoRaWAN, The Things Stack]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 [The Things Stack](https://www.thethingsindustries.com/stack/) is the LoRaWAN®

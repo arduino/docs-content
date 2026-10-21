@@ -2,7 +2,7 @@
 title: Network Configuration
 description: How a board stores network credentials, provisioning over Bluetooth or USB, and migrating from Provisioning 1.0 to 2.0.
 tags: [Arduino Cloud, Provisioning, Network, Devices]
-author: TODO
+author: Benjamin Dannegård
 ---
 
 **Provisioning** registers a board with Arduino Cloud and gives it the

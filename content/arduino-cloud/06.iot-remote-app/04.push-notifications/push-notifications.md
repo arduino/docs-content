@@ -2,7 +2,7 @@
 title: Push Notifications
 description: Receive push notifications on your phone from the Arduino IoT Remote app when a Trigger condition is met.
 tags: [Arduino Cloud, Remote App, Push Notifications]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 The IoT Remote app can receive **push notifications** driven by

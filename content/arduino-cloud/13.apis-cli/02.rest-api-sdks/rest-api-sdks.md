@@ -2,7 +2,7 @@
 title: REST API & SDKs
 description: The Arduino Cloud REST API and its official Go/JavaScript/Python SDKs — token exchange, resource groups, and where to find exact endpoint details.
 tags: [Arduino Cloud, API, REST, SDK]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 The Arduino Cloud REST API (`https://api2.arduino.cc/iot`) provides CRUD and

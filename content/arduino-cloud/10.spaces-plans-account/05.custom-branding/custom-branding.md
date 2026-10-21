@@ -2,7 +2,7 @@
 title: Custom Branding
 description: White-label a shared Arduino Cloud space with your own logo, custom URL, and social sign-in options.
 tags: [Arduino Cloud, Branding, Business]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Team plans can **white-label** a shared space, replacing Arduino's branding with

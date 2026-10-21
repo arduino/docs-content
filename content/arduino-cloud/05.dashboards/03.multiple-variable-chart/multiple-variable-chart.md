@@ -2,7 +2,7 @@
 title: Plot Multiple Variables on One Chart
 description: Use the Advanced Chart widget to plot several Cloud Variables together, with per-series styling and time-range selection.
 tags: [Arduino Cloud, Dashboards, Advanced Chart]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 The **Advanced Chart** widget plots several

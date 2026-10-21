@@ -2,7 +2,7 @@
 title: Node-RED
 description: Read and write Arduino Cloud variables from a Node-RED flow using the Arduino Cloud node package.
 tags: [Node-RED, Arduino Cloud, Automation]
-author: TODO
+author: Liam Aljundi
 ---
 
 [Node-RED](https://nodered.org/) is a browser-based visual flow editor for
@@ -101,10 +101,10 @@ constant stream.
 For a complete walkthrough — a Thing exposing a humidity variable, a **property
 out** node pulling it into Node-RED, a function node filtering it to
 threshold-crossing events, and an email node sending a notification — see
-[Send Email Alerts With Node-RED](/arduino-cloud/tutorials-projects/send-email-node-red).
+[Send Email Alerts With Node-RED](/arduino-cloud/application-notes/send-email-node-red).
 
 ## Next Steps
 
-- [Send Email Alerts With Node-RED](/arduino-cloud/tutorials-projects/send-email-node-red)
+- [Send Email Alerts With Node-RED](/arduino-cloud/application-notes/send-email-node-red)
 - [IFTTT, Zapier & Webhooks](/arduino-cloud/integrations/ifttt-zapier-webhooks)
 - [APIs & CLI](/arduino-cloud/apis-cli/developer-overview)

@@ -2,7 +2,7 @@
 title: Plans, Limits & Quotas
 description: The Arduino Cloud plan tiers and the resource limits and quotas that differ between Free, Maker, and paid plans.
 tags: [Arduino Cloud, Plans, Quotas]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Arduino Cloud is available on a free tier and several paid tiers. Every tier

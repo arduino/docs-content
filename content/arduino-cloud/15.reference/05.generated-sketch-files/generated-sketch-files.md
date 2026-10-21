@@ -2,7 +2,7 @@
 title: Generated Sketch Files
 description: The files Arduino Cloud generates for a Thing's sketch — the .ino, thingProperties.h, the Secret/arduino_secrets.h file, and the ReadMe.
 tags: [Arduino Cloud, Sketch, Reference]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 When you generate a sketch for an Arduino/C++

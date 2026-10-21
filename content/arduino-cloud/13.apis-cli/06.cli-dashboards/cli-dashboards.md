@@ -2,7 +2,7 @@
 title: 'CLI: Dashboards'
 description: List, extract, create from a template, and delete Arduino Cloud Dashboards from the terminal with arduino-cloud-cli.
 tags: [Arduino Cloud, CLI, Dashboards]
-author: TODO
+author: Karl Söderby, Paolo Calao
 ---
 
 See [Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials)

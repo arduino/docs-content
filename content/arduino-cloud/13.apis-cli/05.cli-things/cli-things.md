@@ -2,7 +2,7 @@
 title: 'CLI: Things'
 description: Create, clone, bind, list, tag, extract, and delete Arduino Cloud Things from the terminal with arduino-cloud-cli.
 tags: [Arduino Cloud, CLI, Things]
-author: TODO
+author: Karl Söderby, Paolo Calao
 ---
 
 See [Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials)

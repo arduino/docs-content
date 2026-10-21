@@ -2,7 +2,7 @@
 title: Integrations Overview
 description: A comparison of the ways Arduino Cloud connects to external services, from voice assistants to data exporters, and when to use each.
 tags: [Arduino Cloud, Integrations]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Arduino Cloud connects to external services in several different ways, each
@@ -19,7 +19,7 @@ options so you can pick the right one before diving into its setup page.
 | [Google Home](/arduino-cloud/integrations/google-home) | Cloud ⇄ service | Voice/app control via Google Assistant | Free |
 | [IFTTT, Zapier & Webhooks](/arduino-cloud/integrations/ifttt-zapier-webhooks) | Cloud → service | Reacting to variable updates on any webhook-capable platform | Free (Thing-level) |
 | [Node-RED](/arduino-cloud/integrations/node-red) | Cloud ⇄ flow | Custom logic, notifications, bridging to other systems | Paid |
-| [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3-exporter) | Cloud → store | Long-term CSV export of time-series data | Paid / Business |
+| [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3) | Cloud → store | Long-term CSV export of time-series data | Paid / Business |
 | [The Things Stack](/arduino-cloud/integrations/the-things-stack) | Network → Cloud | Bringing LoRaWAN® device data into the Cloud | Free |
 | [PLC IDE](/arduino-cloud/integrations/plc-ide) | Device → Cloud | Connecting industrial PLC projects to the Cloud | Varies |
 
@@ -51,7 +51,7 @@ integration here.
 
 ## Data Export and Networks
 
-The [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3-exporter) periodically
+The [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3) periodically
 writes aggregated time-series data to an S3 bucket as CSV, for warehousing and
 offline analysis. [The Things Stack](/arduino-cloud/integrations/the-things-stack)
 is the LoRaWAN® network server used when
@@ -61,4 +61,4 @@ is the LoRaWAN® network server used when
 
 - [Amazon Alexa](/arduino-cloud/integrations/amazon-alexa)
 - [Webhooks](/arduino-cloud/automations/webhooks)
-- [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3-exporter)
+- [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3)

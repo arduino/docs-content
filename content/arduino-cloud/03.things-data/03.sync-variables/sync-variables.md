@@ -2,7 +2,7 @@
 title: Sync Variables
 description: Keep one Cloud Variable synchronized across multiple devices or Things, turning Arduino Cloud into the link between boards.
 tags: [Arduino Cloud, Synchronization]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Arduino Cloud can keep a [Cloud Variable](/arduino-cloud/things-data/cloud-variables)

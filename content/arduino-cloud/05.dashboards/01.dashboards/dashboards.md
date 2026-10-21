@@ -2,7 +2,7 @@
 title: Working With Dashboards
 description: Create, edit, lay out, duplicate, and delete Arduino Cloud Dashboards to visualize and control your Cloud Variables.
 tags: [Arduino Cloud, Dashboards]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 A **Dashboard** is a page of widgets bound to your

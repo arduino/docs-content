@@ -2,7 +2,7 @@
 title: Custom Templates
 description: Save your own Thing and Dashboard combinations as reusable templates and share them as .tino archives.
 tags: [Arduino Cloud, Templates]
-author: TODO
+author: Jacob Hylén
 ---
 
 Beyond the official template gallery (see

@@ -2,7 +2,7 @@
 title: Supported Boards & Capabilities
 description: Board families supported by Arduino Cloud and which capabilities each supports — connectivity, OTA, and hardware-backed security.
 tags: [Arduino Cloud, Devices, Boards, Reference]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Arduino Cloud supports official Arduino boards across several connectivity

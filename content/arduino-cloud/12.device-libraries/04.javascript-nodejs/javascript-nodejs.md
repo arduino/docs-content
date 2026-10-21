@@ -2,7 +2,7 @@
 title: JavaScript / Node.js
 description: Connect a browser or Node.js client to Arduino Cloud with arduino-iot-js — as a single device or as a user across all your properties.
 tags: [Arduino Cloud, JavaScript, Node.js, Device Libraries]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 [arduino-iot-js](https://github.com/arduino/arduino-iot-js) interacts with the

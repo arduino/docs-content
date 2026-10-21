@@ -2,7 +2,7 @@
 title: Use Your Phone as a Device
 description: Stream your phone's built-in sensors (GPS, IMU, light, and more) into Arduino Cloud as Cloud Variables.
 tags: [Arduino Cloud, Remote App, Mobile Sensors]
-author: TODO
+author: Jacob Hylén
 ---
 
 The IoT Remote app can turn your phone into an Arduino Cloud device. Its

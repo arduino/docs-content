@@ -2,7 +2,7 @@
 title: How Arduino Cloud Works
 description: The core concepts behind Arduino Cloud and how data flows between a device and the cloud.
 tags: [Arduino Cloud, Getting Started, Concepts]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Before building anything, it helps to know the handful of concepts every

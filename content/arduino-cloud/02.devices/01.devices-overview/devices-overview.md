@@ -2,7 +2,7 @@
 title: Devices Overview
 description: Device types in Arduino Cloud, the Device ID and Secret Key, and how to add a device from the Devices page.
 tags: [Arduino Cloud, Devices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 A **device** is the physical (or virtual) hardware that runs your code and

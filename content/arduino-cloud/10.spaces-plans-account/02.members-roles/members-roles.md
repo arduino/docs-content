@@ -2,7 +2,7 @@
 title: Members & Roles
 description: Invite members to a shared Arduino Cloud space and control what each can do with role-based access control.
 tags: [Arduino Cloud, Spaces, RBAC]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 A shared space can have any number of members, and **role-based access control

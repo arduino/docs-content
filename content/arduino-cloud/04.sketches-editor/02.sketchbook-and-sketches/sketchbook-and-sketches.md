@@ -2,7 +2,7 @@
 title: Sketchbook & Sketches
 description: Your cloud sketchbook, and the difference between a regular sketch and one attached to a Thing.
 tags: [Arduino Cloud, Sketch, Sketchbook]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 A **sketch** is a file where you write a program to run on an Arduino board,

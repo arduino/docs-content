@@ -2,7 +2,7 @@
 title: 'CLI: Devices'
 description: Provision physical, LoRaWAN, and generic devices, then list, tag, and delete them from the terminal with arduino-cloud-cli.
 tags: [Arduino Cloud, CLI, Devices]
-author: TODO
+author: Karl Söderby, Paolo Calao
 ---
 
 See [Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials)

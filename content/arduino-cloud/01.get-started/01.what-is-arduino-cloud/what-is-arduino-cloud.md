@@ -2,7 +2,7 @@
 title: What Is Arduino Cloud
 description: An overview of the Arduino Cloud platform, its components, and who it is for.
 tags: [Arduino Cloud, Getting Started]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 [Arduino Cloud](https://app.arduino.cc/) is a platform for developing IoT

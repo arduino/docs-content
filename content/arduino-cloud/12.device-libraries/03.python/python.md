@@ -2,7 +2,7 @@
 title: Python
 description: Connect a Python (CPython) client — on a Raspberry Pi or PC — to Arduino Cloud with arduino-iot-cloud-py.
 tags: [Arduino Cloud, Python, Device Libraries]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Python (CPython) devices — a Raspberry Pi, a PC, a server — connect to Arduino

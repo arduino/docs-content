@@ -2,7 +2,7 @@
 title: Scheduler
 description: Automate a variable's value on a recurring time schedule with the CloudSchedule variable type and the Scheduler widget.
 tags: [Arduino Cloud, Scheduler, Automation]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 The **Scheduler** automates a variable's value on a recurring schedule,
@@ -54,7 +54,7 @@ time_variable = ArduinoCloud.getLocalTime();
 ```
 
 For an end-to-end build (Thing, device, dashboard, and the full sketch), see
-[Smart Light Scheduler](/arduino-cloud/tutorials-projects/automate-smart-light-scheduler).
+[Smart Light Scheduler](/arduino-cloud/application-notes/automate-smart-light-scheduler).
 
 
 ## Configuring a Recurring Schedule

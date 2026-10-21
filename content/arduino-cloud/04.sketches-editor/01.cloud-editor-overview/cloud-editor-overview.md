@@ -2,7 +2,7 @@
 title: Cloud Editor Overview
 description: The browser-based code editor used to write, compile, and upload Arduino Cloud sketches — layout, panels, and the upload workflow.
 tags: [Arduino Cloud, Cloud Editor]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 The **Cloud Editor** is the browser-based code editor embedded in a Thing's

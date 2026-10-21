@@ -2,7 +2,7 @@
 title: Device Identity & Secrets
 description: How Arduino Cloud establishes device identity with secure elements, the Device ID and Secret Key, and keeping secrets out of your sketches.
 tags: [Arduino Cloud, Security, Devices]
-author: TODO
+author: Arduino Security Team
 ---
 
 Every device in Arduino Cloud has a cryptographic identity used to authenticate

@@ -2,7 +2,7 @@
 title: Device Status & Lifecycle
 description: How Arduino Cloud reports whether a device is online or offline, and what drives its connection status.
 tags: [Arduino Cloud, Device Status, Devices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Every device shows a **status** indicator — visible in the Status column of the

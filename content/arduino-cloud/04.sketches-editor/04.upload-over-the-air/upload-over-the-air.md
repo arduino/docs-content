@@ -2,7 +2,7 @@
 title: Upload Over the Air
 description: Push a new sketch to a deployed board without a USB cable, using Arduino Cloud's OTA feature.
 tags: [Arduino Cloud, OTA]
-author: TODO
+author: Jose Garcia
 ---
 
 **OTA (over-the-air)** lets you upload a new sketch to a board already

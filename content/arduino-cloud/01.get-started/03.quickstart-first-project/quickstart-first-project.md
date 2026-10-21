@@ -2,7 +2,7 @@
 title: 'Quickstart: Your First IoT Project'
 description: Build your first Arduino Cloud project in six steps — from provisioning a board to controlling it from a dashboard.
 tags: [Arduino Cloud, Getting Started, Quickstart]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 This quickstart walks an official Arduino board with built-in connectivity

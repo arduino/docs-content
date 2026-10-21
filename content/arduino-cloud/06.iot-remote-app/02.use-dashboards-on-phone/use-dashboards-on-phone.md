@@ -2,7 +2,7 @@
 title: Use Dashboards on Your Phone
 description: View and rearrange your Arduino Cloud Dashboards from the IoT Remote mobile app.
 tags: [Arduino Cloud, Remote App, Dashboards, Mobile]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 The IoT Remote app renders the same

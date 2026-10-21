@@ -2,7 +2,7 @@
 title: Things
 description: A Thing is the virtual twin of a connected object — it holds Cloud Variables, links to a device, and generates your sketch.
 tags: [Arduino Cloud, Things]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 A **Thing** is the virtual twin of a connected object in Arduino Cloud. It

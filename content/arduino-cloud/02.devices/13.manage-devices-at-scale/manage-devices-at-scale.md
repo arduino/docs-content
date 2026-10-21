@@ -2,7 +2,7 @@
 title: Manage Devices at Scale
 description: Tag, filter, bulk-provision, and monitor a fleet of Arduino Cloud devices from the web interface and the CLI.
 tags: [Arduino Cloud, Fleet Management, Devices, CLI]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Once you move past a handful of boards, managing devices one at a time through

@@ -2,7 +2,7 @@
 title: Keep Secrets Out of Shared Sketches
 description: Keep Wi-Fi credentials, API keys, and other secrets out of a sketch you share, embed, or download.
 tags: [Arduino Cloud, Cloud Editor, Secrets]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Sharing a sketch — by [embedding](/arduino-cloud/sketches-editor/share-embed-sketches),

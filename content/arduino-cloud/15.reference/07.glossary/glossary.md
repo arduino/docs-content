@@ -2,7 +2,7 @@
 title: Glossary
 description: Alphabetical definitions of the key Arduino Cloud terms — Device, Thing, Cloud Variable, Dashboard, Trigger, OTA, and more.
 tags: [Arduino Cloud, Glossary, Reference]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Short definitions of the core Arduino Cloud concepts, each linking to its

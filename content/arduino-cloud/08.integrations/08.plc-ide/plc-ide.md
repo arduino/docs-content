@@ -2,7 +2,7 @@
 title: PLC IDE
 description: How Arduino PLC IDE projects can connect to Arduino Cloud to publish and exchange variables.
 tags: [Arduino Cloud, PLC IDE, Industrial]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 The **Arduino PLC IDE** — used to program Arduino industrial products such as

@@ -2,7 +2,7 @@
 title: Share Dashboards
 description: Share an Arduino Cloud Dashboard with other users so they can view and interact with it without your credentials.
 tags: [Arduino Cloud, Dashboards, Sharing]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 A [Dashboard](/arduino-cloud/dashboards/dashboards) can be **shared** with

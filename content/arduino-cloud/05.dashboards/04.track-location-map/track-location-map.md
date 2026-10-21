@@ -2,7 +2,7 @@
 title: Track Location on a Map
 description: Use the Advanced Map widget to plot a device's GPS location on a map and draw its path over time.
 tags: [Arduino Cloud, Dashboards, Map, GPS, Location]
-author: TODO
+author: Benjamin Dannegård
 ---
 
 The **Advanced Map** widget tracks a [Thing's](/arduino-cloud/things-data/things)

@@ -2,7 +2,7 @@
 title: Clone and Bulk-Create
 description: Clone Things and roll out templates to many devices and dashboards from the terminal with arduino-cloud-cli.
 tags: [Arduino Cloud, Templates, CLI]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 When you need the same setup on more than one device, the web UI's one-at-a-time

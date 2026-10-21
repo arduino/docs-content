@@ -2,7 +2,7 @@
 title: Add Your Phone
 description: Use a smartphone as an Arduino Cloud device with the IoT Remote app.
 tags: [Arduino Cloud, IoT Remote App, Devices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 You don't need dedicated hardware to start streaming data to Arduino Cloud —

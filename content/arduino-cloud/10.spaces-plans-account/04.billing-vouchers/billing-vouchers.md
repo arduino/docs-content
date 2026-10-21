@@ -2,7 +2,7 @@
 title: Billing & Vouchers
 description: Manage Arduino Cloud billing, redeem a voucher, and change or cancel a plan from your account settings.
 tags: [Arduino Cloud, Billing, Account]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Paid Arduino Cloud plans are managed from your account's plan and billing

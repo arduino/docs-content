@@ -2,7 +2,7 @@
 title: Cloud Variable Types
 description: The complete list of Arduino Cloud Variable types — basic, specialized, and complex — with each one's underlying C++ type, plus the Alexa-compatible subset.
 tags: [Arduino Cloud, Variables, Reference]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 [Cloud Variables](/arduino-cloud/things-data/cloud-variables) come in three

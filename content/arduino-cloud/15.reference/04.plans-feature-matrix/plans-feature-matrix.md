@@ -2,7 +2,7 @@
 title: Plans Feature Matrix
 description: A feature-by-plan comparison of Arduino Cloud tiers — Things limit, data retention, OTA, Triggers, advanced widgets, sharing, API access, and compile time.
 tags: [Arduino Cloud, Plans, Reference]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 A side-by-side comparison of what each Arduino Cloud plan includes. Use it to

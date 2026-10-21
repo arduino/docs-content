@@ -2,7 +2,7 @@
 title: Best Practices for Cloud Sketches
 description: Recommended code patterns for sketches with an attached Thing — watchdog, non-blocking loops, and I2C ordering.
 tags: [Arduino Cloud, Sketch, Best Practices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Sketches with an attached [Thing](/arduino-cloud/things-data/things) depend on

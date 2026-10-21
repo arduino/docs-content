@@ -2,7 +2,7 @@
 title: Import Your Sketchbook and Libraries
 description: Move an existing local Arduino sketchbook and custom libraries into the Cloud Editor in one step.
 tags: [Arduino Cloud, Cloud Editor, Import]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 If your sketches and libraries currently live only on your computer (in the

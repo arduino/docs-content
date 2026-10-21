@@ -2,7 +2,7 @@
 title: Add a Wi-Fi Board
 description: Provision an official Arduino Wi-Fi board in Arduino Cloud, including the two authentication methods and the sketch pattern.
 tags: [Arduino Cloud, Wi-Fi, Devices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 Wi-Fi® is the most common way to connect an official Arduino board to Arduino

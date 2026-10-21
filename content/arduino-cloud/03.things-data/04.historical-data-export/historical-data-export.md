@@ -2,7 +2,7 @@
 title: Historical Data & Export
 description: Every Cloud Variable update is stored as timeseries data — retention, CSV export, the S3 exporter, and the API behind the chart.
 tags: [Arduino Cloud, History, Data Export]
-author: TODO
+author: Benjamin Dannegård
 ---
 
 Every [Cloud Variable](/arduino-cloud/things-data/cloud-variables) update is
@@ -52,7 +52,7 @@ matrix.
 ## Exporting to Amazon S3
 
 For continuous, long-term retention outside Arduino Cloud, the
-[AWS S3 Exporter](/arduino-cloud/integrations/aws-s3-exporter) streams your
+[AWS S3 Exporter](/arduino-cloud/integrations/aws-s3) streams your
 variable history into your own S3 bucket on a schedule — useful when you need
 data beyond the in-platform retention window or want it in your own data lake.
 
@@ -66,6 +66,6 @@ client libraries — see [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks
 
 ## Next Steps
 
-- [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3-exporter)
+- [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3)
 - [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks)
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)

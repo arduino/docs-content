@@ -2,7 +2,7 @@
 title: Add a Manual Device
 description: Create a generic (manual) device in Arduino Cloud and connect it from Python, MicroPython, or Node.js.
 tags: [Arduino Cloud, Manual Device, Generic Device, Devices]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 A **manual** (or **generic**) device is a virtual device with no firmware

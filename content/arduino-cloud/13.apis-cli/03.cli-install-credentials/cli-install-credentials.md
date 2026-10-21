@@ -2,7 +2,7 @@
 title: 'CLI: Install & Credentials'
 description: Install arduino-cloud-cli and authenticate it with an API key, so you can manage Arduino Cloud entirely from a terminal.
 tags: [Arduino Cloud, CLI]
-author: TODO
+author: Karl Söderby, Paolo Calao
 ---
 
 **arduino-cloud-cli** is a command-line tool for managing Arduino Cloud

@@ -2,7 +2,7 @@
 title: Collaborative Coding
 description: Edit the same sketch with multiple team members in a shared space, with live editing indicators.
 tags: [Arduino Cloud, Cloud Editor, Collaboration]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 **Collaborative coding** lets multiple members of the same

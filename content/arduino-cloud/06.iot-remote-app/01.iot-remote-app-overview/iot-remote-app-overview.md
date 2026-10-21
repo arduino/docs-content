@@ -2,7 +2,7 @@
 title: App Overview & Install
 description: Install the Arduino IoT Remote mobile app on iOS or Android, log in, and choose a light or dark theme.
 tags: [Arduino Cloud, Remote App, Mobile]
-author: TODO
+author: Karl Söderby & Arduino Team
 ---
 
 **Arduino IoT Remote** is the mobile companion app for Arduino Cloud. After
