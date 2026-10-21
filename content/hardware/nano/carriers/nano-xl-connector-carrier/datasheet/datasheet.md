@@ -131,7 +131,7 @@ The Nano XL Link Connector Carrier expands the connectivity of the Nano XL Link 
 
 The Nano XL Link Connector Carrier pinout is shown in the following figure.
 
-![Pinout for Nano XL Link Connector Carrier](assets/Simple-pinout-ASX00090-num.png)
+![Pinout for Nano XL Link Connector Carrier](assets/Simple-pinout-ASX00090.png)
 
 #### Nano XL Header (J4)
 
