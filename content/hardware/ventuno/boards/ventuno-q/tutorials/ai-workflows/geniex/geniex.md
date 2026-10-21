@@ -35,7 +35,7 @@ In this tutorial you will learn how to:
 
 <Alert type="info">
 
-**Note:** GenieX is published as a Developer Preview. The commands in this tutorial were verified on a VENTUNO Q running Ubuntu® 24.04 with **GenieX v0.9.3**. The installation command below pins `--version v0.9.3` to ensure a tested release is installed, as intermediate preview releases (such as v0.7.0–v0.8.0) have introduced NPU buffer-mapping regressions.
+**Note:** GenieX is published as a Developer Preview. The commands in this tutorial were verified on a VENTUNO Q running Ubuntu® 24.04 with **GenieX v0.9.3**. The installation command below pins `--version v0.9.3` to ensure a tested release is installed.
 
 </Alert>
 
