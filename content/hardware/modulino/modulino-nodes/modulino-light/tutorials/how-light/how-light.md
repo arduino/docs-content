@@ -1,14 +1,15 @@
 ---
 title: "Getting Started with Modulino Light"
-description: "Complete guide for the Modulino Light colour sensor module and programming with Arduino and MicroPython."
+description: "Learn how to use the Modulino Light to detect colors and measure ambient light with Arduino and MicroPython."
 tags:
  - Modulino
- - Light Sensor
- - Colour Detection
+ - Light
+ - Color Detection
  - RGB
- - QWIIC
+ - LTR-381RGB-01
  - I2C
-author: 'Pedro Sousa Lima'
+ - Qwiic
+author: 'Pedro Sousa Lima, José Bagur'
 hardware:
  - hardware/11.modulinos/modulinos/modulino-light
 software:
@@ -17,369 +18,548 @@ software:
  - micropython
 ---
 
-![Light Overview](assets/LightOverview.png)
+![Modulino Light Overview](assets/LightOverview.png)
 
-The Modulino Light is a modular colour sensor that measures ambient light, RGB colour components, and infrared levels, making it perfect to add colour detection and light sensing to your projects! It uses the standardised Modulino form factor with QWIIC connectors for easy integration.
+The Modulino Light is a Modulino node that measures ambient light, RGB color components, and infrared levels. It uses a single color sensor with an I²C interface and connects to the host board through Qwiic connectors, so no additional circuitry is required. This tutorial describes the Modulino Light hardware and shows how to read colors and light levels using both the Arduino and MicroPython libraries.
+
+## Why Use the Modulino Light?
+
+Detecting an object's color or measuring the amount of light in a space usually requires several components: a photodiode or RGB sensor, an amplifier, and an analog-to-digital converter, plus code to turn the raw values into something meaningful. The Modulino Light integrates all of this in a single sensor that measures the red, green, and blue components of the light, the overall ambient light level, and the infrared level. It delivers its readings in digital form over I²C. The Modulino library goes further by converting the readings into an approximate color name and a lux value so that an application can react to a color or brightness level with a few lines of code.
+
+Because it uses the Modulino form factor, the Modulino Light can be chained with other Modulino nodes on the same Qwiic bus, for example, with a Modulino Pixels to reproduce the detected color or with a Modulino Buzzer to signal a match. Its I²C address is fixed, so using several Modulino Light nodes in the same project requires a Modulino Hub, as described in the [General Characteristics](#general-characteristics) section.
 
 ## Hardware Overview
 
 ### General Characteristics
 
-The Modulino Light is based on the LTR-381RGB-01 sensor, capable of detecting colours and measuring light intensity.
+The **Modulino Light** is based on the **LTR-381RGB-01** sensor from Lite-On, which integrates an ambient light sensor (ALS) and a color sensor (CS) in a single package. The sensor measures the red, green, and blue color channels, the ambient light level, and the infrared (IR) level, and delivers the readings through its I²C interface, so it requires no additional conversion circuitry.
 
-| Parameter         | Condition | Minimum | Typical | Maximum | Unit |
-|-------------------|-----------|---------|---------|---------|------|
-| Operating Voltage | -         | 1.7     | 3.3     | 3.6     | V    |
-| Light Range       | -         | 0       | -       | 64,000  | lux  |
+The main characteristics of the LTR-381RGB-01 sensor are summarized in the following table:
 
-### Sensor Details
+|     **Parameter**     | **Minimum** | **Typical** | **Maximum** | **Unit** |
+|:---------------------:|:-----------:|:-----------:|:-----------:|:--------:|
+| Sensor Supply Voltage |     1.7     |      -      |     3.6     |     V    |
+| Operating Temperature |     -40     |      -      |     +85     |    °C    |
+|     ADC Resolution    |      16     |      -      |      20     |    bit   |
+|    Integration Time   |      25     |      -      |     400     |    ms    |
+|      Lux Accuracy     |     -10     |      -      |     +10     |     %    |
 
-The **Modulino Light** module uses the **LTR-381RGB-01** colour sensor from Lite-On. This sensor natively supports digital communication (I²C), meaning it connects directly to the I²C bus without requiring additional conversion circuitry.
+<Alert type="note">
+The sensor supply range above is the LTR-381RGB-01 specification. On the Modulino Light, the sensor is always supplied at +3.3 VDC through the Qwiic connectors or the `3V3` pin of the optional headers.
+</Alert>
 
-The sensor provides measurements for:
-- Red, Green, and Blue colour channels
-- Ambient light level
-- Infrared (IR) level
+The sensor supports I²C standard mode (100 kHz) and fast mode (400 kHz). The Modulino library configures the bus at 100 kHz. The default I²C address of the Modulino Light is as follows:
 
-The default address for the module is:
+| **Modulino I²C Address** | **Hardware I²C Address** | **Configurable Addresses** |
+|:------------------------:|:------------------------:|:--------------------------:|
+|          `0x53`          |          `0x53`          |   Fixed hardware address   |
 
-| Modulino I²C Address | Hardware I²C Address | Editable Addresses (HEX) |
-|----------------------|----------------------|--------------------------|
-| 0x53                 | 0x53                 | Fixed hardware address   |
-
-***Note: Since the address cannot be changed on this Modulino specifically, using two or more identical modules on the same I²C bus will result in address conflicts and cause communication issues.***
+<Alert type="note">
+Since you can't change the Modulino Light address, connecting two or more Modulino Light nodes to the same I²C bus causes an address conflict. To use several Modulino Light nodes in the same project, connect them through a [Modulino Hub](https://store.arduino.cc/products/modulino-hub).
+</Alert>
 
 ### Pinout
 
-![Modulino Light Pinout](assets/LightPinouts.png)
+![Modulino Light Pinout](assets/Modulino_Light_Pinout.png)
 
-**Qwiic / I2C (1×4 Header)**
-| **Pin** | **Function**            |
-| ------- | ----------------------- |
-| GND     | Ground                 |
-| 3.3 V    | Power Supply (3.3 V)   |
-| SDA     | I2C Data               |
-| SCL     | I2C Clock              |
+#### Qwiic Connectors (2×, 1×4 Each)
 
-These pads and the Qwiic connectors share the same I2C bus. You can optionally solder header pins here.
+Both Qwiic connectors share the same I²C and power lines, so you can use either one to connect the host board and the other to continue the Modulino chain. Their pin assignment is described in the following table:
 
-**Additional 1×4 Header (LTR-381RGB-01 Signals)**
-| **Pin** | **Function**                         |
-| ------- | ------------------------------------ |
-| GND     | Ground                              |
-| GND     | Ground                              |
-| 3V3     | 3.3 V Power                         |
-| INT     | Interrupt Output      |
+| **Pin** |       **Function**      |
+|:-------:|:-----------------------:|
+|   GND   |          Ground         |
+|   3V3   | Power supply (+3.3 VDC) |
+|   SDA   |         I²C data        |
+|   SCL   |        I²C clock        |
 
-**Note:** INT pin features a 10 kΩ pull-up resistor to 3.3 V and provides interrupt signalling for threshold detection and data ready events.
+#### Optional Header (1×4, J4, Not Mounted)
+
+The J4 header exposes the same I²C bus and power lines as the Qwiic connectors, for applications where header pins are preferred:
+
+| **Pin** |       **Function**      |
+|:-------:|:-----------------------:|
+|   GND   |          Ground         |
+|   3V3   | Power supply (+3.3 VDC) |
+|   SDA   |         I²C data        |
+|   SCL   |        I²C clock        |
+
+#### Optional Header (1×4, Not Mounted)
+
+The second optional header provides access to the interrupt output of the LTR-381RGB-01 sensor: <!-- TO VERIFY: connector designator (J3?) and the assignment of the two GND pins against the schematic -->
+
+| **Pin** |       **Function**      |
+|:-------:|:-----------------------:|
+|   GND   |          Ground         |
+|   GND   |          Ground         |
+|   3V3   | Power supply (+3.3 VDC) |
+|   INT   |     Interrupt output    |
+
+The `INT` pin is an open-drain, active-low interrupt output with a 10 kΩ pull-up resistor to +3.3 VDC on the board. The sensor can assert it on threshold and data-ready events. **The Modulino library does not use the `INT` pin.**
 
 ### Power Specifications
 
-The board is typically powered by +3.3 VDC when using the QWIIC interface as per the I²C standard.
+The Modulino Light is powered at +3.3 VDC through the Qwiic connectors, as per the Qwiic standard. The electrical characteristics of the LTR-381RGB-01 sensor are listed in the following table:
 
-| Parameter           | Condition | Typical | Unit |
-|---------------------|-----------|---------|------|
-| Operating Voltage   | -         | 3.3     | V    |
-| Current Consumption | -         | Variable| µA   |
+|       **Parameter**       |        **Condition**        | **Minimum** | **Typical** | **Maximum** | **Unit** |
+|:-------------------------:|:---------------------------:|:-----------:|:-----------:|:-----------:|:--------:|
+|     Operating Voltage     |              -              |      -      |     3.3     |      -      |     V    |
+| ALS Active Supply Current | Default duty cycle, gain 3x |      -      |     120     |      -      |    µA    |
+|  CS Active Supply Current |      Default duty cycle     |      -      |     120     |      -      |    µA    |
+|      Standby Current      |         Standby mode        |      -      |     1.2     |      -      |    µA    |
 
-The module includes a power LED that draws 1 mA and turns on as soon as it is powered.
+<Alert type="note">
+The currents above are those of the LTR-381RGB-01 sensor **alone**. The Modulino Light's total consumption is higher because the board also includes an always-on power LED and the pull-up resistor on the `INT` line.
+</Alert>
+
+### Block Diagram
+
+![Modulino Light Block Diagram](assets/Modulino_Light_Block_Diagram.png)
+
+The **LTR-381RGB-01** sensor (U1) connects directly to the SDA and SCL lines shared by both Qwiic connectors (J1 and J2) and by the optional J4 header. The second optional header exposes the sensor's  `INT` signal, pulled up to +3.3 VDC. Electrically, the Qwiic connectors and the J4 header share the same I²C bus.
+
+### Power Tree
+
+![Modulino Light Power Tree](assets/Modulino_Light_Power_Tree.png)
+
+The +3.3 VDC line from the Qwiic connectors directly supplies the LTR-381RGB-01 sensor, the power LED, and the `INT` pull-up resistor, with no regulation stage, and is shared by both connectors and the optional headers. 
 
 ### Schematic
 
-The Modulino Light uses a simple circuit built around the **LTR-381RGB-01** sensor (U1), which handles colour detection, ambient light measurement, and I²C communication.
+The Modulino Light uses a simple circuit built around the LTR-381RGB-01 sensor (U1), which handles color detection, ambient light measurement, and I²C communication. The I²C lines are available through the Qwiic connectors (J1 and J2, recommended) or the J4 header, and the board powers at +3.3 VDC through the Qwiic cable or the `3V3` pin on the optional headers.
 
-You can connect to the I²C pins (SDA and SCL) using either the **QWIIC connectors** (J1 and J2, recommended) or the **solderable pins** (J4). The board runs on **3.3V** from the QWIIC cable or the **3V3 pin** on J4.
+The full schematic and PCB files are available from the [Modulino Light page](https://docs.arduino.cc/hardware/modulinos/modulino-light) on Docs.
 
-Full schematic and PCB files are available from the [Modulino Light page](https://docs.arduino.cc/hardware/modulino-light).
+## How to Connect
+
+The Modulino Light requires no configuration. To add it to your project, follow these steps:
+
+1. Connect your Arduino board to one of the Modulino Light's Qwiic connectors using a Qwiic cable. Every Modulino node ships with a 5 cm cable.
+2. If your project uses other Modulino nodes, connect the next node to the second Qwiic connector of the Modulino Light to continue the chain.
+3. Power your Arduino board. The Modulino Light's green power LED turns on, and the node is ready to use.
+
+Boards with an onboard Qwiic connector, such as the **UNO R4 WiFi**, the **UNO Q**, and the **Nano R4**, connect directly to the Modulino Light. Boards in the Nano form factor without a Qwiic connector can be mounted on the **Nano Connector Carrier**, which adds Qwiic connectors. Alternatively, you can wire the Modulino Light to the I²C pins of any board through the optional J4 header.
+
+<Alert type="note">
+The Modulino Light operates at +3.3 VDC. The Arduino boards listed above supply that voltage through the Qwiic connector and handle logic-level translation, so no additional circuitry is required. If you wire the node through the J4 header instead, confirm that your board drives the I²C lines at +3.3 VDC.
+</Alert>
 
 ## Programming with Arduino
 
-The Modulino Light is fully compatible with the Arduino IDE and the official Modulino library. The following examples showcase how to detect colours, measure light intensity, and create colour-based applications.
+The [`Arduino_Modulino`](https://github.com/arduino-libraries/Arduino_Modulino) library supports the Modulino Light and is compatible with the Arduino IDE and the Arduino Cloud Editor. The following examples show how to read colors and light levels and how to build a color categorization application.
 
 ### Prerequisites
 
-- Install the Modulino library via the Arduino IDE Library Manager
-- Connect your Modulino Light via QWIIC or solderable headers
+To follow the Arduino examples in this tutorial, you will need the following:
 
-For detailed instructions on setting up your Arduino environment and installing libraries, please refer to the [Getting Started with Modulinos guide](../how-general).
+- An Arduino board with an onboard Qwiic connector (**UNO R4 WiFi**, **UNO Q**, or **Nano R4**), or a Nano form factor board mounted on the **Nano Connector Carrier**
+- A Qwiic cable
+- The `Arduino_Modulino` library, installed from the Library Manager of the Arduino IDE. If you use the Arduino Cloud Editor, the library is already available, and no installation is required.
 
-Library repository available [here](https://github.com/arduino-libraries/Arduino_Modulino).
+On the UNO R4 WiFi, the UNO Q, and the Nano R4, the Qwiic connector is wired to the secondary I²C interface, and `Modulino.begin()` automatically selects  `Wire1`. On any other board, the library defaults to `Wire`. **You do not need to specify the interface in your sketch.**
+
+For detailed instructions on setting up your Arduino environment and installing libraries, refer to the [Getting Started with Modulinos](../how-general) guide.
 
 ### Basic Example
 
+The following sketch takes a reading every half second and prints the approximate color name, the RGB components, the raw ambient light count, the lux value, and the infrared level to the Serial Monitor:
+
 ```arduino
-#include <Modulino.h>
+/**
+Basic Example for the Arduino Modulino Light
+Name: modulino_light_basic.ino
+Purpose: This sketch demonstrates how to read the color, ambient
+light, and infrared level from the Modulino Light and print the
+values to the Serial Monitor.
+
+@author Arduino Product Experience Team
+@version 1.0 21/10/26
+*/
+
+#include <Arduino_Modulino.h>
 
 ModulinoLight light;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Modulino.begin();
-  light.begin();
+
+  // Always check the return value: if the sensor is not detected,
+  // calling the reading methods afterwards leads to undefined behavior.
+  if (!light.begin()) {
+    Serial.println("Modulino Light not detected. Check the QWIIC connection.");
+    while (1);
+  }
 }
 
 void loop() {
-  // Update sensor readings
-  light.update();
-  
-  // Get colour approximation
-  String colourName = light.getColorApproximate();
-  
-  // Get RGB values
-  ModulinoColor colour = light.getColor();
-  int r = (0xFF000000 & colour) >> 24;
-  int g = (0x00FF0000 & colour) >> 16;
-  int b = (0x0000FF00 & colour) >> 8;
-  
-  // Get light intensity values
-  int lux = light.getAL();              // Ambient light (raw)
-  int luxCalibrated = light.getLux();   // Calibrated lux
-  int ir = light.getIR();               // Infrared level
-  
-  // Display readings
-  Serial.print("Colour: ");
-  Serial.print(colourName);
+  // Take a new reading. This call is blocking and takes several tens of
+  // milliseconds, since the sensor performs two acquisition cycles.
+  if (!light.update()) {
+    Serial.println("Reading failed");
+    delay(500);
+    return;
+  }
+
+  // Approximate color name, derived from the RGB channels
+  String colorName = light.getColorApproximate();
+
+  // RGB components, packed into a 32-bit value
+  ModulinoColor color = light.getColor();
+  int r = (0xFF000000 & color) >> 24;  // Red:   bits 24-31
+  int g = (0x00FF0000 & color) >> 16;  // Green: bits 16-23
+  int b = (0x0000FF00 & color) >> 8;   // Blue:  bits 8-15
+
+  int rawAmbient = light.getAL();   // Raw ambient light count
+  int lux = light.getLux();         // Ambient light, converted to lux
+  int ir = light.getIR();           // Infrared level
+
+  Serial.print("Color: ");
+  Serial.print(colorName);
   Serial.print("\tRGB: (");
   Serial.print(r);
   Serial.print(", ");
   Serial.print(g);
   Serial.print(", ");
   Serial.print(b);
-  Serial.print(")\tLux: ");
-  Serial.print(luxCalibrated);
+  Serial.print(")\tRaw AL: ");
+  Serial.print(rawAmbient);
+  Serial.print("\tLux: ");
+  Serial.print(lux);
   Serial.print("\tIR: ");
   Serial.println(ir);
-  
+
   delay(500);
 }
 ```
 
+After uploading the sketch, open the Serial Monitor at 115200 baud to see the readings.
+
 ### Key Functions
 
-- `update()`: Updates sensor readings, returns `true` if successful
-- `getColor()`: Returns colour as ModulinoColor object (extract RGB with bit shifting)
-- `getColorApproximate()`: Returns colour name as String (e.g., "RED", "BLUE", "GREEN")
-- `getAL()`: Returns raw ambient light value
-- `getLux()`: Returns calibrated lux value
-- `getIR()`: Returns infrared level
+The basic example above relies on the following functions of the `Arduino_Modulino` library:
 
-### Advanced Example - Colour Sorting
+- `Modulino.begin()`: Initializes the Modulino system (uses `Wire1` on boards with an onboard Qwiic connector).
+- `begin()`: Initializes the sensor at address `0x53`. Returns `true` if the sensor responded.
+- `update()`: Takes a new reading of color, ambient light, and IR. Returns `true` if successful. All the getters below return values cached by this call, so `update()` must be called on every iteration.
+- `getColor()`: Returns a `ModulinoColor` object. Extract the individual channels with the bit shifting shown above. Each channel is scaled to the range 0 to 255.
+- `getColorApproximate()`: Returns an approximate color name as a `String`. See the [Understanding the Color Names](#understanding-the-color-names) section for the full vocabulary.
+- `getAL()`: Returns the **raw** ambient light count, not a value in lux.
+- `getLux()`: Returns the ambient light converted to lux using the datasheet formula.
+- `getIR()`: Returns the infrared level.
+
+<Alert type="note">
+`getLux()` applies the conversion formula from the LTR-381RGB-01 datasheet using the gain and integration time configured by the library. It is not a factory-calibrated photometric measurement, and it does not compensate for any enclosure or cover placed over the sensor. Treat it as a relative indication of brightness.
+</Alert>
+
+### Understanding the Color Names
+
+`getColorApproximate()` converts the RGB reading to the HSL color space and builds a name from three parts: an optional saturation qualifier, an optional lightness qualifier, and a hue name. The twelve hue names are the following:
+
+`RED` · `ORANGE` · `YELLOW` · `LIME` · `GREEN` · `SPRING GREEN` · `CYAN` · `AZURE` · `BLUE` · `VIOLET` · `MAGENTA` · `ROSE`
+
+The qualifiers are `VERY DARK`, `DARK`, `LIGHT`, and `VERY LIGHT` for lightness, and `VERY PALE`, `PALE`, `VIVID`, and `VERY VIVID` for saturation. A typical result therefore looks like `PALE DARK AZURE` rather than a single word. Very bright, very dark, or very desaturated readings return one of the neutral names instead: `WHITE`, `BLACK`, `LIGHT GRAY`, or `DARK GRAY`.
+
+<Alert type="note">
+When you compare the result against a color, match a substring rather than the whole string. `colorName == "BLUE"` fails for a reading of `VIVID LIGHT BLUE`, while `colorName.indexOf("BLUE") >= 0` succeeds.
+</Alert>
+
+### Advanced Example - Color Categorization
+
+This example groups the detected color into families and prints the result. It matches substrings, so it works with the compound names returned by the library:
 
 ```arduino
-#include <Modulino.h>
+/**
+Color Categorization Example for the Arduino Modulino Light
+Name: modulino_light_categorization.ino
+Purpose: This sketch demonstrates how to group the color names
+returned by the Modulino Light into color families using
+substring matching.
+
+@author Arduino Product Experience Team
+@version 1.0 21/10/26
+*/
+
+#include <Arduino_Modulino.h>
 
 ModulinoLight light;
 
-// Colour thresholds for sorting
-const int MIN_LUX = 50;  // Minimum light level for detection
-
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Modulino.begin();
-  light.begin();
-  
-  Serial.println("Colour Sorting System");
-  Serial.println("Place coloured objects under sensor");
-  Serial.println("-------------------------------------");
+
+  if (!light.begin()) {
+    Serial.println("Modulino Light not detected. Check the QWIIC connection.");
+    while (1);
+  }
+
+  Serial.println("Color Categorization");
+  Serial.println("Place colored objects under the sensor");
+  Serial.println("---------------------------------------");
 }
 
 void loop() {
-  light.update();
-  
-  // Check if there's enough light to detect
-  int lux = light.getLux();
-  if (lux < MIN_LUX) {
-    Serial.println("Waiting for object...");
+  if (!light.update()) {
+    Serial.println("Reading failed");
     delay(1000);
     return;
   }
-  
-  // Get colour information
-  String colour = light.getColorApproximate();
+
+  String color = light.getColorApproximate();
+
   ModulinoColor rgb = light.getColor();
-  
   int r = (0xFF000000 & rgb) >> 24;
   int g = (0x00FF0000 & rgb) >> 16;
   int b = (0x0000FF00 & rgb) >> 8;
-  
-  // Categorise the colour
-  String category = categoriseColour(colour);
-  
-  // Display results
-  Serial.println("=== OBJECT DETECTED ===");
-  Serial.print("Detected Colour: ");
-  Serial.println(colour);
-  Serial.print("RGB Values: (");
+
+  Serial.print("Detected color: ");
+  Serial.print(color);
+  Serial.print("\tRGB: (");
   Serial.print(r);
   Serial.print(", ");
   Serial.print(g);
   Serial.print(", ");
   Serial.print(b);
-  Serial.println(")");
-  Serial.print("Category: ");
-  Serial.println(category);
-  Serial.print("Light Level: ");
-  Serial.print(lux);
-  Serial.println(" lux");
-  Serial.println();
-  
-  delay(2000);
+  Serial.print(")\tCategory: ");
+  Serial.println(categorizeColor(color));
+
+  delay(1000);
 }
 
-String categoriseColour(String colour) {
-  // Convert to uppercase for comparison
-  colour.toUpperCase();
-  
-  if (colour.indexOf("RED") >= 0 || colour.indexOf("ROSE") >= 0 || 
-      colour.indexOf("ORANGE") >= 0) {
-    return "WARM COLOURS";
-  } else if (colour.indexOf("BLUE") >= 0 || colour.indexOf("CYAN") >= 0 || 
-             colour.indexOf("AZURE") >= 0) {
-    return "COOL COLOURS";
-  } else if (colour.indexOf("GREEN") >= 0 || colour.indexOf("LIME") >= 0) {
-    return "NATURAL COLOURS";
-  } else if (colour.indexOf("PURPLE") >= 0 || colour.indexOf("VIOLET") >= 0 || 
-             colour.indexOf("MAGENTA") >= 0) {
-    return "PURPLE TONES";
-  } else if (colour.indexOf("YELLOW") >= 0) {
-    return "BRIGHT COLOURS";
-  } else if (colour.indexOf("WHITE") >= 0 || colour.indexOf("GRAY") >= 0 || 
-             colour.indexOf("BLACK") >= 0) {
-    return "NEUTRAL COLOURS";
-  } else {
-    return "UNKNOWN";
+// Groups a color name returned by getColorApproximate() into a family.
+// The comparison uses indexOf() because the library returns compound
+// names such as "PALE DARK AZURE".
+String categorizeColor(String color) {
+  color.toUpperCase();
+
+  // Neutrals are checked first: they are returned instead of a hue name.
+  if (color.indexOf("WHITE") >= 0 || color.indexOf("BLACK") >= 0 ||
+      color.indexOf("GRAY") >= 0) {
+    return "NEUTRAL COLORS";
   }
+
+  // SPRING GREEN and LIME are checked before GREEN is matched on its own.
+  if (color.indexOf("RED") >= 0 || color.indexOf("ROSE") >= 0 ||
+      color.indexOf("ORANGE") >= 0) {
+    return "WARM COLORS";
+  } else if (color.indexOf("YELLOW") >= 0) {
+    return "BRIGHT COLORS";
+  } else if (color.indexOf("GREEN") >= 0 || color.indexOf("LIME") >= 0) {
+    return "NATURAL COLORS";
+  } else if (color.indexOf("CYAN") >= 0 || color.indexOf("AZURE") >= 0 ||
+             color.indexOf("BLUE") >= 0) {
+    return "COOL COLORS";
+  } else if (color.indexOf("VIOLET") >= 0 || color.indexOf("MAGENTA") >= 0) {
+    return "VIOLET TONES";
+  }
+
+  return "UNKNOWN";
 }
 ```
 
+<Alert type="note">
+For repeatable color readings, keep the object at a constant distance from the sensor and shield it from changing ambient light. The sensor has no built-in illumination source, so the color it reports depends on the light falling on the object.
+</Alert>
+
 ## Programming with MicroPython
 
-The Modulino Light is fully compatible with MicroPython through the official Modulino MicroPython library. The following examples demonstrate how to detect colours and measure light intensity in your MicroPython projects.
+The Modulino Light is supported by the [Modulino MicroPython package](https://github.com/arduino/arduino-modulino-mpy). The following examples show how to read colors and light levels and how to tune the sensor for low-light conditions.
 
 ### Prerequisites
 
-- Install the Modulino MicroPython library (see [Getting Started with Modulinos](./how-general) for detailed instructions)
-- Ensure Arduino Lab for MicroPython is installed
+To follow the MicroPython examples of this tutorial, you will need the following:
+
+- An Arduino board that officially supports MicroPython, such as the **Nano ESP32**, **Nano RP2040 Connect**, **Nano 33 BLE Sense**, **GIGA R1 WiFi**, or **Portenta H7**. Mount a Nano form-factor board on the **Nano Connector Carrier** to connect the Modulino Light through Qwiic.
+- A Qwiic cable.
+- Install the Modulino MicroPython package with the [Arduino MicroPython Package Installer](https://labs.arduino.cc/en/labs/micropython-package-installer) by searching for Modulino, or from a terminal with `mpremote` and `mip`. Both methods also install the `ltr381rgb` sensor driver, which the Modulino Light depends on:
+
+  ```bash
+  mpremote mip install github:arduino/arduino-modulino-mpy
+  ```
+
+- Arduino Lab for MicroPython, to run the scripts on the board
+
+On Arduino boards, the package detects the correct I²C interface automatically, so `ModulinoLight()` needs no arguments. For detailed instructions, refer to the [Getting Started with Modulinos](../how-general) guide.
 
 ### Basic Example
 
+The following script reads the color name, the RGB components, the lux value, the infrared level, and the color temperature every half second and prints them to the console:
+
 ```python
+"""
+Basic Example for the Arduino Modulino Light
+Name: modulino_light_basic.py
+Purpose: This script demonstrates how to read the color, ambient
+light, infrared level, and color temperature from the Modulino
+Light and print the values to the console.
+
+@author Arduino Product Experience Team
+@version 1.0 21/10/26
+"""
+
 from modulino import ModulinoLight
 from time import sleep
 
 light = ModulinoLight()
 
 while True:
-    # Get colour name
-    colour_name = light.colour_name
-    
-    # Get RGB values
-    r, g, b = light.colour
-    
-    # Get light intensity
-    lux = light.lux
-    ir = light.ir
-    
-    if colour_name:
-        print(f"Colour: {colour_name:20s} RGB: ({r:3d}, {g:3d}, {b:3d})  Lux: {lux:5d}  IR: {ir:5d}")
-    
+    r, g, b = light.rgb
+
+    print(f"Color: {light.color_name:8s}  RGB: ({r:3d}, {g:3d}, {b:3d})", end="")
+    print(f"  Lux: {light.lux:8.1f}  IR: {light.infrared:6d}")
+
+    # Returns None when there is not enough light to estimate it
+    temperature = light.color_temperature
+    if temperature is not None:
+        print(f"Color temperature: {temperature} K")
+
     sleep(0.5)
 ```
 
 ### Key Properties
 
-- `.colour_name`: Returns colour name as string
-- `.colour`: Returns tuple of (red, green, blue) values
-- `.lux`: Returns calibrated lux value
-- `.ir`: Returns infrared level
+The basic example above relies on the following properties of the `ModulinoLight` class:
 
-### Advanced Example - Colour Detection
+- `.lux`: Ambient brightness in lux, as a `float`. Computed from the datasheet formula, not factory calibrated.
+- `.rgb`: Tuple of `(red, green, blue)` values in the range 0 to 255.
+- `.color_name`: Approximate color name as a lowercase `str`.
+- `.color_temperature`: Color temperature in kelvin as an `int`, or `None` when there is not enough light to estimate it.
+- `.infrared`: Infrared level as an `int`.
+- `.sensor`: The underlying `LTR381RGB` driver object, for advanced configuration.
+
+### Differences From the Arduino Library
+
+The MicroPython implementation is not a direct port of the Arduino one. The following table summarizes the differences to keep in mind when moving an application between the two:
+
+|     **Aspect**     |                 **Arduino**                 |                       **MicroPython**                       |
+|:------------------:|:-------------------------------------------:|:-----------------------------------------------------------:|
+|     Color names    | Compound, uppercase, e.g. `PALE DARK AZURE` |             Single word, lowercase, e.g. `azure`            |
+|  Color vocabulary  |  12 hues, plus qualifiers and neutral names |           12 hues only, no qualifiers, no neutrals          |
+|     RGB scaling    |   Absolute, relative to the ADC resolution  | Normalized per sample: the highest channel is mapped to 255 |
+|      Lux type      |                    `int`                    |                           `float`                           |
+| Color temperature  |                Not available                |                          Available                          |
+|   Sensor settings  |                 Not exposed                 |       Gain and integration time exposed via `.sensor`       |
+
+The twelve names returned by `.color_name` in MicroPython are the following:
+
+`red` · `orange` · `yellow` · `lime` · `green` · `spring` · `cyan` · `azure` · `blue` · `violet` · `magenta` · `rose`
+
+<Alert type="note">
+In very dark or very desaturated conditions, the MicroPython driver falls back to `red`. Do not treat a `red` reading as a confident detection without checking the brightness first.
+</Alert>
+
+### Advanced Example - Tuning the Sensor
+
+The `ModulinoLight` class covers the most common readings, but the sensor can do more. You can reach it directly through the `.sensor` attribute to change the gain, which amplifies weak light, and the integration time, which is how long the sensor collects light for each reading. Higher values help in dim conditions; lower values work better in bright environments:
 
 ```python
+"""
+Sensor Tuning Example for the Arduino Modulino Light
+Name: modulino_light_tuning.py
+Purpose: This script demonstrates how to configure the gain and
+integration time of the Modulino Light sensor for low-light
+conditions and group the detected color into color families.
+
+@author Arduino Product Experience Team
+@version 1.0 21/10/26
+"""
+
 from modulino import ModulinoLight
+from ltr381rgb import Gain, IntegrationTime
 from time import sleep
 
 light = ModulinoLight()
 
+# Increase gain and integration time for better readings in low light
+light.sensor.gain = Gain.X9
+light.sensor.integration_time = IntegrationTime.MS200
+
+print("Sensor reconfigured for low-light readings")
+print(f"Integration time: {light.sensor.integration_time_ms} ms")
+print("")
+
 MIN_LUX = 50
 
-def categorise_colour(colour_name):
-    """Categorise colour into groups"""
-    colour_upper = colour_name.upper()
-    
-    if any(x in colour_upper for x in ["RED", "ROSE", "ORANGE"]):
-        return "WARM COLOURS"
-    elif any(x in colour_upper for x in ["BLUE", "CYAN", "AZURE"]):
-        return "COOL COLOURS"
-    elif any(x in colour_upper for x in ["GREEN", "LIME"]):
-        return "NATURAL COLOURS"
-    elif any(x in colour_upper for x in ["PURPLE", "VIOLET", "MAGENTA"]):
-        return "PURPLE TONES"
-    elif "YELLOW" in colour_upper:
-        return "BRIGHT COLOURS"
-    elif any(x in colour_upper for x in ["WHITE", "GRAY", "BLACK"]):
-        return "NEUTRAL COLOURS"
-    else:
-        return "UNKNOWN"
+def categorize_color(color_name):
+    """Group a color name returned by .color_name into a family."""
+    name = color_name.lower()
 
-print("🎨 Colour Detection System")
-print("Place coloured objects under sensor")
+    if name in ("red", "rose", "orange"):
+        return "WARM COLORS"
+    elif name == "yellow":
+        return "BRIGHT COLORS"
+    elif name in ("green", "lime", "spring"):
+        return "NATURAL COLORS"
+    elif name in ("cyan", "azure", "blue"):
+        return "COOL COLORS"
+    elif name in ("violet", "magenta"):
+        return "VIOLET TONES"
+
+    return "UNKNOWN"
 
 while True:
     lux = light.lux
-    
+
+    # The driver returns "red" as a fallback when there is not enough
+    # light or saturation, so check the brightness before trusting the name.
     if lux < MIN_LUX:
-        print("Waiting for object...")
+        print("Not enough light for a reliable color reading")
         sleep(1)
         continue
-    
-    # Get colour information
-    colour_name = light.colour_name
-    r, g, b = light.colour
-    
-    # Categorise
-    category = categorise_colour(colour_name)
-    
-    # Display results
-    print("\n=== OBJECT DETECTED ===")
-    print(f"Detected Colour: {colour_name}")
-    print(f"RGB Values: ({r}, {g}, {b})")
-    print(f"Category: {category}")
-    print(f"Light Level: {lux} lux")
-    
-    sleep(2)
+
+    color_name = light.color_name
+    r, g, b = light.rgb
+
+    print(f"Color: {color_name:8s}  RGB: ({r:3d}, {g:3d}, {b:3d})", end="")
+    print(f"  Lux: {lux:8.1f}  Category: {categorize_color(color_name)}")
+
+    sleep(1)
 ```
+
+<Alert type="note">
+`MIN_LUX` is an empirical threshold. Because the lux value isn't factory calibrated, tune it to your lighting conditions rather than reusing this number directly.
+</Alert>
 
 ## Troubleshooting
 
-### Sensor Not Reachable
+### Sensor Not Detected
 
-If your Modulino's power LED isn't on or the sensor isn't responsive:
-- Ensure both the board and the Modulino are connected to your computer
-- Verify that the power LEDs on both are lit
-- Check that the QWIIC cable is properly clicked into place
+If the Modulino Light power LED is off, check that the Qwiic cable is firmly clicked into place at both ends and that the host board is powered. If the LED is on but the sensor does not respond, check the return value of `light.begin()` in Arduino: it returns `false` when the sensor did not answer at address `0x53`.
 
-### Inaccurate Colour Detection
+If more than one Modulino Light is on the bus, remove all but one or connect them through a Modulino Hub, since the address is fixed and cannot be changed.
 
-If the colour readings are not accurate:
-- Ensure adequate lighting conditions
-- Position the sensor facing the object directly
-- Avoid mixed lighting sources (e.g., daylight + artificial light)
-- Keep the sensor at a consistent distance from objects
+### Readings Do Not Change
+
+In Arduino, all getters return values cached by the last call to `update()`. If you call `getColor()` or `getColorApproximate()` without calling `update()` first in the same iteration, you read the same values indefinitely.
+
+### Inaccurate Color Detection
+
+If the color readings are inaccurate, make sure the lighting conditions are adequate: the sensor has no built-in light source and reports light reflected from the object, so avoid mixed lighting sources, such as daylight combined with artificial light. Position the sensor facing the object directly and keep it at a consistent distance from the object. In MicroPython, increase the gain and the integration time for dim environments, as shown in the [Advanced Example](#advanced-example---tuning-the-sensor) of the MicroPython section.
 
 ### Library Issues
 
-See the [Getting Started with Modulinos](./how-general) guide for library installation troubleshooting.
+See the [Getting Started with Modulinos](../how-general) guide for library installation troubleshooting.
 
 ## Project Ideas
 
-Now that you've learned how to use your Modulino Light, try these projects:
+Now that you are familiar with the Modulino Light, you can use it in projects such as the following:
 
-- **Colour Sorting Machine**: Automatically sort objects by colour
-- **Ambient Light Controller**: Adjust LED brightness based on room lighting
-- **Colour Matching Game**: Create interactive colour identification games
-- **Paint Colour Identifier**: Help identify paint or material colours
-- **Plant Monitor**: Track light levels for optimal plant growth
-- **Display Calibration**: Measure screen colour output
-- **Art Installation**: Create colour-reactive light displays
-- **Quality Control**: Detect colour defects in manufacturing
+- **Color sorting machine**: Sort objects automatically by color
+- **Ambient light controller**: Adjust the brightness of LEDs according to the room lighting
+- **Color matching game**: Build an interactive color identification game
+- **Paint color identifier**: Identify paint or material colors
+- **Plant monitor**: Track light levels for optimal plant growth
+- **Color-reactive art installation**: Drive a Modulino Pixels from the detected color
+- **Light logger**: Record the ambient light across a day to profile a room
+
+## Conclusion
+
+In this tutorial, you learned about the Modulino Light hardware, how to connect it to your Arduino board, and how to read colors, ambient light, and infrared levels using both the `Arduino_Modulino` library and the Modulino MicroPython package. You also learned how the approximate color names are built, how to categorize the detected colors, how to tune the sensor for low-light conditions, and how to troubleshoot the most common issues.
+
+In this tutorial, you learned about the hardware of the Modulino Light, how to connect it to your Arduino board, and how to read colors, ambient light, and infrared levels from it using both the `Arduino_Modulino` library and the Modulino MicroPython package. You also learned how the approximate color names are built, how to categorize the detected colors, how to tune the sensor for low-light conditions, and how to troubleshoot the most common issues.
+
+For more information, refer to the following resources:
+
+- [Modulino Light page](https://docs.arduino.cc/hardware/modulinos/modulino-light), with the datasheet, the schematic, and the pinout
+- [Arduino_Modulino library](https://github.com/arduino-libraries/Arduino_Modulino)
+- [Modulino MicroPython package](https://github.com/arduino/arduino-modulino-mpy)
