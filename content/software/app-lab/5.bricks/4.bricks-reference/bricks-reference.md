@@ -53,11 +53,16 @@ my-app/
 ├── python/main.py
 └── bricks/
     └── my_custom_brick/            # The Brick ID (must match id key in manifest)
-        ├── __init__.py             # Python logic (required)
         ├── brick_config.yaml       # Metadata (required)
+        ├── __init__.py             # Python logic (optional)
         ├── brick_compose.yaml      # Docker services (optional)
-        └── requirements.txt        # Python dependencies (optional)
+        ├── requirements.txt        # Python dependencies (optional)
+        ├── README.md               # Overview tab in App Lab (optional)
+        ├── docs/API.md             # API documentation tab in App Lab (optional)
+        └── examples/               # Usage examples tab in App Lab (optional)
 ```
+
+A folder inside `bricks/` is loaded as a Brick only if it contains a `brick_config.yaml` file with a non-empty `id`. Python packages listed in a Custom Brick's `requirements.txt` are installed into the App's virtual environment when the App starts.
 
 ## Brick Manifest Specification (`brick_config.yaml`)
 
@@ -69,12 +74,18 @@ Every brick requires a `brick_config.yaml` file, which acts as a manifest for th
 id: "arduino:object_detection"  # Unique identifier
 name: "Object Detection"        # Display name in UI
 description: "Detects objects using AI"
-category: "video"               # UI Category (miscellaneous, video, audio, text, UI, Storage)
+category: "video"               # UI category (see the list below)
 requires_display: webview       # Signal UI to automatically launch a webview window
 required_devices:               # Required device classes (validated at startup)
   - camera
 ports:                          # Network ports to expose
   - 7000
+model_name: "yolox-object-detection"  # Default AI model ID
+model_by_boards:                # Default AI model per board (overrides model_name)
+  - platform: ventunoq
+    model: "yolox-qnn-object-detection"
+ai_frameworks_compatibility:    # AI frameworks the Brick can run
+  - qnn
 variables:                      # Configurable parameters (Environment Variables)
   - name: "THRESHOLD"
     description: "Detection sensitivity threshold (0.0 to 1.0)"
@@ -90,7 +101,10 @@ supported_boards:               # Limit brick to specific hardware
   - unoq
   - ventunoq
 requires_services:              # Depend on core system containers
-  - "arduino:genie"
+  - "arduino:genie_audio"       # Always required
+  - id: "arduino:genie"         # Only required when the selected model matches
+    when:
+      model: "genie:*"
 mount_devices_into_container: true # Allow Docker containers to access hardware
 ```
 
@@ -103,8 +117,14 @@ mount_devices_into_container: true # Allow Docker containers to access hardware
   - Accessed in Python via `os.getenv("VARIABLE_NAME")`.
   - **Required Variables:** If `default_value` is missing, the user must provide a value in the UI before running the app.
   - **Secrets:** Setting `secret: true` will mask the input field in the App Lab UI.
+- **`category`**: Groups the Brick in the App Lab Bricks catalog. Arduino Bricks use `ai`, `audio`, `image`, `location`, `miscellaneous`, `storage`, `text`, `ui`, and `video`.
+- **`supported_boards`**: Limits the Brick to specific boards (`unoq`, `ventunoq`). If omitted, the Brick is available on every board.
+- **`model_name`**: The ID of the AI model the Brick uses by default. An App can select a different model with the `model` key of the Brick's entry in `app.yaml` (see [Application Configuration](#application-configuration-appyaml)).
+  - In Custom Bricks, `model_name` isn't passed to the Brick's containers. Select the model with `model` in `app.yaml` instead. See [AI Models in Custom Bricks](../custom-bricks/#ai-models-in-custom-bricks).
+  - If you copy a `brick_config.yaml` from the [Arduino Bricks source](https://github.com/arduino/app-bricks-py), rename its `model` key to `model_name`. Custom Bricks ignore a top-level `model` key.
+- **`model_by_boards`**: A different default model for specific boards. Each entry sets a `platform` (`unoq` or `ventunoq`) and the `model` to use on that board instead of `model_name`. Only Arduino Bricks support this key. In Custom Bricks, use `model_name`.
 - **`requires_display`**: When set to `webview`, this indicates that the brick exposes a graphical interface. This signals the App Lab desktop application to automatically open a new window or browser tab directed to the brick's web interface as soon as the app finishes starting.
-- **`requires_services`**: List of core system services (IDs) that must be running for this brick to function (e.g., `arduino:genie` for LLM bricks).
+- **`requires_services`**: List of core system services (IDs) that must be running for this brick to function (e.g., `arduino:genie` for LLM bricks). An entry can be a plain ID, or an object with an `id` and a `when.model` condition: the service is then only started when the model selected for the Brick matches the pattern, where `*` is the only wildcard.
 - **`required_devices`**: Defines the *classes* of hardware devices the brick requires (e.g., `camera`, `microphone`, `speaker`). When the app is started, the `arduino-app-cli` performs startup validation to ensure at least one physical device of that class is currently connected to the board. If not, an error is raised.
 - **`mount_devices_into_container`**: When `true`, hardware devices (like `/dev/video0`) requested in `required_devices` are automatically mounted into the brick's Docker container.
 
@@ -129,6 +149,12 @@ bricks:
         NAME: "Arduino"
       model: "my_custom_model_id"  # Optional: Bind a specific AI model
 ```
+
+<Alert type="info">
+
+**Note:** The App-level `required_devices` key is deprecated. Declare the devices a Brick needs with `required_devices` in its `brick_config.yaml` instead.
+
+</Alert>
 
 ## Containerization and Networking Constraints
 

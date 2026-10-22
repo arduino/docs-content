@@ -19,7 +19,7 @@ Establish communication between Python logic on the Linux microprocessor (MPU) a
 
 The easiest way to see the Bridge in action is to explore the built-in examples. These projects demonstrate how to pass data and trigger functions between your Python script and the Arduino C++ sketch:
 
-- **Blink LED:** A simple example of using Python to toggle an LED pin on the microcontroller.
+- **Blink LED from Python:** A simple example of using Python to toggle an LED pin on the microcontroller.
 - **Blink LED with UI:** Uses the WebUI Brick to control the MCU LED from a browser-based dashboard.
 - **Weather forecast on LED Matrix:** Fetches weather data in Python and sends it to the MCU to be displayed on an LED matrix.
 
@@ -34,8 +34,8 @@ You can follow these steps by creating a new App or by implementing the logic in
 If you are starting from scratch:
 
 1. Open **Arduino App Lab**.
-2. Select **My Apps** from the left sidebar.
-3. Select **Create new app +**, provide a name (e.g., `Bridge Communication`), and select **Create new**.
+2. Select **Apps** from the left sidebar.
+3. Select **Create new App +** > **Create new App**, provide a name (e.g., `Bridge Communication`), and select **Create new**.
 
 If you are using an existing project, ensure you have both a `sketch/sketch.ino` (C++) and a `python/main.py` (Python) file ready.
 
@@ -45,10 +45,8 @@ First, configure the MCU to listen for commands and respond. This is done by def
 
 Open your `sketch/sketch.ino` file. We will build the sketch piece by piece:
 
-1. **[Use the Sketch Library Manager](../../apps/develop-apps/#add-sketch-libraries)** to add the `Arduino_RouterBridge` library to your App.
-
 1. **Include the Library:**
-   At the top of your file, include the Bridge library:
+   The `Arduino_RouterBridge` library is included by default on boards with Zephyr core 0.55.0 or later, so you don't need to install it. At the top of your file, include its header:
    ```cpp
    #include "Arduino_RouterBridge.h"
    ```
@@ -71,7 +69,7 @@ Open your `sketch/sketch.ino` file. We will build the sketch piece by piece:
      Bridge.begin();
 
      // Start the Monitor
-     Monitor.begin()
+     Monitor.begin();
    
      // Expose the function to the Bridge so Python can call it.
      // We use "print_value" as the name Python will use to find it.
@@ -137,7 +135,8 @@ Try these modifications to see how the communication changes. Remember to **Stop
 - **Change the Frequency:** In `main.py`, change `time.sleep(2)` to `0.5`. Notice how much faster the messages appear.
 - **Send Different Data:** Instead of a simple counter, try sending a calculation or a random number (using the [random](https://docs.python.org/3/library/random.html#functions-for-integers) module in Python).
 - **Multiple Arguments:** You can pass multiple values. Update your C++ function to accept two integers `void handle_message(int a, int b)` and update your Python call: `Bridge.call("print_value", val1, val2)`.
-- **Bidirectional Communication:** You can also expose functions in Python using `App.provide()` and call them from C++ using `Bridge.call()`.
+- **Bidirectional Communication:** You can also expose functions in Python using `Bridge.provide()` and call them from C++ using `Bridge.call()`.
+- **Fire and Forget:** Replace `Bridge.call()` with `Bridge.notify()` in `main.py`. The Python script no longer waits for the MCU to answer.
 
 <Alert type="info">
 
@@ -147,8 +146,11 @@ Try these modifications to see how the communication changes. Remember to **Stop
 
 ## Best Practices
 
-- **Avoid Deadlocks:** Never call `Bridge.call()` or `Monitor.print()` inside a C++ function that you have exposed via `Bridge.provide()`. This can cause the communication layer to hang.
+- **Avoid Deadlocks:** Never call `Bridge.call()` or `Monitor.print()` inside a C++ function that you have exposed via `Bridge.provide()`. This can cause the communication layer to hang. Use `Bridge.provide_safe()` for functions that use Arduino APIs.
+- **No Nested Calls in Python:** A Python function registered with `Bridge.provide()` can send notifications, but must not use `Bridge.call()`. Doing so raises a `RuntimeError`.
+- **Handle Timeouts:** In Python, `Bridge.call()` waits up to 10 seconds by default. Pass `timeout=` to change it, and catch `TimeoutError` if the sketch might not answer in time.
 - **Non-Blocking Code:** Ensure your `loop()` in both C++ and Python does not contain long `delay()` or `sleep()` calls that might prevent the Bridge from processing incoming requests.
+- **Keep Messages Small:** A single message from the sketch can be up to 256 bytes. Split larger data into several calls.
 
 ## Next Steps
 

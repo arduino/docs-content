@@ -9,9 +9,7 @@ tags:
   - Arduino
 ---
 
-An **Arduino App** is a modular software architecture that orchestrates multiple components into a single functional unit. Unlike a traditional Arduino sketch, the core of an App is high-level **Python** logic running on the board's Linux subsystem.
-
-While an App is fundamentally a Python application, it is highly extensible. You can enhance it by adding **Bricks** (pre-built modular components like AI models or databases) and, on supported dual-processor boards, an optional **C++ sketch** for real-time hardware control.
+An **Arduino App** is a project built around **Python** code that runs on the board's Linux system. Unlike a traditional Arduino sketch, the Python code is the core of the App. You can add **Bricks** (pre-built components such as AI models or databases) and, on dual-processor boards, an optional Arduino sketch for real-time hardware control.
 
 ## Anatomy of an App
 
@@ -35,6 +33,18 @@ To ensure compatibility with the Arduino App Lab environment, every App follows 
 | `sketch/sketch.ino` | Optional | The C++ code for the microcontroller. |
 | `sketch/sketch.yaml` | Mandatory if sketch exists | Configuration for the sketch, including required libraries. |
 | `README.md` | Optional | Documentation that is displayed in the App Lab UI. |
+| `bricks/` | Optional | [Custom Bricks](../../bricks/custom-bricks/) created for this App. |
+| `python-libraries/` | Optional | Python wheel files (`.whl`) installed when the App starts. |
+| `data/` | Optional | Data stored by your App. Included in exports and releases only if you choose **Include data associated with the App**. |
+| `.cache/` | Generated | The App's Python virtual environment and build cache. Excluded from exports. |
+
+You can add any other files and folders your App needs, such as web assets for a WebUI Brick.
+
+<Alert type="note">
+
+**Important:** When you export an App or create a release without **Include data associated with the App**, every folder named `data` is left out, at any level of the App. A release built with this option only adds the `data/` folder at the top level of the App, so `data` folders inside other folders are always left out of releases. Don't use `data` as the name of a folder that contains code or assets your App needs.
+
+</Alert>
 
 <Alert type="info">
 
@@ -44,10 +54,12 @@ To ensure compatibility with the Arduino App Lab environment, every App follows 
 
 ## Storage Location
 
-Your Apps are stored on your board, in the `/home/arduino/ArduinoApps/` directory.
+Your Apps are stored on your board, in the `/home/arduino/ArduinoApps/` directory. Each App resides in its own subdirectory named after your App title.
 
-Each App resides in its own subdirectory named after your App title.
+Built-in examples and installed [App releases](../manage-apps/#create-an-app-release) are stored separately, in `/var/lib/arduino-app-cli/examples/` and `/var/lib/arduino-app-cli/releases/`, and are read-only.
 
 ## Next Steps
 
 - [Manage Apps in Arduino App Lab](../../apps/manage-apps/)
+- [Develop Apps in Arduino App Lab](../../apps/develop-apps/)
+- [Run and Monitor Apps](../../apps/run/)

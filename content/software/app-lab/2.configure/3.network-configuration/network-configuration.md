@@ -33,6 +33,9 @@ Depending on the features and Bricks you use, your board requires access to the 
 | 80 / 443 | TCP | HTTP/HTTPS | Fetching system updates, Docker images, and API data. |
 | 123 | UDP | NTP | Synchronizing the internal Linux system clock. |
 | 7000 | TCP | WebUI | The default port for the WebUI Brick. Can be overridden when initializing the Brick. |
+| 4912 | TCP | Video stream | Live camera preview of the video AI Bricks, and smartphone camera streams from the [IoT Remote app](../../integrations/companion-app/). |
+
+App Lab reaches the Arduino App CLI daemon on the board through its USB (ADB) or SSH connection, so you don't need to open the daemon port on your network. To see which ports a specific App exposes, run `arduino-app-cli app ports <app>` on the board.
 
 ## Supported Network Types
 
@@ -42,21 +45,39 @@ Depending on the features and Bricks you use, your board requires access to the 
 
 ## Domain Whitelist
 
-If you are operating behind a restrictive firewall, you must allow traffic to the following domains for your board to function correctly:
+If you are operating behind a restrictive firewall, you must allow traffic to the following domains.
 
-### Core Infrastructure
+### Board: Core Infrastructure
 
 - `downloads.arduino.cc`: System updates, toolchains, and library indexes.
 - `apt-repo.arduino.cc`: Official Arduino Debian package repository.
-- `public.ecr.aws`: Docker container images for App Lab Bricks.
+- `ghcr.io` and `pkg-containers.githubusercontent.com`: Container images for App Lab Bricks.
+- `public.ecr.aws`: Container images used by older system versions.
 - `github.com` and `raw.githubusercontent.com`: Source code and package retrieval.
+- `pypi.org` and `files.pythonhosted.org`: Python packages listed in an App's `requirements.txt`.
 
-### Arduino Cloud
+### Board: AI Models
+
+- `huggingface.co` and its download CDNs (`*.huggingface.co`, `*.hf.co`): Language models, including models added from Hugging Face.
+- `studio.edgeimpulse.com`: Edge Impulse models and custom models trained in Edge Impulse Studio.
+- `*.aihub.qualcomm.com`: Models from Qualcomm AI Hub. Model files may be served from additional Qualcomm download servers, so allow outbound HTTPS if downloads fail.
+
+### Arduino Cloud and Project Hub
 
 - `app.arduino.cc`
 - `login.arduino.cc`
+- `projecthub.arduino.cc`: Publishing Apps on Project Hub from App Lab.
+
+### Agent Mode
+
+When you use [Agent Mode](../../integrations/agent-mode/), the device running App Lab needs access to these domains: your computer in Connected Mode, or the board itself in [SBC Mode](../../setup/standalone/).
+
+- `nodejs.org` and `registry.npmjs.org`: Download of the agent runtime when you install an agent.
+- `claude.ai`, `platform.claude.com`, and `api.anthropic.com`: Sign-in and requests to Claude.
 
 ### Application Specific
 
-- `api.open-meteo.com`: Used by the Weather Forecast example.
+- `api.open-meteo.com`: Used by the Weather Forecast Brick and example.
 - `time.nist.gov`: Used for NTP time synchronization.
+
+Bricks that use cloud services, such as **Cloud LLM**, **Cloud ASR**, **Telegram Bot**, **Air Quality Monitoring**, or **TPS**, also need access to the domains of their service providers.

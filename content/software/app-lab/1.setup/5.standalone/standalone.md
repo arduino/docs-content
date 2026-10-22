@@ -62,8 +62,8 @@ Depending on your board model, you can connect your display and input peripheral
 ## Boot Into Linux
 
 1. When booting into Linux for the first time, you'll be prompted to set a new password for the default **arduino** user account.
-1. _Board Configuration._ Select a keyboard layout and set a name for your board.
-1. _Network Setup._ Select an available wireless network (recommended) or choose **Skip** to configure later.
+1. _Board configuration._ Select a keyboard layout and set a name for your board.
+1. _Network setup._ Select an available wireless network (recommended) or choose **Skip** to configure later.
 1. _Linux credentials._ Set a password for the **arduino** user account. You can use the same password you entered at boot, or change it by entering a different one.
 
 If you connect to the Internet, Arduino App Lab may prompt you to install any available software updates. These updates are recommended, but can be skipped using the **Skip** button.
