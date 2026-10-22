@@ -10,7 +10,7 @@ author: Arduino Team
 
 This page contains release notes for Arduino App Lab. To access the software, go [here](https://www.arduino.cc/en/software/#app-lab-section).
 
-## Release 0.11.0 [YYYY.MM.DD]
+## Release 0.11.0 [2026.10.22]
 
 This release introduces App releases, new integrations with Project Hub and Hugging Face, an Agent panel inside the editor, and board extensions.
 
