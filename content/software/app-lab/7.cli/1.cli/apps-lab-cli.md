@@ -331,6 +331,8 @@ Finally, you can gain back some storage space by cleaning up unused containers a
 arduino-app-cli system cleanup
 ```
 
+By default, the images used by installed App releases are kept. Add `--releases` to remove those too.
+
 ## Scripting with JSON Output
 
 Every command accepts the global `--format` option. Use `--format json` to get machine-readable output for scripts:

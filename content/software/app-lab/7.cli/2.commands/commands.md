@@ -101,10 +101,9 @@ On an App Release, only secret variables can be changed.
 
 Build an Arduino App into a release archive.
 
-The release is the app frozen with all its dependencies: the python environment is
-built and the compose files are resolved for the target board, so that installing
-it generates nothing. The release is named after the build date, and the target
-board defaults to the one running the build.
+A release is the app built for one board: the compiled sketch, the python
+environment and the compose files. It is named after the app, the release label
+and the target board, which defaults to the one running the build.
 
 **Usage:**
 `arduino-app-cli app build <app_path> [flags]`
@@ -169,10 +168,8 @@ Use '-' as zip_path to read the zip from stdin.
 
 Install an Arduino App release archive.
 
-A release is installed in the releases dir, apart from the apps, and it is read
-only: the python environment and the compose files the build froze are its cache,
-so that starting it generates nothing and nothing may change it. It must be built
-for this board, and it is named after the release, date included.
+A release is the app built for one board, and it must be built for this board.
+It is installed read only in the releases dir, apart from the apps.
 
 The install then downloads what the release needs to run, its containers and its
 models, which a start would otherwise wait for. Pass --no-prepare to install the
@@ -466,7 +463,11 @@ Verify the board provides what the apps need of it
 Removes unused and obsolete application images to free up disk space.
 
 **Usage:**
-`arduino-app-cli system cleanup`
+`arduino-app-cli system cleanup [flags]`
+
+**Options:**
+
+* `--releases`: Also remove the images of the installed releases
 
 ## system keyboard
 
