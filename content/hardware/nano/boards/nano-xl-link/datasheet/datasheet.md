@@ -275,15 +275,13 @@ Figure 3 shows the power options available on the Nano XL Link and illustrates t
  
 The Nano XL Link board outline is shown in Figure 5; **all the dimensions are in mm**.
  
-![Figure 5. Nano XL Link board outline](assets/placeholder.png)
+![Figure 5. Nano XL Link board outline (top view left, side view right)](assets/Nano_XL_Link_Outline.png)
 
-<div style="page-break-after: always;"></div>
- 
 ### Board Connectors
  
 The placement of the Nano XL Link connectors is shown in Figure 6; **all the dimensions are in mm**.
  
-![Figure 6. Nano XL Link connectors placement (top view left, bottom view right)](assets/placeholder.png)
+![Figure 6. Nano XL Link connectors placement (top view left, bottom view right)](assets/Nano_XL_Link_Connectors.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -291,7 +289,9 @@ The placement of the Nano XL Link connectors is shown in Figure 6; **all the dim
  
 <p style="text-align: justify;">The Nano XL Link has three onboard LEDs (green power LED, yellow built-in LED, and RGB LED) and a reset push-button. The placement of these components is shown in Figure 7; <strong>all the dimensions are in mm</strong>.</p>
 
-![Figure 7. Nano XL Link LEDs and push-button placement (top view)](assets/placeholder.png)
+![Figure 7. Nano XL Link RGB and reset push-button placement (top view)](assets/Nano_XL_Link_Peripherals.png)
+
+<div style="page-break-after: always;"></div>
 
 ## Product Compliance
  
