@@ -60,7 +60,7 @@ Since you can't change the Modulino Light address, connecting two or more Moduli
 
 ### Pinout
 
-![Modulino Light Pinout](assets/LightPinouts.png)
+![Modulino Light Pinout](assets/Modulino_Light_Pinout.png)
 
 #### Qwiic Connectors (2×, 1×4 Each)
 
