@@ -477,10 +477,6 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
-## SRRC
-
-This equipment contains a radio transmitter module with model approval code: CMIIT ID: 2022DP6085.
-
 ## Company Information
 
 | Company name    | Arduino SRL                                  |
@@ -512,4 +508,5 @@ This equipment contains a radio transmitter module with model approval code: CMI
 | 09/04/2025 | 7            | Fixed I2C information                |
 | 10/29/2025 | 8            | Mechanical drawing update            |
 | 20/10/2026 |       9      | Added note for Intended Use, and divided language |
+| 23/10/2026 |      10      | Removed SRRC sentence |
 
