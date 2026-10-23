@@ -90,7 +90,7 @@ Every AI workload on the VENTUNO Q's NPU follows the same underlying requirement
 
 The fastest path. [Qualcomm® AI Hub](https://aihub.qualcomm.com) hosts a large library of models that are already trained, already quantized, and already validated to run on Dragonwing™ hardware (more specifically, the QCS8275). Note that not all models are compatible with this chipset.
 
-- Browse the [AI Hub model list](https://aihub.qualcomm.com/models), filter by chipset (`Qualcomm QCS8275 (Proxy)`) and precision (`Quantized`).
+- Browse the [AI Hub model list](https://aihub.qualcomm.com/models), filter by chipset (`Qualcomm Dragonwing™ IQ-8275`) and precision (`Quantized`).
 - Download the model in either **TFLite** format (to run with LiteRT) or **ONNX** format (to run with ONNX Runtime).
 - The `qai-hub-models` Python package (`pip install qai-hub-models`) also provides ready-made reference implementations with correct preprocessing/postprocessing for many models, and a `fetch` command to download model files directly on the board:
 
