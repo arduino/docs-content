@@ -35,7 +35,7 @@ In this tutorial you will learn how to:
 
 <Alert type="info">
 
-**Note:** GenieX is published as a Developer Preview. The commands below were verified on a VENTUNO Q running Ubuntu® 24.04 with GenieX v0.4.0, but expect the interface to keep changing between releases.
+**Note:** GenieX is published as a Developer Preview. The commands in this tutorial were verified on a VENTUNO Q running Ubuntu® 24.04 with **GenieX v0.9.3**. The installation command below pins `--version v0.9.3` to ensure a tested release is installed.
 
 </Alert>
 
@@ -79,11 +79,24 @@ For more alternatives to remotely access your board, please see the [Remote Acce
 
 ## Installing GenieX
 
-GenieX installs into your home directory, so no `sudo` is required:
+Before installing GenieX, install its host library dependencies (`libatomic1`, `libglib2.0-0`, the Qualcomm Adreno OpenCL driver `qcom-adreno-cl1`, the FastRPC library `qcom-fastrpc1`, and `sox`). The bundled `llama.cpp` runtime plugin links against `libOpenCL.so.1` and `libcdsprpc.so.1` when loaded, so these packages must be present even when running inference on the NPU:
 
 ```bash
-curl -fsSL https://qaihub-public-assets.s3.us-west-2.amazonaws.com/qai-hub-geniex/install.sh | sh
+sudo apt update
+sudo apt install -y libatomic1 libglib2.0-0 qcom-adreno-cl1 qcom-fastrpc1 sox
 ```
+
+GenieX itself installs into your home directory, so no `sudo` is required. Pin the installer to `v0.9.3`:
+
+```bash
+curl -fsSL https://qaihub-public-assets.s3.us-west-2.amazonaws.com/qai-hub-geniex/install.sh | sh -s -- --version v0.9.3
+```
+
+<Alert type="info">
+
+**Note:** If the installer fails with `mkdir: cannot create directory '/home/arduino/.local/bin': Permission denied`, fix the ownership of `~/.local` with `sudo chown -R $USER:$USER ~/.local` and run the install command again.
+
+</Alert>
 
 The installer places the binary in `~/.local/share/geniex`, adds a launcher at `~/.local/bin/geniex`, and links the board's DSP libraries so the runtime can reach the NPU. Add the launcher directory to your `PATH`:
 
@@ -100,9 +113,9 @@ geniex --version
 This reports the CLI version along with the runtimes behind it:
 
 ```text
-GenieX CLI Version:     v0.4.0
-QAIRT Runtime Version:  v2.45.0.260326
-LlamaCPP Runtime Hash:  6ba5ef2
+GenieX CLI Version:     v0.9.3
+QAIRT Runtime Version:  2.50
+LlamaCPP Runtime Hash:  e467e5b
 ```
 
 Those two runtimes are how GenieX reaches the hardware: **llama.cpp** for GGUF models, and **Qualcomm® AI Runtime (QAIRT)** for pre-compiled AI Hub bundles.
@@ -171,28 +184,27 @@ GenieX prints the reply followed by a summary line with the generation speed, th
 ```text
 NPU OK
 
-— 12.8 tok/s • 3 tok • 0.2 s first token —
+— 19.2 tok/s • 3 tok • 0.1 s first token —
 ```
+
+<Alert type="info">
+
+**Note:** If `geniex infer` fails with `Oops. Runtime failed to load.`, ensure the `apt` host packages in [Installing GenieX](#installing-geniex) are installed and re-run the installer. If it fails with `Oops. Model failed to load.` or `Error: SDKError(Unknown error)`, confirm `geniex --version` reports `v0.9.3` (releases `v0.7.0`–`v0.8.0` had an NPU buffer-mapping regression on the VENTUNO Q) and that no other NPU workload (such as a running Arduino App Lab AI app) is holding the Hexagon NPU.
+
+</Alert>
 
 ### Comparing the Processors
 
-The GPU path requires Qualcomm's OpenCL driver. Install it before running the comparison:
-
-```bash
-sudo apt update
-sudo apt install -y qcom-adreno-cl1
-```
-
-The same command with a different `--compute` value runs the identical model elsewhere on the chip, which makes the trade-off easy to see. The following results were measured on a VENTUNO Q running Ubuntu® 24.04 with the Gemma 4 E2B model, using the same 128-token prompt for every run:
+The same command with a different `--compute` value runs the identical model elsewhere on the chip, which makes the trade-off easy to see. The following results were measured on a VENTUNO Q running Ubuntu® 24.04 with GenieX v0.9.3 and the Gemma 4 E2B model:
 
 | `--compute` | Runs on              | Generation speed |
 | ----------- | -------------------- | ---------------- |
-| `cpu`       | Kryo™ CPU            | 4.7 tok/s        |
-| `gpu`       | Adreno™ 623          | 4.6 tok/s        |
-| `hybrid`    | CPU and NPU together | 6.5 tok/s        |
-| **`npu`**   | **Hexagon™ NPU**     | **12.7 tok/s**   |
+| `cpu`       | Kryo™ CPU            | 12.6 tok/s       |
+| `gpu`       | Adreno™ 623          | 4.3 tok/s        |
+| `hybrid`    | CPU and NPU together | 5.2 tok/s        |
+| **`npu`**   | **Hexagon™ NPU**     | **19.2 tok/s**   |
 
-The NPU is more than **twice as fast as the CPU** on this model, and it also reaches the first token in about 0.2 s, which is what makes a chat interface feel responsive.
+The NPU is the fastest processor on the board for this model and reaches the first token in about 0.1 s, which is what makes a chat interface feel responsive.
 
 For a comparison with setting up llama.cpp and Ollama directly, see [Running Local LLMs on Ventuno Q](/tutorials/ventuno-q/llama-cpp).
 
