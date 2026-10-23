@@ -5,11 +5,11 @@ tags: [speech recognition, voice commands, machine learning]
 description: Control your device with voice commands using the Arduino Speech Recognition Engine
 author: Pablo Marquínez
 libraries:
-  - name: "Cyberon DSpotterSDK Maker PortentaH7"
+  - name: "DSpotterSDK_Maker_PortentaH7"
     url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_PortentaH7
-  - name: "Cyberon DSpotterSDK Maker 33BLE"
+  - name: "DSpotterSDK_Maker_33BLE"
     url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_33BLE
-  - name: "Cyberon DSpotter SDK Maker RP2040"
+  - name: "DSpotterSDK_Maker_RP2040"
     url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_RP2040
 hardware:
   - hardware/04.pro/shields/portenta-vision-shield
@@ -83,10 +83,10 @@ In case you would like to extend the engine functionalities, you will have to pu
 ### Setup
 #### Setup the Library
 There are three libraries, you will need to install one or another depending on which board you are using:
-* **Portenta H7 Family**: Cyberon_DSpotterSDK_Maker_PortentaH7
-* **Nicla Vision**: Cyberon_DSpotterSDK_Maker_NiclaVision
-* **Nano 33 BLE Sense (Rev1 & Rev2)**: Cyberon_DSpotterSDK_Maker_33BLE
-* **Nano RP2040**: Cyberon_DSpotterSDK_Maker_RP2040
+* **Portenta H7 Family**: DSpotterSDK_Maker_PortentaH7
+* **Nicla Vision**: DSpotterSDK_Maker_NiclaVision
+* **Nano 33 BLE Sense (Rev1 & Rev2)**: DSpotterSDK_Maker_33BLE
+* **Nano RP2040**: DSpotterSDK_Maker_RP2040
 
 ***Inside each of the libraries and under the folder "extra", you will find additional documentation made by Cyberon. Check them out in case you need more information***
 
@@ -98,11 +98,11 @@ In case you need more instructions about how to install libraries, read this [gu
 
 To use the Arduino Speech Recognition Engine, you will need a free trial license or paid license. In any of the cases, the serial number of the board that you are using is necessary to activate the license.
 
-To get your board's serial number, and once you have the library downloaded, navigate to **File > Examples > Cyberon_DSpotterSDK > GetSerialNumber**.
+To get your board's serial number, and once you have the library downloaded, navigate to **File -> Examples -> DSpotterSDK\_Maker\_<board_name> -> GetSerialNumber**.
 
 Connect your board to the computer, upload the sketch to it and, once is done, open the **Serial Monitor** to see your device's Serial Number.
 
-***On the Arduino IDE 1.6.x or previous versions, you can also find the serial number as follow: select the board's serial port and click on `tools > Get Board Info`, you will see the "SN" number, save it for later.***
+***On the Arduino IDE 1.6.x or previous versions, you can also find the serial number as follow: select the board's serial port and click on `tools -> Get Board Info`, you will see the "SN" number, save it for later.***
 
 #### Get the Demo License
 
@@ -118,7 +118,7 @@ Once everything is ready, click on the **submit** button to get your license, it
 
 ### Test the Free Demo Sketch
 
-* Open the sketch **File > Example > Cyberon_DSpotterSDK > VoiceRecognition**
+* Open the sketch **File -> Examples -> DSpotterSDK\_Maker\_<board_name> -> VoiceRecognition**
 * Navigate to the `CybLicense.h` tab.
 * Paste your license between the brackets, like in the following example:
   ```cpp
@@ -194,7 +194,7 @@ Once everything is checked, click **Confirm** and you will get the model header 
 
 You will now get some files in your e-mail inbox. Download them to your computer.
 
-On the IDE, open the example **File > Examples > Cyberon_DSpotterSDK > VoiceRecognition** and click **File > Save As...** and type a name for your sketch.
+On the IDE, open the example **File -> Examples -> DSpotterSDK\_Maker\_<board_name> -> VoiceRecognition** and click **File -> Save As...** and type a name for your sketch.
 
 Once it is saved, open your File Explorer, and navigate to your sketch path.
 

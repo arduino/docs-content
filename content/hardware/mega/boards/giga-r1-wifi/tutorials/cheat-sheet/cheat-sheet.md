@@ -66,7 +66,7 @@ The **GIGA R1** can be programmed through:
 
 The GIGA R1 is based on the [Arduino Mbed OS GIGA Board Package](/tutorials/giga-r1-wifi/giga-getting-started), which also provides a set of examples that works out of the box.
 
-These examples are available in the Arduino IDE via **File > Examples > Examples for GIGA**.
+These examples are available in the Arduino IDE via **File > Examples > Examples for Arduino GIGA R1**.
 
 ### Mbed OS
 

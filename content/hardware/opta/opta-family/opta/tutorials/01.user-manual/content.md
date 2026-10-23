@@ -2115,7 +2115,7 @@ The state of an input terminal, configured as digital, can be read using the bui
 ```arduino
 PinStatus state = <ExpObject>.digitalRead(<input>);
 ```
-The following example will let you read all the digital inputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_OptaBlueprint > getDigital**:
+The following example will let you read all the digital inputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_Opta_Blueprint > Digital > getDigital**:
 
 ```arduino
 #include "OptaBlue.h"
@@ -2272,7 +2272,7 @@ The state of an input terminal, configured as analog, can be read using the buil
 ```arduino
 uint16_t raw_adc = <ExpObject>.analogRead(<input>);
 ```
-The following example will let you read all the analog inputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_OptaBlueprint > getAnalog**:
+The following example will let you read all the analog inputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_Opta_Blueprint > Analog > getAnalog**:
 
 ```arduino
 #include "OptaBlue.h"
@@ -2488,7 +2488,7 @@ The state of an output terminal, in the Ext D1608S or Ext D1608E variant, can be
 ```arduino
 <ExpObject>.digitalWrite(<output>, <state>);
 ```
-The following example will let you control all the relay outputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_OptaBlueprint > setDigital**:
+The following example will let you control all the relay outputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_Opta_Blueprint > Digital > setDigital**:
 
 ```arduino
 #include "OptaBlue.h"
