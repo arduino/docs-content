@@ -7,7 +7,7 @@ primary_button_title:  PROTO KIT COURSE
 secondary_button_url: /hardware/portenta-mid-carrier-proto-shield
 secondary_button_title: PORTENTA PROTO SHIELD
 core: arduino:mbed_portenta
-sku: [AKX00073]
+sku: [AKX00073, ABX00042, ABX00050, ASX00055, ASX00072, ABX00101, ABX00102, ABX00103, ABX00107, ABX00108, ABX00109, ABX00110, TPX00200]
 useCases: [prototyping, kits]
 releaseDate: 2024-12-20
 ---
