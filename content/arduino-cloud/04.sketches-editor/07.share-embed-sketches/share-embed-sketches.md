@@ -5,21 +5,17 @@ tags: [Arduino Cloud, Cloud Editor, Embedding]
 author: Karl Söderby, Hannes Siebeneicher
 ---
 
-Any sketch in the [Cloud Editor](/arduino-cloud/sketches-editor/cloud-editor-overview)
-can be shared via URL, or embedded as an `<iframe>` in a blog post, article, or
-documentation page.
+Any sketch in the [Cloud Editor](/arduino-cloud/sketches-editor/cloud-editor-overview) can be shared via URL, or embedded as an `<iframe>` in a blog post, article, or documentation page.
 
 <Alert type="note">
 
-Before sharing, make sure no credentials are hardcoded in the sketch — see
-[Keep Secrets Out](/arduino-cloud/sketches-editor/keep-secrets-out).
+Before sharing, make sure no credentials are hardcoded in the sketch — see [Keep Secrets Out](/arduino-cloud/sketches-editor/keep-secrets-out).
 
 </Alert>
 
 ## Getting the Embed Code
 
-Open a sketch and select **Share** (next to the Serial Monitor tool). The dialog
-has two fields: **link** and **embed**. Copy the embed snippet.
+Open a sketch and select **Share** (next to the Serial Monitor tool). The dialog has two fields: **link** and **embed**. Copy the embed snippet.
 
 ![Embed in HTML code](./assets/Embed_1.png)
 
@@ -62,8 +58,7 @@ Change them to resize the widget, e.g. a smaller, half-width embed:
 
 ### Auto-resize
 
-To let sketches resize automatically, include the resizer script once in your
-HTML and add the `arduino-sketch-iframe` class to the iframe element:
+To let sketches resize automatically, include the resizer script once in your HTML and add the `arduino-sketch-iframe` class to the iframe element:
 
 ```html
 <script src="https://content.arduino.cc/assets/arduinoSketchIframeResizer.js"></script>
@@ -71,9 +66,7 @@ HTML and add the `arduino-sketch-iframe` class to the iframe element:
 
 ## Share by Link
 
-To share code instead of embedding it, open the same **Share** dialog and copy
-the **Link to share** field. The link opens a preview where others can copy the
-code or add it directly to their sketchbook.
+To share code instead of embedding it, open the same **Share** dialog and copy the **Link to share** field. The link opens a preview where others can copy the code or add it directly to their sketchbook.
 
 ![Share Code](./assets/Share_1.png)
 

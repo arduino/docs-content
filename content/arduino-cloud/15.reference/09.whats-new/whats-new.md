@@ -5,16 +5,11 @@ tags: [Arduino Cloud, Changelog, Reference]
 author: Karl Söderby & Arduino Team
 ---
 
-This page tracks notable changes to Arduino Cloud — new features, widgets,
-board support, pricing/plan changes, and breaking changes — so you can see at
-a glance what's changed since you last used the platform. Entries are listed
-newest-first.
+This page tracks notable changes to Arduino Cloud — new features, widgets, board support, pricing/plan changes, and breaking changes — so you can see at a glance what's changed since you last used the platform. Entries are listed newest-first.
 
 <Alert type="warning">
 
-Needs verification: populate from the official release notes before
-publishing. The table below is a placeholder structure only — no live release
-feed was available this pass.
+Needs verification: populate from the official release notes before publishing. The table below is a placeholder structure only — no live release feed was available this pass.
 
 </Alert>
 
@@ -28,8 +23,7 @@ feed was available this pass.
 
 ## How to Read This Page
 
-- **Area** groups each change by the part of the platform it affects
-  (Devices, Things & Data, Dashboards, Automations, Integrations, Plans).
+- **Area** groups each change by the part of the platform it affects (Devices, Things & Data, Dashboards, Automations, Integrations, Plans).
 - Breaking changes will be called out explicitly in the **Change** column.
 
 ## Next Steps

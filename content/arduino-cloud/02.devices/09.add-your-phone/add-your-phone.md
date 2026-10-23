@@ -5,13 +5,9 @@ tags: [Arduino Cloud, IoT Remote App, Devices]
 author: Karl Söderby & Arduino Team
 ---
 
-You don't need dedicated hardware to start streaming data to Arduino Cloud —
-your smartphone can act as a device. The **IoT Remote app** turns a phone into
-a device whose built-in sensors (such as location, accelerometer, and
-environmental readings) publish directly to Cloud Variables.
+You don't need dedicated hardware to start streaming data to Arduino Cloud — your smartphone can act as a device. The **IoT Remote app** turns a phone into a device whose built-in sensors (such as location, accelerometer, and environmental readings) publish directly to Cloud Variables.
 
-This is handled entirely inside the app rather than through the Devices page,
-so the setup lives in the IoT Remote app documentation.
+This is handled entirely inside the app rather than through the Devices page, so the setup lives in the IoT Remote app documentation.
 
 ## Next Steps
 

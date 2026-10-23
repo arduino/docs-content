@@ -5,18 +5,11 @@ tags: [Arduino Cloud, Plans, Reference]
 author: Karl Söderby & Arduino Team
 ---
 
-A side-by-side comparison of what each Arduino Cloud plan includes. Use it to
-pick a tier or to understand why a feature is locked. For current pricing and
-the authoritative limits, see
-[Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas).
+A side-by-side comparison of what each Arduino Cloud plan includes. Use it to pick a tier or to understand why a feature is locked. For current pricing and the authoritative limits, see [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas).
 
 <Alert type="warning">
 
-Needs verification: the exact numbers below (Things limits, retention
-periods, compile time, API quotas) change with plan updates and were not
-re-confirmed against live pricing this pass. Treat every cell as indicative
-and verify against [Plan Usage](https://app.arduino.cc/plan-usage) and the
-official pricing page before publishing.
+Needs verification: the exact numbers below (Things limits, retention periods, compile time, API quotas) change with plan updates and were not re-confirmed against live pricing this pass. Treat every cell as indicative and verify against [Plan Usage](https://app.arduino.cc/plan-usage) and the official pricing page before publishing.
 
 </Alert>
 
@@ -39,9 +32,7 @@ official pricing page before publishing.
 
 <Alert type="note">
 
-The three plan-gated dashboard widgets — Advanced Map, Advanced Chart, and
-Image Map — appear in a locked "Upgrade to unlock" state on the Free tier.
-See the [Widget Catalog](/arduino-cloud/reference/widget-catalog).
+The three plan-gated dashboard widgets — Advanced Map, Advanced Chart, and Image Map — appear in a locked "Upgrade to unlock" state on the Free tier. See the [Widget Catalog](/arduino-cloud/reference/widget-catalog).
 
 </Alert>
 

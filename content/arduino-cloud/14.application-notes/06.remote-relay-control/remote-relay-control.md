@@ -5,26 +5,18 @@ tags: [Arduino Cloud, Relays, Actuation, Tutorial]
 author: Karl Söderby & Arduino Team
 ---
 
-In this project you'll control the relays on an
-[MKR Relay Shield](https://store.arduino.cc/arduino-mkr-relay-proto-shield)
-(mounted on an [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010)) from
-an Arduino Cloud dashboard — and optionally from the
-[IoT Remote app](/arduino-cloud/iot-remote-app) on your phone.
-Each relay is driven by a single Boolean Cloud Variable, so switching a
-real-world load becomes as simple as toggling a widget.
+In this project you'll control the relays on an [MKR Relay Shield](https://store.arduino.cc/arduino-mkr-relay-proto-shield) (mounted on an [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010)) from an Arduino Cloud dashboard — and optionally from the [IoT Remote app](/arduino-cloud/iot-remote-app) on your phone. Each relay is driven by a single Boolean Cloud Variable, so switching a real-world load becomes as simple as toggling a widget.
 
 **What you need:**
 
-- [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) (any Wi-Fi®-capable
-  board works).
+- [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) (any Wi-Fi®-capable board works).
 - [MKR Relay Shield](https://store.arduino.cc/arduino-mkr-relay-proto-shield).
 
 ![The MKR Relay Shield wired to the board.](assets/cloud-relay-control-circuit.png)
 
 ## Step 1 — Provision the Board and Thing
 
-Add the board as a Wi-Fi® [Device](/arduino-cloud/devices/add-wifi-board),
-create a [Thing](/arduino-cloud/things-data/things), and associate the device.
+Add the board as a Wi-Fi® [Device](/arduino-cloud/devices/add-wifi-board), create a [Thing](/arduino-cloud/things-data/things), and associate the device.
 
 ![The Thing with its relay variable.](assets/thing.png)
 
@@ -84,14 +76,11 @@ Upload the sketch; the board connects to the Cloud and syncs. Open the Serial Mo
 
 ## Step 4 — Add a Switch Widget
 
-On a [Dashboard](/arduino-cloud/dashboards/dashboards), add a **Switch**
-widget per relay and link it to the matching `relay_x` variable. Flip the
-switch to actuate the relay:
+On a [Dashboard](/arduino-cloud/dashboards/dashboards), add a **Switch** widget per relay and link it to the matching `relay_x` variable. Flip the switch to actuate the relay:
 
 ![The dashboard with a Switch widget per relay.](assets/dashboard.png)
 
-You can control the same dashboard from the
-[IoT Remote app](/arduino-cloud/iot-remote-app).
+You can control the same dashboard from the [IoT Remote app](/arduino-cloud/iot-remote-app).
 
 ## Connecting a Load to the High-Power Pins
 

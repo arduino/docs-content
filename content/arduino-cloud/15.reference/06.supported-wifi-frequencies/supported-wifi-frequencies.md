@@ -5,9 +5,7 @@ tags: [Arduino Cloud, WiFi, Reference]
 author: Karl Söderby & Arduino Team
 ---
 
-A quick reference for the Wi-Fi® frequency bands supported by Arduino boards
-when connecting to Arduino Cloud. For the full list of Wi-Fi® boards and how
-to add one, see [Add a Wi-Fi Board](/arduino-cloud/devices/add-wifi-board).
+A quick reference for the Wi-Fi® frequency bands supported by Arduino boards when connecting to Arduino Cloud. For the full list of Wi-Fi® boards and how to add one, see [Add a Wi-Fi Board](/arduino-cloud/devices/add-wifi-board).
 
 ## Supported Bands
 
@@ -16,14 +14,11 @@ to add one, see [Add a Wi-Fi Board](/arduino-cloud/devices/add-wifi-board).
 | 2.4 GHz | Yes |
 | 5 GHz | No |
 
-All official Arduino boards currently support **only the 2.4 GHz** frequency
-band for transmitting data.
+All official Arduino boards currently support **only the 2.4 GHz** frequency band for transmitting data.
 
 <Alert type="note">
 
-Make sure the network you connect to broadcasts on 2.4 GHz. On dual-band
-routers that use the same SSID for both bands, the board will still associate
-with the 2.4 GHz radio.
+Make sure the network you connect to broadcasts on 2.4 GHz. On dual-band routers that use the same SSID for both bands, the board will still associate with the 2.4 GHz radio.
 
 </Alert>
 

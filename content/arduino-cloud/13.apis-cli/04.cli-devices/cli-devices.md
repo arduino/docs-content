@@ -5,8 +5,7 @@ tags: [Arduino Cloud, CLI, Devices]
 author: Karl Söderby, Paolo Calao
 ---
 
-See [Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials)
-first for setup. All commands below are under `arduino-cloud-cli device`.
+See [Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials) first for setup. All commands below are under `arduino-cloud-cli device`.
 
 ## Provision a Physical Board
 
@@ -16,9 +15,7 @@ Specify the port/FQBN, or let the CLI auto-detect the first board it finds:
 arduino-cloud-cli device create --name <deviceName> --port <port> --fqbn <deviceFqbn>
 ```
 
-Supported FQBNs (re-check against
-[ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud)'s
-supported-board table before assuming this hasn't changed):
+Supported FQBNs (re-check against [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud)'s supported-board table before assuming this hasn't changed):
 
 ```
 arduino:samd:nano_33_iot
@@ -35,15 +32,13 @@ arduino:esp32:nano_nora
 arduino:renesas_uno:unor4wifi
 ```
 
-If a board supports more than one connectivity type (e.g. Wi-Fi® + Ethernet),
-set which one to use:
+If a board supports more than one connectivity type (e.g. Wi-Fi® + Ethernet), set which one to use:
 
 ```bash
 arduino-cloud-cli device create --name <deviceName> --port <port> --fqbn <deviceFqbn> --connection <deviceConnectivity>
 ```
 
-`<deviceConnectivity>` is one of: `wifi`, `eth`, `wifiandsecret`, `gsm`, `nb`,
-`lora`.
+`<deviceConnectivity>` is one of: `wifi`, `eth`, `wifiandsecret`, `gsm`, `nb`, `lora`.
 
 ## LoRaWAN® Devices
 
@@ -53,8 +48,7 @@ Same idea, plus a mandatory frequency plan:
 arduino-cloud-cli device create-lora --name <deviceName> --frequency-plan <freqID> --port <port> --fqbn <deviceFqbn>
 ```
 
-Supported LoRaWAN® FQBNs: `arduino:samd:mkrwan1310`, `arduino:samd:mkrwan1300`.
-List available frequency plans:
+Supported LoRaWAN® FQBNs: `arduino:samd:mkrwan1310`, `arduino:samd:mkrwan1300`. List available frequency plans:
 
 ```bash
 arduino-cloud-cli device list-frequency-plans
@@ -62,18 +56,13 @@ arduino-cloud-cli device list-frequency-plans
 
 ## Generic (Virtual) Devices
 
-A generic device isn't tied to a physical board — any client that can
-authenticate with its credentials (Python/MicroPython/Node.js) can connect as
-it. Handy for testing or non-Arduino hardware:
+A generic device isn't tied to a physical board — any client that can authenticate with its credentials (Python/MicroPython/Node.js) can connect as it. Handy for testing or non-Arduino hardware:
 
 ```bash
 arduino-cloud-cli device create-generic --name <deviceName> --fqbn <fqbn>
 ```
 
-`--fqbn` is optional and defaults to `generic:generic:generic`. List supported
-FQBNs with `arduino-cloud-cli device list-fqbn`. See
-[Add a Manual Device](/arduino-cloud/devices/add-manual-device) for the
-connection side.
+`--fqbn` is optional and defaults to `generic:generic:generic`. List supported FQBNs with `arduino-cloud-cli device list-fqbn`. See [Add a Manual Device](/arduino-cloud/devices/add-manual-device) for the connection side.
 
 ## List, Show, Delete
 
@@ -103,8 +92,7 @@ arduino-cloud-cli device create-tags --id <deviceID> --tags <key0>=<value0>,<key
 arduino-cloud-cli device delete-tags --id <deviceID> --keys <key0>,<key1>
 ```
 
-Tagging every device created for a specific purpose (e.g. `purpose=docs-demo`)
-makes later bulk cleanup with `device delete --tags` trivial.
+Tagging every device created for a specific purpose (e.g. `purpose=docs-demo`) makes later bulk cleanup with `device delete --tags` trivial.
 
 ## Next Steps
 

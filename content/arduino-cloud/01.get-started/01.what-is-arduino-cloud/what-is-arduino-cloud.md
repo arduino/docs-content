@@ -5,22 +5,15 @@ tags: [Arduino Cloud, Getting Started]
 author: Karl Söderby & Arduino Team
 ---
 
-[Arduino Cloud](https://app.arduino.cc/) is a platform for developing IoT
-projects and connecting them to the world. It handles the parts that are
-usually hardest to build yourself — secure device connectivity, data storage,
-and a real-time link between your hardware and a user interface — so you can
-focus on your project's actual logic.
+[Arduino Cloud](https://app.arduino.cc/) is a platform for developing IoT projects and connecting them to the world. It handles the parts that are usually hardest to build yourself — secure device connectivity, data storage, and a real-time link between your hardware and a user interface — so you can focus on your project's actual logic.
 
-It works with official Arduino boards over Wi-Fi®, LoRa®, Ethernet, and
-Cellular, and with non-Arduino clients written in Python, MicroPython, and
-JavaScript.
+It works with official Arduino boards over Wi-Fi®, LoRa®, Ethernet, and Cellular, and with non-Arduino clients written in Python, MicroPython, and JavaScript.
 
 ![The Arduino Cloud home page, with the main sections in the left navigation.](assets/home.png)
 
 ## The Components
 
-Arduino Cloud is really several tools that share one account and one data
-layer.
+Arduino Cloud is really several tools that share one account and one data layer.
 
 | Component | What it does |
 |---|---|
@@ -32,26 +25,17 @@ layer.
 
 ## Who It Is For
 
-- **Makers and hobbyists** who want to connect a board to the internet without
-  writing networking code or hosting a server.
+- **Makers and hobbyists** who want to connect a board to the internet without writing networking code or hosting a server.
 - **Educators and students** using shared spaces to run classroom projects.
-- **Professional and business users** managing fleets of devices, with role
-  based access, custom branding, and data export — see
-  [Arduino Cloud for Business](/arduino-cloud/business).
+- **Professional and business users** managing fleets of devices, with role based access, custom branding, and data export — see [Arduino Cloud for Business](/arduino-cloud/business).
 
 ## Handled For You
 
-Networking, authentication, and data synchronization are managed by the
-platform. When a variable changes on your board, it changes in the cloud and
-on every open dashboard within moments — and the reverse is true when you move
-a slider or flip a switch in a dashboard.
+Networking, authentication, and data synchronization are managed by the platform. When a variable changes on your board, it changes in the cloud and on every open dashboard within moments — and the reverse is true when you move a slider or flip a switch in a dashboard.
 
 <Alert type="info">
 
-The free plan is enough to build a complete project. Some features — such as
-[Triggers](/arduino-cloud/automations/triggers-and-alerts) and a few advanced
-dashboard widgets — require a paid plan. See the
-[Plans and Feature Matrix](/arduino-cloud/reference/plans-feature-matrix).
+The free plan is enough to build a complete project. Some features — such as [Triggers](/arduino-cloud/automations/triggers-and-alerts) and a few advanced dashboard widgets — require a paid plan. See the [Plans and Feature Matrix](/arduino-cloud/reference/plans-feature-matrix).
 
 </Alert>
 

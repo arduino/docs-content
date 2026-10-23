@@ -5,11 +5,7 @@ tags: [Arduino Cloud, Dashboards, Widgets, Reference]
 author: Karl Söderby & Arduino Team
 ---
 
-The full catalog of [Dashboard](/arduino-cloud/dashboards/dashboards) widgets,
-organized into the three picker categories — **Interaction**,
-**Visualisation**, and **Annotation**. Every widget can be added without
-linking a variable first; it renders with placeholder data until you bind it
-to a [Cloud Variable](/arduino-cloud/things-data/cloud-variables).
+The full catalog of [Dashboard](/arduino-cloud/dashboards/dashboards) widgets, organized into the three picker categories — **Interaction**, **Visualisation**, and **Annotation**. Every widget can be added without linking a variable first; it renders with placeholder data until you bind it to a [Cloud Variable](/arduino-cloud/things-data/cloud-variables).
 
 ## Interaction
 
@@ -59,11 +55,7 @@ Non-data widgets for organizing a dashboard.
 
 <Alert type="note">
 
-**Three widgets are plan-gated:** Advanced Map, Advanced Chart, and Image
-Map show an "Upgrade to unlock widget" state on the Free tier (the previews
-above show that locked state, not a working instance). See the
-[Plans Feature Matrix](/arduino-cloud/reference/plans-feature-matrix) for
-details.
+**Three widgets are plan-gated:** Advanced Map, Advanced Chart, and Image Map show an "Upgrade to unlock widget" state on the Free tier (the previews above show that locked state, not a working instance). See the [Plans Feature Matrix](/arduino-cloud/reference/plans-feature-matrix) for details.
 
 </Alert>
 

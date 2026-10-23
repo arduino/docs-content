@@ -5,49 +5,29 @@ tags: [Arduino Cloud, AWS, CSV Export]
 author: Taddy Ho Chung, Marco Colombo
 ---
 
-The **Arduino AWS S3 CSV Exporter** extracts time-series data from Arduino
-Cloud and publishes it as CSV files to an AWS S3 bucket. A scheduled AWS Lambda
-function runs the extraction at a configurable interval, so historical data
-from your Things ends up in your own data store for warehousing and offline
-analysis.
+The **Arduino AWS S3 CSV Exporter** extracts time-series data from Arduino Cloud and publishes it as CSV files to an AWS S3 bucket. A scheduled AWS Lambda function runs the extraction at a configurable interval, so historical data from your Things ends up in your own data store for warehousing and offline analysis.
 
 ![An AWS CloudFormation stack deploying the exporter resources.](assets/cloudformation_stack_creation.gif)
 
-By default the stack extracts data every hour, aggregates samples at a
-five-minute resolution, and stores structured CSV files in S3. Extraction can
-be filtered by tags to include only specific Things.
+By default the stack extracts data every hour, aggregates samples at a five-minute resolution, and stores structured CSV files in S3. Extraction can be filtered by tags to include only specific Things.
 
 <Alert type="note">
 
-This integration requires an AWS account with permission to deploy Lambda,
-S3, IAM, EventBridge, and SSM resources, plus an Arduino Cloud
-[API key and secret](/arduino-cloud/apis-cli/rest-api-sdks). The exporter and its
-CloudFormation template are maintained in the
-[arduino/aws-s3-integration](https://github.com/arduino/aws-s3-integration)
-repository.
+This integration requires an AWS account with permission to deploy Lambda, S3, IAM, EventBridge, and SSM resources, plus an Arduino Cloud [API key and secret](/arduino-cloud/apis-cli/rest-api-sdks). The exporter and its CloudFormation template are maintained in the [arduino/aws-s3-integration](https://github.com/arduino/aws-s3-integration) repository.
 
 </Alert>
 
 ## How It Works
 
-A Lambda function written in Go runs on an **AWS EventBridge** schedule. Each
-run retrieves data from the selected Arduino Things, aggregates it (numeric
-values are averaged over the aggregation period; non-numeric values are
-sampled), generates a CSV file, and uploads it to the destination S3 bucket.
-Time-series data is exported in UTC, and all Things in the account are included
-unless filtered by tags.
+A Lambda function written in Go runs on an **AWS EventBridge** schedule. Each run retrieves data from the selected Arduino Things, aggregates it (numeric values are averaged over the aggregation period; non-numeric values are sampled), generates a CSV file, and uploads it to the destination S3 bucket. Time-series data is exported in UTC, and all Things in the account are included unless filtered by tags.
 
 ## Deployment Outline
 
-Setup is driven by a CloudFormation template from the project's
-[releases](https://github.com/arduino/aws-s3-integration/releases):
+Setup is driven by a CloudFormation template from the project's [releases](https://github.com/arduino/aws-s3-integration/releases):
 
-1. Create two S3 buckets — a **temporary bucket** for the Lambda binaries and
-   template, and a **CSV destination bucket** (in the region you'll deploy to).
+1. Create two S3 buckets — a **temporary bucket** for the Lambda binaries and template, and a **CSV destination bucket** (in the region you'll deploy to).
 2. Upload the Lambda `.zip` and CloudFormation `.yaml` to the temporary bucket.
-3. In **CloudFormation → Create stack**, point at the template's S3 URL and
-   fill in the required parameters: Arduino API key, API secret, the code
-   bucket, and the CSV destination bucket.
+3. In **CloudFormation → Create stack**, point at the template's S3 URL and fill in the required parameters: Arduino API key, API secret, the code bucket, and the CSV destination bucket.
 4. Optionally set tag filters, a Space ID, and resolution/scheduling settings.
 5. Create the stack and wait for `CREATE_COMPLETE`.
 
@@ -82,8 +62,7 @@ These are pre-filled during stack creation and editable later in AWS Parameter S
 
 ## Filtering by Tags
 
-To export only specific Things, add a tag to each Thing under its **Metadata**
-section, then supply a tag filter at deployment time:
+To export only specific Things, add a tag to each Thing under its **Metadata** section, then supply a tag filter at deployment time:
 
 ![Adding a key/value tag to a Thing's Metadata.](assets/cloud_tag_1.png)
 
@@ -95,8 +74,7 @@ The tag filter is stored in AWS Parameter Store and can be edited later:
 
 ## The Exported CSV
 
-Each run writes date-organized CSV files into the destination bucket, one row
-per sampled property:
+Each run writes date-organized CSV files into the destination bucket, one row per sampled property:
 
 ![A generated CSV file's details in the S3 console.](assets/s3_csv_file_details.png)
 
@@ -113,10 +91,7 @@ Files are stored in date-based folders for chronological retrieval:
 
 ## Monitoring
 
-Once deployed, three AWS services give visibility into the exporter: **Lambda**
-runs the extraction, **CloudWatch** logs each execution and records metrics
-(invocations, duration, errors), and **EventBridge** triggers the scheduled
-runs.
+Once deployed, three AWS services give visibility into the exporter: **Lambda** runs the extraction, **CloudWatch** logs each execution and records metrics (invocations, duration, errors), and **EventBridge** triggers the scheduled runs.
 
 ## Next Steps
 

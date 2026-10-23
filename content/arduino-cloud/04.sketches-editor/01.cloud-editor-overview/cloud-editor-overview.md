@@ -5,12 +5,7 @@ tags: [Arduino Cloud, Cloud Editor]
 author: Karl Söderby & Arduino Team
 ---
 
-The **Cloud Editor** is the browser-based code editor embedded in a Thing's
-[Sketch tab](/arduino-cloud/sketches-editor/sketchbook-and-sketches), and also
-reachable standalone from **Sketches** (`/sketches`) in the left navigation. It
-compiles and uploads sketches to your board without any local installation —
-you only need the [Cloud Agent](/arduino-cloud/devices/cloud-agent) for USB
-uploads.
+The **Cloud Editor** is the browser-based code editor embedded in a Thing's [Sketch tab](/arduino-cloud/sketches-editor/sketchbook-and-sketches), and also reachable standalone from **Sketches** (`/sketches`) in the left navigation. It compiles and uploads sketches to your board without any local installation — you only need the [Cloud Agent](/arduino-cloud/devices/cloud-agent) for USB uploads.
 
 ![A sketch open in the Cloud Editor.](assets/sketch-editor.png)
 
@@ -31,25 +26,17 @@ The editor has a left-hand icon rail covering the whole coding workflow:
 
 ## Verify and Upload
 
-- **Verify** compiles the sketch without uploading — useful to catch errors
-  before connecting a board.
-- **Upload** compiles and pushes the sketch to the currently selected board.
-  Uploading over USB needs the [Cloud Agent](/arduino-cloud/devices/cloud-agent)
-  running locally — see [Upload Over USB](/arduino-cloud/sketches-editor/upload-sketch-usb).
-- Boards that support it can also receive updates
-  [over the air](/arduino-cloud/sketches-editor/upload-over-the-air) after the
-  first USB upload.
+- **Verify** compiles the sketch without uploading — useful to catch errors before connecting a board.
+- **Upload** compiles and pushes the sketch to the currently selected board. Uploading over USB needs the [Cloud Agent](/arduino-cloud/devices/cloud-agent) running locally — see [Upload Over USB](/arduino-cloud/sketches-editor/upload-sketch-usb).
+- Boards that support it can also receive updates [over the air](/arduino-cloud/sketches-editor/upload-over-the-air) after the first USB upload.
 
 ## Serial Monitor
 
-The Serial Monitor reads the serial data your sketch prints (e.g.
-`Serial.println(...)`) — useful for debugging without a dashboard.
+The Serial Monitor reads the serial data your sketch prints (e.g. `Serial.println(...)`) — useful for debugging without a dashboard.
 
 ## Working Offline
 
-You can also develop with the offline Arduino IDE using the same libraries —
-see [Work Offline with the IDE](/arduino-cloud/sketches-editor/work-offline-ide).
-Offline changes don't sync back into the Thing's configuration automatically.
+You can also develop with the offline Arduino IDE using the same libraries — see [Work Offline with the IDE](/arduino-cloud/sketches-editor/work-offline-ide). Offline changes don't sync back into the Thing's configuration automatically.
 
 ## Next Steps
 

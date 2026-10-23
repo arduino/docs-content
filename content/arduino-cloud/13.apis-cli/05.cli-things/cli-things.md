@@ -5,13 +5,11 @@ tags: [Arduino Cloud, CLI, Things]
 author: Karl Söderby, Paolo Calao
 ---
 
-See [Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials)
-first for setup. All commands below are under `arduino-cloud-cli thing`.
+See [Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials) first for setup. All commands below are under `arduino-cloud-cli thing`.
 
 ## Create From a Template
 
-Things are created from a **thing template** file (JSON or YAML) describing their
-variables. `--name` is optional and overrides the name in the template:
+Things are created from a **thing template** file (JSON or YAML) describing their variables. `--name` is optional and overrides the name in the template:
 
 ```bash
 arduino-cloud-cli thing create --name <thingName> --template <template.(json|yaml)>

@@ -5,21 +5,13 @@ tags: [Arduino Cloud, Modbus, RS-485, Energy Meter, Tutorial]
 author: Officine Innesto, José Bagur
 ---
 
-In this project you'll connect a Modbus RS-485 energy meter to Arduino Cloud
-using an [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) and
-an [MKR 485 Shield](https://store.arduino.cc/arduino-mkr-485-shield), and
-chart live power consumption on a dashboard. Modbus over RS-485 is a common
-industrial protocol — robust over long cable runs — making this a practical
-pattern for real energy monitoring.
+In this project you'll connect a Modbus RS-485 energy meter to Arduino Cloud using an [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) and an [MKR 485 Shield](https://store.arduino.cc/arduino-mkr-485-shield), and chart live power consumption on a dashboard. Modbus over RS-485 is a common industrial protocol — robust over long cable runs — making this a practical pattern for real energy monitoring.
 
 **What you need:**
 
-- [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) and
-  [MKR 485 Shield](https://store.arduino.cc/arduino-mkr-485-shield).
-- A Modbus-RTU energy meter with a documented register map (originally tested
-  with a Finder Type 7E.64).
-- The [Arduino Modbus library](https://www.arduino.cc/en/ArduinoModbus/ArduinoModbus)
-  and twisted-pair shielded cable for the RS-485 bus.
+- [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) and [MKR 485 Shield](https://store.arduino.cc/arduino-mkr-485-shield).
+- A Modbus-RTU energy meter with a documented register map (originally tested with a Finder Type 7E.64).
+- The [Arduino Modbus library](https://www.arduino.cc/en/ArduinoModbus/ArduinoModbus) and twisted-pair shielded cable for the RS-485 bus.
 
 ## Step 1 — Wire the Meter to the RS-485 Bus
 
@@ -48,15 +40,13 @@ Finally, mount the shield on the MKR WiFi 1010:
 
 ## Step 2 — Provision the Board and Thing
 
-Add the MKR WiFi 1010 as a Wi-Fi® [Device](/arduino-cloud/devices/add-wifi-board),
-then create a [Thing](/arduino-cloud/things-data/things) and associate it:
+Add the MKR WiFi 1010 as a Wi-Fi® [Device](/arduino-cloud/devices/add-wifi-board), then create a [Thing](/arduino-cloud/things-data/things) and associate it:
 
 ![Configuring the Thing.](assets/configureThing.png)
 
 ## Step 3 — Add the Meter Variables
 
-Add these Read-Only [Cloud Variables](/arduino-cloud/things-data/cloud-variables),
-all **Floating Point Number**, update **On change**:
+Add these Read-Only [Cloud Variables](/arduino-cloud/things-data/cloud-variables), all **Floating Point Number**, update **On change**:
 
 | Variable  | Type  | Permission | Update Policy |
 |-----------|-------|------------|---------------|

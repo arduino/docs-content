@@ -5,11 +5,7 @@ tags: [Arduino Cloud, Devices, Boards, Reference]
 author: Karl Söderby & Arduino Team
 ---
 
-Arduino Cloud supports official Arduino boards across several connectivity
-types, third-party ESP32/ESP8266 boards, Linux-based boards, and purely
-software clients. This page summarizes the families and the capabilities each
-supports. For the step-by-step setup of each type, see
-[Devices Overview](/arduino-cloud/devices/devices-overview).
+Arduino Cloud supports official Arduino boards across several connectivity types, third-party ESP32/ESP8266 boards, Linux-based boards, and purely software clients. This page summarizes the families and the capabilities each supports. For the step-by-step setup of each type, see [Devices Overview](/arduino-cloud/devices/devices-overview).
 
 ## Capability Summary
 
@@ -31,21 +27,13 @@ supports. For the step-by-step setup of each type, see
 
 <Alert type="info">
 
-Boards **with a secure element** store a hardware-backed certificate and
-private key, so no secret key is ever exposed in the sketch. Boards **without
-one** use the login + secret key method, where the key is stored in
-`arduino_secrets.h`. See
-[Device Identity & Secrets](/arduino-cloud/security-privacy/device-identity-secrets).
+Boards **with a secure element** store a hardware-backed certificate and private key, so no secret key is ever exposed in the sketch. Boards **without one** use the login + secret key method, where the key is stored in `arduino_secrets.h`. See [Device Identity & Secrets](/arduino-cloud/security-privacy/device-identity-secrets).
 
 </Alert>
 
 <Alert type="warning">
 
-Needs verification: the exact OTA support, secure-element presence, and auth
-method for Ethernet, cellular, and some third-party boards vary by specific
-model and firmware/core version. Confirm against the current
-[ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud)
-board list and each board's product page before publishing.
+Needs verification: the exact OTA support, secure-element presence, and auth method for Ethernet, cellular, and some third-party boards vary by specific model and firmware/core version. Confirm against the current [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) board list and each board's product page before publishing.
 
 </Alert>
 

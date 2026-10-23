@@ -5,36 +5,25 @@ tags: [Arduino Cloud, Environmental Data, Sensors, Tutorial]
 author: Karl Söderby & Arduino Team
 ---
 
-In this project you'll combine an
-[MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) with an
-[MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield) to record
-temperature, humidity, pressure, and illuminance, then stream it live to an
-Arduino Cloud dashboard. It's a compact, self-contained environmental logger
-you can read from anywhere.
+In this project you'll combine an [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) with an [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield) to record temperature, humidity, pressure, and illuminance, then stream it live to an Arduino Cloud dashboard. It's a compact, self-contained environmental logger you can read from anywhere.
 
 **What you need:**
 
 - [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010).
-- [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield), mounted
-  on the board.
-- The [Arduino_MKRENV](https://www.arduino.cc/en/Reference/ArduinoMKRENV)
-  library.
+- [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield), mounted on the board.
+- The [Arduino_MKRENV](https://www.arduino.cc/en/Reference/ArduinoMKRENV) library.
 
 ![The MKR ENV Shield mounted on the board.](assets/envShield.png)
 
 <Alert type="note">
 
-Newer MKR ENV Shield revisions no longer include the UV sensor — see
-[this Help Center article](https://support.arduino.cc/hc/en-us/articles/360019197540-Different-MKR-ENV-Shield-versions)
-for the version differences.
+Newer MKR ENV Shield revisions no longer include the UV sensor — see [this Help Center article](https://support.arduino.cc/hc/en-us/articles/360019197540-Different-MKR-ENV-Shield-versions) for the version differences.
 
 </Alert>
 
 ## Step 1 — Provision the Board and Thing
 
-Add the MKR WiFi 1010 as a Wi-Fi®
-[Device](/arduino-cloud/devices/add-wifi-board), then create a
-[Thing](/arduino-cloud/things-data/things) and associate the device.
+Add the MKR WiFi 1010 as a Wi-Fi® [Device](/arduino-cloud/devices/add-wifi-board), then create a [Thing](/arduino-cloud/things-data/things) and associate the device.
 
 ![The Thing with its associated device and variables.](assets/thing.png)
 
@@ -94,8 +83,7 @@ After uploading, open the Serial Monitor to confirm the board prints `Connected 
 
 ## Step 4 — Build the Dashboard
 
-On a [Dashboard](/arduino-cloud/dashboards/dashboards), add a Value, Gauge, or
-Chart widget per variable to view the readings live and over time:
+On a [Dashboard](/arduino-cloud/dashboards/dashboards), add a Value, Gauge, or Chart widget per variable to view the readings live and over time:
 
 ![The environmental dashboard with a widget per reading.](assets/dashboard.png)
 

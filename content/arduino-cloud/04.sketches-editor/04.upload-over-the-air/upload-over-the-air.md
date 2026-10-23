@@ -5,50 +5,33 @@ tags: [Arduino Cloud, OTA]
 author: Jose Garcia
 ---
 
-**OTA (over-the-air)** lets you upload a new sketch to a board already
-connected to Arduino Cloud, without a USB cable — ideal for boards that are
-hard to reach once deployed, or for updating many boards at once.
+**OTA (over-the-air)** lets you upload a new sketch to a board already connected to Arduino Cloud, without a USB cable — ideal for boards that are hard to reach once deployed, or for updating many boards at once.
 
 ## Requirements
 
-- An [OTA-supported board](https://github.com/arduino-libraries/ArduinoIoTCloud) —
-  including UNO R4 Wi-Fi®, MKR Wi-Fi® 1010, Nano 33 IoT, Nano RP2040 Connect,
-  Nano ESP32, the Portenta family, Nicla family, Opta Wi-Fi®, and GIGA R1
-  Wi-Fi®.
-- **One initial upload over USB** — this installs the OTA-capable partition
-  layout later wireless uploads rely on. See
-  [Upload Over USB](/arduino-cloud/sketches-editor/upload-sketch-usb).
-- The board online in Arduino Cloud over Wi-Fi® (or Ethernet/Cellular, where
-  supported).
+- An [OTA-supported board](https://github.com/arduino-libraries/ArduinoIoTCloud) — including UNO R4 Wi-Fi®, MKR Wi-Fi® 1010, Nano 33 IoT, Nano RP2040 Connect, Nano ESP32, the Portenta family, Nicla family, Opta Wi-Fi®, and GIGA R1 Wi-Fi®.
+- **One initial upload over USB** — this installs the OTA-capable partition layout later wireless uploads rely on. See [Upload Over USB](/arduino-cloud/sketches-editor/upload-sketch-usb).
+- The board online in Arduino Cloud over Wi-Fi® (or Ethernet/Cellular, where supported).
 
 ### Verified ESP32 Boards
 
-Beyond official Arduino boards, several third-party ESP32 dev boards are
-verified for OTA — including the ESP32-S2/S3-DevKitC, NodeMCU-32S, WEMOS LOLIN
-D32, and ESP32-CAM, among others. See
-[Add an ESP32/ESP8266](/arduino-cloud/devices/add-esp32-esp8266) for
-provisioning these boards.
+Beyond official Arduino boards, several third-party ESP32 dev boards are verified for OTA — including the ESP32-S2/S3-DevKitC, NodeMCU-32S, WEMOS LOLIN D32, and ESP32-CAM, among others. See [Add an ESP32/ESP8266](/arduino-cloud/devices/add-esp32-esp8266) for provisioning these boards.
 
 ## Switching a Device to OTA Uploads
 
-Once a device has completed its first USB upload, the Sketch tab shows a
-connection toggle next to the board: **USB** or the cloud icon for
-**Over-the-Air**. Selecting the cloud icon sends the next upload wirelessly:
+Once a device has completed its first USB upload, the Sketch tab shows a connection toggle next to the board: **USB** or the cloud icon for **Over-the-Air**. Selecting the cloud icon sends the next upload wirelessly:
 
 ![Selecting Over-the-Air as the upload connection.](assets/device_OtA.png)
 
 <Alert type="note">
 
-If the board is still plugged in over USB, only that option may appear.
-Disconnect the cable and power the board separately (e.g. a phone charger) to
-force the Over-the-Air path:
+If the board is still plugged in over USB, only that option may appear. Disconnect the cable and power the board separately (e.g. a phone charger) to force the Over-the-Air path:
 
 ![Only the Over-the-Air option once USB is disconnected.](assets/OtA_board_selection.png)
 
 </Alert>
 
-Uploading over the air takes noticeably longer than USB, since compiling and
-transferring the binary happens over the network.
+Uploading over the air takes noticeably longer than USB, since compiling and transferring the binary happens over the network.
 
 ## What Happens During an OTA Upload
 

@@ -5,19 +5,11 @@ tags: [Arduino Cloud, API, REST, SDK]
 author: Karl Söderby & Arduino Team
 ---
 
-The Arduino Cloud REST API (`https://api2.arduino.cc/iot`) provides CRUD and
-history access to every resource — Devices, Things, Properties, Dashboards,
-Templates, Triggers, Series, LoRa® devices, and network credentials. It's used
-from servers, scripts, CI, and backends over HTTPS. The full interactive
-reference lives at
-[docs.arduino.cc/cloud-api](https://docs.arduino.cc/cloud-api/).
+The Arduino Cloud REST API (`https://api2.arduino.cc/iot`) provides CRUD and history access to every resource — Devices, Things, Properties, Dashboards, Templates, Triggers, Series, LoRa® devices, and network credentials. It's used from servers, scripts, CI, and backends over HTTPS. The full interactive reference lives at [docs.arduino.cc/cloud-api](https://docs.arduino.cc/cloud-api/).
 
 ## Getting API Credentials
 
-Every call needs a bearer token, obtained via an OAuth2 client-credentials flow
-using a **Client ID** and **Client Secret**. Create a pair from **API Keys**
-(`/api-keys`) in the Arduino Cloud web UI — the secret is shown only once, so
-download it as a PDF if offered:
+Every call needs a bearer token, obtained via an OAuth2 client-credentials flow using a **Client ID** and **Client Secret**. Create a pair from **API Keys** (`/api-keys`) in the Arduino Cloud web UI — the secret is shown only once, so download it as a PDF if offered:
 
 ![Creating an API key.](assets/api-keys.png)
 
@@ -37,9 +29,7 @@ Then call any endpoint with `Authorization: Bearer <token>`.
 
 <Alert type="note">
 
-Access tokens expire after 300 seconds — re-fetch rather than caching
-long-term. The rate limit is 10 requests/second per authenticated client
-(HTTP 429 beyond that).
+Access tokens expire after 300 seconds — re-fetch rather than caching long-term. The rate limit is 10 requests/second per authenticated client (HTTP 429 beyond that).
 
 </Alert>
 
@@ -69,10 +59,7 @@ CRUD-oriented client libraries, generated from the same OpenAPI spec:
 | JavaScript | `@arduino/arduino-iot-client` | [github.com/arduino/iot-client-js](https://github.com/arduino/iot-client-js) |
 | Python | `arduino-iot-client` | [github.com/arduino/iot-client-py](https://github.com/arduino/iot-client-py) |
 
-The JavaScript and Python repos each ship a `docs/` folder with one rendered
-markdown file per API group and per model — usually the fastest way to answer
-"what does this endpoint accept/return". The Go repo documents methods and
-params in `api_*.go` and schemas in `model_*.go`.
+The JavaScript and Python repos each ship a `docs/` folder with one rendered markdown file per API group and per model — usually the fastest way to answer "what does this endpoint accept/return". The Go repo documents methods and params in `api_*.go` and schemas in `model_*.go`.
 
 ## Authenticating From an SDK
 
@@ -134,8 +121,7 @@ async function getToken() {
 
 ## Finding Resource IDs
 
-Every Device, Thing, and Variable has an `id` used to target it in API calls.
-Listing endpoints return every resource's ID and full details:
+Every Device, Thing, and Variable has an `id` used to target it in API calls. Listing endpoints return every resource's ID and full details:
 
 ```
 GET https://api2.arduino.cc/iot/v2/things
@@ -143,8 +129,7 @@ GET https://api2.arduino.cc/iot/v2/devices
 GET https://api2.arduino.cc/iot/v2/dashboards
 ```
 
-For organization-scoped calls, pass `X-Organization: <org_id>` as a header — all
-three SDKs support this per-call or at client-config level.
+For organization-scoped calls, pass `X-Organization: <org_id>` as a header — all three SDKs support this per-call or at client-config level.
 
 ## Next Steps
 

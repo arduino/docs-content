@@ -5,11 +5,7 @@ tags: [Arduino Cloud, Variables, Reference]
 author: Karl Söderby & Arduino Team
 ---
 
-[Cloud Variables](/arduino-cloud/things-data/cloud-variables) come in three
-categories: **basic** primitives, **specialized** wrappers that add semantic
-meaning (for smarter integrations and widgets), and **complex** types that
-hold multiple values. This page lists every type and the C++ type it maps to
-in your generated sketch.
+[Cloud Variables](/arduino-cloud/things-data/cloud-variables) come in three categories: **basic** primitives, **specialized** wrappers that add semantic meaning (for smarter integrations and widgets), and **complex** types that hold multiple values. This page lists every type and the C++ type it maps to in your generated sketch.
 
 ## Basic Types
 
@@ -22,9 +18,7 @@ in your generated sketch.
 
 ## Specialized Types
 
-Specialized types are wrappers around a basic type that declare the
-variable's semantics explicitly. You use them like a normal variable of the
-wrapped type — they support assignment and comparison operators.
+Specialized types are wrappers around a basic type that declare the variable's semantics explicitly. You use them like a normal variable of the wrapped type — they support assignment and comparison operators.
 
 | Type | C++ Declaration | Wrapped Type |
 |---|---|---|
@@ -79,19 +73,13 @@ These hold multiple internal values, accessed through methods.
 
 <Alert type="info">
 
-Complex types expose getters/setters rather than direct assignment — for
-example `cLight.getSwitch()` / `cLight.setSwitch()`, or
-`schedule.isActive()`. See
-[Cloud Variables](/arduino-cloud/things-data/cloud-variables) for usage
-examples.
+Complex types expose getters/setters rather than direct assignment — for example `cLight.getSwitch()` / `cLight.setSwitch()`, or `schedule.isActive()`. See [Cloud Variables](/arduino-cloud/things-data/cloud-variables) for usage examples.
 
 </Alert>
 
 ## Alexa-Compatible Types
 
-The [Amazon Alexa integration](/arduino-cloud/integrations/amazon-alexa)
-supports only a subset of variable types. Variables of any other type won't
-appear in the Alexa app.
+The [Amazon Alexa integration](/arduino-cloud/integrations/amazon-alexa) supports only a subset of variable types. Variables of any other type won't appear in the Alexa app.
 
 | Type | Values |
 |---|---|

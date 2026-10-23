@@ -5,10 +5,7 @@ tags: [Arduino Cloud, Spaces, Account]
 author: Karl Söderby & Arduino Team
 ---
 
-A **space** is a self-contained workspace in Arduino Cloud holding its own
-Things, Dashboards, devices, and members. Every account has a private personal
-space; team plans add **shared spaces** that any number of members can work in
-together, with access governed by [roles](/arduino-cloud/spaces-plans-account/members-roles).
+A **space** is a self-contained workspace in Arduino Cloud holding its own Things, Dashboards, devices, and members. Every account has a private personal space; team plans add **shared spaces** that any number of members can work in together, with access governed by [roles](/arduino-cloud/spaces-plans-account/members-roles).
 
 ## Personal vs Shared Spaces
 
@@ -17,16 +14,11 @@ together, with access governed by [roles](/arduino-cloud/spaces-plans-account/me
 | **My Cloud** (personal) | Projects you don't want to share | Just you |
 | **Shared Space** | Team, classroom, or company projects | Any number, with assigned roles |
 
-Your personal space ("My Cloud") is created automatically and is free. By
-default it includes **two Things, unlimited dashboards, and 100 MB of sketch
-storage**, which can be further extended and customized from your **My Plans**
-settings.
+Your personal space ("My Cloud") is created automatically and is free. By default it includes **two Things, unlimited dashboards, and 100 MB of sketch storage**, which can be further extended and customized from your **My Plans** settings.
 
 ## Creating and Naming a Space
 
-When a team plan is activated, you're asked to name the space (company or
-classroom name). You can rename it later from **Space Settings → General → Edit
-Info**:
+When a team plan is activated, you're asked to name the space (company or classroom name). You can rename it later from **Space Settings → General → Edit Info**:
 
 ![Creating and naming a new shared space.](assets/create-new-space.png)
 
@@ -34,10 +26,7 @@ Additional shared spaces require purchasing an additional plan.
 
 ## Switching Between Spaces
 
-If you own or belong to more than one space, switch between them from the
-account button in the top-left corner — all spaces you can access are listed
-there. With four or more spaces, a **Switch space** selector appears. The
-selector always shows which space you're currently working in.
+If you own or belong to more than one space, switch between them from the account button in the top-left corner — all spaces you can access are listed there. With four or more spaces, a **Switch space** selector appears. The selector always shows which space you're currently working in.
 
 ## Space Settings
 

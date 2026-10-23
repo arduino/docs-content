@@ -5,31 +5,23 @@ tags: [Arduino Cloud, JavaScript, Node.js, Device Libraries]
 author: Karl Söderby & Arduino Team
 ---
 
-[arduino-iot-js](https://github.com/arduino/arduino-iot-js) interacts with the
-Arduino Cloud MQTT broker and runs in both the browser and Node.js. It powers a
-[manual (generic) device](/arduino-cloud/devices/add-manual-device) written in
-JavaScript, and can also connect with user-level credentials (API key or JWT) to
-reach any of your properties, not just one device's.
+[arduino-iot-js](https://github.com/arduino/arduino-iot-js) interacts with the Arduino Cloud MQTT broker and runs in both the browser and Node.js. It powers a [manual (generic) device](/arduino-cloud/devices/add-manual-device) written in JavaScript, and can also connect with user-level credentials (API key or JWT) to reach any of your properties, not just one device's.
 
 <Alert type="warning">
 
-Not to be confused with `@arduino/arduino-iot-client` — that's the REST CRUD
-client covered in [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks). This
-page is the real-time MQTT client.
+Not to be confused with `@arduino/arduino-iot-client` — that's the REST CRUD client covered in [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks). This page is the real-time MQTT client.
 
 </Alert>
 
 ## Create a Generic Device
 
-From the web UI, go to **Devices → + Device → Manual Setup → Any device**, or
-from the terminal:
+From the web UI, go to **Devices → + Device → Manual Setup → Any device**, or from the terminal:
 
 ```bash
 arduino-cloud-cli device create-generic --name <deviceName>
 ```
 
-Then create a [Thing](/arduino-cloud/things-data/things), bind it to the generic
-device, and add [Cloud Variables](/arduino-cloud/things-data/cloud-variables).
+Then create a [Thing](/arduino-cloud/things-data/things), bind it to the generic device, and add [Cloud Variables](/arduino-cloud/things-data/cloud-variables).
 
 ## Install
 
@@ -41,17 +33,13 @@ npm install arduino-iot-js
 
 The library supports three ways to connect:
 
-- **Device credentials** (recommended) — Device ID + Secret Key, same as the
-  Python/C++ clients.
-- **API key** — a client ID/secret from
-  [API keys](https://app.arduino.cc/api-keys); also requires your Thing ID.
+- **Device credentials** (recommended) — Device ID + Secret Key, same as the Python/C++ clients.
+- **API key** — a client ID/secret from [API keys](https://app.arduino.cc/api-keys); also requires your Thing ID.
 - **JWT token** — connect as a user with a valid token.
 
 ## Example: Device Credentials
 
-Send a property with `sendProperty()` and listen for updates with
-`onPropertyValue()`. Create a `test_value` (`int`) variable on the Thing and
-replace the credentials:
+Send a property with `sendProperty()` and listen for updates with `onPropertyValue()`. Create a `test_value` (`int`) variable on the Thing and replace the credentials:
 
 ```javascript
 const { ArduinoIoTCloud } = require('arduino-iot-js');
@@ -73,8 +61,7 @@ const { ArduinoIoTCloud } = require('arduino-iot-js');
 })();
 ```
 
-This pushes `test_value = 20` and then prints any change received from the
-Cloud (e.g. from a value widget on a dashboard) as `test_value : <value>`.
+This pushes `test_value = 20` and then prints any change received from the Cloud (e.g. from a value widget on a dashboard) as `test_value : <value>`.
 
 ## Example: API Key
 
@@ -95,23 +82,17 @@ import { ArduinoIoTCloud } from 'arduino-iot-js';
 })();
 ```
 
-A JWT token connection is identical, passing `token` instead of
-`clientId`/`clientSecret` to `connect()`.
+A JWT token connection is identical, passing `token` instead of `clientId`/`clientSecret` to `connect()`.
 
 <Alert type="info">
 
-Common issues: `Error: Cannot find module` means the package isn't installed in
-the current directory; `connection failed: client not connected` usually means a
-wrong Device ID or Secret Key.
+Common issues: `Error: Cannot find module` means the package isn't installed in the current directory; `connection failed: client not connected` usually means a wrong Device ID or Secret Key.
 
 </Alert>
 
 ## Managing the Cloud Side From JavaScript
 
-This library is for **real-time device connection** only. To script
-Thing/Device/Dashboard management, use the separate REST client
-(`@arduino/arduino-iot-client`) — see
-[REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
+This library is for **real-time device connection** only. To script Thing/Device/Dashboard management, use the separate REST client (`@arduino/arduino-iot-client`) — see [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
 
 ## Next Steps
 

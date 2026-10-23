@@ -5,9 +5,7 @@ tags: [Arduino Cloud, Getting Started]
 author: Karl Söderby & Arduino Team
 ---
 
-Arduino Cloud supports many kinds of hardware and clients, and each has a
-slightly different way to connect. Use the tables below to jump straight to the
-right guide.
+Arduino Cloud supports many kinds of hardware and clients, and each has a slightly different way to connect. Use the tables below to jump straight to the right guide.
 
 ## By Board or Client
 
