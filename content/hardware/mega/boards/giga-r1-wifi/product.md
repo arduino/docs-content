@@ -6,7 +6,7 @@ primary_button_url: /tutorials/giga-r1-wifi/giga-getting-started
 primary_button_title: Get Started
 core: arduino:mbed_giga
 forumCategorySlug: '/hardware/giga-r1/182'
-sku: [ABX00063]
+sku: [ABX00063, AKX00075]
 useCases: [prototyping, iot-wireless]
 releaseDate: 2023-02-14
 ---
