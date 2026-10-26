@@ -141,7 +141,7 @@ API token access is only needed for compilation and profiling on AI Hub Workbenc
 
 Go to the [AI Hub model list](https://aihub.qualcomm.com/models) and filter by:
 
-- **Chipset:** `Qualcomm QCS8275 (Proxy)`
+- **Chipset:** `Qualcomm Dragonwing™ IQ-8275`
 - **Model precision:** `Quantized`
 
 ![QAI Hub](assets/select-chip-models.png)
