@@ -1,5 +1,6 @@
 ---
 title: Arduino UNO R4 WiFi Arduino Cloud Setup Guide
+overwriteSidebar: Arduino Cloud Setup
 description: A step-by-step guide on how to set up the UNO R4 WiFi with the Arduino Cloud.
 hardware:
   - hardware/02.uno/boards/uno-r4-wifi

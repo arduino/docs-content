@@ -1,5 +1,6 @@
 ---
 title: 'Arduino UNO R4 WiFi ADC Resolution'
+overwriteSidebar: ADC Resolution
 description: 'Learn how to change the ADC resolution on the UNO R4 WiFi.'
 tags:
   - ADC

@@ -1,5 +1,6 @@
 ---
 title: Getting Started with UNO R4 WiFi
+overwriteSidebar: Getting Started
 description: A step-by-step guide to install the board package needed for the UNO R4 WiFi board.
 author: Hannes Siebeneicher
 hardware:

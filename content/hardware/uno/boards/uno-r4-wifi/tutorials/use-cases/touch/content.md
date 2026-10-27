@@ -1,5 +1,6 @@
 ---
 title: UNO R4 Capacitive-Touch Tutorial
+overwriteSidebar: Capacitive-Touch
 difficulty: beginner
 description: Learn to use the built-in capacitive sensing capabilities of the Arduino® UNO R4.
 tags: [Arduino, Capacitive Sensing, UNO R4]

@@ -1,5 +1,6 @@
 ---
 title: 'Arduino UNO R4 WiFi USB HID'
+overwriteSidebar: USB HID
 description: 'Learn how to use the UNO R4 WiFi as a mouse/keyboard.'
 tags:
   - USB

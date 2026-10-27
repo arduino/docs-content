@@ -1,5 +1,6 @@
 ---
 title: 'Arduino UNO R4 WiFi CAN Bus'
+overwriteSidebar: CAN Bus
 description: 'Learn how to send messages using the CAN bus on the UNO R4 WiFi.'
 tags:
   - CAN

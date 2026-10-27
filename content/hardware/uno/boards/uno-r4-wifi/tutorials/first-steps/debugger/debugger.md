@@ -1,5 +1,6 @@
 ---
 title: 'Debugging the Arduino UNO R4 WiFi'
+overwriteSidebar: Debugging the board
 description: 'Learn how to debug the UNO R4 WiFi with the Arduino IDE.'
 tags:
   - Debugger

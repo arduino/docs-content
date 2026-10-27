@@ -1,5 +1,6 @@
 ---
 title: UNO R4 WiFi Stack Trace Debug Runtime Errors
+overwriteSidebar: Stack Trace Debug Runtime Errors
 description: Learn how to get information from the Cortex-M4 processor on a runtime error.
 author: Sebastian Wikström
 tags: [Debug, Runtime Errors, Stack Trace]

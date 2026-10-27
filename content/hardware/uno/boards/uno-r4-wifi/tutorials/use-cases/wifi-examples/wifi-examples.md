@@ -1,5 +1,6 @@
 ---
 title: UNO R4 WiFi Network Examples
+overwriteSidebar: Network Examples
 description: Discover examples compatible with the WiFi library included in the UNO R4 Board Package.
 author: Jacob Hylén
 hardware:

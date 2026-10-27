@@ -1,5 +1,6 @@
 ---
 title: 'Arduino UNO R4 WiFi Qwiic Connector'
+overwriteSidebar: Qwiic Connector
 description: 'Learn how use the Qwiic connector on the Arduino UNO R4 WiFi.'
 tags:
   - Qwiic

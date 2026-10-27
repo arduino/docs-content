@@ -1,5 +1,6 @@
 ---
 title: 'Arduino UNO R4 WiFi Real-Time Clock'
+overwriteSidebar: Real-Time Clock
 description: 'Learn how to access the real-time clock (RTC) on the UNO R4 WiFi.'
 tags:
   - RTC

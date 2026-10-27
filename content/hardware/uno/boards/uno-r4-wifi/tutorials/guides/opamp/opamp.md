@@ -1,5 +1,6 @@
 ---
 title: 'Arduino UNO R4 WiFi OPAMP'
+overwriteSidebar: OPAMP
 description: 'Learn how to use the built-in Operational Amplifier in the UNO R4 WiFi'
 tags:
   - OPAMP

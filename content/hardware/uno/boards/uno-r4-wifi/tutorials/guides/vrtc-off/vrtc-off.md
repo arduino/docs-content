@@ -1,5 +1,6 @@
 ---
 title: 'Arduino UNO R4 WiFi VRTC & OFF Pins'
+overwriteSidebar: VRTC & OFF Pins
 description: 'Learn how to use the VRTC and OFF Pins on the UNO R4 WiFi.'
 tags:
   - VRTC

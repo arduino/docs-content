@@ -1,5 +1,6 @@
 ---
 title: UNO R4 WiFi Custom Firmware Upload to ESP32 (Advanced)
+overwriteSidebar: Custom Firmware Upload
 description: 'Learn how to load custom firmware to the ESP32-S3 module on the UNO R4 WiFi, using the esptool.py command line interface.'
 author: Hannes Siebeneicher
 tags: [ESP32, esptool, Flash]

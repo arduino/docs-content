@@ -1,5 +1,6 @@
 ---
 title: 'Arduino UNO R4 WiFi EEPROM'
+overwriteSidebar: EEPROM
 description: 'Learn how to access the EEPROM memory on the UNO R4 WiFi.'
 tags:
   - RTC
