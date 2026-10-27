@@ -108,7 +108,7 @@ VENTUNO Qには1つのバリエーションが用意されている：
 | UNOシールドヘッダー        | - 標準的なArduino UNOシールド（3.3 Vロジック）に対応している                                                                           |
 |                           | - ほとんどのデジタルピンは5 V耐性がある。JANALOG上のA0およびA1はADCの直接入力であり、5 V耐性はない                              |
 | 拡張ヘッダー（JOMEGA） | - USB 3.0、CAN-FD、JTAG、MIC IN、MPU SPI を含む広範な拡張機能                                                    |
-| キャリアヘッダー           | - JMEDIA：1.8 V の MIPI CSI0/CSI1 カメラレーンおよび MIPI-DSI ディスプレイレーン                                                              |
+| Carrier Headers | - JMEDIA：1.8 V の MIPI CSI0/CSI1 カメラレーンおよび MIPI-DSI ディスプレイレーン                                                              |
 |                           | - JMISC：オーディオエンドポイント、1.8 VのMPU GPIO、および3.3 VのMCU信号                                                                   |
 | Qwiicコネクタ           | - MCUに接続されたI2C（3.3V）により、Modulino®ノードへの即時のプラグアンドプレイアクセスが可能だ                                                      |
 | JHATコネクタ            | - Raspberry Pi®互換の40ピンヘッダー（MPU GPIO、TXS0108ERKSRおよびTXS0104ERUTRを介してHAT互換性のために3.3 Vへレベル変換済み） |
@@ -218,9 +218,7 @@ VENTUNO Qには1つのバリエーションが用意されている：
 
 ## 機能概要
 
-### ピン
-
-配置
+### **ピン配置**
 
 ![](assets/ABX00181_pinout.png)
 
