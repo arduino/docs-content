@@ -21,6 +21,7 @@ Many of the examples presented in this chapter are just fragments. Try to combin
 While this chapter provides some fundamental Python syntax, it does not cover all. If you are interested in learning more about Python, we recommend you checking out some of the links below:
 - [learnpython.org](https://www.learnpython.org/)
 - [W3Schools](https://www.w3schools.com/python/default.asp)
+- [Coddy](https://coddy.tech/landing/python)
 
 ## Variables
 
