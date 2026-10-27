@@ -48,7 +48,7 @@ If you encounter errors that prevent the board from appearing in Arduino App Lab
 
 <Alert type="note">
 
-You can download the Arduino Flasher CLI here: https://www.arduino.cc/en/software/#app-lab
+You can download the Arduino Flasher CLI here: [https://www.arduino.cc/en/software/#app-lab](https://www.arduino.cc/en/software/#app-lab)
 
 </Alert>
 
