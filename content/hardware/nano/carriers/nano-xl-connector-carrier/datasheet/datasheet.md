@@ -6,7 +6,7 @@ variant: 'Datasheet'
 author: Christopher Méndez
 ---
 
-![](assets/nano-xl-carrier-top.png)
+![](assets/render.png)
 
 # Description
 
