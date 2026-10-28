@@ -20,6 +20,12 @@ VENTUNO Q vous permet de rester connecté et prêt à l’emploi. Il intègre un
 
 IA en périphérie, LLM/VLM locaux, maison connectée, robotique, contrôle de mouvement, ville intelligente, vision industrielle, enseignement et recherche
 
+**Utilisation prévue du produit**
+
+Les produits matériels Arduino sont principalement destinés au développement et au prototypage, mais peuvent également être utilisés dans des solutions de production. Les développeurs doivent concevoir et vérifier les contrôles de sécurité dès le début, en fonction de l'environnement de déploiement prévu. La sécurité est une responsabilité partagée entre Arduino et le concepteur de la solution, qui doit évaluer les fonctionnalités de sécurité disponibles du matériel et ajouter les protections nécessaires.
+
+Rends-toi sur [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) pour consulter le document complet « Produits matériels Arduino : utilisation prévue et modèle de sécurité ».
+
 <div style="page-break-after: always;"></div>
 
 # SOMMAIRE

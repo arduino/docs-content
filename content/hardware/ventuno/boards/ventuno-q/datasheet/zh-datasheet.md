@@ -20,6 +20,12 @@ VENTUNO Q 助您保持连接并随时准备部署。它集成了 Wi-Fi® 6（三
 
 边缘AI、本地LLM/VLM、智能家居、机器人、运动控制、智慧城市、工业视觉、教育与研究
 
+**产品预期用途**
+
+Arduino 硬件产品主要用于开发和原型制作，但也可能支持生产解决方案。开发人员必须根据预期部署环境，尽早设计并验证安全控制措施。安全是 Arduino 与解决方案构建者共同承担的责任，解决方案构建者必须评估硬件提供的安全功能，并添加任何必要的保护措施。
+
+请访问 [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/)，查看完整的《Arduino 硬件产品：预期用途与安全模型》。
+
 <div style="page-break-after: always;"></div>
 
 # 目录

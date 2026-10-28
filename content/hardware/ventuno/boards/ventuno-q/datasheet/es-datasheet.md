@@ -20,6 +20,12 @@ VENTUNO Q le permite mantenerse conectado y listo para su implementación. Cuent
 
 IA en el borde, LLM/VLM locales, hogar inteligente, robótica, control de movimiento, ciudad inteligente, visión industrial, educación e investigación
 
+**Uso previsto del producto**
+
+Los productos de hardware de Arduino están pensados principalmente para el desarrollo y la creación de prototipos, aunque también pueden servir para soluciones de producción. Los desarrolladores deben diseñar y verificar los controles de seguridad desde el principio, en función del entorno de implementación previsto. La seguridad es una responsabilidad compartida entre Arduino y el creador de la solución, quien debe evaluar las funciones de seguridad disponibles del hardware e incorporar las protecciones necesarias.
+
+Visita [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) para consultar el documento completo «Productos de hardware de Arduino: uso previsto y modelo de seguridad».
+
 <div style="page-break-after: always;"></div>
 
 # ÍNDICE

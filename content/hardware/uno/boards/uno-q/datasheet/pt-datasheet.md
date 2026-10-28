@@ -21,6 +21,12 @@ type: maker
 
 Prototipagem, IA e ML de ponta, visão artificial, educação, dispositivos inteligentes, robótica, automação residencial e predial, jogos
 
+**Uso previsto do produto**
+
+Os produtos de hardware Arduino são destinados principalmente ao desenvolvimento e à prototipagem, mas também podem ser usados em soluções de produção. Os desenvolvedores devem projetar e verificar os controles de segurança desde o início, com base no ambiente de implantação previsto. A segurança é uma responsabilidade compartilhada entre a Arduino e quem cria a solução, que deve avaliar os recursos de segurança disponíveis no hardware e adicionar as proteções necessárias.
+
+Acesse [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) para ver o documento completo “Produtos de hardware Arduino: uso destinado e modelo de segurança”.
+
 <div style="page-break-after: always;"></div>
 
 # ÍNDICE
