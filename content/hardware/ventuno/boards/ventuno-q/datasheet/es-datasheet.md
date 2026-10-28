@@ -1253,6 +1253,9 @@ For Low power indoor (LPI use): Operations in the 5955 - 6415MHz are restricted 
 
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
+>[!NOTE]
+>A copy of the CE and UKCA Declaration of Conformity is available at: [https://docs.arduino.cc/certifications](https://docs.arduino.cc/certifications)
+
 ### Radio Equipment Information (RED Compliance)
 
 This radio equipment operates in the following frequency bands and with the maximum radio-frequency power indicated below:
@@ -1390,6 +1393,7 @@ Los términos «HDMI», «HDMI High-Definition Multimedia Interface», la imagen
 |  3  | Centro de proyectos        | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                           |
 |  4  | Referencia de la librería  | [https://docs.arduino.cc/librerías/](https://docs.arduino.cc/librerías/)                   |
 |  5  | Tienda de Arduino          | [https://store.arduino.cc/](https://store.arduino.cc/)                                     |
+|  6  | Compliance Documents    | [https://docs.arduino.cc/certifications/](https://docs.arduino.cc/certifications/)         |
 
 # Historial de revisiones del documento
 
@@ -1399,3 +1403,4 @@ Los términos «HDMI», «HDMI High-Definition Multimedia Interface», la imagen
 | 28/08/2026 |      2       | Updated Certifications |
 | 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
 | 29/09/2026 |      4       | Updating values for inputs |  
+| 28/10/2026 |       5      | Added link to Compliance Page |
