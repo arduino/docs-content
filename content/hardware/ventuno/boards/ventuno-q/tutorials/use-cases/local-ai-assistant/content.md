@@ -131,7 +131,7 @@ pwd
 ```bash
 docker build -t keyword-asr-local-llm-kokoro-tts-kokoro_tts:latest ./ArduinoApps/keyword-asr-local-llm-kokoro-tts/bricks/kokoro_tts/container  
 ```
-4. Close the termianl and return to back to Arduino App Lab
+4. Close the terminal and return to back to Arduino App Lab
 
 ### 1. Project AI Models
 
