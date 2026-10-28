@@ -32,7 +32,7 @@ Needs verification: the exact numbers below (Things limits, retention periods, c
 
 <Alert type="note">
 
-The three plan-gated dashboard widgets — Advanced Map, Advanced Chart, and Image Map — appear in a locked "Upgrade to unlock" state on the Free tier. See the [Widget Catalog](/arduino-cloud/reference/widget-catalog).
+The three plan-gated dashboard widgets — [Advanced Map](/arduino-cloud/dashboards/track-location-map), [Advanced Chart](/arduino-cloud/dashboards/multiple-variable-chart), and [Image Map](/arduino-cloud/dashboards/image-map-widget) — appear in a locked "Upgrade to unlock" state on the Free tier. See the [Widget Catalog](/arduino-cloud/reference/widget-catalog).
 
 </Alert>
 

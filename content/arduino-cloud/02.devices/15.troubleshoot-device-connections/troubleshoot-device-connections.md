@@ -55,6 +55,15 @@ A device that provisioned successfully but reports **offline** in the Devices li
 - **Secure-element boards** — MKR, Nano 33 IoT, Portenta, and similar boards store a hardware-backed certificate. If provisioning fails at the crypto step, retry provisioning over USB; a corrupted or incomplete secure-element provisioning usually clears on a clean re-run.
 - **Wrong network generation** — if credentials don't seem to apply, the board may be on the wrong [provisioning generation](/arduino-cloud/devices/network-configuration#provisioning-10-vs-20); migrating or clearing the stored configuration resolves stale credentials.
 
+## Board Is Linked to Another Account
+
+If a board was previously set up by someone else, for example a student who used it last term, and you can't set it up on your account, it's probably still **locked** to the previous owner's account:
+
+- Ask the previous owner to open the device's page, turn **Lock to this account** off, and then delete the device from their account.
+- If the device was already deleted while locked, the previous owner can no longer unlock it from their account.
+
+See [Lock a Device to Your Account](/arduino-cloud/devices/device-lock) for how the lock works and the default for each type of space.
+
 ## OTA Prerequisites
 
 Over-the-air uploads only work once a board has met their requirements:

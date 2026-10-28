@@ -35,25 +35,11 @@ Needs verification: confirm the exact label and position of the **Spaces Overvie
 
 ## Statistics Across All Spaces
 
-The **Statistics** section uses the same widgets as the [Statistics section on a space's Home page](/arduino-cloud/spaces-plans-account/spaces#space-statistics-on-the-home-page). Here, though, each value is the **sum across every space you belong to**. Every card shows its total at the top, with a chart below that breaks the number down:
+The **Statistics** section uses the same widgets as the Statistics section on a space's Home page, but each value is the **sum across every space you belong to**: total Things, devices, members, ingested records, and Trigger activations. It also adds a **Things distribution** chart that shows how your Things are spread across your spaces.
 
-| Card | What It Counts | Breakdown | Time Range |
-|---|---|---|---|
-| **Total Things** | All Things in all of your spaces | **Active** vs. **Inactive** Things | — |
-| **Total Devices** | All devices registered in all of your spaces | **Online** vs. **Offline** devices | — |
-| **Total Members** | Members across all of your spaces | Members per role, for example **Students**, **Teachers**, **Editors**, and **Admins** | — |
-| **Total Ingested Records** | Data records received from devices in all of your spaces | Records over time | **30D**, **15D**, **7D**, **1D** |
-| **Total Trigger activations** | How many times [Triggers](/arduino-cloud/automations/triggers-and-alerts) fired in all of your spaces | Activations over time | **15D**, **7D**, **1D**, **1H** |
+Charts here break values down **by space** instead of by Thing. For example, the **Total Ingested Records** chart shows how many records each space contributed per day, and its limit line shows the highest Daily Ingested Records limit among your spaces.
 
-The time-based cards each have their own **time-range selector** in the top-right corner, so changing the range on one card doesn't affect the other. If there's nothing to show in the selected range, the card shows an empty state such as "No records ingested to display in this timeframe".
-
-![The Statistics section of the Spaces Overview, showing the aggregated totals, the Things distribution chart, and Trigger activations.](assets/spaces-overview-statistics.png)
-
-### Things Distribution Chart
-
-The **Things distribution** card breaks the **Total Things** figure down by space, with one bar per space (for example **My Cloud** and each shared space). Use the toggle in the top-right corner of the card to switch between the **bar chart** and a **pie chart** view.
-
-Use the chart to spot which space holds most of your Things. That makes it a good first step before you rebalance projects between spaces or decide which space needs a larger plan.
+See [Space Statistics](/arduino-cloud/spaces-plans-account/space-statistics) for details on every widget, including the [Ingested Records Usage Chart](/arduino-cloud/spaces-plans-account/space-statistics#ingested-records-usage-chart).
 
 ## Global Plan Usage
 
@@ -119,6 +105,7 @@ The toolbar above the table has three controls:
 
 ## Next Steps
 
+- [Space Statistics](/arduino-cloud/spaces-plans-account/space-statistics)
 - [Spaces](/arduino-cloud/spaces-plans-account/spaces)
 - [Members & Roles](/arduino-cloud/spaces-plans-account/members-roles)
 - [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas)

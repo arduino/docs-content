@@ -45,7 +45,7 @@ For scriptable, repeatable provisioning, [arduino-cloud-cli](/arduino-cloud/apis
 
 ## The Device Page
 
-Selecting a device opens its detail page, where you can rename it, view its ID, type, FQBN, and firmware version, see its connection history, attach it to a [Thing](/arduino-cloud/things-data/things), and revisit its [network configuration](/arduino-cloud/devices/network-configuration).
+Selecting a device opens its detail page, where you can rename it, view its ID, type, FQBN, and firmware version, see its connection history, attach it to a [Thing](/arduino-cloud/things-data/things), and revisit its [network configuration](/arduino-cloud/devices/network-configuration). For physical boards, the **Lock to this account** setting controls whether the board stays tied to your account or can be handed over to someone else (see [Lock a Device to Your Account](/arduino-cloud/devices/device-lock)).
 
 <Alert type="info">
 

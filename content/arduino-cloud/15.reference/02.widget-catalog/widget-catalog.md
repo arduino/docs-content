@@ -50,7 +50,7 @@ Non-data widgets for organizing a dashboard.
 |---|---|---|---|
 | Sticky Note | ![Sticky Note](assets/widgets/23-sticky-note.png) | A markdown-formatted note. | None (not linkable) |
 | Image | ![Image](assets/widgets/24-image.png) | An uploaded or URL image (JPG/PNG/WEBP); URL images can auto-refresh. | None (not linkable) |
-| Image Map 🔒 | ![Image Map locked](assets/widgets/22-image-map-locked.png) | Data markers/triggers on a custom image (e.g. a floor plan). **Plan-gated.** | `int`, `float`, `String`, `bool` |
+| Image Map 🔒 | ![Image Map locked](assets/widgets/22-image-map-locked.png) | Live variable markers, controls, and labels on a custom image (e.g. a floor plan). **Plan-gated.** See [Image Map Widget](/arduino-cloud/dashboards/image-map-widget). | `int`, `float`, `String`, `bool` |
 | Link | ![Link](assets/widgets/25-link.png) | A clickable link/button to an external URL. | None (not linkable) |
 
 <Alert type="note">
