@@ -37,6 +37,8 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
   
 - **Smart lighting and room automation:** In smart home installations, the Nano XL Link can control lighting, motorized shades, and roller shutters, connecting buttons, motion sensors, limit switches, and relay or dimmer circuits directly through the extended pinout, and integrating with a central home automation hub.
 
+![Figure 1. The Nano XL Link board](assets/Nano_XL_Link_Perspective.png)
+
 </div>
  
 ## Features
@@ -68,7 +70,7 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 |        I/O Voltage       | +3.3 VDC                                                                                                                  |
 |        Dimensions        | 23 mm × 43 mm                                                                                                             |
 
-<caption>Table 1. Nano XL Link main features</caption>
+<caption>Table 1. Nano XL Link board main features</caption>
 
 </div>
 
@@ -94,6 +96,8 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 
 </div>
 
+<div style="page-break-after: always;"></div>
+
 ### Fieldbus Interfaces
  
 <p style="text-align: justify;">The Nano XL Link integrates three transceivers for industrial communication. Table 3 summarizes the main characteristics of each interface. The fieldbus signals are routed to the board's headers; the corresponding connectors (RJ45, screw terminals) can be provided by a carrier board such as the Nano XL Link Connector Carrier (SKU: ASX00090).</p>
@@ -106,7 +110,7 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 |     RS-485    | THVD2410DRBR (Texas Instruments) | +3.3 VDC RS-485 transceiver connected to the microcontroller's UART0 peripheral; driver enable (DE) controlled by the UART0 RTS signal and receiver enable (RE) by the UART0 CTS signal; A/B signals available on the headers; 120 Ω termination selectable via solder jumper (SJ2, closed by default)                                                          |
 |    Ethernet   |    KSZ8081RNAIA (Microchip)      | 10/100 Mbps industrial temperature range Ethernet PHY connected to the microcontroller's Ethernet MAC through an RMII interface; 25 MHz reference oscillator (DSC1522JI1A-25M00000T); auto-negotiation enabled by default (100 Mbps default speed); TX/RX differential pairs and link/activity LED signal available on the headers; magnetics and RJ45 connector not included on the board |
  
-<caption>Table 3. Nano XL Link fieldbus interfaces</caption>
+<caption>Table 3. Nano XL Link board fieldbus interfaces</caption>
 
 </div>
 
@@ -138,7 +142,7 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 | +3.3 VDC Header Pin Output Current| I<sub>3V3</sub>  |    -    |    -    |  1000   |    mA    |
 | Operating Temperature             | T<sub>OP</sub>   |   -20   |    -    |   85    |    °C    |
  
-<caption>Table 4. Recommended operating conditions of the Nano XL Link</caption>
+<caption>Table 4. Recommended operating conditions of the Nano XL Link board</caption>
 
 </div>
 
@@ -153,9 +157,9 @@ The Nano XL Link combines an Arm® Cortex®-M33 microcontroller with onboard CAN
 
 ### Pinout
  
-The Nano XL Link headers pinout is shown in Figure 1.
+The Nano XL Link headers pinout is shown in Figure 2.
  
-![Figure 1. Nano XL Link pinout](assets/placeholder.png)
+![Figure 2. Nano XL Link pinout](assets/Nano_XL_Link_Simple_Pinout.png)
  
 <p style="text-align: justify;">The board has two 2.54 mm double-row 2×15 headers (J3 and J4). The following signals are available on the headers:</p>
 
@@ -168,9 +172,9 @@ The Nano XL Link headers pinout is shown in Figure 1.
 
 ### Block Diagram
  
-An overview of the Nano XL Link high-level architecture is illustrated in Figure 2.
+An overview of the Nano XL Link high-level architecture is illustrated in Figure 3.
  
-![Figure 2. High-level architecture of the Nano XL Link](assets/Nano_XL_Link_Block_Diagram.png)
+![Figure 3. High-level architecture of the Nano XL Link](assets/Nano_XL_Link_Block_Diagram.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -220,9 +224,9 @@ Figure 3 shows the power options available on the Nano XL Link and illustrates t
 
 ## Topology
  
-<p style="text-align: justify;">The Nano XL Link is designed to be used together with a carrier board that provides the physical connectors for its fieldbus interfaces. Figure 4 illustrates a typical system topology.</p>
+<p style="text-align: justify;">The Nano XL Link is designed to be used together with a carrier board that provides the physical connectors for its fieldbus interfaces. Figure 4 illustrates a typical system topology with the Nano XL Link Connector Carrier board.</p>
 
-![Figure 4. Nano XL Link system topology](assets/placeholder.png)
+![Figure 4. The Nano XL Link ecosystem](assets/Nano_XL_Link_Topology.png)
 
 <div style="text-align:justify;">
  
@@ -279,7 +283,7 @@ The Nano XL Link board outline is shown in Figure 5; **all the dimensions are in
 
 ### Board Connectors
  
-The placement of the Nano XL Link connectors is shown in Figure 6; **all the dimensions are in mm**.
+The placement of the Nano XL Link connectors (USB-C and Qwiic) is shown in Figure 6; **all the dimensions are in mm**.
  
 ![Figure 6. Nano XL Link connectors placement (top view left, bottom view right)](assets/Nano_XL_Link_Connectors.png)
 
@@ -287,7 +291,7 @@ The placement of the Nano XL Link connectors is shown in Figure 6; **all the dim
 
 ### Board Peripherals and Actuators
  
-<p style="text-align: justify;">The Nano XL Link has three onboard LEDs (green power LED, yellow built-in LED, and RGB LED) and a reset push-button. The placement of these components is shown in Figure 7; <strong>all the dimensions are in mm</strong>.</p>
+<p style="text-align: justify;">The Nano XL Link has three onboard LEDs (green power LED, yellow built-in LED, and RGB LED) and a reset push-button. The placement of the RGB LED and the reset push-button is shown in Figure 7; <strong>all the dimensions are in mm</strong>.</p>
 
 ![Figure 7. Nano XL Link RGB and reset push-button placement (top view)](assets/Nano_XL_Link_Peripherals.png)
 
