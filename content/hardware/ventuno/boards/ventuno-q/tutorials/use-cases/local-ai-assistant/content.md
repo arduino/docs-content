@@ -124,14 +124,18 @@ Since this project includes a custom brick, you need to build its Docker image i
 
 1. Open a terminal by clicking the terminal icon (`>_`) in the bottom-left corner of the window.
 2. Verify that you are in the `/home/arduino` directory:
-```bash
-pwd
-```
+
+   ```bash
+   pwd
+   ```
+
 3. Build the Docker image:
-```bash
-docker build -t keyword-asr-local-llm-kokoro-tts-kokoro_tts:latest ./ArduinoApps/keyword-asr-local-llm-kokoro-tts/bricks/kokoro_tts/container  
-```
-4. Close the terminal and return to back to Arduino App Lab
+
+   ```bash
+   docker build -t keyword-asr-local-llm-kokoro-tts-kokoro_tts:latest ./ArduinoApps/keyword-asr-local-llm-kokoro-tts/bricks/kokoro_tts/container
+   ```
+
+4. Close the terminal and return back to the Arduino App Lab.
 
 ### 1. Project AI Models
 
