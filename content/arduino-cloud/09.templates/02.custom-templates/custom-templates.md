@@ -48,5 +48,6 @@ To share a template, click the three dots on its card and choose **download (.ti
 
 ## Next Steps
 
+- [Organize Resources With Smart Folders](/arduino-cloud/things-data/smart-folders)
 - [Clone & Bulk-Create](/arduino-cloud/templates/clone-bulk-create)
 - [Use Templates](/arduino-cloud/templates/use-templates)

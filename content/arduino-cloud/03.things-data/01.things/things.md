@@ -54,7 +54,7 @@ Open the **info** icon on the left rail to reach the Metadata panel:
 - **Created at / Last modified / Last sync** — timestamps for the Thing record and its last successful sync with a device.
 - **Smart Home Integration** — toggle Google Home and/or Alexa support for compatible variable types.
 - **Data forwarding (Webhook)** — forward variable updates to an external URL.
-- **Tags** — key/value labels (e.g. `location=London`) used to organize and filter Things.
+- **Tags** — key/value labels (e.g. `location=London`) used to organize and filter Things. Combine tags with [Smart Folders](/arduino-cloud/things-data/smart-folders) to group tagged Things automatically.
 
 ## Next Steps
 

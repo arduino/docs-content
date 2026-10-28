@@ -14,7 +14,7 @@ Tags are key/value labels you attach to devices (and Things) to group and filter
 - **Key** — the filter name, e.g. `location` or `purpose`.
 - **Value** — the value for that device, e.g. `rome` or `docs-demo`.
 
-You can add any number of tags, then filter the Devices and Things lists by them. Tagging every device created for a given purpose makes later bulk cleanup straightforward.
+You can add any number of tags, then filter the Devices and Things lists by them. Tagging every device created for a given purpose makes later bulk cleanup straightforward. To keep a filtered view one click away, save your filters as a [Smart Folder](/arduino-cloud/things-data/smart-folders), which updates automatically as devices are added, change status, or get new tags.
 
 ![Searching and filtering among devices.](assets/search-things.png)
 
