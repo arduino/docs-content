@@ -310,7 +310,7 @@ STMicroelectronics® STM32H5F5は、Zephyr OS上でArduino Coreを実行するAr
 - 3.3 Vヘッダー（JDIGITAL、JANALOG、JSPI）を扱う。
 - すべてのCAN-FDインターフェースを制御する：ネジ端子上のPHYおよびJOMEGAおよびUNOシールドヘッダー上の非PHYポート。
 
-JMISCは両方のドメインを扱う：1.8 VのMPUラインは、3.3 VのMCU信号（PSSI、I²C、GPIO）およびアナログオーディオと並列に配置されている。キャリアボードや外部ロジックをJMISCに接続する際は、必ず電圧レベルを確認すること。
+JMISCは両方のドメインを扱う。1.8 VのMPUラインと、3.3 VのMCU信号（PSSI、I²C、GPIO）およびアナログオーディオが共存している。JMISCにCarrierや外部ロジックを接続する際は、必ず電圧レベルを確認すること。
 
 >📝 **VDDIO2に関する注意：** STM32H5F5には、`SOM_VREG_MDPX3_1P8`（1.8 V）から給電される二次I/O電源ドメイン（VDDIO2）がある。これにより、特定のMCUピンは、外部レベル変換器を必要とせずに1.8 VでMPUと直接通信できる。 以下のインターフェースはVDDIO2ドメインで動作する：
 >
@@ -942,7 +942,7 @@ CYPD6129は、VBUSとVINの両方を監視して基板の電源状態を判定�
 
 ### カメラ
 
-VENTUNO Qは、3つのオンボードMIPI CSIコネクタ（J3_1、J3_2、J3_3）およびJMEDIAキャリアヘッダーを介したカメラ入力をサポートしている。
+VENTUNO Qは、3つのオンボードMIPI CSIコネクタ（J3_1、J3_2、J3_3）およびJMEDIA carrier header を介して、カメラ入力をサポートしている。
 
 **VENTUNO Q スタンドアロン（デフォルト）：**
 
@@ -1060,9 +1060,329 @@ MPU、NPU、GPUが同時にフルパフォーマンスで動作する最悪の�
 
 ## 商標
 
-「HDMI」、「HDMI High-Definition Multimedia Interface」、「HDMI トレードドレス」、および HDMI ロゴは、HDMI Licensing Administrator, Inc.
+「HDMI」、「HDMI High-Definition Multimedia Interface」、「HDMI トレードドレス」、および HDMI ロゴは、HDMI Licensing Administrator, Inc. の商標または登録商標である。
 
- の商標または登録商標である。
+# Safety Information
+
+Maintain a minimum separation distance of 20 cm between the device and the user during operation. The 5 GHz and 6GHz frequency band may be subject to operational restrictions depending on the country of use.
+
+**Bulgarian (BG):**
+
+Поддържайте минимално разстояние от 20 см между устройството и потребителя по време на работа. Честотните ленти 5 GHz и 6 GHz можете да подлежат на ограничения за експлоатация в зависимост от държавата, в която се използва устройството.
+
+**Croatian (HR):**
+
+Održavajte minimalnu udaljenost od 20 cm između uređaja i korisnika tijekom rada.
+Frekvencijski pojas od 5 GHz i 6 GHz može podlijegati ograničenjima ovisno o zemlji uporabe.
+
+**Czech (CS):**
+
+Udržujte minimální vzdálenost 20 cm mezi zařízením a uživatelem během provozu.
+Pásmo 5 GHz a 6 GHz může podléhat provozním omezením v závislosti na zemi použití.
+
+**Danish (DA):**
+
+Oprethold en minimumsafstand på 20 cm mellem enheden og brugeren under drift.
+5 GHz og 6 GHz-båndet kan være underlagt driftsmæssige begrænsninger afhængigt af brugslandet.
+
+**Dutch (NL):**
+
+Houd tijdens gebruik een minimale afstand van 20 cm tussen het apparaat en de gebruiker aan.
+De 5GHz en 6 GHz-band kan onderhevig zijn aan gebruiksbeperkingen afhankelijk van het land van gebruik.
+
+**Estonian (ET):**
+
+Hoidke seadme ja kasutaja vahel töötamise ajal vähemalt 20 cm kaugust.
+5 GHz ja 6 GHz sagedusribale võivad kehtida kasutuspiirangud sõltuvalt kasutusriigist.
+
+**Finnish (FI):**
+
+Pidä laitteen ja käyttäjän välillä vähintään 20 cm etäisyys käytön aikana.
+5 GHz:n ja 6 GHz:n taajuusalueilla voi olla käyttörajoituksia käyttömaasta riippuen.
+
+**French (FR):**
+
+Maintenez une distance minimale de 20 cm entre l’appareil et l’utilisateur pendant son fonctionnement.
+Les bandes de fréquences 5 GHz et 6 GHz peuvent être soumises à des restrictions d'utilisation selon le pays où tu t'en sers.
+
+**German (DE):**
+
+Halten Sie während des Betriebs einen Mindestabstand von 20 cm zwischen dem Gerät und dem Benutzer ein.
+Für die Frequenzen 5 GHz und 6 GHz können je nach Einsatzland Nutzungsbeschränkungen unterliegen.
+
+**Greek (EL):**
+
+Διατηρείτε ελάχιστη απόσταση 20 cm μεταξύ της συσκευής και του χρήστη κατά τη λειτουργία.
+Οι ζώνες συχνοτήτων των 5 GHz και 6 GHz ενδέχεται να υπόκεινται σε περιορισμούς λειτουργίας, ανάλογα με τη χώρα χρήσης.
+
+**Hungarian (HU):**
+
+A működés során tartson legalább 20 cm távolságot az eszköz és a felhasználó között.
+Az 5 GHz-es és 6 GHz-es frekvenciasáv használatára a országonként különböző üzemeltetési korlátozások vonatkozhatnak.
+
+**Irish (GA):**
+
+Coinnigh ar a laghad fad 20 cm idir an gléas agus an t‑úsáideoir le linn úsáide.
+D'fhéadfadh go mbeadh srianuimh oibríochtúla i bhfeidhm ar an mbanda minicíochta 5 GHz agus 6 GHz ag brath ar an tír ina n-úsáidtear é.
+
+**Italian (IT):**
+
+Mantenere una distanza minima di 20 cm tra il dispositivo e l’utente durante il funzionamento.
+Le bande di frequenza a 5 GHz e 6GHz possono essere soggette a restrizioni operative a seconda del paese.
+
+**Latvian (LV):**
+
+Uzturiet vismaz 20 cm attālumu starp ierīci un lietotāju darbības laikā.
+5 GHz un 6 GHz frekvenču joslā var tikt piemēroti ekspluatācijas ierobežojumi atkarībā no izmantošanas valsts.
+
+**Lithuanian (LT):**
+
+Naudojimo metu laikykite bent 20 cm atstumą tarp įrenginio ir naudotojo.
+5 GHz ir 6 GHz dažnių juostose gali būti taikomi naudojimo apribojimai, priklausomai nuo šalies, kurioje naudojamas įrenginys.
+
+**Maltese (MT):**
+
+Żomm distanza minima ta’ 20 cm bejn l-apparat u l-utent waqt l-użu.
+Il-medda tal-frekwenza 5 GHz u 6 GHz tista’ tkun soġġetta għal restrizzjonijiet skont il-pajjiż.
+
+**Polish (PL):**
+
+Podczas pracy zachowaj minimalną odległość 20 cm między urządzeniem a użytkownikiem.
+Pasma częstotliwości 5 GHz i 6 GHz mogą podlegać ograniczeniom eksploatacyjnym w zależności od kraju, w którym są używane.
+
+**Portuguese (PT):**
+
+Mantenha uma distância mínima de 20 cm entre o dispositivo e o utilizador durante o funcionamento.
+As bandas de frequência de 5 GHz e 6 GHz podem estar sujeitas a restrições de utilização dependendo do país.
+
+**Romanian (RO):**
+
+Mențineți o distanță minimă de 20 cm între dispozitiv și utilizator în timpul funcționării.
+Banda de frecvență de 5 GHz și 6 GHz poate face obiectul unor restricții în funcție de țara de utilizare.
+
+**Slovak (SK):**
+
+Počas prevádzky dodržiavajte minimálnu vzdialenosť 20 cm medzi zariadením a používateľom.
+Pásmo frekvencií 5 GHz a 6 GHz môže podliehať prevádzkovým obmedzeniam v závislosti od krajiny, v ktorej sa zariadenie používa.
+
+**Slovenian (SL):**
+
+Med delovanjem ohranjajte najmanj 20 cm razdalje med napravo in uporabnikom.
+Frekvenčni pasovi 5 GHz in 6 GHz so lahko predmet omejitev uporabe, odvisno od države uporabe.
+
+**Spanish (ES):**
+
+Mantenga una distancia mínima de 20 cm entre el dispositivo y el usuario durante su funcionamiento.
+Las bandas de frecuencia de 5 GHz y 6 GHz pueden estar sujetas a restricciones según el país de uso.
+
+**Swedish (SV):**
+
+Håll ett minsta avstånd på 20 cm mellan enheten och användaren under drift.
+5 GHz- och 6 GHz-frekvensbanden kan vara föremål för driftsbegränsningar beroende på användningsland.
+
+## ESD Warning
+
+This product is a development board that contains ESD-sensitive components. Appropriate anti-static precautions should be taken when handling the device. Avoid touching exposed connectors, pins, or circuitry. Where a heatsink is installed, handle the board by the heatsink to minimise the risk of electrostatic discharge damage. Improper handling or exposure to electrostatic discharge may result in permanent damage to the product.
+
+## Antenna Use and Compliance
+
+- This product is approved to operate with the built-in (internal) antenna only
+- The internal antenna is part of the certified module configuration and must be used for normal operation
+- RF connectors may be present for development or testing purposes only
+- Use of an external antenna is not part of the approved configuration
+- External antenna use requires additional regulatory assessment before use
+
+### Warning - External Antenna Use
+
+- Connecting an external antenna may result in non-compliance with regulatory requirements
+- This includes the module approval associated with FCC ID J9C-QCNFA725
+- Use of an external antenna may change RF output power
+- Use of an external antenna may change frequency behavior
+- Use of an external antenna may change radiation characteristics
+- These changes may cause the product to exceed allowed regulatory limits
+- Use of an external antenna may invalidate device approval
+- Use of an external antenna may void the authorization to operate the device
+- Unauthorized changes, including antenna modifications, may void regulatory approvals
+
+### Requirements for Integrators
+
+- End products must use the internal antenna to maintain regulatory compliance
+- If an external antenna is used, the integrator must perform a full regulatory assessment
+- If an external antenna is used, the integrator must obtain required certifications for the final product
+- Any antenna used must meet the approved gain, radiation pattern, and performance characteristics
+- Approved antenna characteristics are defined in the applicable regulatory documentation, including the Qualcomm module label guide
+
+### Operation in the 6 GHz Band
+
+- Operation in the 6 GHz band is only permitted with the approved internal antenna configuration
+- If an external antenna is used, 6 GHz operation must be disabled
+- If an external antenna is used, the product must not transmit in the 6 GHz band
+- Operation outside the approved configuration may violate regional regulations
+
+### Responsibility
+
+- The manufacturer or integrator is responsible for ensuring the final product complies with all applicable regulatory requirements
+- Changes to the antenna system or RF design may require additional testing and certification
+
+# Certifications
+
+## RED / UK
+
+| CE                     | Europe - EU Declaration of Conformity                        |
+| ---------------------- | ------------------------------------------------------------ |
+| Česky [Czech]          | Arduino S.r.l tímto prohlašuje, že tento Radiolan je ve shodě se základními požadavky a dalšími příslušnými ustanoveními směrnice 2014/53/EU. |
+| Dansk [Danish]         | Undertegnede Arduino S.r.l erklærer herved, at følgende udstyr Radiolan overholder de væsentlige krav og øvrige relevante krav i direktiv 2014/53/EU. |
+| Deutsch [German]       | Hiermit erklärt Arduino S.r.l dass sich das Gerät Radiolan in Übereinstimmung mit den grundlegenden Anforderungen und den übrigen einschlägigen Bestimmungen der Richtlinie 2014/53/EU befindet. |
+| Eesti [Estonian]       | Käesolevaga kinnitab Arduino S.r.l seadme Radiolan vastavust direktiivi 2014/53/EU põhinõuetele ja nimetatud direktiivist tulenevatele teistele asjakohastele sätetele. |
+| English                | Hereby, Arduino S.r.l, declares that this Radiolan is in compliance with the essential requirements and other relevant provisions of Directive 2014/53/EU. |
+| Español [Spanish]      | Por medio de la presente Arduino S.r.l declara que el Radiolan cumple con los requisitos esenciales y cualesquiera otras disposiciones aplicables o exigibles de la Directiva 2014/53/EU. |
+| Ελληνική [Greek]       | ΜΕ ΤΗΝ ΠΑΡΟΥΣΑ Arduino S.r.l ΔΗΛΩΝΕΙ ΟΤΙ Radiolan ΣΥΜΜΟΡΦΩΝΕΤΑΙ ΠΡΟΣ ΤΙΣ ΟΥΣΙΩΔΕΙΣ ΑΠΑΙΤΗΣΕΙΣ ΚΑΙ ΤΙΣ ΛΟΙΠΕΣ ΣΧΕΤΙΚΕΣ ΔΙΑΤΑΞΕΙΣ ΤΗΣ ΟΔΗΓΙΑΣ 2014/53/EU. |
+| Français [French]      | Par la présente Arduino S.r.l déclare que l'appareil Radiolan est conforme aux exigences essentielles et aux autres dispositions pertinentes de la directive 2014/53/EU. |
+| Íslenska [Icelandic]   | Hér með lýsir Arduino S.r.l yfir því að Radiolan er í samræmi við grunnkröfur og aðrar kröfur, sem gerðar eru í tilskipun 2014/53/EU. |
+| Italiano [Italian]     | Con la presente Arduino S.r.l dichiara che questo Radiolan è conforme ai requisiti essenziali ed alle altre disposizioni pertinenti stabilite dalla direttiva 2014/53/EU. |
+| Latviski [Latvian]     | Ar šo Arduino S.r.l deklarē, ka Radiolan atbilst Direktīvas 2014/53/EU būtiskajām prasībām un citiem ar to saistītajiem noteikumiem. |
+| Lietuvių [Lithuanian]  | Šiuo Arduino S.r.l deklaruoja, kad šis Radiolan atitinka esminius reikalavimus ir kitas 2014/53/EU Direktyvos nuostatas. |
+| Malti [Maltese]        | Hawnhekk, Arduino S.r.l, jiddikjara li dan Radiolan jikkonforma mal-ħtiġijiet essenzjali u ma provvedimenti oħrajn relevanti li hemm fid-Dirrettiva 2014/53/EU. |
+| Magyar [Hungarian]     | Alulírott, Arduino S.r.l nyilatkozom, hogy a Radiolan megfelel a vonatkozó alapvetõ követelményeknek és az 2014/53/EU irányelv egyéb elõírásainak. |
+| Nederlands [Dutch]     | Hierbij verklaart Arduino S.r.l dat het toestel Radiolan in overeenstemming is met de essentiële eisen en de andere relevante bepalingen van richtlijn 2014/53/EU. |
+| Norsk [Norwegian]      | Arduino S.r.l erklærer herved at utstyret Radiolan er i samsvar med de grunnleggende krav og øvrige relevante krav i direktiv 2014/53/EU. |
+| Polski [Polish]        | Niniejszym Arduino S.r.l oświadcza, że Radiolan jest zgodny z zasadniczymi wymogami oraz pozostałymi stosownymi postanowieniami Dyrektywy 2014/53/EU. |
+| Português [Portuguese] | Arduino S.r.l declara que este Radiolan está conforme com os requisitos essenciais e outras disposições da Directiva 2014/53/EU. |
+| Slovensko [Slovenian]  | Arduino S.r.l izjavlja, da je ta Radiolan v skladu z bistvenimi zahtevami in ostalimi relevantnimi določili direktive 2014/53/EU. |
+| Slovensky [Slovak]     | Arduino S.r.l týmto vyhlasuje, že Radiolan spĺňa základné požiadavky a všetky príslušné ustanovenia Smernice 2014/53/EU. |
+| Suomi [Finnish]        | Arduino S.r.l vakuuttaa täten että Radiolan tyyppinen laite on direktiivin 2014/53/EU oleellisten vaatimusten ja sitä koskevien direktiivin muiden ehtojen mukainen. |
+| Svenska [Swedish]      | Härmed intygar Arduino S.r.l att denna Radiolan står I överensstämmelse med de väsentliga egenskapskrav och övriga relevanta bestämmelser som framgår av direktiv 2014/53/EU. |
+| **UK**                 | **United Kingdom - UKCA Declaration of Conformity**          |
+| United Kingdom         | Hereby, Arduino S.r.l, declares that this Radiolan is in compliance with the essential requirements and other relevant provisions of The Radio Equipment Regulations 2017. |
+
+Requirements in:
+
+Belgium (BE), Bulgaria (BG), Czech Republic (CZ), Denmark (DK), Germany (DE), Iceland (IS), Estonia (EE), Ireland (IE), Greece (EL), Spain (ES), France (FR), Croatia (HR), Italy (IT), Cyprus (CY), Latvia (LV), Liechtenstein (LI), Lithuania (LT), Luxembourg (LU), Hungary (HU), Malta (MT), Netherlands (NL), Norway (NO), Austria (AT), Poland (PL), Portugal (PT), Romania (RO), Slovenia (SI), Slovakia (SK), Turkey (TR), Finland (FI), Sweden (SE), Switzerland (CH), United Kingdom (North Irland) (UK(NI)), and United Kingdom (UK).
+
+Operations in the 5.15-5.35GHz band are restricted to indoor usage only.
+
+For Low power indoor (LPI use): Operations in the 5955 - 6415MHz are restricted to indoor usage only.
+
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
+
+### Radio Equipment Information (RED Compliance)
+
+This radio equipment operates in the following frequency bands and with the maximum radio-frequency power indicated below:
+
+| **Radio Technology**      | **Frequency Band** | **Maximum Transmit Power** |
+| ------------------------- | ------------------ | -------------------------- |
+| Bluetooth® EDR            | 2400 - 2483.5 MHz  | 18.31 dBm                  |
+| Bluetooth® LE             | 2400 - 2483.5 MHz  | 9.97 dBm                   |
+| Wi-Fi® 2.4 GHz            | 2400 - 2483.5 MHz  | 19.91 dBm EIRP             |
+| Wi-Fi® 5 GHz              | 5150 - 5350 MHz    | 22.92 dBm EIRP             |
+| Wi-Fi® 5 GHz              | 5470 - 5725 MHz    | 22.97 dBm EIRP             |
+| Wi-Fi® 5 GHz              | 5725 - 5850 MHz    | 13.84 dBm EIRP             |
+| Wi-Fi® 6 GHz (LPI client) | 5945 - 6425 MHz    | 22.83 dBm EIRP             |
+| Wi-Fi® 6 GHz (VLP)        | 5945 - 6425 MHz    | 13.77 dBm EIRP             |
+
+In accordance with EU regulations (RED Directive 2014/53/EU), the use of the 5 GHz band may be subject to national restrictions.
+
+## UKCA Declaration of Conformity
+
+Arduino S.r.l. hereby declares that this product is in compliance with the essential requirements and other relevant provisions of the applicable UK regulations. A copy of the UK Declaration of Conformity is available at: <https://docs.arduino.cc/certifications>
+
+## FCC
+
+Contains FCC ID: J9C-QCNFA725
+
+**FCC Compliance Information**
+
+This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
+
+This product does not contain any user serviceable components. Any unauthorized product changes or modifications will invalidate warranty and all applicable regulatory certifications and approvals, including authority to operate this device.
+
+**FCC Part 15 Digital Emissions Compliance**
+
+We Arduino S.r.l. - Via Andrea Appiani 25, 20900 Monza (Italy), declare under our sole responsibility that the product Arduino® VENTUNO Q complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
+
+**WARNING:** This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates and radiates radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications.
+
+However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from the one the receiver is connected to.
+- Consult the dealer or an experienced radio/TV technician for help.
+
+The user may find the following booklet prepared by the Federal Communications Commission helpful:
+
+**The Interference Handbook**
+
+This booklet is available from the U.S. Government Printing Office, Washington, D.C. 20402. Stock No.004-000-00345-4.
+
+**Radiation Exposure Statement**
+
+1. This transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
+2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment. This equipment should be installed and operated, keeping the radiator at least 20cm or more away from the person's body.
+
+**FCC 6 GHz Statement**
+
+a. The operation of this device is prohibited on oil platforms and aircraft, except that operation of this device in 5.925-6.425 GHz is permitted in large aircraft while flying above 10,000 feet.
+
+b. Installation on outdoor fixed infrastructure is prohibited.
+
+c. Controlling or communications with unmanned aircraft systems, including drones, is prohibited.
+
+## ISED
+
+Contains IC: 2723A-QCNFA725
+
+*English:*
+
+This device complies with Canadian RSS-247.
+This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause interference, and (2) this device must accept any interference, including interference that may cause undesired operation of the device.
+
+*French:*
+
+Ce dispositif est conforme à la norme CNR-247 d'Industrie Canada applicable aux appareils radio exempts de licence. Son fonctionnement est sujet aux deux conditions suivantes: (1) le dispositif ne doit pas produire de brouillage préjudiciable, et (2) ce dispositif doit accepter tout brouillage reçu, y compris un brouillage susceptible de provoquer un fonctionnement indésirable.
+
+*English:*
+
+Caution:
+
+(i) the device for operation in the band 5150-5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems;
+
+(ii) Users should also be advised that high-power radars are allocated as primary users (i.e. priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that these radars could cause interference and/or damage to LE-LAN devices.
+
+*French:*
+
+Avertissement :
+
+Le guide d'utilisation des dispositifs pour réseaux locaux doit inclure des instructions précises sur les restrictions susmentionnées, notamment :
+
+(i) les dispositifs fonctionnant dans la bande 5 150-5 250 MHz sont réservés uniquement pour une utilisation à l'intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux ;
+
+(ii) Les radars à haute puissance sont désignés comme utilisateurs principaux (c'est-à-dire utilisateurs prioritaires) des bandes de fréquences 5250-5350 MHz et 5650-5850 MHz. Ces radars peuvent causer des interférences et/ou endommager les dispositifs LE-LAN.
+
+<div style="background-color: rgba(0, 170, 228, 0.2); border-left: 6px solid rgba(0, 120, 180, 1); margin: 20px 0; padding: 15px;">
+  <strong>Note:</strong> For 5GHz and/or when co-located with 5 GHz transmitters, the following statements should be provided in the user information.
+</div>
+
+
+**Radiation Exposure Statement**
+
+1. To comply with the Canadian RF exposure compliance requirements, this device and its antenna must not be co-located or operating in conjunction with any other antenna or transmitter.
+2. To comply with RSS 102 RF exposure compliance requirements, this equipment should be installed and operated, keeping the radiator at least 20cm or more away from the person's body.
+
+**Déclaration d'exposition aux rayonnements**
+
+1. Pour se conformer aux exigences de conformité RF canadienne l'exposition, cet appareil et son antenne ne doivent pas être co-localisés ou fonctionnant en conjonction avec une autre antenne ou transmetteur.
+2. Pour se conformer aux exigences de conformité CNR 102 RF exposition, cet équipement doit être installé et utilisé en maintenant le radiateur à au moins 20cm ou plus du corps de la personne.
+
+**6 GHz General statement**
+
+*English:*
+
+Devices shall not be used for control of or communications with unmanned aircraft systems. Devices shall not be used on oil platforms. Devices shall not be used on aircraft, except for the low-power indoor access points, indoor subordinate devices, low-power client devices, and very low-power devices operating in the 5925-6425 MHz band, that may be used on large aircraft as defined in the Canadian Aviation Regulations, while flying above 3,048 metres (10,000 feet).
+
+*French :*
+
+Les dispositifs ne doivent pas être utilisés pour commander des systèmes d'aéronef sans pilote ni pour communiquer avec de tels systèmes; Les dispositifs ne doivent pas être utilisés sur les plateformes de forage pétrolier; Les dispositifs ne doivent pas être utilisés dans les aéronefs, à l'exception des points d'accès intérieurs de faible puissance, des dispositifs subordonnés intérieurs, des dispositifs clients de faible puissance et des dispositifs de très faible puissance fonctionnant dans la bande de 5 925 à 6 425 MHz, qui peuvent être utilisés dans les gros aéronefs tel qu'il est défini dans le Règlement de l'aviation canadien, et ce, lorsqu'ils volent à une altitude supérieure à 3 048 mètres (10 000 pieds).
 
 # 会社情報
 
