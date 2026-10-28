@@ -182,11 +182,11 @@ An overview of the Nano XL Link high-level architecture is illustrated in Figure
  
 <div style="text-align:justify;">
 
-Figure 3 shows the power options available on the Nano XL Link and illustrates the main system power architecture.
+Figure 4 shows the power options available on the Nano XL Link and illustrates the main system power architecture.
 
-![Figure 3. Power architecture of the Nano XL Link](assets/Nano_XL_Link_Power_Tree.png)
+![Figure 4. Power architecture of the Nano XL Link](assets/Nano_XL_Link_Power_Tree.png)
 
-<p style="text-align: justify;">The Nano XL Link can be powered through the USB-C® connector (+5 VDC) or the VIN pin on the headers (+7 to +24 VDC). Both inputs feed the onboard step-down converter (MPQ4334), which generates the +3.3 VDC rail that supplies the microcontroller, the transceivers, the Ethernet PHY, the Qwiic connector, and the onboard LEDs. VBUS and VIN are protected by TVS diodes, and a load switch (MP5077) delays the VBUS signal to the microcontroller's VBUS pin to ensure correct power sequencing; this load switch is not user-controllable.</p>
+<p style="text-align: justify;">The Nano XL Link can be powered through the USB-C® connector (+5 VDC) or the VIN pin on the headers (+7 to +24 VDC). Both inputs feed the onboard step-down converter (MPQ4334), which generates the +3.3 VDC rail that supplies the microcontroller, the transceivers, the Ethernet PHY, the Qwiic connector, and the onboard LEDs. VBUS and VIN are protected by TVS diodes. A load switch (MP5077) delays the VBUS signal reaching the microcontroller's VBUS pin until the +3.3 VDC rail is stable; this hardware-defined delay is approximately 115 ms and is not user-configurable.</p>
 
 </div>
 
@@ -224,9 +224,9 @@ Figure 3 shows the power options available on the Nano XL Link and illustrates t
 
 ## Topology
  
-<p style="text-align: justify;">The Nano XL Link is designed to be used together with a carrier board that provides the physical connectors for its fieldbus interfaces. Figure 4 illustrates a typical system topology with the Nano XL Link Connector Carrier board.</p>
+<p style="text-align: justify;">The Nano XL Link is designed to be used together with a carrier board that provides the physical connectors for its fieldbus interfaces. Figure 5 illustrates a typical system topology with the Nano XL Link Connector Carrier board.</p>
 
-![Figure 4. The Nano XL Link ecosystem](assets/Nano_XL_Link_Topology.png)
+![Figure 5. The Nano XL Link ecosystem](assets/Nano_XL_Link_Topology.png)
 
 <div style="text-align:justify;">
  
@@ -277,23 +277,23 @@ Figure 3 shows the power options available on the Nano XL Link and illustrates t
 
 ### Board Dimensions
  
-The Nano XL Link board outline is shown in Figure 5; **all the dimensions are in mm**.
+The Nano XL Link board outline is shown in Figure 6; **all the dimensions are in mm**.
  
-![Figure 5. Nano XL Link board outline (top view left, side view right)](assets/Nano_XL_Link_Outline.png)
+![Figure 6. Nano XL Link board outline (top view left, side view right)](assets/Nano_XL_Link_Outline.png)
 
 ### Board Connectors
  
-The placement of the Nano XL Link connectors (USB-C and Qwiic) is shown in Figure 6; **all the dimensions are in mm**.
+The placement of the Nano XL Link connectors (USB-C and Qwiic) is shown in Figure 7; **all the dimensions are in mm**.
  
-![Figure 6. Nano XL Link connectors placement (top view left, bottom view right)](assets/Nano_XL_Link_Connectors.png)
+![Figure 7. Nano XL Link connectors placement (top view left, bottom view right)](assets/Nano_XL_Link_Connectors.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Board Peripherals and Actuators
  
-<p style="text-align: justify;">The Nano XL Link has three onboard LEDs (green power LED, yellow built-in LED, and RGB LED) and a reset push-button. The placement of the RGB LED and the reset push-button is shown in Figure 7; <strong>all the dimensions are in mm</strong>.</p>
+<p style="text-align: justify;">The Nano XL Link has three onboard LEDs (green power LED, yellow built-in LED, and RGB LED) and a reset push-button. The placement of the RGB LED and the reset push-button is shown in Figure 8; <strong>all the dimensions are in mm</strong>.</p>
 
-![Figure 7. Nano XL Link RGB and reset push-button placement (top view)](assets/Nano_XL_Link_Peripherals.png)
+![Figure 8. Nano XL Link RGB and reset push-button placement (top view)](assets/Nano_XL_Link_Peripherals.png)
 
 <div style="page-break-after: always;"></div>
 
