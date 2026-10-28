@@ -11,6 +11,10 @@ The IoT Remote app renders the same [Dashboards](/arduino-cloud/dashboards/dashb
 
 After [installing and logging in](/arduino-cloud/iot-remote-app/iot-remote-app-overview), your dashboards appear on the app's main screen. Tap one to open it. Widgets behave exactly as they do in the browser: interaction widgets send values to the device, and visualisation widgets display incoming data.
 
+## Switching Between Dashboard Pages
+
+If a dashboard is split into [multiple pages](/arduino-cloud/dashboards/dashboard-pages), use the **switch button at the bottom of the screen** to move between pages. In edit mode, you can also change a page's position, name, and icon from the app. Adding, duplicating, and deleting pages is only available in the web app.
+
 ## Rearranging Widgets
 
 The app keeps its own phone-friendly layout, which you can tailor without affecting the browser version:

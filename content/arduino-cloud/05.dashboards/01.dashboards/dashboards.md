@@ -26,6 +26,10 @@ A dashboard has two modes:
 
 Switch back out of edit mode when you're done to return to a stable, interactive view.
 
+## Organizing a Dashboard Into Pages
+
+A dashboard can be split into multiple pages, each with its own widgets, name, and icon. In edit mode, add pages from the left sidebar; in view mode, switch between them from the same sidebar. See [Dashboard Pages](/arduino-cloud/dashboards/dashboard-pages) for details.
+
 ## Arranging the Layout
 
 In edit mode, drag a widget by its body to reposition it and drag a corner to resize it. Widgets snap to a grid, so neighboring widgets stay aligned. Build the layout that reads best for your project — for example, grouping controls on one side and readouts on the other.
@@ -45,6 +49,7 @@ Open the breadcrumb dropdown next to the dashboard's name to:
 
 ## Next Steps
 
+- [Dashboard Pages](/arduino-cloud/dashboards/dashboard-pages)
 - [Add & Link Widgets](/arduino-cloud/dashboards/add-link-widgets)
 - [Share Dashboards](/arduino-cloud/dashboards/share-dashboards)
 - [Widget Catalog](/arduino-cloud/reference/widget-catalog)

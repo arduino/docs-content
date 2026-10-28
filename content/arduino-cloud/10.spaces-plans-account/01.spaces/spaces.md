@@ -1,6 +1,6 @@
 ---
 title: Spaces
-description: Personal and shared spaces in Arduino Cloud — what each is for, how to create and switch between them, and where to find space settings.
+description: Personal and shared spaces in Arduino Cloud — what each is for, how to create and switch between them, view space statistics, and find space settings.
 tags: [Arduino Cloud, Spaces, Account]
 author: Karl Söderby & Arduino Team
 ---
@@ -28,6 +28,28 @@ Additional shared spaces require purchasing an additional plan.
 
 If you own or belong to more than one space, switch between them from the account button in the top-left corner — all spaces you can access are listed there. With four or more spaces, a **Switch space** selector appears. The selector always shows which space you're currently working in.
 
+If you belong to more than one space, you can also open the [Spaces Overview](/arduino-cloud/spaces-plans-account/spaces-overview) to see statistics, plan usage, and devices across all of your spaces at once.
+
+## Space Statistics on the Home Page
+
+Every space's **Home** page includes a **Statistics** section, below **Recent Files**. It gives you an at-a-glance read of the space's status without having to open the Things, Devices, members, or Triggers pages one by one. Each widget shows an icon and a headline total, with a chart below that breaks the number down:
+
+| Widget | Headline Number | Breakdown | Time Range |
+|---|---|---|---|
+| **Total Things** | All Things in the space | **Active** vs. **Inactive** Things | — |
+| **Total Devices** | All devices in the space | **Online** vs. **Offline** devices | — |
+| **Total Members** | All members of the space | Members per role, for example **Students**, **Teachers**, **Editors**, and **Admins** | — |
+| **Total Ingested Records** | Data records received from the space's devices | Records over time | **30D**, **15D**, **7D**, **1D** |
+| **Total Trigger activations** | How many times the space's [Triggers](/arduino-cloud/automations/triggers-and-alerts) fired | Activations over time | **15D**, **7D**, **1D**, **1H** |
+
+The roles listed in **Total Members** depend on the role set configured for the space (see [Members & Roles](/arduino-cloud/spaces-plans-account/members-roles)).
+
+The time-based widgets each have their own **time-range selector** in the top-right corner to change the observation window. When there's nothing to show, a widget displays an empty state, such as "No data to display", or "No records ingested to display in this timeframe" for the selected window.
+
+![The Statistics section on a space's Home page.](assets/space-home-statistics.png)
+
+To see the same statistics summed across every space you belong to, use the [Spaces Overview](/arduino-cloud/spaces-plans-account/spaces-overview#statistics-across-all-spaces).
+
 ## Space Settings
 
 Open **Space Settings** from the sidebar to configure a shared space:
@@ -44,6 +66,7 @@ Open **Space Settings** from the sidebar to configure a shared space:
 
 ## Next Steps
 
+- [Spaces Overview](/arduino-cloud/spaces-plans-account/spaces-overview)
 - [Members & Roles](/arduino-cloud/spaces-plans-account/members-roles)
 - [Custom Branding](/arduino-cloud/spaces-plans-account/custom-branding)
 - [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas)
