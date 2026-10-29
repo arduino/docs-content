@@ -66,14 +66,81 @@ These hold multiple internal values, accessed through methods.
 |---|---|---|
 | CloudSchedule | `CloudSchedule variableName;` | Active state + start/end/length timestamps (`isActive()`, `getCloudValue()`). |
 | DimmedLight | `CloudDimmedLight variableName;` | Switch (`bool`) + brightness (`float` 0–100). |
-| ColoredLight | `CloudColoredLight variableName;` | Switch + hue/saturation/brightness + RGB. |
-| CloudColor | `CloudColor variableName;` | Hue/saturation/brightness, read via `getValue()`. |
+| ColoredLight | `CloudColoredLight variableName;` | Switch (`bool`) + hue/saturation/brightness (`float`). See [Color and Colored Light](#color-and-colored-light). |
+| CloudColor | `CloudColor variableName;` | Hue/saturation/brightness (`float`), read via `getValue()`. See [Color and Colored Light](#color-and-colored-light). |
 | CloudLocation | `CloudLocation variableName;` | Latitude/longitude, set with a `Location` object. |
 | Television | `CloudTelevision variableName;` | Switch, volume, mute, playback command, input, channel. |
 
 <Alert type="info">
 
-Complex types expose getters/setters rather than direct assignment — for example `cLight.getSwitch()` / `cLight.setSwitch()`, or `schedule.isActive()`. See [Cloud Variables](/arduino-cloud/things-data/cloud-variables) for usage examples.
+Complex types expose getters/setters rather than direct assignment — for example `cLight.getSwitch()` / `cLight.setSwitch()`, or `schedule.isActive()`.
+
+</Alert>
+
+## Color and Colored Light
+
+`CloudColor` and `CloudColoredLight` store colors in the **HSB** (hue, saturation, brightness) format only. They don't have RGB getters or setters of their own. To work with **RGB** values, use the `Color` class from the ArduinoIoTCloud library, which converts between the two formats.
+
+### CloudColor
+
+Declared as `CloudColor x;`. Read the current value with `Color colorValues = x.getValue();`.
+
+| Property | Type | Read Value | Set Value |
+|---|---|---|---|
+| Hue | `float` (0–360) | `colorValues.hue` | `x = Color(hue, saturation, brightness);` |
+| Saturation | `float` (0–100) | `colorValues.sat` | `x = Color(hue, saturation, brightness);` |
+| Brightness | `float` (0–100) | `colorValues.bri` | `x = Color(hue, saturation, brightness);` |
+
+### CloudColoredLight
+
+Declared as `CloudColoredLight x;`.
+
+| Property | Type | Read Value | Set Value |
+|---|---|---|---|
+| Switch | `bool` | `x.getSwitch()` | `x.setSwitch(value)` |
+| Hue | `float` (0–360) | `x.getHue()` | `x.setHue(value)` |
+| Saturation | `float` (0–100) | `x.getSaturation()` | `x.setSaturation(value)` |
+| Brightness | `float` (0–100) | `x.getBrightness()` | `x.setBrightness(value)` |
+
+### Working With RGB Values
+
+The `Color` class has two methods for RGB values, each using `uint8_t` channels (0–255):
+
+| Method | What It Does |
+|---|---|
+| `getRGB(r, g, b)` | Converts the stored HSB value to RGB and writes it to `r`, `g`, and `b` |
+| `setColorRGB(r, g, b)` | Converts an RGB value to HSB and stores it |
+
+To **read** RGB values, call `getRGB()` on the value returned by `getValue()`. This works for both types:
+
+```arduino
+uint8_t r, g, b;
+x.getValue().getRGB(r, g, b);
+```
+
+For a `CloudColoredLight`, `getRGB()` only converts the color. Check `x.getSwitch()` separately to know whether the light is on.
+
+To **set** RGB values, convert them with a `Color` object first, then assign the result:
+
+```arduino
+// CloudColor
+Color rgbColor(0, 0, 0);
+rgbColor.setColorRGB(255, 128, 0);
+x = rgbColor;
+```
+
+```arduino
+// CloudColoredLight
+Color rgbColor(0, 0, 0);
+rgbColor.setColorRGB(255, 128, 0);
+x.setHue(rgbColor.hue);
+x.setSaturation(rgbColor.sat);
+x.setBrightness(rgbColor.bri);
+```
+
+<Alert type="note">
+
+`x.getRGB()`, `x.setRGB()`, and `x.set(r, g, b)` don't exist on `CloudColor` or `CloudColoredLight`. Always go through `getValue()` or a `Color` object as shown above.
 
 </Alert>
 
