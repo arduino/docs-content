@@ -56,13 +56,13 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 ### Inputs
 
 | Characteristics                 | Details                                               |
-| ------------------------------- | ----------------------------------------------------- |
+|---------------------------------|-------------------------------------------------------|
 | Number of channels              | 8x                                                    |
 | Channels programmable as inputs | I1, I2, I3, I4, O1, I5, I6, O2                        |
 | Type of inputs accepted         | Digital Voltage and Analog (Voltage, Current and RTD) |
 | Inputs overvoltage protection   | Yes                                                   |
 | Antipolarity protection         | No                                                    |
-| Analog Input resolution         | 16 bit                                               |
+| Analog Input resolution         | 16 bit                                                |
 | Noise Rejection                 | Optional noise rejection between 50 Hz and 60 Hz      |
 
 
@@ -240,6 +240,10 @@ The expansion port can be used to daisy-chain several Opta® Expansions and addi
 
 It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
 
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<strong>Note:</strong> The Arduino Opta® Analog Expansion is designed and tested with Arduino Opta® controllers and other Arduino Opta® expansion modules. Compatibility with non-Arduino controllers or expansion modules, including similar-looking modules from other manufacturers, is not ensured.
+</div>
+
 If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
 
 ## Device Operation
@@ -349,6 +353,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 | 05/07/2024 |      2       |        Block Diagram updated         |
 | 03/09/2024 |      3       | Cloud Editor updated from Web Editor |
 | 24/09/2024 |      4       |        Expansion port updates        |
-| 20/10/2026 |       5      | Added note for Intended Use |
+| 20/10/2026 |      5       |     Added note for Intended Use      |
+| 29/10/2026 |      6       |  Expansion port compatibility note   |
 
 
