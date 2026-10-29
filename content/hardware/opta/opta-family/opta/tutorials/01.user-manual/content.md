@@ -1910,10 +1910,13 @@ To learn more about Opta™ and the Arduino IoT Cloud, check out the following r
 | Antipolarity protection             | Yes                                                                                                   |
 | Overvoltage protection              | Yes (+20%)                                                                                            |
 | Maximum Supported Expansion Modules | Up to 5                                                                                               |
+| Compatibility                       | Designed and tested with Arduino Opta® expansion modules                                              |
 | Inputs                              | 16x Digital (0-24 V) / Analog (0-10 V or 0-24 V) inputs                                               |
 | Outputs                             | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 3 A) |
 | Degree of Protection                | IP20                                                                                                  |
 | Certifications                      | FCC, CE, UKCA                                                                                         |
+
+***Opta™ is designed and tested with Arduino Opta™ expansion modules. Compatibility with non-Arduino expansion modules, including similar-looking modules from other manufacturers, is not ensured. A non-Arduino expansion module may not be detected by the Opta™ controller or may not work as expected.***
 
 ### Snapping the Expansion
 
