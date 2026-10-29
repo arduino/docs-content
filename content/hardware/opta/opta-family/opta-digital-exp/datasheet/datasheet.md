@@ -201,6 +201,8 @@ The expansion port can be used to daisy-chain several Opta® Expansions and addi
 
 It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
 
+***The Arduino Opta® Digital Expansions are designed and tested with Arduino Opta® controllers and other Arduino Opta® expansion modules. Compatibility with non-Arduino controllers or expansion modules, including similar looking modules from other manufacturers, is not ensured.***
+
 If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
 
 ## Device Operation
@@ -311,5 +313,6 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 | 24/09/2024 | 3            | SSR operating current update         |
 | 24/09/2024 | 4            | Expansion port updates               |
 | 02/12/2024 | 5            | Digital input specification update   |
-| 20/10/2026 |       6      | Added note for Intended Use |
+| 20/10/2026 | 6            | Added note for Intended Use          |
+| 29/10/2026 | 7            | Expansion port compatibility note    |
 
