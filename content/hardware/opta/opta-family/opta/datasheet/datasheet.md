@@ -542,6 +542,8 @@ The relays on Arduino Opta® provide a very fast response time of 6/4 ms to chan
 ### Expansion Port
 The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
 
+>📝 **Note:** Arduino Opta® is designed and tested with Arduino Opta® expansion modules. Compatibility with non-Arduino expansion modules, including similar-looking modules from other manufacturers, is not ensured.
+
 If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
 
 ### Programmable User Button
@@ -826,4 +828,5 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 | 11/09/2024 |      7       |      ICES certification updates      |
 | 24/09/2024 |      8       |        Expansion port updates        |
 | 02/12/2024 |      9       |  Digital input specification update  |
-| 20/10/2026 |      10      | Added note for Intended Use |
+| 20/10/2026 |      10      |     Added note for Intended Use      |
+| 29/10/2026 |      11      |  Expansion port compatibility note   |
