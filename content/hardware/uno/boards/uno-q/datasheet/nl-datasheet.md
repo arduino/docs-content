@@ -20,6 +20,12 @@ type: maker
 
 Prototyping, Edge AI & ML, Machine Vision, Onderwijs, Slimme apparaten, Robotica, Huis- en gebouwautomatisering, Gaming
 
+**Bedoeld gebruik van het product**
+
+Arduino-hardwareproducten zijn in de eerste plaats bedoeld voor ontwikkeling en prototyping, maar kunnen ook worden gebruikt in productieomgevingen. Ontwikkelaars moeten in een vroeg stadium beveiligingsmaatregelen ontwerpen en controleren, op basis van de beoogde implementatieomgeving. Beveiliging is een gedeelde verantwoordelijkheid van Arduino en de ontwikkelaar van de oplossing, die de beschikbare beveiligingsfuncties van de hardware moet beoordelen en de nodige beveiligingsmaatregelen moet toevoegen.
+
+Ga naar [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) voor het volledige document ‘Arduino-hardwareproducten: beoogd gebruik en beveiligingsmodel’.
+
 <div style="page-break-after: always;"></div>
 
 # INHOUD
@@ -1039,6 +1045,7 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 |  **Date**  | **Revision** | **Changes**                                                  |
 | :--------: | :----------: | ------------------------------------------------------------ |
+| 30/10/2026 |      16      | Added note about intended use                                |
 | 26/08/2026 |      15      | Update 5 V power pin (5V_SYS) input option on JANALOG, JMISC, JSPI |
 | 26/06/2026 |      14      | Add German language                                          |
 | 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)              |

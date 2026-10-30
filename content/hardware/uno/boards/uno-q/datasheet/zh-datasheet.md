@@ -21,6 +21,12 @@ type: maker
 
 原型设计、边缘人工智能与机器学习、机器视觉、教育、智能设备、机器人技术、家庭与建筑自动化、游戏
 
+**产品预期用途**
+
+Arduino 硬件产品主要用于开发和原型制作，但也可能支持生产解决方案。开发人员必须根据预期部署环境，尽早设计并验证安全控制措施。安全是 Arduino 与解决方案构建者共同承担的责任，解决方案构建者必须评估硬件提供的安全功能，并添加任何必要的保护措施。
+
+请访问 [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/)，查看完整的《Arduino 硬件产品：预期用途与安全模型》。
+
 <div style="page-break-after: always;"></div>
 
 # 目录
@@ -1051,6 +1057,7 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 |  **Date**  | **Revision** | **Changes**                                                  |
 | :--------: | :----------: | ------------------------------------------------------------ |
+| 30/10/2026 |      16      | Added note about intended use                                |
 | 26/08/2026 |      15      | Update 5 V power pin (5V_SYS) input option on JANALOG, JMISC, JSPI |
 | 26/06/2026 |      14      | Add German language                                          |
 | 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)              |

@@ -20,6 +20,12 @@ VENTUNO Q 助您保持连接并随时准备部署。它集成了 Wi-Fi® 6（三
 
 边缘AI、本地LLM/VLM、智能家居、机器人、运动控制、智慧城市、工业视觉、教育与研究
 
+**产品预期用途**
+
+Arduino 硬件产品主要用于开发和原型制作，但也可能支持生产解决方案。开发人员必须根据预期部署环境，尽早设计并验证安全控制措施。安全是 Arduino 与解决方案构建者共同承担的责任，解决方案构建者必须评估硬件提供的安全功能，并添加任何必要的保护措施。
+
+请访问 [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/)，查看完整的《Arduino 硬件产品：预期用途与安全模型》。
+
 <div style="page-break-after: always;"></div>
 
 # 目录
@@ -1253,6 +1259,9 @@ For Low power indoor (LPI use): Operations in the 5955 - 6415MHz are restricted 
 
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
+>[!NOTE]
+>A copy of the CE and UKCA Declaration of Conformity is available at: [https://docs.arduino.cc/certifications](https://docs.arduino.cc/certifications)
+
 ### Radio Equipment Information (RED Compliance)
 
 This radio equipment operates in the following frequency bands and with the maximum radio-frequency power indicated below:
@@ -1390,6 +1399,7 @@ Les dispositifs ne doivent pas être utilisés pour commander des systèmes d'a�
 |  3  | Project Hub       | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                           |
 |  4  | Library Reference | [https://docs.arduino.cc/libraries/](https://docs.arduino.cc/libraries/)                   |
 |  5  | Arduino Store     | [https://store.arduino.cc/](https://store.arduino.cc/)                                     |
+|  6  | Compliance Documents    | [https://docs.arduino.cc/certifications/](https://docs.arduino.cc/certifications/)         |
 
 # 文档修订历史
 
@@ -1399,3 +1409,4 @@ Les dispositifs ne doivent pas être utilisés pour commander des systèmes d'a�
 | 28/08/2026 |      2       | Updated Certifications |
 | 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
 | 29/09/2026 |      4       | Updating values for inputs |
+| 30/10/2026 |       5      | Added link to Compliance Page, and a note about Intended Use |
