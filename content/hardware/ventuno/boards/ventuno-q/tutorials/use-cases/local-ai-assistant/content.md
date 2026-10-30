@@ -103,18 +103,17 @@ Once downloaded, import it to the Arduino App Lab as follows:
 
 If importing through the Arduino App Lab fails, you can do it manually by following the steps below:
 
-1. Unzip the app on your host computer.
-2. Copy the App folder to the `~/ArduinoApps` directory in your VENTUNO Q with (using the _command prompt_ or _powershell_):
+1. Open a terminal by clicking the terminal icon (`>_`) in the bottom-left corner of the window.
+2. Run the following commands to download, unzip, copy the files to the `ArduinoApps` folder, and clean up:
 
-```bash
-scp -r .\Keyword-ASR-Local-LLM-Kokoro-TTS\ arduino@<board name>:~/ArduinoApps
-```
+   ```bash
+   cd ~
+   wget https://github.com/mcmchris/keyword-asr-local-llm-kokoro-tts/releases/latest/download/Keyword-ASR-Local-LLM-Kokoro-TTS.zip
+   unzip Keyword-ASR-Local-LLM-Kokoro-TTS.zip -d ArduinoApps
+   rm Keyword-ASR-Local-LLM-Kokoro-TTS.zip
+   ```
 
-<Alert type="note">
-
-Make sure to run the command from the directory where you unzipped the App and replace `<board name>` with the name you gave to your VENTUNO Q.
-
-</Alert>
+3. Close the terminal and return to the Arduino App Lab.
 
 After the command finishes successfully, open the "Apps" view in Arduino App Lab. Open the "Keyword-ASR-Local-LLM-Kokoro-TTS" App you see there.
 
