@@ -1916,7 +1916,7 @@ To learn more about Opta™ and the Arduino IoT Cloud, check out the following r
 | Degree of Protection                | IP20                                                                                                  |
 | Certifications                      | FCC, CE, UKCA                                                                                         |
 
-***Opta™ is designed and tested with Arduino Opta™ expansion modules. Compatibility with non-Arduino expansion modules, including similar-looking modules from other manufacturers, is not ensured. A non-Arduino expansion module may not be detected by the Opta™ controller or may not work as expected.***
+***Opta™ is designed and tested with Arduino Opta™ expansion modules. Compatibility with non-Arduino expansion modules, including similar-looking modules from other manufacturers, is not ensured. The Opta™ controller may not detect a non-Arduino expansion module, or it may not work as expected.***
 
 ### Snapping the Expansion
 
