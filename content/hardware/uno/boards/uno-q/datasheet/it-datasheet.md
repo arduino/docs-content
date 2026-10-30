@@ -1055,6 +1055,7 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 |  **Date**  | **Revision** | **Changes**                                                  |
 | :--------: | :----------: | ------------------------------------------------------------ |
+| 30/10/2026 |      16      | Added note about intended use                                |
 | 26/08/2026 |      15      | Update 5 V power pin (5V_SYS) input option on JANALOG, JMISC, JSPI |
 | 26/06/2026 |      14      | Add German language                                          |
 | 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)              |
