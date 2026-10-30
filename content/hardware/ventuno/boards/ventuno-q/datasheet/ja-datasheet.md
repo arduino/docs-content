@@ -1265,6 +1265,9 @@ For Low power indoor (LPI use): Operations in the 5955 - 6415MHz are restricted 
 
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
+>[!NOTE]
+>A copy of the CE and UKCA Declaration of Conformity is available at: [https://docs.arduino.cc/certifications](https://docs.arduino.cc/certifications)
+
 ### Radio Equipment Information (RED Compliance)
 
 This radio equipment operates in the following frequency bands and with the maximum radio-frequency power indicated below:
