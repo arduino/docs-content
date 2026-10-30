@@ -1405,4 +1405,4 @@ The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and 
 | 28/08/2026 |      2       | Updated Certifications |
 | 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
 | 29/09/2026 |      4       | Updating values for inputs |
-| 28/10/2026 |       5      | Added link to Compliance Page |
+| 30/10/2026 |       5      | Added link to Compliance Page, and a note about Intended Use |
