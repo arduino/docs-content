@@ -7,8 +7,17 @@ import urllib.parse
 import fnmatch
 import string
 
-# Regex for Markdown links: [text](link "title")
-LINK_REGEX = re.compile(r'(\[(?P<text>[^\]]*)\])\((?P<link>[^"\'\)]+)(?P<title>\s+["\'][^"\']*["\'])?\)')
+# Regex for Markdown links: [text](link "title"). The destination follows CommonMark
+# (https://spec.commonmark.org/0.31.2/#link-destination): either <anything but angle brackets>, or text with
+# balanced parentheses (one level: `img_(1).jpg`, `Servo_(radio_control)`).
+LINK_REGEX = re.compile(r'(\[(?P<text>[^\]]*)\])\(\s*(?P<link><[^<>\n]*>|[^"\'()\s]*(?:\([^"\'()\s]*\)[^"\'()\s]*)*)(?P<title>\s+["\'][^"\']*["\'])?\s*\)')
+# What used to count as a link: anything like [text](...) the strict pattern rejects is reported as an improper format,
+# since a reader sees it as plain text, not as a link.
+LOOSE_LINK_REGEX = re.compile(r'(\[(?P<text>[^\]]*)\])\((?P<link>[^"\'\)]+)(?P<title>\s+["\'][^"\']*["\'])?\)')
+# Inline code spans (one line), blanked like fenced code.
+CODE_SPAN_REGEX = re.compile(r'(`+)(?!`).+?(?<!`)\1(?!`)')
+# Fenced code blocks: CommonMark has no links in code, so links are only looked for outside them.
+FENCE_REGEX = re.compile(r'^ {0,3}(`{3,}|~{3,}).*?^ {0,3}\1[`~]*[ \t]*$', re.S | re.M)
 
 # Regex for Markdown headings: # Heading
 HEADING_REGEX = re.compile(r'^#{1,6}\s+(.+)$', re.MULTILINE)
@@ -223,10 +232,21 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache, 
     source_url = map_file_to_url(file_path, content_dir)
     scope = scope if scope is not None else {}
     count = lambda k: scope.__setitem__(k, scope.get(k, 0) + 1)
+    # blank out fenced code (same length, so nothing else moves)
+    content = FENCE_REGEX.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), content)
+    content = CODE_SPAN_REGEX.sub(lambda m: ' ' * len(m.group(0)), content)
     
     issues = []
+    strict = {m.start() for m in LINK_REGEX.finditer(content)}
+    for m in LOOSE_LINK_REGEX.finditer(content):
+        if m.start() not in strict and not m.group('text').startswith('^'):
+            issues.append(f"Improper format: '{m.group(0)}' isn't a valid Markdown link (CommonMark reads it as text)")
     for match in LINK_REGEX.finditer(content):
         raw_link = match.group('link').strip()
+        if raw_link.startswith('<') and raw_link.endswith('>'):
+            raw_link = raw_link[1:-1].strip()
+        if not raw_link:
+            continue
         
         # an absolute link to the docs site: with --absolute, checked as the root-relative path it names
         docs_url = urllib.parse.urlparse(raw_link)

@@ -53,7 +53,7 @@ python3 scripts/validation/relative_links/relative_links.py fix content/software
 3. It verifies that the resolved target URL exists in the global route map.
    Symlinked folders are followed: a tutorial shared between products (for example `hardware/.../nano-33-ble/tutorials/getting-started-omv`, a symlink to the generic Nano one) is published under each product's URL, so each of those URLs is a valid route.
 4. Links into sections other systems serve (listed in `external-sections.txt`: the library and language references, `/resources`, `/certifications`) aren't checked; they're counted in the scope line.
-5. Leading and trailing spaces inside the link's parentheses are ignored, as CommonMark does (`[text]( https://example.com )`).
+5. Links are read as CommonMark reads them (https://spec.commonmark.org/0.31.2/#link-destination): spaces around the destination are ignored (`[text]( https://example.com )`), an angle-bracket destination is one link (`[text](<https://en.wikipedia.org/wiki/Servo_(radio_control)>)`), balanced parentheses belong to the path (`assets/wiring%20(1).jpg`), and there are no links in fenced code blocks or inline code. Something that looks like a link but isn't one (`[text]((https://...)`) is reported as an improper format: readers see it as plain text.
 6. If an anchor (`#heading-slug`) is present, it parses the target file for Markdown headings and HTML ID tags, caches them, and verifies that the anchor slug exists.
 
 ## Ignore Configuration
