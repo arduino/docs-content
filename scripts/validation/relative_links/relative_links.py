@@ -16,6 +16,13 @@ HEADING_REGEX = re.compile(r'^#{1,6}\s+(.+)$', re.MULTILINE)
 # Regex for HTML ids and names: id="anchor" or name="anchor"
 HTML_ID_REGEX = re.compile(r'(?:id|name)=["\']([^"\']+)["\']')
 
+# docs.arduino.cc itself: with --absolute, links to it are checked like root-relative links (offline, never fetched)
+DOCS_HOSTS = ('docs.arduino.cc',)
+
+# Site sections served by other systems (one path prefix per line, '#' comments): no Markdown here maps to them, so
+# links into them aren't checked, only counted.
+EXTERNAL_SECTIONS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'external-sections.txt')
+
 IMAGE_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
 ASSET_EXTENSIONS = IMAGE_EXTENSIONS + ('.pdf', '.zip', '.stl', '.sh', '.eim', '.bin', '.gz', '.tar', '.ino', '.py', '.tflite', '.npy')
 
@@ -206,15 +213,44 @@ def find_content_dir(path):
         test_dir = parent
     return None
 
-def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
+def validate_file(file_path, valid_production_paths, content_dir, anchor_cache, scope=None, absolute=False, sections=()):
+    """Issues for one file. `scope` (a dict) counts every link by what was done with it: relative and absolute links
+    to the docs that were checked, absolute ones left unchecked (no --absolute), links to other hosts (never fetched),
+    links into sections other systems serve, and assets."""
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
     
     source_url = map_file_to_url(file_path, content_dir)
+    scope = scope if scope is not None else {}
+    count = lambda k: scope.__setitem__(k, scope.get(k, 0) + 1)
     
     issues = []
     for match in LINK_REGEX.finditer(content):
-        raw_link = match.group('link')
+        raw_link = match.group('link').strip()
+        
+        # an absolute link to the docs site: with --absolute, checked as the root-relative path it names
+        docs_url = urllib.parse.urlparse(raw_link)
+        if docs_url.scheme in ('http', 'https') and docs_url.netloc in DOCS_HOSTS:
+            if not absolute:
+                count('absolute docs links (not checked; --absolute checks them)')
+                continue
+            path = docs_url.path or '/'
+            if path.lower().endswith(ASSET_EXTENSIONS):
+                count('assets')
+                continue
+            if is_external_section(path, sections):
+                count('served by another system (not checked)')
+                continue
+            count('absolute docs links checked')
+            target = path.rstrip('/') or '/'
+            files = next((v for u, v in valid_production_paths.items() if u.rstrip('/') == target), None)
+            if not files:
+                issues.append(f"Broken link: '{raw_link}' resolves to '{path}' which does not map to any markdown file.")
+            elif docs_url.fragment:
+                anchor = urllib.parse.unquote(docs_url.fragment)
+                if not any(anchor in anchor_cache.setdefault(f, extract_anchors(f)) for f in files):
+                    issues.append(f"Broken anchor: '#{anchor}' does not exist in {os.path.relpath(files[0], content_dir)}")
+            continue
         
         fixed_link = process_link(raw_link)
         if raw_link != fixed_link:
@@ -228,8 +264,10 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
         
         # Skip external links and assets
         if parsed_link.scheme in ('http', 'https', 'mailto', 'data') or fixed_link.startswith('//'):
+            count('other hosts (never fetched)' if parsed_link.scheme in ('http', 'https') or fixed_link.startswith('//') else 'mailto and data links')
             continue
         if clean_link.lower().endswith(ASSET_EXTENSIONS):
+            count('assets')
             continue
             
         # Determine the resolved base URL
@@ -241,6 +279,11 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
                 if not resolved_url.endswith('/'):
                     resolved_url += '/'
         
+        if is_external_section(resolved_url, sections):
+            count('served by another system (not checked)')
+            continue
+        count('relative links checked')
+
         # Validate base URL
         resolved_url_no_slash = resolved_url.rstrip('/')
         target_file_paths = []
@@ -278,14 +321,30 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache):
             
     return issues
 
+def load_external_sections(path=EXTERNAL_SECTIONS_FILE):
+    """Path prefixes (no trailing slash) of site sections other systems serve."""
+    if not os.path.exists(path):
+        return ()
+    with open(path, 'r', encoding='utf-8') as f:
+        return tuple(l.split('#')[0].strip().rstrip('/') for l in f if l.split('#')[0].strip())
+
+def is_external_section(url, sections):
+    u = url.split('#')[0].split('?')[0].rstrip('/')
+    return any(u == s or u.startswith(s + '/') for s in sections)
+
 def build_route_map(content_dir):
     """
     Crawls content_dir to build a mapping of production URLs to lists of file paths.
     All Markdown files (including those in ignored folders) are indexed so active
-    pages can link to them.
+    pages can link to them. Symlinked folders are followed: a tutorial shared between
+    products (e.g. hardware/.../nano-33-ble/tutorials/getting-started-omv -> the Nano
+    generic one) is published under each product's URL.
     """
     valid_production_paths = {}
-    for root, _, files in os.walk(content_dir):
+    for root, dirs, files in os.walk(content_dir, followlinks=True):
+        real = os.path.realpath(root)
+        # never follow a symlink back into a folder we're already inside (a loop)
+        dirs[:] = [d for d in dirs if not (real + os.sep).startswith(os.path.realpath(os.path.join(root, d)) + os.sep)]
         for file in files:
             if file.endswith('.md'):
                 f_path = os.path.join(root, file)
@@ -304,6 +363,8 @@ def main(argv=None):
     
     validate_parser = subparsers.add_parser("validate")
     validate_parser.add_argument("path", help="Path to a file or directory")
+    validate_parser.add_argument("--absolute", action="store_true",
+                                 help="Also check absolute links to docs.arduino.cc, against the same route map (offline)")
     
     args = parser.parse_args(argv)
     
@@ -346,10 +407,13 @@ def main(argv=None):
                         
         anchor_cache = {}
         all_issues = {}
+        scope = {}
+        sections = load_external_sections()
         for file_path in files_to_process:
-            issues = validate_file(file_path, valid_production_paths, content_dir, anchor_cache)
+            issues = validate_file(file_path, valid_production_paths, content_dir, anchor_cache, scope, args.absolute, sections)
             if issues:
                 all_issues[file_path] = issues
+        print("Scope: " + "; ".join(f"{k}: {v}" for k, v in sorted(scope.items())))
         
         if all_issues:
             print("Validation failed. The following files contain non-compliant or broken links:")

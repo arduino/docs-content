@@ -1,0 +1,7 @@
+# Site sections other systems serve under docs.arduino.cc: no Markdown in this repo maps to them, so the link
+# validator doesn't check links into them (it counts them). One path prefix per line.
+/libraries            # the library reference, generated from the libraries' own repos
+/language-reference   # the language reference (arduino/reference-en)
+/software/ide         # the IDE landing page
+/certifications       # product certifications
+/resources            # downloadable files (pinouts, schematics, firmware, 3D models)

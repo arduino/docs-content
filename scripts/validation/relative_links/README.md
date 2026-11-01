@@ -28,6 +28,16 @@ Or validate a specific subdirectory or file:
 python3 scripts/validation/relative_links/relative_links.py validate content/software/app-lab
 ```
 
+### Also Check Absolute Links to the Docs
+
+Absolute links to `https://docs.arduino.cc/...` are skipped by default. With `--absolute`, they're checked like root-relative links, against the same route map (offline: nothing is fetched):
+
+```bash
+python3 scripts/validation/relative_links/relative_links.py validate content --absolute
+```
+
+Every run ends with a `Scope:` line that counts each link by what was done with it: relative and absolute docs links checked, absolute docs links not checked (no `--absolute`), links to other hosts (never fetched), links into sections other systems serve, and assets.
+
 ### Auto-Fix Improper Links
 
 Autocorrect improperly formatted links (such as removing trailing `.md` extensions or fixing path formats):
@@ -41,7 +51,10 @@ python3 scripts/validation/relative_links/relative_links.py fix content/software
 1. The script crawls the `content` directory to build a route map of valid production URLs to their respective source file paths (including unmigrated or ignored folders).
 2. It resolves any relative link inside a Markdown file against that file's mapped production URL.
 3. It verifies that the resolved target URL exists in the global route map.
-4. If an anchor (`#heading-slug`) is present, it parses the target file for Markdown headings and HTML ID tags, caches them, and verifies that the anchor slug exists.
+   Symlinked folders are followed: a tutorial shared between products (for example `hardware/.../nano-33-ble/tutorials/getting-started-omv`, a symlink to the generic Nano one) is published under each product's URL, so each of those URLs is a valid route.
+4. Links into sections other systems serve (listed in `external-sections.txt`: the library and language references, `/resources`, `/certifications`) aren't checked; they're counted in the scope line.
+5. Leading and trailing spaces inside the link's parentheses are ignored, as CommonMark does (`[text]( https://example.com )`).
+6. If an anchor (`#heading-slug`) is present, it parses the target file for Markdown headings and HTML ID tags, caches them, and verifies that the anchor slug exists.
 
 ## Ignore Configuration
 
