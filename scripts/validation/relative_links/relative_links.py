@@ -222,7 +222,7 @@ def find_content_dir(path):
         test_dir = parent
     return None
 
-def validate_file(file_path, valid_production_paths, content_dir, anchor_cache, scope=None, absolute=False, sections=()):
+def validate_file(file_path, valid_production_paths, content_dir, anchor_cache, scope=None, absolute=False, sections=(), resources=frozenset()):
     """Issues for one file. `scope` (a dict) counts every link by what was done with it: relative and absolute links
     to the docs that were checked, absolute ones left unchecked (no --absolute), links to other hosts (never fetched),
     links into sections other systems serve, and assets."""
@@ -254,7 +254,12 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache, 
             if not absolute:
                 count('absolute docs links (not checked; --absolute checks them)')
                 continue
-            path = docs_url.path or '/'
+            path = urllib.parse.unquote(docs_url.path or '/')
+            if path.startswith('/resources/'):
+                problem = check_resource(path, resources, sections, count)
+                if problem:
+                    issues.append(f"Broken link: '{raw_link}' {problem}")
+                continue
             if path.lower().endswith(ASSET_EXTENSIONS):
                 count('assets')
                 continue
@@ -285,6 +290,11 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache, 
         # Skip external links and assets
         if parsed_link.scheme in ('http', 'https', 'mailto', 'data') or fixed_link.startswith('//'):
             count('other hosts (never fetched)' if parsed_link.scheme in ('http', 'https') or fixed_link.startswith('//') else 'mailto and data links')
+            continue
+        if clean_link.startswith('/resources/'):   # root-relative: the site's downloadable files
+            problem = check_resource(clean_link, resources, sections, count)
+            if problem:
+                issues.append(f"Broken link: '{raw_link}' {problem}")
             continue
         if clean_link.lower().endswith(ASSET_EXTENSIONS):
             count('assets')
@@ -342,15 +352,68 @@ def validate_file(file_path, valid_production_paths, content_dir, anchor_cache, 
     return issues
 
 def load_external_sections(path=EXTERNAL_SECTIONS_FILE):
-    """Path prefixes (no trailing slash) of site sections other systems serve."""
+    """Site sections and pages other systems serve: path prefixes, or one page with a trailing $."""
     if not os.path.exists(path):
         return ()
     with open(path, 'r', encoding='utf-8') as f:
-        return tuple(l.split('#')[0].strip().rstrip('/') for l in f if l.split('#')[0].strip())
+        return tuple(l.split('#')[0].strip() for l in f if l.split('#')[0].strip())
+
+# Downloadable files the site publishes under /resources/, by the rules of its DownloadableResources component: a file in
+# a product's downloads/ folder keeps its name under the folder its ending picks, and datasheets are rendered from their
+# [lang-]datasheet.md pages, named after the `identifier` in their front matter.
+RESOURCE_FOLDERS = (('full-pinout.pdf', '/resources/pinouts/'), ('schematics.pdf', '/resources/schematics/'),
+                    ('step.zip', '/resources/models/'), ('datasheet.pdf', '/resources/datasheets/'))
+# Only these folders are fed by this repo alone, so a link into them that no file here publishes is broken. Other files
+# under /resources/ (chip datasheets, CAD files, comics, dimension drawings, firmware) are uploaded to the site apart
+# from this repo: a link to one is fine if this repo publishes it, and otherwise not checked.
+RESOURCE_STRICT = ('/resources/pinouts/', '/resources/schematics/', '/resources/models/')
+DATASHEET_PAGE = re.compile(r'^(?:([a-z]{2})-)?datasheet\.md$')
+IDENTIFIER = re.compile(r'^identifier:\s*["\']?([^"\'\n]+?)["\']?\s*$', re.M)
+
+def build_resource_routes(content_dir):
+    """Every /resources/... URL the site publishes from content_dir (see RESOURCE_FOLDERS)."""
+    routes = set()
+    for root, dirs, files in os.walk(content_dir, followlinks=True):
+        real = os.path.realpath(root)
+        dirs[:] = [d for d in dirs if not (real + os.sep).startswith(os.path.realpath(os.path.join(root, d)) + os.sep)]
+        for f in files:
+            if os.path.basename(root) == 'downloads':
+                for ending, folder in RESOURCE_FOLDERS:
+                    if f.endswith(ending):
+                        routes.add(folder + f)
+            m = DATASHEET_PAGE.match(f)
+            if m:
+                try:
+                    with open(os.path.join(root, f), 'r', encoding='utf-8') as fh:
+                        ident = IDENTIFIER.search(fh.read(4000))
+                except (OSError, UnicodeDecodeError):
+                    ident = None
+                if ident:
+                    lang = m.group(1)
+                    routes.add(f"/resources/datasheets/{ident.group(1)}{'' if lang in (None, 'en') else '-' + lang}-datasheet.pdf")
+    return routes
+
+def check_resource(url, resources, sections, count):
+    """For a URL under /resources/: None if it's fine (a published file, or a section served elsewhere), else an issue."""
+    if url in resources:
+        count('downloadable files checked')
+        return None
+    if not url.startswith(RESOURCE_STRICT) or is_external_section(url, sections):
+        count('downloadable files uploaded apart from this repo (not checked)')
+        return None
+    count('downloadable files checked')
+    return f"resolves to '{url}', which no downloads/ folder here publishes."
 
 def is_external_section(url, sections):
-    u = url.split('#')[0].split('?')[0].rstrip('/')
-    return any(u == s or u.startswith(s + '/') for s in sections)
+    """Is `url` in one of `sections`: under a prefix, or exactly a page given with a trailing $?"""
+    u = url.split('#')[0].split('?')[0].rstrip('/') or '/'
+    for s in sections:
+        if s.endswith('$'):
+            if u == (s[:-1].rstrip('/') or '/'):
+                return True
+        elif u == s.rstrip('/') or u.startswith(s.rstrip('/') + '/'):
+            return True
+    return False
 
 def build_route_map(content_dir):
     """
@@ -429,8 +492,9 @@ def main(argv=None):
         all_issues = {}
         scope = {}
         sections = load_external_sections()
+        resources = build_resource_routes(content_dir)
         for file_path in files_to_process:
-            issues = validate_file(file_path, valid_production_paths, content_dir, anchor_cache, scope, args.absolute, sections)
+            issues = validate_file(file_path, valid_production_paths, content_dir, anchor_cache, scope, args.absolute, sections, resources)
             if issues:
                 all_issues[file_path] = issues
         print("Scope: " + "; ".join(f"{k}: {v}" for k, v in sorted(scope.items())))
