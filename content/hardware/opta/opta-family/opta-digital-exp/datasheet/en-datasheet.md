@@ -47,7 +47,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 - **Automated Production Line:** Arduino Opta® can manage the overall flow of goods in manufacturing. For example, by integrating a load cell or a vision system, it can ensure each phase of a packing process is performed correctly, automatically discard faulty parts, ensure the appropriate amount of goods is present within each box and interact with production line printers, also adding timestamp information synchronized via Network Time Protocol (NTP).
 
-- **Real-time Monitoring in Manufacturing:** Production data can be visualized locally via an HMI or even by connecting to the Arduino Opta® via Bluetooth® Low Energy. The simplicity of Arduino Cloud allows to remotely display custom dashboards; this product is also compatible with other major Cloud providers.
+- **Real-time Monitoring in Manufacturing:** Production data can be visualized locally via an HMI or even by connecting to the Arduino Opta® via Bluetooth® Low Energy. The simplicity of Arduino Cloud allows to remotely display custom dashboards. This product is also compatible with other major Cloud providers.
 
 - **Automated Anomaly Detection:** Its computing power allows the Arduino Opta® to deploy Machine Learning algorithms that are capable to learn when a process is drifting from its usual behavior on the production line and activating/deactivating processes to prevent equipment damage.
 
@@ -187,21 +187,22 @@ The following diagram explains the relation between the main components of the O
 
 ### Relay Outputs
 
-Arduino Opta® Digital Expansions has eight *Normally Open* (NO) relays. For the **EMR** variant, eight powerful 6 A electromechanical relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC, and for the **SSR** variant, eight fast 3 A solid state relays which are capable of actuating on DC loads at a rated voltage of 24 VDC. 
+Arduino Opta® Digital Expansions have eight *Normally Open* (NO) relays. For the **EMR** variant, eight powerful 6 A electromechanical relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC, and for the **SSR** variant, eight fast 3 A solid state relays which are capable of actuating on DC loads at a rated voltage of 24 VDC.
 
 The relay *Maximum Peak Current* is defined as the highest value of inrush current that the relay can endure without undergoing any permanent degradation of its characteristics due to the generated heat. The relay has to be able to hold up that maximum using a duty cycle of less or equal to 10% and for a time equal to or less than 0.5 s.
 
 In the case of Arduino Opta® Digital Expansions, the EMR and SSR variants have a *Maximum Peak Current* of 10 A and 50 A respectively.
 
-The *Rated Load* is the maximum resistive load that a contact can make, carry and break repeatedly. 
+The *Rated Load* is the maximum resistive load that a contact can make, carry and break repeatedly.
+
 - For resistive or slightly inductive loads (AC1 classification), **EMR variant's** *Rated Load* is 1500 VA.
 - For small electromagnetic loads (> 72 VA) (AC15 classification) like power contactors, magnetic solenoid valves, electromagnets and AC single-phase supplies, **EMR variant's** *Rated Load* is 300 VA. This value assumes a peak inrush current of approximately 10 times the rated current and keeps it within the maximum peak current.
 
-For controlling DC loads (DC1 classification), the **EMR variant's** *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 6/0.2/0.12 A for respectively 24/110/220 V. 
+For controlling DC loads (DC1 classification), the **EMR variant's** *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 6/0.2/0.12 A for respectively 24/110/220 V.
 
-For controlling DC electromagnetics loads (DC13 classification), the **SSR variant's** *Rated Load* is 36 W.
+For controlling DC electromagnetic loads (DC13 classification), the **SSR variant's** *Rated Load* is 36 W.
 
-In the case of the minimum switching load parameters, the minimum values of power, voltage and current that the **EMR variant** relays can reliably switch, are 500 mW/ 12 V / 10 mA. This implies that with 12 V the current must be at least 42 mA, with 24 V, it must be at least 21 mA, and with 10 mA the voltage must be at least 50V.
+In the case of the minimum switching load parameters, the minimum values of power, voltage and current that the **EMR variant** relays can reliably switch, are 500 mW/ 12 V / 10 mA. This implies that with 12 V the current must be at least 42 mA, with 24 V, it must be at least 21 mA, and with 10 mA the voltage must be at least 50 V.
 
 For the **SSR variant**, the minimum switching voltage and current are 1.5 VDC and 1 mA respectively.
 
@@ -209,7 +210,7 @@ The **EMR variant** relays on Arduino Opta® Digital Expansions provide a very f
 
 ### Expansion Port
 
-The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To be accessed needs to be freed up from its breakable plastic cover and the connection plug added between each device.
+The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To access it, it needs to be freed from its breakable plastic cover, and the connection plug needs to be added between each device.
 
 It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
 
