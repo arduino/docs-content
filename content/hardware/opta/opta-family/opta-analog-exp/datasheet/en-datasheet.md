@@ -31,7 +31,7 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 
 - **Automated Production Line:** Arduino Opta® can manage the overall flow of goods in manufacturing. For example, by integrating a load cell or a vision system, it can ensure each phase of a packing process is performed correctly, automatically discard faulty parts, ensure the appropriate amount of goods is present within each box and interact with production line printers, also adding timestamp information synchronized via Network Time Protocol (NTP).
 
-- **Real-time Monitoring in Manufacturing:** Production data can be visualized locally via an HMI or even by connecting to the Arduino Opta® via Bluetooth® Low Energy. The simplicity of Arduino Cloud allows to remotely display custom dashboards; this product is also compatible with other major Cloud providers.
+- **Real-time Monitoring in Manufacturing:** Production data can be visualized locally via an HMI or even by connecting to the Arduino Opta® via Bluetooth® Low Energy. The simplicity of Arduino Cloud allows to remotely display custom dashboards. This product is also compatible with other major Cloud providers.
 
 - **Automated Anomaly Detection:** Its computing power allows the Arduino Opta® to deploy Machine Learning algorithms that are capable to learn when a process is drifting from its usual behavior on the production line and activating/deactivating processes to prevent equipment damage.
 
@@ -65,7 +65,6 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 | Antipolarity protection         | No                                                    |
 | Analog Input resolution         | 16 bit                                                |
 | Noise Rejection                 | Optional noise rejection between 50 Hz and 60 Hz      |
-
 
 #### Voltage Input Mode
 
@@ -170,7 +169,6 @@ The Analog Expansion has four PWM output channels **(P1...P4)**. They are softwa
 | Period                      | Programmable          |
 | Duty-cycle                  | Programmable (0-100%) |
 
-
 #### Status LEDs
 
 The Analog Expansion features eight user-programmable LEDs ideal for status reporting in the front panel.
@@ -180,6 +178,7 @@ The Analog Expansion features eight user-programmable LEDs ideal for status repo
 | Number of LEDs  | 8x        |
 
 ## Ratings
+
 ### Recommended Operating Conditions
 
 | **Description**             | **Value**                 |
@@ -238,9 +237,10 @@ We have tested setting all eight channels as outputs at 25 °C outputting more t
 > [!WARNING]
 > In case the user needs a configuration with a deviation from the suggested one, they will need to validate the system performance and stability before a deployment into a production environment.
 
-The PWM outputs are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage between 8 and 24 VDC, you can set the period and duty-cycle by software.
+The PWM outputs are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage between 8 and 24 VDC. You can set the period and duty-cycle by software.
 
 ### Expansion Port
+
 The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To access it, it needs to be freed from its breakable plastic cover, and the connection plug needs to be added between each device.
 
 It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
@@ -262,8 +262,8 @@ All Arduino® devices work out-of-the-box on the Arduino® Cloud Editor **[2]** 
 
 The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
-
 ### Getting Started - Arduino PLC IDE
+
 Arduino Opta® Analog Expansion can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software, attach the Opta® Expansion through the Aux Connector and connect your Arduino Opta® to your computer using a simple USB-C® cable to start creating your own PLC industrial solutions. The PLC IDE will recognize the expansion and will expose the new available I/Os in the resources tree.
 
 ### Getting Started - Arduino Cloud
@@ -301,8 +301,8 @@ Now that you have gone through the basics of what you can do with the device, yo
 | FCC (US)          | Yes                                           |
 | cULus             | UL 61010-2-201                                |
 
-
 ### Declaration of Conformity CE DoC (EU)
+
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
@@ -348,7 +348,6 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 |-----------------|----------------------------------------------|
 | Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
-
 ## Reference Documentation
 
 | **Ref**                         | **Link**                                              |
@@ -373,5 +372,3 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 | 20/10/2026 | 5            | Added note for Intended Use                 |
 | 29/10/2026 | 6            | Expansion port compatibility note           |
 | 02/11/2026 | 7            | Formatting, style and reference link update |
-
-
