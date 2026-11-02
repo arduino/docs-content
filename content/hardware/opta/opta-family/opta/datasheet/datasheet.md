@@ -542,7 +542,8 @@ The relays on Arduino Opta® provide a very fast response time of 6/4 ms to chan
 ### Expansion Port
 The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
 
->📝 **Note:** Arduino Opta® is designed and tested with Arduino Opta® expansion modules. Compatibility with non-Arduino expansion modules, including similar-looking modules from other manufacturers, is not ensured.
+> [!NOTE]
+> Arduino Opta® is designed and tested with Arduino Opta® expansion modules. Compatibility with non-Arduino expansion modules, including similar-looking modules from other manufacturers, is not ensured.
 
 If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
 
