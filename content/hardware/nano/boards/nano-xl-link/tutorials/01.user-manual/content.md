@@ -37,7 +37,9 @@ This user manual provides an overview of the Nano XL Link board, highlighting it
  
 	
 <Alert type="info">
+
 The Nano XL Link is compatible with the Arduino ecosystem and can be programmed directly as a standalone device.
+
 </Alert> 
 
 ## Nano XL Link Overview
@@ -61,12 +63,14 @@ The bottom view of the Nano XL Link board is shown in the image below:
 ![The Nano XL Link main components (bottom view)](assets/nano-xl-link-bottom-view.png)
 
 <Alert type="info">
+
 The bottom side of the Nano XL Link board features test points for debugging and development purposes (SWD, USB, and `RESET`), along with the board's certification markings and identification information (board model and SKU).
+
 </Alert>
  
 Here is an overview of the board's main components, most of them shown in the images above:
  
-- **Microcontroller**: At the heart of the Nano XL Link board is a Microchip PIC32CK2051SG01144 microcontroller, based on an Arm® Cortex®-M33 core with 2 MB of flash memory, 512 kB of RAM, and an integrated hardware security module (HSM). The microcontroller is clocked from a 12 MHz quartz crystal.
+- **Microcontroller**: The Nano XL Link board's heart is a Microchip PIC32CK2051SG01144 microcontroller, based on an Arm® Cortex®-M33 core with 2 MB of flash memory, 512 kB of RAM, and an integrated hardware security module (HSM). The microcontroller is clocked from a 12 MHz quartz crystal.
 - **CAN FD transceiver**: An onboard Texas Instruments® TCAN3414 transceiver provides the physical layer for the microcontroller's CAN FD controller. The `CANH` and `CANL` signals are available on the board headers.
 - **RS-485 transceiver**: An onboard Texas Instruments® THVD2410 transceiver provides a half-duplex RS-485 interface. The `A` and `B` signals are available on the board headers.
 - **Ethernet PHY**: An onboard Microchip® KSZ8081RNAIA PHY provides a 10/100 Mbps Ethernet interface. The differential transmit and receive pairs and an activity LED signal are available on the board headers.
@@ -81,11 +85,13 @@ Here is an overview of the board's main components, most of them shown in the im
 
 ### Board Core and Libraries
  
-The **Arduino Zephyr** core includes libraries and examples for the Arduino Nano XL Link’s peripherals and onboard components, such as its PIC32CK microcontroller, CAN FD controller, Ethernet interface, and onboard LEDs.
+The **`Arduino Zephyr`** core includes libraries and examples for the Arduino Nano XL Link’s peripherals and onboard components, such as its PIC32CK microcontroller, CAN FD controller, Ethernet interface, and onboard LEDs.
 
 To install the core for the Nano XL Link board, navigate to **Tools > Board > Boards Manager** or click the Boards **Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `Zephyr` and install the latest core version.
+
+![Installing the Arduino Zephyr Boards core in the Arduino IDE](assets/board-core.png)
  
-The Arduino Zephyr core provides support for the following:
+The `Arduino Zephyr` core provides support for the following:
  
 - Board control and configuration (pin configuration and reset)
 - Analog input (12-bit ADC) and PWM output
@@ -95,22 +101,25 @@ The Arduino Zephyr core provides support for the following:
 - RS-485 communication through the `ArduinoRS485` library
 - Onboard LED control (RGB LED and user LED)
 
-The Arduino Zephyr core runs Arduino sketches on top of the Zephyr® real-time operating system (RTOS). Sketches use the same Arduino API as other Arduino boards, while Zephyr provides the underlying drivers.
+The `Arduino Zephyr` core runs Arduino sketches on top of the Zephyr® real-time operating system (RTOS). Sketches use the same Arduino API as other Arduino boards, while Zephyr provides the underlying drivers.
 
 ### Pinout
  
-The full pinout is available and downloadable as PDF from the link below:
+ ![The Nano XL Link simple pinout](assets/simple-pinout.png)
+
+The full pinout is available and downloadable as a PDF from the link below:
  
 - [Nano XL Link pinout](https://docs.arduino.cc/resources/pinouts/ABX00182-full-pinout.pdf)
 
 ### Datasheet
  
-The complete datasheet is available and downloadable as PDF from the link below:
+The complete datasheet is available and downloadable as a PDF from the link below:
  
 - [Nano XL Link datasheet](https://docs.arduino.cc/resources/datasheets/ABX00182-datasheet.pdf)
+
 ### Schematics
  
-The complete schematics are available and downloadable as PDF from the link below:
+The complete schematics are available and downloadable as a PDF from the link below:
  
 - [Nano XL Link schematics](https://docs.arduino.cc/resources/schematics/ABX00182-schematics.pdf)
 ### STEP Files
@@ -125,67 +134,90 @@ The complete STEP files are available and downloadable from the link below:
  
 When opening the Nano XL Link box, you will find the board and its corresponding documentation. **The Nano XL Link does not include additional cables**, so you will need a USB-C cable ([available separately here](https://store.arduino.cc/products/usb-cable2in1-type-c)) to connect the board to your computer.
  
-The Nano XL Link is a standalone device that can be programmed directly without requiring additional boards. For fieldbus projects, the board can be mounted on the Nano Connector Carrier (ASX00090) ([available separately here](https://store.arduino.cc/products/usb-cable2in1-type-c)), which provides screw terminals and connectors for its signals.
+The Nano XL Link is a standalone device that can be programmed directly without requiring additional boards. For fieldbus projects, you can mount the board on the Nano Connector Carrier (ASX00090) ([available separately here](https://store.arduino.cc/products/usb-cable2in1-type-c)), which provides screw terminals and connectors for its signals.
 
 ### Connecting the Board
  
 The Nano XL Link can be connected to your computer using its onboard USB-C connector. It can also be integrated into larger projects using the following:
  
-- **Direct USB-C connection**: For programming, power supply and serial communication with the computer
-- **Pin connection**: For integration into breadboards, carriers or custom PCBs through the `J3` and `J4` headers
-- **Qwiic connection**: For rapid expansion with compatible sensors and modules
-- **Fieldbus connection**: For direct connection to CAN, RS-485 and Ethernet networks through the header pins
+- **Direct USB-C connection**: For programming, power supply, and serial communication with the computer
+- **Pin connection**: For integration into breadboards, carriers, or custom PCBs through the `J3` and `J4` headers
+- **Qwiic connection**: For rapid expansion with compatible sensors and modules, such as the Modulino® nodes
+- **Fieldbus connection**: For direct connection to CAN, RS-485, and Ethernet networks through the header pins
 
 <Alert type="warning">
-Important note: The Nano XL Link operates at +3.3 VDC. When connecting sensors, modules or shields designed for +5 VDC logic, make sure to verify voltage compatibility to avoid component damage.
+
+The Nano XL Link operates at +3.3 VDC. When connecting sensors, modules, or shields designed for +5 VDC logic, verify voltage compatibility to avoid component damage.
+
 </Alert> 
 
 ### Voltage Compatibility Considerations
  
-Before connecting any external components to your Nano XL Link, it is important to understand its voltage characteristics to prevent damage to the board and to your sensors and modules.
+Before connecting any external components to your Nano XL Link board, it is important to understand its voltage characteristics to prevent damage to the board and to your sensors and modules.
  
 **The Nano XL Link operates at +3.3 VDC**, which means:
  
 - All digital I/O pins use +3.3 VDC logic levels (`HIGH` = +3.3 VDC, `LOW` = 0 VDC)
 - Analog inputs measure voltages from 0 to +3.3 VDC
 - Communication pins (I²C, SPI and UART) operate at +3.3 VDC logic levels
-- The Qwiic connector operates at +3.3 VDC and can be used directly with Qwiic, STEMMA QT and Modulino® devices
+- The Qwiic connector operates at +3.3 VDC and can be used directly with Qwiic, STEMMA QT and Modulino® nodes
 
-**For +5 VDC components**, add **external level shifters** on all data lines and use the `+VBUS` pin only when the board is powered from USB (see the following section). Always check your component's datasheet for voltage specifications before connecting. When in doubt, use a multimeter to verify voltage levels or add protective level shifting.
+<Alert type="warning">
+
+For +5 VDC components, add external level shifters on all data lines and use the `+VBUS` pin only when the board is powered from USB (see the following section). Always check your component’s datasheet for voltage specifications before connecting. When in doubt, use a multimeter to verify voltage levels or add level-shifting protection.
+
+</Alert>
  
 ### Powering the Board
  
-The Nano XL Link can be powered in several ways:
+The Nano XL Link has three power inputs and two power outputs on its headers. Understanding which pins accept power and which pins only supply it is important to avoid damaging the board.
+ 
+The board can be powered in several ways:
  
 - **Via USB-C connector**: The most common method during development and programming
 - **Via `VIN` pin**: Using an external +7-24 VDC power supply that is regulated down to +3.3 VDC by the onboard buck converter (MPQ4334)
-- **Via `+3V3` pin**: Directly connecting a regulated +3.3 VDC source, which bypasses the onboard buck converter
- 
-<Alert type="warning">
-Important note: The Nano XL Link's `VIN` pin accepts a voltage range of +7-24 VDC. Do not connect voltages outside this range as you could permanently damage the board.
-</Alert>
+- **Via `3V3` pin**: Directly connecting a regulated +3.3 VDC source, which bypasses the onboard buck converter and powers the microcontroller directly
+
+![Power pins of the Nano XL Link board](assets/power-pins.png)
  
  <Alert type="warning">
-Important note: When powering the board through the `+3V3` pin, do not connect a power source to the `VIN` pin or the USB-C connector at the same time. Applying an external +3.3 VDC source together with another power source can damage the board. Always verify all the connections before applying power.
+
+The Nano XL Link's `VIN` pin accepts +7-24 VDC. Do not connect voltages outside this range, as you could permanently damage the board.
+
+ </Alert>
+ 
+<Alert type="warning">
+
+When powering the board through the `3V3` pin, do not connect a power source to the `VIN` pin or the USB-C connector at the same time. Applying an external +3.3 VDC source together with another power source can damage the board. Always verify all the connections before applying power.
+
+ </Alert>
+
+#### Power Inputs and Outputs
+ 
+The direction of each power pin depends on how you power the board. The `3V3` pin is an output when the board is powered through the USB-C connector or the `VIN` pin, and an input when it powers the board. The `VBUS` pin is always an output: it connects to the USB-C connector through the onboard MP5077 load switch, which delays rail activation during power-up, and it carries +5 VDC only when a USB-C cable is connected. The following table summarizes the function of each power pin:
+ 
+| **Pin** | **Voltage** | **Direction** | **Maximum Current** |                    **Notes**                    |
+|:-------:|:-----------:|:-------------:|:-------------------:|:-----------------------------------------------:|
+|  `VIN`  |  +7-24 VDC  |     Input     |          -          |          Regulated to +3.3 VDC onboard          |
+|  `3V3`  |   +3.3 VDC  |  Input/Output |     1 A (output)    | Output of the buck converter, or external input |
+|  `VBUS` |    +5 VDC   |  Output only  |        500 mA       |      Available only when powered via USB-C      |
+|  `GND`  |      -      |       -       |          -          |         Five ground pins on the headers         |
+ 
+<Alert type="info">
+
+The Nano XL Link does not generate +5 VDC on its own. When you power the board through the `VIN` or `3V3` pins, the `VBUS` pin carries no voltage, so external circuits that need +5 VDC must be powered from a separate source. Never apply an external voltage to the `VBUS` pin.
+
 </Alert>
-
-#### +3.3 VDC and +VBUS Outputs
  
-When the board is powered through the USB-C connector or the `VIN` pin, the following power outputs are available on the headers to supply external circuits:
- 
-| **Pin**  | **Voltage** | **Maximum Current** |                **Notes**                 |
-| :------: | :---------: | :-----------------: | :--------------------------------------: |
-|  `+3V3`  |  +3.3 VDC   |         1 A         |      Output of the buck converter        |
-| `+VBUS`  |   +5 VDC    |       500 mA        |  Available only when powered via USB-C   |
- 
-The `+VBUS` pin is fed directly from the USB-C connector through an MP5077 load switch, which delays the activation of the rail during power-up. **No +5 VDC is available on the headers when the board is powered only through the `VIN` pin.**
-
 ### Hello World Example
  
-Let's program the Nano XL Link to reproduce the classic `Hello World` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the Nano XL Link's connection to the computer works correctly, that the Arduino IDE is properly configured, and that both the board and development environment function as expected.
+Let’s program the Nano XL Link to reproduce the classic `Hello World` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the Nano XL Link connects to the computer, the Arduino IDE is configured correctly, and the board and development environment work as expected.
  
-First, connect your Nano XL Link to your computer using a USB-C cable, open the Arduino IDE, and make sure that the board is connected correctly. If you are new to the Arduino IDE, please refer to the official Arduino documentation for more detailed information about initial setup. Copy and paste the following example sketch into a new Arduino IDE file:
+First, connect your Nano XL Link to your computer with a USB-C cable, open the Arduino IDE, and make sure the board connects correctly. If you are new to the Arduino IDE, please refer to the official Arduino documentation for more detailed information about initial setup. 
 
+Copy and paste the following example sketch into a new Arduino IDE file:
+
+```arduino
 /**
 Blink Example for the Arduino Nano XL Link Board
 Name: nano_xl_link_blink.ino
@@ -222,12 +254,19 @@ void loop() {
   Serial.println("- LED off!");
   delay(1000);
 }
+```
 
-To upload the sketch to the board, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
+To upload the sketch to the board, click **Verify** to compile the sketch and check for errors, then click **Upload** to program the device with the sketch:
+
+![Uploading a sketch to the Nano XL Link board in the Arduino IDE](assets/verify-upload-1.png)
  
-You should see the built-in yellow user LED of your Nano XL Link board turn on for one second, then turn off for one second, repeating this cycle continuously.
+You should see the built-in yellow user LED of your Nano XL Link board turn on for one second, then turn off for one second, repeating this cycle continuously:
+
+![Onboard orange user LED blinking](assets/blink.gif)
  
-Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends each time the LED state changes.
+You can also open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages the example sketch sends each time the LED state changes:
+
+![Arduino IDE Serial Monitor output for the Blink sketch](assets/serial-monitor-1.png)
 
 This example confirms the following:
  
@@ -237,16 +276,16 @@ This example confirms the following:
 - USB communication and sketch upload are working
 - Digital pins respond to commands
 
-Congratulations! You have successfully completed your first program on the Nano XL Link board. You are now ready to explore the more advanced features of the board.
+Congratulations! You have completed your first program on the Nano XL Link board. You are now ready to explore the more advanced features of the board.
 
 ## LEDs
  
-This user manual section covers the Nano XL Link built-in LEDs, showing their main hardware and software characteristics.
+This section covers the Nano XL Link built-in LEDs and their main hardware and software characteristics.
  
 ### RGB LED
  
 The Nano XL Link features a built-in RGB LED that can be used as a visual feedback indicator for the user.
- 
+
 The built-in RGB LED can be accessed through the following macro definitions:
  
 | **Built-in LED** | **Macro Definition** | **Arduino Pin** | **Microcontroller Pin** |
@@ -256,12 +295,12 @@ The built-in RGB LED can be accessed through the following macro definitions:
 |     Blue LED     |        `LEDB`        |      `D41`      |         `PC17`          |
  
 <Alert type="info">
-The built-in RGB LED on the Nano XL Link is a common-anode LED connected to +3.3 VDC, so each color must be pulled to ground (`GND`) to make it light up. This means that a voltage level of `LOW` on each of their pins will turn the specific color of the LED on, and a voltage level of `HIGH` will turn it off.
+
+The built-in RGB LED on the Nano XL Link is a common-anode LED connected to +3.3 VDC, so each color must be pulled to ground (`GND`)  to make it light up. This means a `LOW` voltage on each pin turns on that color, and a `HIGH` voltage turns it off.
+
 </Alert> 
  
-You can turn each color on and off using the `pinMode()` and `digitalWrite()` functions:
- 
-The following example sketch turns on each of the RGB LED colors at an interval of 500 ms:
+You can turn each color on and off using the `pinMode()` and `digitalWrite()` functions of the Arduino programming language. The following example sketch turns on each of the RGB LED colors at an interval of 500 ms:
  
 ```arduino
 /**
