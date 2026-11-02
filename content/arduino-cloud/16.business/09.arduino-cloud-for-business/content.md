@@ -105,7 +105,7 @@ There, you will find multiple options to customize your Shared Space:
 * **General** tab to view shared space information and to edit space name
 * [**Custom Branding**](#custom-branding) to assign custom logo
 * [**Manage Members**](#invite-members-into-your-space) for space member management
-* [**Roles & Permissions**](#members-types) for Role-Based-Access-Control management
+* [**Roles & Permissions**](#roles-and-permissions) for Role-Based-Access-Control management
 * **Plan Usage** to view features usage
 
 ### Create Additional Spaces
@@ -168,50 +168,44 @@ To add more members to your Shared Space, use the sidebar to navigate to the **M
 
 There you will find the complete list of all members who have access to your Shared Space, as well as the role of each member.
 
-#### Members Types
+#### Roles and Permissions
 
-There are multiple role types in Arduino Cloud for Business to allow the admin to have full control of the rights/permissions each user has in the Shared Space. In this way, the admin can set up Role-Based-Access-Control (RBAC) by assigning profiles and sharing with any number of users.
+Every member of a Shared Space is assigned a role, which determines the resources the member can view and the actions the member can perform in that space. This Role-Based-Access-Control (RBAC) model gives the admin full control of the rights/permissions each user has in the Shared Space. Permissions are enforced in the same way across the Arduino Cloud web app, mobile app, CLI, and API.
 
 By default the member who has activated the plan and created the workspace is set as Admin. The Role-Based-Access-Control can support multiple Admins with same permissions.
 
-The table below reports the list of supported roles and corresponding permissions.
+Arduino Cloud for Business spaces support the following roles:
 
-| **Things**                        | **Admin** | **Editor** | **Service Account** |
-|-----------------------------------|-----------|------------|---------------------|
-| Create/edit/delete things         | X         | X          |                     |
-| Create/edit/delete variables      | X         | X          |                     |
-| Create/edit/delete webhooks (API) |           |            | X                   |
-| View Things                       | X         | X          |                     |
-| Edit sketches                     | X         | X \[1\]    |                     |
-| Change associated devices         | X         | X          |                     |
-| Change network                    | X         | X \[2\]    |                     |
+| **Role**    | **Access**                                                                                                                                                                                                                       |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Admin**   | Full access to resources, member management, space settings, and plan management.                                                                                                                                               |
+| **Editor**  | Full editing access to shared resources. Editors can view the members list and roles and permissions, but cannot manage members, custom branding, or payments.                                                                  |
+| **Service** | Operational access with limited editing permissions. This role can perform selected device, dashboard, trigger, template, sketch, and recovery operations, but cannot manage members, branding, or payments.                    |
+| **Viewer**  | Read-only access, with access to selected non-destructive interactions such as dashboard widget interaction, downloading historical data, opening the LoRa® console, downloading sketches, and opening the Serial Monitor. |
 
-| **Dashboards**                | **Admin** | **Editor** | **Service Account** |
-|-------------------------------|-----------|------------|---------------------|
-| Create/edit/delete dashboards | X         | X          |                     |
-| Create/edit/delete widgets    | X         | X          |                     |
-| View dashboards               | X         | X          |                     |
-| Widgets interaction           | X         | X          |                     |
-| Download historic data        | X         | X          |                     |
+The table below summarizes the main differences between the roles. For the complete list of actions, see [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles#business-space-permissions), or open **Space Settings > Roles & Permissions** in your Shared Space.
 
-| **Devices**             | **Admin** | **Editor** | **Service Account** |
-|-------------------------|-----------|------------|---------------------|
-| Add/edit/delete devices | X         | X          |                     |
-| View devices            | X         | X          |                     |
+| **Action**                                           | **Admin** | **Editor** | **Service** | **Viewer** |
+|------------------------------------------------------|-----------|------------|-------------|------------|
+| View Things, devices, dashboards, and sketches       | X         | X          | X           | X          |
+| Create/edit/delete Things and Cloud variables        | X         | X          |             |            |
+| Change associated devices                            | X         | X          | X           |            |
+| Add/edit/delete devices                              | X         | X          |             |            |
+| Update network credentials                           | X         | X          | X           |            |
+| Create/edit/delete and share dashboards              | X         | X          |             |            |
+| Interact with widgets and download historical data   | X         | X          | X           | X          |
+| Create/edit/delete, enable and disable triggers      | X         | X          | X           |            |
+| Apply templates                                      | X         | X          | X           |            |
+| Create/edit/delete sketches                          | X         | X          |             |            |
+| Verify or upload a sketch to a board                 | X         | X          | X           |            |
+| Download a sketch and open the Serial Monitor        | X         | X          | X           | X          |
+| Restore deleted items                                | X         | X          | X           |            |
+| View members list                                    | X         | X          |             |            |
+| Add members, assign roles, and remove members        | X         |            |             |            |
+| View and edit custom branding                        | X         |            |             |            |
+| Payment                                              | X         |            |             |            |
 
-| **Members Management**      | **Admin** | **Editor** | **Service Account** |
-|-----------------------------|-----------|------------|---------------------|
-| Add members to organization | X         |            |                     |
-| Assign members’ roles       | X         |            |                     |
-
-| **Plan Management** | **Admin** | **Editor** | **Service Account** |
-|---------------------|-----------|------------|---------------------|
-| Payment             | X         |            |                     |
-
-\[1\] It can add/remove only Sketch owner.
-\[2\] It can add/remove only Thing owner.
-
-In addition to editor role, we added a Service Account, which should be one dedicated to the creation and maintenance of API Keys Tokens. We recommend having at least one Service Account for each Shared Space and linking it to a non-personal email account. In this way, API Keys do not risk getting lost with the cancellation of a personal email address.
+When you invite a new member, the **Viewer** role, which has the least permissions, is selected by default. Review the selected role before sending the invitation to avoid granting more access than intended.
 
 #### Add A New Member
 
@@ -233,7 +227,7 @@ The Arduino Cloud for Business allows for device management with Over-The-Air up
 
 ### Compatible Hardware
 
-The Arduino Cloud for Business is compatible with multiple Arduino boards or devices based on the ESP32 / ESP8266 microcontrollers. The Arduino Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRa®-based networks (via The Things Network), and cellular connectivity.
+The Arduino Cloud for Business is compatible with multiple Arduino boards or devices based on the ESP32 / ESP8266 microcontrollers. The Arduino Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRa-based networks (via The Things Network), and cellular connectivity.
 
 To check the full list of compatible Hardware, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/guides/overview).
 
@@ -425,8 +419,6 @@ Use Arduino Cloud back-end to control Things and devices via Arduino rest APIs i
 Leveraging the APIs, you can interact with any element of the Cloud: data, devices, dashboards, and web properties. At the same time, APIs allow you to add power to the script, create complex scenarios or send and receive data from your custom service, 3rd party solution, or mobile application.
 
 To use the APIs, you need to create an API Key Token in the API Keys section of your Space.
-
-***We strongly recommend you add a Service Account role to your Shared Space to create/manage/maintain API Keys Tokens. The Service Account should not be linked to a personal email account so that the API Keys which will be created do not risk getting lost if that email account gets canceled.***
 
 ***If you want to start creating your own API Keys Token, take a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).***
 

@@ -23,17 +23,18 @@ From **Space Settings → Manage Members**, invite your team by email and assign
 
 | Role | Can Do |
 |---|---|
-| **Admin** | Full control: Things, dashboards, devices, members, and billing. |
-| **Editor** | Create/edit Things, variables, dashboards, devices, and sketches. |
-| **Service Account** | Dedicated to API Keys/webhooks — link it to a non-personal email. |
+| **Admin** | Full access to resources, member management, space settings, and plan management. |
+| **Editor** | Full editing access to shared resources; can view members and roles, but cannot manage members, custom branding, or payments. |
+| **Service** | Operational access: selected device, dashboard, Trigger, Template, Sketch, and recovery operations, with limited editing permissions. |
+| **Viewer** | Read-only access, plus non-destructive interactions such as using dashboard widgets, downloading historical data, and opening the Serial Monitor. |
 
 <Alert type="note">
 
-Keep at least one **Service Account** per Shared Space, tied to a shared (non-personal) email, so API Keys aren't lost when an individual's account is removed.
+New invitations default to **Viewer**, the role with the least permissions. Review the selected role before sending each invitation.
 
 </Alert>
 
-→ [Members & Roles](/arduino-cloud/spaces-plans-account/members-roles)
+→ [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles)
 
 ### 3. Provision and Tag a Device Fleet
 
@@ -45,7 +46,7 @@ Add devices through the Cloud UI for a handful of boards, or the [Arduino Cloud 
 
 ### 4. Build Dashboards
 
-Create [Dashboards](/arduino-cloud/dashboards/dashboards) to visualize and control your fleet, then share them with members or embed them externally. RBAC controls who can view versus edit each dashboard.
+Create [Dashboards](/arduino-cloud/dashboards/dashboards) to visualize and control your fleet, then share them with members or embed them externally. RBAC controls who can view versus edit each dashboard: Admins and Editors can create, edit, delete, and share dashboards, while Service and Viewer members can view them and interact with their widgets.
 
 ### 5. Set Up Data Export
 
@@ -78,7 +79,7 @@ Each Business subscription includes one Shared Space and one private space. Addi
 ## Next Steps
 
 - [Spaces](/arduino-cloud/spaces-plans-account/spaces)
-- [Members & Roles](/arduino-cloud/spaces-plans-account/members-roles)
+- [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles)
 - [Manage Devices at Scale](/arduino-cloud/devices/manage-devices-at-scale)
 - [Security Overview](/arduino-cloud/security-privacy/security-overview)
 

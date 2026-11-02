@@ -44,14 +44,14 @@ Open **Space Settings** from the sidebar to configure a shared space:
 |---|---|
 | **General** | View space info and edit the space name |
 | **Custom Branding** | [Assign a custom logo and URL](/arduino-cloud/spaces-plans-account/custom-branding) |
-| **Manage Members** | [Add and manage members](/arduino-cloud/spaces-plans-account/members-roles) |
-| **Roles & Permissions** | [Role-based access control](/arduino-cloud/spaces-plans-account/members-roles) |
+| **Manage Members** | [Add and manage members](/arduino-cloud/spaces-plans-account/members-roles#managing-members) |
+| **Roles & Permissions** | [Review the actions available to each role](/arduino-cloud/spaces-plans-account/members-roles#reviewing-roles-and-permissions-in-arduino-cloud) |
 | **Plan Usage** | View feature and resource usage |
 
 ## Next Steps
 
 - [Space Statistics](/arduino-cloud/spaces-plans-account/space-statistics)
 - [Spaces Overview](/arduino-cloud/spaces-plans-account/spaces-overview)
-- [Members & Roles](/arduino-cloud/spaces-plans-account/members-roles)
+- [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles)
 - [Custom Branding](/arduino-cloud/spaces-plans-account/custom-branding)
 - [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas)

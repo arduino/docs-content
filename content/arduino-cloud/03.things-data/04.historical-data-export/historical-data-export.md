@@ -31,7 +31,7 @@ Choose your data, confirm the data source, and request the export. The file is d
 
 <Alert type="info">
 
-Downloading historical data is a per-space permission. In a shared space, Admin and Editor roles can download historic data; see [Arduino Cloud for Business](/arduino-cloud/business) for the full role matrix.
+Downloading historical data is a per-space permission. In shared spaces, every Business role (Admin, Editor, Service, and Viewer) and every Education role (Admin, Teacher, and Student) can download historical data; see [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles) for the full role matrix.
 
 </Alert>
 

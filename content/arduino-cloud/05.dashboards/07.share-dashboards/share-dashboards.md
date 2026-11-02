@@ -37,6 +37,8 @@ To revoke access at any time, open the same share dialog and remove the person f
 
 Dashboard sharing is scoped to a single dashboard. It is not the same as [Shared Spaces](/arduino-cloud/spaces-plans-account/spaces), which give a whole team ongoing access to an account's Things and dashboards. Use sharing to hand a single dashboard to an outside viewer; use Shared Spaces when a team needs continued access to your projects.
 
+In a shared space, sharing a dashboard depends on your role: in Business spaces, only Admins and Editors can share dashboards, while in Education spaces, Admins, Teachers, and Students can. See [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles).
+
 </Alert>
 
 ## Next Steps

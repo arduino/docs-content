@@ -96,16 +96,16 @@ Email invites are usually sent once you have entered the email ID of the intende
 
 ![Invite through email](assets/invite-email.png)
 
-Define which **role** they will cover in your space based on the available options.  There are three role types in Arduino Cloud for Schools:
-- Admin
-- Teacher
-- Students
+Define which **role** they will cover in your space based on the available options. There are three role types in Arduino Cloud for Schools:
+- **Admin:** Full access to resources, member management, space settings, and plan management.
+- **Teacher:** Can create, edit, and delete shared resources, and can view the members list, add members, assign roles, remove members, and view roles and permissions.
+- **Student:** Can create, edit, and delete shared project resources, but cannot manage members, custom branding, integration requests, or payments.
 
 ![Choose role of a member](assets/choose-role.png)
 
-***Note: By default the member who has activated the plan and created the class-space is set as admin. It is possible to have multiple admins with same permissions. The admin has full control of the rights/permissions each user has in a shared space.***
+***Note: By default the member who has activated the plan and created the class-space is set as admin. It is possible to have multiple admins with same permissions. When you invite a new member, the Student role, which has the least permissions, is selected by default. Review the selected role before sending the invitation.***
 
-The list of supported roles and corresponding permissions can be found here: https://cloud.arduino.cc/home/roles-permissions
+The complete list of actions available to each role can be found in [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles#education-space-permissions). Admins and Teachers can also review it in Arduino Cloud under **Space Settings > Roles & Permissions**.
 
 Once you have added the list of members and assigned their roles. Click on **Invite**. 
 

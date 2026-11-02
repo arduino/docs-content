@@ -38,4 +38,4 @@ Remember to select **Save** to apply the configuration.
 ## Next Steps
 
 - [Spaces](/arduino-cloud/spaces-plans-account/spaces)
-- [Members & Roles](/arduino-cloud/spaces-plans-account/members-roles)
+- [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles)

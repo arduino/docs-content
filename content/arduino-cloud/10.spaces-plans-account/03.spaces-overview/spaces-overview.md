@@ -107,6 +107,6 @@ The toolbar above the table has three controls:
 
 - [Space Statistics](/arduino-cloud/spaces-plans-account/space-statistics)
 - [Spaces](/arduino-cloud/spaces-plans-account/spaces)
-- [Members & Roles](/arduino-cloud/spaces-plans-account/members-roles)
+- [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles)
 - [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas)
 - [Devices Overview](/arduino-cloud/devices/devices-overview)

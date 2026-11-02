@@ -32,7 +32,7 @@ Each widget shows an icon and a headline total, with a chart below that breaks t
 | **Total Ingested Records** | Data records received from devices | Records per day, compared with the plan's daily limit (see [Ingested Records Usage Chart](#ingested-records-usage-chart)) | **30D**, **15D**, **7D**, **1D** |
 | **Total Trigger activations** | How many times Triggers fired | Activations over time | **15D**, **7D**, **1D**, **1H** |
 
-The roles listed in **Total Members** depend on the role set configured for the space (see [Members & Roles](/arduino-cloud/spaces-plans-account/members-roles)).
+The roles listed in **Total Members** depend on the role set configured for the space (see [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles)).
 
 The time-based widgets each have their own **time-range selector** in the top-right corner, so changing the range on one widget doesn't affect the others. When there's nothing to show, a widget displays an empty state, such as "No data to display", or "No records ingested to display in this timeframe" for the selected window.
 
