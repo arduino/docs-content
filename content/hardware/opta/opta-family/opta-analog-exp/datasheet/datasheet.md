@@ -240,9 +240,8 @@ The expansion port can be used to daisy-chain several Opta® Expansions and addi
 
 It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The Arduino Opta® Analog Expansion is designed and tested with Arduino Opta® controllers and other Arduino Opta® expansion modules. Compatibility with non-Arduino controllers or expansion modules, including similar-looking modules from other manufacturers, is not ensured.
-</div>
+> [!NOTE]
+> The Arduino Opta® Analog Expansion is designed and tested with Arduino Opta® controllers and other Arduino Opta® expansion modules. Compatibility with non-Arduino controllers or expansion modules, including similar-looking modules from other manufacturers, is not ensured.
 
 If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
 
