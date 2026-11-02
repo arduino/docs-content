@@ -18,7 +18,9 @@ software:
   - web-editor
 ---
  
-This user manual provides an overview of the Nano XL Link board, highlighting its hardware and software elements. With it, you will learn how to set up, configure, and use the main features of the Nano XL Link board.
+This user manual provides an overview of the Nano XL Link board, highlighting its hardware and software elements. It will show you how to set up, configure, and use the main features of the Nano XL Link board.
+
+![ ](assets/hero-banner.png)
  
 ## Hardware and Software Requirements
  
@@ -26,8 +28,7 @@ This user manual provides an overview of the Nano XL Link board, highlighting it
  
 - [Nano XL Link](https://store.arduino.cc/products/nano-xl-link) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
-- [Breadboard](https://store.arduino.cc/products/breadboard-400-contacts) (x1) (recommended)
-- [Male/male jumper wires](https://store.arduino.cc/products/breadboard-400-contacts) (recommended)
+- Jumper wires (assorted)
  
 ### Software Requirements
  
@@ -41,31 +42,37 @@ The Nano XL Link is compatible with the Arduino ecosystem and can be programmed 
 
 ## Nano XL Link Overview
  
-The Nano XL Link is a compact microcontroller board designed for industrial and building automation applications. It is based on the PIC32CK2051SG01144 microcontroller from Microchip® and extends the standard Nano pinout through two 2.54 mm double-row headers. The board integrates three industrial communication transceivers (CAN FD, RS-485 and a 10/100 Ethernet PHY), which allows it to communicate directly with industrial equipment without additional interface boards.
+The Nano XL Link is a compact microcontroller board designed for industrial and building automation applications. It is based on the [PIC32CK2051SG01144](https://www.microchip.com/en-us/product/pic32ck2051sg01144) microcontroller from Microchip® and extends the standard Nano pinout through two 2.54 mm double-row headers. The board integrates three industrial communication transceivers (CAN FD, RS-485, and a 10/100 Ethernet PHY), allowing it to communicate directly with industrial equipment without additional interface boards.
+
+![ ](assets/front-page.png)
  
-The Nano XL Link includes a 32-bit Arm® Cortex®-M33 microcontroller with 2 MB of flash memory and 512 kB of RAM, an onboard Qwiic connector, a programmable RGB LED and a user LED. The board operates at +3.3 VDC logic levels and is rated for an operating temperature range of -20 °C to +85 °C.
+The Nano XL Link includes a 32-bit Arm® Cortex®-M33 microcontroller with 2 MB of flash memory and 512 kB of RAM, an onboard Qwiic connector, a programmable RGB LED and a user LED. The board operates at +3.3 VDC logic levels and is rated for an industrial operating temperature range of -20 °C to +85 °C.
  
 ### Nano XL Link Architecture Overview
  
-The Nano XL Link board combines a microcontroller with onboard fieldbus transceivers in a compact form factor, which suits applications such as machine-level control, building automation and energy monitoring.
+The Nano XL Link board combines a microcontroller with onboard fieldbus transceivers in a compact form factor, suitable for applications such as machine-level control, building automation, and energy monitoring.
  
 The top view of the Nano XL Link board is shown in the image below:
+
+![The Nano XL Link main components (top view)](assets/nano-xl-link-top-view.png)
  
 The bottom view of the Nano XL Link board is shown in the image below:
 
+![The Nano XL Link main components (bottom view)](assets/nano-xl-link-bottom-view.png)
+
 <Alert type="info">
-The bottom side of the Nano XL Link board features test points for debugging and development purposes (SWD, USB and `RESET`), along with the board's certification markings and identification information (board model and SKU).
+The bottom side of the Nano XL Link board features test points for debugging and development purposes (SWD, USB, and `RESET`), along with the board's certification markings and identification information (board model and SKU).
 </Alert>
  
-Here is an overview of the board's main components shown in the images above:
+Here is an overview of the board's main components, most of them shown in the images above:
  
-- **Microcontroller**: At the heart of the Nano XL Link board there is a Microchip PIC32CK2051SG01144 microcontroller, based on an Arm® Cortex®-M33 core with 2 MB of flash memory, 512 kB of RAM and an integrated hardware security module (HSM). The microcontroller is clocked from a 12 MHz quartz crystal.
+- **Microcontroller**: At the heart of the Nano XL Link board is a Microchip PIC32CK2051SG01144 microcontroller, based on an Arm® Cortex®-M33 core with 2 MB of flash memory, 512 kB of RAM, and an integrated hardware security module (HSM). The microcontroller is clocked from a 12 MHz quartz crystal.
 - **CAN FD transceiver**: An onboard Texas Instruments® TCAN3414 transceiver provides the physical layer for the microcontroller's CAN FD controller. The `CANH` and `CANL` signals are available on the board headers.
 - **RS-485 transceiver**: An onboard Texas Instruments® THVD2410 transceiver provides a half-duplex RS-485 interface. The `A` and `B` signals are available on the board headers.
 - **Ethernet PHY**: An onboard Microchip® KSZ8081RNAIA PHY provides a 10/100 Mbps Ethernet interface. The differential transmit and receive pairs and an activity LED signal are available on the board headers.
-- **Bus termination jumpers**: Two solder jumpers connect 120 Ω termination resistors to the fieldbuses: `SJ1` for the CAN bus and `SJ2` for the RS-485 bus. Both jumpers are **closed** by default on the board.
-- **USB-C connector**: The Nano XL Link board features a USB-C connector for programming, power supply, and serial communication.
-- **Qwiic connector**: The Nano XL Link board includes an onboard Qwiic connector to expand the board's communication capabilities via I²C, facilitating connection with a wide range of sensors, actuators and peripherals, such as the Arduino Modulino nodes.
+- **Bus termination jumpers**: Two solder jumpers connect 120 Ω termination resistors to the fieldbuses: `SJ1` for the CAN bus and `SJ2` for the RS-485 bus. Both jumpers are **closed** by default.
+- **USB-C connector**: The Nano XL Link board includes a USB-C connector for programming, power, and serial communication.
+- **Qwiic connector**: The Nano XL Link board includes an onboard Qwiic connector to expand the board’s communication capabilities via I²C, facilitating connection with a wide range of sensors, actuators, and peripherals, such as the Arduino Modulino nodes.
 - **Programmable RGB LED**: The board has an onboard user-programmable RGB LED to provide visual feedback about different operating states.
 - **User LED**: In addition to the RGB LED, the board includes an onboard user-programmable yellow LED for basic status indications.
 - **Power LED**: A green LED indicates that the board's +3.3 VDC rail is powered.
@@ -74,9 +81,9 @@ Here is an overview of the board's main components shown in the images above:
 
 ### Board Core and Libraries
  
-The **Arduino Zephyr** core contains the libraries and examples to work with the Arduino Nano XL Link's peripherals and onboard components, such as its PIC32CK microcontroller, the CAN FD controller, the Ethernet interface and the onboard LEDs. 
+The **Arduino Zephyr** core includes libraries and examples for the Arduino Nano XL Link’s peripherals and onboard components, such as its PIC32CK microcontroller, CAN FD controller, Ethernet interface, and onboard LEDs.
 
-To install the core for the Nano XL Link board, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `Zephyr` and install the latest version of the core.
+To install the core for the Nano XL Link board, navigate to **Tools > Board > Boards Manager** or click the Boards **Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `Zephyr` and install the latest core version.
  
 The Arduino Zephyr core provides support for the following:
  
@@ -88,7 +95,7 @@ The Arduino Zephyr core provides support for the following:
 - RS-485 communication through the `ArduinoRS485` library
 - Onboard LED control (RGB LED and user LED)
 
-The Arduino Zephyr core runs Arduino sketches on top of the Zephyr® real-time operating system (RTOS). Sketches are written with the same Arduino API used on other Arduino boards, while the underlying drivers are provided by Zephyr.
+The Arduino Zephyr core runs Arduino sketches on top of the Zephyr® real-time operating system (RTOS). Sketches use the same Arduino API as other Arduino boards, while Zephyr provides the underlying drivers.
 
 ### Pinout
  
