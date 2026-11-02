@@ -43,7 +43,7 @@ Open **Space Settings** from the sidebar to configure a shared space:
 | Tab | Purpose |
 |---|---|
 | **General** | View space info and edit the space name |
-| **Custom Branding** | [Assign a custom logo and URL](/arduino-cloud/spaces-plans-account/custom-branding) |
+| **Custom Branding** | [Assign a custom logo, interface colors, and URL](/arduino-cloud/spaces-plans-account/custom-branding) |
 | **Manage Members** | [Add and manage members](/arduino-cloud/spaces-plans-account/members-roles#managing-members) |
 | **Roles & Permissions** | [Review the actions available to each role](/arduino-cloud/spaces-plans-account/members-roles#reviewing-roles-and-permissions-in-arduino-cloud) |
 | **Plan Usage** | View feature and resource usage |

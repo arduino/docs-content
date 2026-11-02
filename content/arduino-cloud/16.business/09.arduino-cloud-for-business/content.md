@@ -140,6 +140,8 @@ Once the configuration is set, your **Home** page will reflect your custom brand
 
 ![Custom Branding - Home Page with Custom Logo](assets/custom-branding-2-2.png)
 
+You can also align the interface colors with your brand using **Custom Palette**. Pick a single seed color, preview how buttons, links, and selected menu items look in the light and dark themes, and select **APPLY**. The palette applies to the Arduino Cloud web app only, not to the IoT Remote app or to emails sent by the platform. For details, see [Custom Branding](/arduino-cloud/spaces-plans-account/custom-branding#custom-palette-brand-colors-for-the-interface).
+
 For customizations related to *white labeling*, navigate to the **Advanced** tab within the **Custom Branding** page.
 
 ![Custom Branding - Advanced Options](assets/custom-branding-3.png "Advanced Options")

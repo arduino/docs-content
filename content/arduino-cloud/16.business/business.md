@@ -56,7 +56,7 @@ Stream historical data to your own storage for analytics and long-term retention
 
 ### 6. Apply Custom Branding
 
-Personalize the environment with your logo, a custom URL/subdomain, and social sign-in (white labeling) from **Space Settings → Custom Branding**. Basic options cover your logo and the Arduino logo toggle; advanced options enable a custom domain and authentication.
+Personalize the environment with your logo, brand colors for buttons and links (Custom Palette), a custom URL/subdomain, and social sign-in (white labeling) from **Space Settings → Custom Branding**. Branding options cover your logo, the Arduino logo toggle, and the Custom Palette; advanced options enable a custom domain and authentication.
 
 → [Custom Branding](/arduino-cloud/spaces-plans-account/custom-branding)
 
