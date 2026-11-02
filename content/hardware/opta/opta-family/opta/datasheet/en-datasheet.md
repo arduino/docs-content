@@ -53,7 +53,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 
 - **Real-time industrial monitoring:** Get instant access to your factory floor data and to the insights of your industrial processes to leverage your manufacturing excellence to continuous improvement. Implement visual management and KPIs monitoring thanks to the Arduino Opta's built-in connectivity features (Ethernet on all the product variants, Fieldbus and WiFi®/Bluetooth® Low Energy upon choice), delivering in a simple, fast and reliable way the data collected through beautiful dashboards in Arduino Cloud.
   
-- **Predictive **maintenance**:** Combine the possibility to interact with wireless and wired sensors, given by the multiple connectivity options of Arduino Opta®, with the powerful microcontroller computational capabilities to implement AI algorithms for predictive maintenance. Edge computing and monitoring capabilities, thanks to the Arduino Cloud features, can help to identify small drifts in your processes to address issues before they become a problem, reducing production line downtimes and ensuring quality outcomes.
+- **Predictive maintenance:** Combine the possibility to interact with wireless and wired sensors, given by the multiple connectivity options of Arduino Opta®, with the powerful microcontroller computational capabilities to implement AI algorithms for predictive maintenance. Edge computing and monitoring capabilities, thanks to the Arduino Cloud features, can help to identify small drifts in your processes to address issues before they become a problem, reducing production line downtimes and ensuring quality outcomes.
 
 ## Features
 
@@ -186,15 +186,15 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 
 <div style="page-break-after:always;"></div>
 
-| Item | Feature                                                             | Item | Feature                                                             |
-|------|---------------------------------------------------------------------|------|---------------------------------------------------------------------|
-| 3A   | Power Supply Terminals 12...24 VDC                                  | 3H   | Ethernet Port Status LEDs                                           |
-| 3B   | I1...I8 digital/analog input terminals (0-10V) configurable via IDE | 3I   | Label Holder                                                        |
-| 3C   | Reset Button                                                        | 3J   | RS-485 terminal block (for Modbus RTU or proprietary communication) |
-| 3D   | User Programmable button                                            | 3K   | USB-C® for programming and data logging                             |
-| 3E   | Status LEDs 1...4 (User Programmable)                               | 3M   | Ethernet port                                                       |
-| 3F   | Relay Output Terminals 1...4, NO contact (SPST) 10A 250 VAC         | 3N   | Port for communication and connection of auxiliary modules          |
-| 3G   | Functional Earth                                                    |      |                                                                     |
+| Item | Feature                                                              | Item | Feature                                                             |
+|------|----------------------------------------------------------------------|------|---------------------------------------------------------------------|
+| 3A   | Power Supply Terminals 12...24 VDC                                   | 3H   | Ethernet Port Status LEDs                                           |
+| 3B   | I1...I8 digital/analog input terminals (0-10 V) configurable via IDE | 3I   | Label Holder                                                        |
+| 3C   | Reset Button                                                         | 3J   | RS-485 terminal block (for Modbus RTU or proprietary communication) |
+| 3D   | User Programmable button                                             | 3K   | USB-C® for programming and data logging                             |
+| 3E   | Status LEDs 1...4 (User Programmable)                                | 3M   | Ethernet port                                                       |
+| 3F   | Relay Output Terminals 1...4, NO contact (SPST) 10 A 250 VAC         | 3N   | Port for communication and connection of auxiliary modules          |
+| 3G   | Functional Earth                                                     |      |                                                                     |
 
 > [!NOTE]
 > The LED above the *User Programmable button* (Ref: 3D) is only available on Arduino Opta® WiFi (AFX00002).
@@ -205,15 +205,15 @@ Following Opta's wiring specifications is important to ensure proper connection 
 
 #### Recommended Torque and Cable Preparation
 
-| **Torque** |     **Recommended Tool**     | **Stripping Length** |
-|:----------:|:----------------------------:|:--------------------:|
-|  0.80 Nm   | #1 Phillips-head screwdriver |         9 mm         |
+| **Torque** | **Recommended Tool**         | **Stripping Length** |
+|:-----------|:-----------------------------|:---------------------|
+| 0.80 Nm    | #1 Phillips-head screwdriver | 9 mm                 |
 
 #### Accepted Wire Types
 
-|   **Wire Type**    | **Minimum Size** |          **Maximum Size**           |
-|:------------------:|:----------------:|:-----------------------------------:|
-|  Solid Conductor   | 0.5 mm² (20 AWG) |  6 mm² (10 AWG)/2x4 mm² (2x12 AWG)  |
+| **Wire Type**      | **Minimum Size** | **Maximum Size**                    |
+|:-------------------|:-----------------|:------------------------------------|
+| Solid Conductor    | 0.5 mm² (20 AWG) | 6 mm² (10 AWG)/2x4 mm² (2x12 AWG)   |
 | Stranded Conductor | 0.5 mm² (20 AWG) | 4 mm² (12 AWG)/2x2.5 mm² (2x14 AWG) |
 
 ### Microcontroller
@@ -253,11 +253,11 @@ The USB-C® port can be used as a host or as a peripheral, but it cannot be used
 
 ### Relay Outputs
 
-Arduino Opta® has four *Normally Open* (NO) powerful 10A relays which are capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
+Arduino Opta® has four *Normally Open* (NO) powerful 10 A relays which are capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
 
 The relay *Maximum Peak Current* is defined as the highest value of inrush current that the relay can endure without undergoing any permanent degradation of its characteristics due to the generated heat. The relay has to be able to hold up that maximum using a duty cycle of less or equal to 10% and for a time equal to or less than 0.5 s.
 
-In the case of Arduino Opta®, relays have a *Maximum Peak Current* of 15A.
+In the case of Arduino Opta®, relays have a *Maximum Peak Current* of 15 A.
 
 The *Rated Load* is the maximum resistive load that a contact can make, carry and break repeatedly.
 
@@ -266,11 +266,12 @@ The *Rated Load* is the maximum resistive load that a contact can make, carry an
 
 For controlling DC loads (DC1 classification), the *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 10/4/0.3/0.12 A for respectively 24/30/110/220 V.
 
-In the case of the minimum switching load parameters, the minimum values of power, voltage and current that the relays can reliably switch, are 300 mW/ 5V / 5mA. This implies that with 5V the current must be at least 60mA, with 24V, it must be at least 12.5mA, and with 5mA the voltage must be at least 60V.
+In the case of the minimum switching load parameters, the minimum values of power, voltage and current that the relays can reliably switch, are 300 mW/ 5 V / 5 mA. This implies that with 5 V the current must be at least 60 mA, with 24 V, it must be at least 12.5 mA, and with 5 mA the voltage must be at least 60 V.
 
 The relays on Arduino Opta® provide a very fast response time of 6/4 ms to change state for closing/reopening, and a bounce time NO/NC of 3/6 ms.
 
 ### Expansion Port
+
 The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
 
 > [!NOTE]
@@ -323,8 +324,8 @@ MTBF, which stands for Mean Time Between Failure, is calculated according to sta
 The MTBF figure (in hours/years) for each Arduino Opta® variant can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F parts count method.
 
 | **Standard**  | **All Opta® Variants** | **Environmental Conditions** |
-|:-------------:|:----------------------:|:----------------------------:|
-| MIL-HDBK-217F |   766205 h/87 years    |            25 ºC             |
+|:--------------|:-----------------------|:-----------------------------|
+| MIL-HDBK-217F | 766205 h/87 years      | 25 °C                        |
 
 > [!NOTE]
 > MTBF is the statistical representation of the likelihood of a unit failing and *does not necessarily represent a product's life*.
@@ -376,7 +377,7 @@ Exemptions: No exemptions are claimed.
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
-### Conflict Minerals Declaration\
+### Conflict Minerals Declaration
 
 As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
@@ -464,17 +465,17 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 
 ## Revision History
 
-|  **Date**  | **Revision** |             **Changes**              |
-|:----------:|:------------:|:------------------------------------:|
-| 02/03/2023 |      1       |            First Release             |
-| 13/04/2023 |      2       |          Tech Specs Updates          |
-| 16/05/2023 |      3       |            Legal updates             |
-| 07/02/2023 |      4       |           MTBF information           |
-| 24/07/2024 |      5       |        Wiring specifications         |
-| 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
-| 11/09/2024 |      7       |      ICES certification updates      |
-| 24/09/2024 |      8       |        Expansion port updates        |
-| 02/12/2024 |      9       |  Digital input specification update  |
-| 20/10/2026 |      10      |     Added note for Intended Use      |
-| 29/10/2026 |      11      |  Expansion port compatibility note   |
-| 02/11/2026 |      12      |     Formatting and style update      |
+| **Date**   | **Revision** | **Changes**                          |
+|:-----------|:-------------|:-------------------------------------|
+| 02/03/2023 | 1            | First Release                        |
+| 13/04/2023 | 2            | Tech Specs Updates                   |
+| 16/05/2023 | 3            | Legal updates                        |
+| 07/02/2023 | 4            | MTBF information                     |
+| 24/07/2024 | 5            | Wiring specifications                |
+| 03/09/2024 | 6            | Cloud Editor updated from Web Editor |
+| 11/09/2024 | 7            | ICES certification updates           |
+| 24/09/2024 | 8            | Expansion port updates               |
+| 02/12/2024 | 9            | Digital input specification update   |
+| 20/10/2026 | 10           | Added note for Intended Use          |
+| 29/10/2026 | 11           | Expansion port compatibility note    |
+| 02/11/2026 | 12           | Formatting and style update          |
