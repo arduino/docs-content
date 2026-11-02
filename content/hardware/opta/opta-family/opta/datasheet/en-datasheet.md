@@ -224,11 +224,11 @@ Arduino Opta® can be programmed using the libraries developed for it as part of
 
 ### Encryption
 
-Encryption capabilities are provided by the *ATECC608B* chipset. This crypto-chip can be used to store sensitive information like security keys to connect to the Arduino® IoT Cloud or other third-party services, protecting Arduino Opta® from any unauthorized access in any kind of industrial and professional environment.
+Encryption capabilities are provided by the *ATECC608B* chipset. This crypto-chip can be used to store sensitive information like security keys to connect to the Arduino Cloud or other third-party services, protecting Arduino Opta® from any unauthorized access in any kind of industrial and professional environment.
 
 ### Ethernet
 
-TCP/IP and Modbus TCP communication are supported. The 10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full-duplex communication with automatic MDIX support. With an internet connection, Ethernet communication can be used to connect the device to the Arduino® IoT Cloud or other third-party services.
+TCP/IP and Modbus TCP communication are supported. The 10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full-duplex communication with automatic MDIX support. With an internet connection, Ethernet communication can be used to connect the device to the Arduino Cloud or other third-party services.
 
 ### Modbus RTU
 
@@ -245,7 +245,7 @@ The wiring indication may vary depending on the connected device. In case the ab
 
 The onboard wireless module allows simultaneous management of Wi-Fi® and Bluetooth® connectivity. The Wi-Fi® interface can be operated as an Access Point, as a Station or as a dual-mode simultaneous AP/STA, and can handle up to 65 Mbps transfer rate. Bluetooth® interface supports Bluetooth® Low Energy (4.2). 
 
-With an internet connection, the Wi-Fi® communication can be used for connecting to the Arduino® IoT Cloud or other third-party services.
+With an internet connection, the Wi-Fi® communication can be used for connecting to the Arduino Cloud or other third-party services.
 
 ### USB-C®
 
@@ -347,7 +347,7 @@ The MTBF figure (in hours/years) for each Arduino Opta® variant can be found in
 | WEEE (EU)     | Yes                                     | Yes                                                                                                                                  | Yes                                     |
 | ENEC          | Yes                                     | Yes                                                                                                                                  | Yes                                     |
 | REACH (EU)    | Yes                                     | Yes                                                                                                                                  | Yes                                     |
-| UKCA (UK)     | EN IEC 61326-1:2021                     | EN IEC 62311:2020, EN 300 328 V2.2.2:2019-07, EN 301 489-1 V2.2.3, EN 301 489-17 V3.2.4, IEC 61326-1:2021, EN 300 328 V2.2.2:2019-07 | EN IEC 61326-1:2021                     |
+| UKCA (UK)     | EN IEC 61326-1:2021                     | EN IEC 62311:2020, EN 300 328 V2.2.2:2019-07, EN 301 489-1 V2.2.3, EN 301 489-17 V3.2.4, IEC 61326-1:2021                            | EN IEC 61326-1:2021                     |
 | FCC (US)      | Yes                                     | Yes                                                                                                                                  | Yes                                     |
 | IC (Canada)   | -                                       | Yes                                                                                                                                  | -                                       |
 | cULus         | UL 61010-2-201                          | UL 61010-2-201                                                                                                                       | UL 61010-2-201                          |
@@ -454,13 +454,13 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 
 |             **Ref**             | **Link**                                                                        |
 |:-------------------------------:|---------------------------------------------------------------------------------|
-|      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                         |
-|       Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                |
-| Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
-|         Arduino PLC IDE         | https://www.arduino.cc/en/Main/Software                                         |
+|      Arduino IDE (Desktop)      | https://www.arduino.cc/en/software                                              |
+|       Arduino Cloud Editor      | https://app.arduino.cc/sketches                                                 |
+| Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/guides/overview                           |
+|         Arduino PLC IDE         | https://www.arduino.cc/en/software                                              |
 |   Arduino Opta® Documentation   | https://docs.arduino.cc/hardware/opta                                           |
-|           Project Hub           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending        |
-|        Library Reference        | https://www.arduino.cc/reference/en/                                            |
+|           Project Hub           | https://projecthub.arduino.cc/                                                  |
+|        Library Reference        | https://docs.arduino.cc/language-reference                                      |
 |          Online Store           | https://store.arduino.cc/                                                       |
 
 ## Revision History
@@ -470,7 +470,7 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 | 02/03/2023 | 1            | First Release                        |
 | 13/04/2023 | 2            | Tech Specs Updates                   |
 | 16/05/2023 | 3            | Legal updates                        |
-| 07/02/2023 | 4            | MTBF information                     |
+| 07/02/2024 | 4            | MTBF information                     |
 | 24/07/2024 | 5            | Wiring specifications                |
 | 03/09/2024 | 6            | Cloud Editor updated from Web Editor |
 | 11/09/2024 | 7            | ICES certification updates           |
