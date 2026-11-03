@@ -18,7 +18,7 @@ software:
   - web-editor
 ---
  
-This user manual provides an overview of the Nano XL Link board, highlighting its hardware and software elements. It will show you how to set up, configure, and use the main features of the Nano XL Link board.
+This user manual provides an overview of the Nano XL Link board, highlighting its hardware and software elements. It shows you how to set up, configure, and use the Nano XL Link board's main features.
 
 ![ ](assets/hero-banner.png)
  
@@ -28,7 +28,9 @@ This user manual provides an overview of the Nano XL Link board, highlighting it
  
 - [Nano XL Link](https://store.arduino.cc/products/nano-xl-link) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
-- Jumper wires (assorted)
+- [Nano Connector Carrier](https://store.arduino.cc/products/nano-connector-carrier) (x1) (recommended)
+- [Breadboard](https://store.arduino.cc/products/breadboard-400-contacts) (x1) (recommended)
+- [Female/male jumper wires](https://store.arduino.cc/products/40-colored-male-female-jumper-wires) (recommended)
  
 ### Software Requirements
  
@@ -134,22 +136,30 @@ The complete STEP files are available and downloadable from the link below:
  
 When opening the Nano XL Link box, you will find the board and its corresponding documentation. **The Nano XL Link does not include additional cables**, so you will need a USB-C cable ([available separately here](https://store.arduino.cc/products/usb-cable2in1-type-c)) to connect the board to your computer.
  
-The Nano XL Link is a standalone device that can be programmed directly without requiring additional boards. For fieldbus projects, you can mount the board on the Nano Connector Carrier (ASX00090) ([available separately here](https://store.arduino.cc/products/usb-cable2in1-type-c)), which provides screw terminals and connectors for its signals.
+The Nano XL Link is a standalone device that can be programmed directly without requiring additional boards. For prototyping and for connecting the board to CAN, RS-485 and Ethernet networks, we recommend the [Nano Connector Carrier (ASX00090)](https://store.arduino.cc/products/nano-connector-carrier), which provides screw terminals and connectors for the board's signals. Refer to the Nano Connector Carrier user manual for more information.
 
 ### Connecting the Board
  
 The Nano XL Link can be connected to your computer using its onboard USB-C connector. It can also be integrated into larger projects using the following:
- 
-- **Direct USB-C connection**: For programming, power supply, and serial communication with the computer
-- **Pin connection**: For integration into breadboards, carriers, or custom PCBs through the `J3` and `J4` headers
+
+- **Direct USB-C connection**: For programming, power supply and serial communication with the computer
+- **Nano Connector Carrier**: For prototyping and field installations, providing screw terminals and connectors for the board's signals and fieldbus lines
+- **Jumper wire connection**: For connecting the board's pins to a breadboard or to external circuits
 - **Qwiic connection**: For rapid expansion with compatible sensors and modules, such as the Modulino® nodes
-- **Fieldbus connection**: For direct connection to CAN, RS-485, and Ethernet networks through the header pins
+- **Pin connection**: For integration into custom PCBs through the `J3` and `J4` headers
+
+<Alert type="warning">
+
+The Nano XL Link cannot be inserted directly into a breadboard. Its double-row headers would connect the inner and outer rows of each header together, short-circuiting the board's signals. For prototyping, we recommend mounting the board on the Nano Connector Carrier or using female/male jumper wires to connect its pins to a breadboard.
+
+</Alert> 
 
 <Alert type="warning">
 
 The Nano XL Link operates at +3.3 VDC. When connecting sensors, modules, or shields designed for +5 VDC logic, verify voltage compatibility to avoid component damage.
 
 </Alert> 
+
 
 ### Voltage Compatibility Considerations
  
@@ -256,7 +266,7 @@ void loop() {
 }
 ```
 
-To upload the sketch to the board, click **Verify** to compile the sketch and check for errors, then click **Upload** to program the device with the sketch:
+To upload the sketch to the board, click **Verify** to compile the sketch and check for errors, then click **Upload** to program the device:
 
 ![Uploading a sketch to the Nano XL Link board in the Arduino IDE](assets/verify-upload-1.png)
  
@@ -266,7 +276,7 @@ You should see the built-in yellow user LED of your Nano XL Link board turn on f
  
 You can also open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages the example sketch sends each time the LED state changes:
 
-![Arduino IDE Serial Monitor output for the Blink sketch](assets/serial-monitor-1.png)
+![Arduino IDE Serial Monitor output for the Blink example sketch](assets/serial-monitor-1.png)
 
 This example confirms the following:
  
@@ -284,9 +294,7 @@ This section covers the Nano XL Link built-in LEDs and their main hardware and s
  
 ### RGB LED
  
-The Nano XL Link features a built-in RGB LED that can be used as a visual feedback indicator for the user.
-
-The built-in RGB LED can be accessed through the following macro definitions:
+The Nano XL Link features a built-in RGB LED that provides visual feedback. The built-in RGB LED can be accessed through the following macro definitions:
  
 | **Built-in LED** | **Macro Definition** | **Arduino Pin** | **Microcontroller Pin** |
 | :--------------: | :------------------: | :-------------: | :---------------------: |
@@ -362,73 +370,96 @@ void loop() {
 }
 ```
 
-You should now see the built-in RGB LED cycling through red, green, and blue colors, followed by a brief moment with all LEDs off, repeating this pattern continuously.
+You should now see the built-in RGB LED cycle through red, green, and blue, then briefly turn off, repeating this pattern continuously.
+
+![Onboard RGB user LED blinking](assets/rgb.gif)
  
-Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends each time the RGB LED state changes.
+You can also open the Arduino IDE’s Serial Monitor (Tools > Serial Monitor) to see the status messages the example sketch sends each time the RGB LED state changes.
+
+![Arduino IDE Serial Monitor output for the RGB example sketch](assets/serial-monitor-2.png)
 
 <Alert type="info"> 
-The three RGB LED pins also support PWM for brightness control. When using `analogWrite()`, the polarity is already inverted by the core, so higher values result in a brighter LED; for example, `analogWrite(LEDG, 255)` sets the green LED at maximum brightness.
+
+The three RGB LED pins also support PWM for brightness control. When using `analogWrite()`, the core already inverts the polarity, so higher values make the LED brighter; for example `analogWrite(LEDG, 255)` sets the green LED at maximum brightness.
+
 </Alert>
  
 ### User LED
  
-The Nano XL Link also features a built-in yellow user LED that can be used for basic status indications and debugging purposes.
+The Nano XL Link also features a built-in orange user LED that can be used for basic status indications and debugging purposes.
  
 The built-in user LED can be accessed through the following macro definition:
  
 | **Built-in LED** | **Macro Definition** | **Arduino Pin** | **Microcontroller Pin** |
 | :--------------: | :------------------: | :-------------: | :---------------------: |
-| Yellow User LED  |    `LED_BUILTIN`     |      `D38`      |         `PB16`          |
+| Orange User LED  |    `LED_BUILTIN`     |      `D38`      |         `PB16`          |
+
+![Onboard user LED of the Nano XL Link board](assets/orange-led.png)
  
 <Alert type="info">
+
 Unlike the RGB LED, the built-in user LED on the Nano XL Link operates with standard logic levels. This means that a voltage level of `HIGH` will turn the LED on, and a voltage level of `LOW` will turn it off.
+
 </Alert>
  
-The [Hello World example](#hello-world-example) shows how to control the built-in user LED. **Unlike the RGB LED pins, `LED_BUILTIN` does not support PWM**.
+The [Hello World example](#hello-world-example) shows how to control the built-in orange user LED. **Unlike the RGB LED pins, `LED_BUILTIN` does not support PWM**.
  
 ### Power LED
  
 The green power LED is connected directly to the +3.3 VDC rail and turns on whenever the board is powered. **It cannot be controlled from a sketch**.
 
+![Onboard power LED of the Nano XL Link board](assets/power-led.png)
+
 ## Pins
  
-This user manual section provides information about the Nano XL Link's pin capabilities and functionality. Understanding the board's pin capabilities and configurations is important for making the most of your projects with the Nano XL Link board.
+This user manual section provides information about the Nano XL Link’s pin capabilities and functionality. Understanding the board’s pin capabilities and configurations helps you make the most of your projects with the Nano XL Link.
  
 ### Pins Overview
  
-The Nano XL Link exposes its signals through **two 2x15 pin headers** (`J3` and `J4`), for a total of 60 pins. The headers keep the signals of the classic Nano form factor and add a second row with additional I/O, communication interfaces, fieldbus lines and USB signals.
+The Nano XL Link exposes its signals through **two 2x15 pin headers** (`J3` and `J4`), for a total of 60 pins. The headers keep the signals of the classic Nano form factor and add a second row with additional I/O, communication interfaces, fieldbus lines, and USB signals.
 
 ### Pins Specifications and Characteristics
  
 The Nano XL Link's header pins are organized into the following categories:
  
-|     **Pin Type**     | **Count** |                  **Pin Numbers**                   |             **Primary Functions**             |
-| :------------------: | :-------: | :------------------------------------------------: | :-------------------------------------------: |
-|   **Digital Pins**   |    26     |              `D0` - `D13`, `D22` - `D33`             | Digital I/O, PWM (8 pins), UART, SPI, I²C, I²S |
-|   **Analog Pins**    |     8     |              `A0` - `A7` (`D14` - `D21`)             |          Analog input, Digital I/O           |
-|  **Fieldbus Pins**   |     9     | `CANH`, `CANL`, `RS485 A`, `RS485 B`, `ETH_TX_P/N`, `ETH_RX_P/N`, `LED_ACT` |   CAN FD, RS-485 and Ethernet bus lines   |
-|    **USB Pins**      |     4     |        `USB_D+`, `USB_D-`, `USB_HS D+`, `USB_HS D-`    |              USB data lines                  |
-|    **Power Pins**    |     8     |            `VIN`, `+VBUS`, `+3V3`, `GND` (x5)           |            Power supply and ground            |
-|   **Special Pins**   |     4     |             `RESET`, `AREF`, `SWDIO`, `SWCLK`            |       System control, reference and debug       |
+|    **Pin Type**   | **Count** |                               **Pin Numbers**                               |              **Primary Functions**             |
+|:-----------------:|:---------:|:---------------------------------------------------------------------------:|:----------------------------------------------:|
+|  **Digital Pins** |     26    |                         `D0` - `D13`, `D22` - `D33`                         | Digital I/O, PWM (8 pins), UART, SPI, I²C, I²S |
+|  **Analog Pins**  |     8     |                         `A0` - `A7` (`D14` - `D21`)                         |            Analog input, Digital I/O           |
+| **Fieldbus Pins** |     9     | `CANH`, `CANL`, `RS485 A`, `RS485 B`, `ETH_TX_P/N`, `ETH_RX_P/N`, `LED_ACT` |      CAN FD, RS-485 and Ethernet bus lines     |
+|    **USB Pins**   |     4     |                 `USB_D+`, `USB_D-`, `USB_HS D+`, `USB_HS D-`                |                 USB data lines                 |
+|   **Power Pins**  |     8     |                       `VIN`, `VBUS`, `3V3`, `GND` (x5)                      |             Power supply and ground            |
+|  **Special Pins** |     4     |                      `RESET`, `AREF`, `SWDIO`, `SWCLK`                      |       System control, reference and debug      |
  
-***__Important voltage compatibility note__: The Nano XL Link operates at +3.3 VDC. This affects all digital and analog pins, including communication interfaces like I²C, SPI and UART. Before connecting any sensors, modules or shields, always verify their voltage compatibility. __Applying +5 VDC signals to the board's pins without proper level shifting can permanently damage the board__.***
+<Alert type="info">
+
+The Nano XL Link operates at +3.3 VDC. This applies to all digital and analog pins, including communication interfaces like I²C, SPI, and UART. Before connecting any sensors, modules, or shields, always verify their voltage compatibility. Applying +5 VDC signals to the board's pins without proper level shifting can permanently damage the board.
+
+</Alert>
  
 The following table shows the electrical specifications and operating limits for the pins on the Nano XL Link board:
  
-|    **Specification**    |   **Value**    |            **Notes**             |
-| :---------------------: | :------------: | :------------------------------: |
-|  **Operating Voltage**  |    +3.3 VDC    | Logic level for all digital pins |
-| **Input Voltage Range** | 0 to +3.3 VDC  |        Analog and digital         |
-| **Max Current per Pin** | TO VERIFY      |    Source/sink current limit     |
-|  **Analog Reference**   |    +3.3 VDC    |   Default reference (`VDD`)      |
+|     **Specification**     |        **Value**       |                       **Notes**                       |
+|:-------------------------:|:----------------------:|:-----------------------------------------------------:|
+|   **Operating Voltage**   |        +3.3 VDC        |            Logic level for all digital pins           |
+|  **Input Voltage Range**  |      0 to +3.3 VDC     | Analog and digital (except 5 V-tolerant digital pins) |
+|  **Max Current per Pin**  | 7 mA sink/11 mA source |   Guaranteed output levels at default drive strength  |
+|   **Input Low Voltage**   |     0 to +0.66 VDC     |             Maximum voltage read as `LOW`             |
+|   **Input High Voltage**  |    +2.31 to +3.3 VDC   |             Minimum voltage read as `HIGH`            |
+| **Internal Pull-up/down** |      12 to 14.6 kΩ     |    Selectable with `INPUT_PULLUP`/`INPUT_PULLDOWN`    |
+|    **Analog Reference**   |        +3.3 VDC        |               Default reference (`VDD`)               |
  
- <Alert type="info">
-The digital pin numbers `D34` to `D43` are also defined in the core, but they are connected to onboard components (Qwiic connector, Ethernet PHY control, LEDs and RS-485 transceiver control) and are not available on the headers. Avoid using them as general-purpose I/O.
+The current values in the table above are the conditions under which the PIC32CK microcontroller guarantees its output voltage levels at the default (4x) drive strength. The microcontroller also supports an 8x drive strength (13 mA sink and 19 mA source), but the Arduino core does not expose this setting.
+
+<Alert type="info">
+
+The core also defines the digital PINs `D34` to `D43`. Still, they connect to onboard components (Qwiic connector, Ethernet PHY control, LEDs, and RS-485 transceiver control) and are not available on the headers. Avoid using them as general-purpose I/O.
+
 </Alert>
 
 ### Digital Pins
  
-The Nano XL Link features **26 digital pins** on its headers (`D0` to `D13` and `D22` to `D33`), plus the analog pins `A0` to `A7`, which can also be used as digital pins `D14` to `D21`. All of them can be configured as digital inputs or digital outputs and operate at +3.3 VDC logic levels.
+The Nano XL Link features **26 digital pins** on its headers (`D0` to `D13` and `D22` to `D33`), plus the analog pins `A0` to `A7`, which can also be used as digital pins `D14` to `D21`. You can configure all of them as digital inputs or digital outputs, and they operate at +3.3 VDC logic levels.
  
 The Nano XL Link digital pins provide the following functionality:
  
@@ -462,12 +493,11 @@ The Nano XL Link digital pins provide the following functionality:
 |      `D33`      |         `PD09`          |    `J3-30`     |     `Serial2` RX         |
  
 <Alert type="info">
-Important note: On the Nano XL Link, pin `D0` is the `Serial1` transmit line (TX) and pin `D1` is the receive line (RX). This is the opposite of the classic Nano boards, where `D0` is RX and `D1` is TX. Take this into account when connecting serial devices or reusing Nano shields. Pins `D28` to `D31` are reserved for a future I²S interface and can currently be used as general-purpose digital I/O.
+
+Important note: On the Nano XL Link, pin `D0` is the `Serial1` transmit line (TX) and pin `D1` is the receive line (RX). This is the opposite of the classic Nano boards, where `D0` is RX and `D1` is TX. Keep this in mind when connecting serial devices or reusing Nano shields. Pins `D28` to `D31` are reserved for a future I²S interface and can currently be used as general-purpose digital I/O.
 </Alert>
  
-Digital pins can be configured and controlled using the following basic Arduino functions.
- 
-You can configure a pin's mode using the `pinMode()` function:
+You can configure and control digital pins using the following basic Arduino functions. You can configure a pin's mode using the `pinMode()` function:
  
 ```arduino
 pinMode(pin, mode);
@@ -562,22 +592,35 @@ void loop() {
   }
 }
 ```
- 
+
 To test this example, connect a push button to the Nano XL Link board as follows:
+
+- Place the push button on a breadboard
+- Connect one leg of the push button to pin `D9` of the board
+- Connect the other leg of the push button to a `GND` pin of the board
+- No additional components are needed, since the example uses the built-in LED and the internal pull-up resistor
+
+![Digital pins test circuit on the Nano XL Link board](assets/digital-pins.png)
+
+<Alert type="info">
+
+You can make the connections explained above with female/male jumper wires from the board’s header pins, or through the screw terminals of the Nano Connector Carrier (our recommended way), as shown above.
+
+</Alert>
  
-- Connect one leg of a push button to pin `D2`
-- Connect the other leg of the push button to `GND`
-- No external components needed (using the built-in LED and the internal pull-up resistor)
- 
-You should now see the built-in user LED toggle on and off each time you press the button. The interrupt is triggered on the falling edge (`FALLING`) of the pin, and the sketch ignores presses detected within 50 ms of the previous one to filter out the mechanical bounce of the button. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see messages indicating when the button is pressed and the current LED state.
+You should now see the built-in user LED toggle on and off each time you press the button. The interrupt is triggered on the falling edge (`FALLING`) of the pin, and the sketch ignores presses detected within 50 ms of the previous one to filter out the mechanical bounce of the button. You can also open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see messages indicating when the button is pressed and the current LED state.
+
+![Arduino IDE Serial Monitor output for the digital pins example sketch](assets/serial-monitor-3.png)
  
 <Alert type="info">
-Keep interrupt service routines as short as possible. In this example, the routine only sets a flag, and the LED and Serial Monitor updates are handled in the `loop()` function.
+
+Keep interrupt service routines as short as possible. In this example, the routine only sets a flag, and the LED and IDE's Serial Monitor updates are handled in the `loop()` function.
+
 </Alert>
 
 ### Analog Pins
  
-The Nano XL Link features **8 analog input pins** (`A0` to `A7`) that can be read using the `analogRead()` function. These pins allow you to measure continuously varying voltages, making them suitable for reading sensors like potentiometers, light sensors, temperature sensors and other analog components. The analog-to-digital converter (ADC) of the PIC32CK microcontroller converts the analog voltage into a digital value that your sketch can process.
+The Nano XL Link has **8 analog input pins** (`A0` to `A7`) that you can read with the `analogRead()`. These pins let you measure continuously varying voltages, making them suitable for reading sensors like potentiometers, light sensors, temperature sensors, and other analog components. The PIC32CK microcontroller's analog-to-digital converter (ADC) converts the analog voltage into a digital value your sketch can process.
  
 The Nano XL Link analog pins provide the following functionality:
  
@@ -593,7 +636,9 @@ The Nano XL Link analog pins provide the following functionality:
 |      `A7`       |      `D21`      |         `PA10`          |    `J3-21`     |    ADC0 ch 6    |
  
 <Alert type="info">
-Important note: Unlike the classic Nano boards, pins `A4` and `A5` of the Nano XL Link are not connected to the I²C bus. The I²C interfaces of the board are available on the Qwiic connector (`Wire`) and on pins `D26` and `D27` (`Wire1`).
+
+Unlike the classic Nano boards, pins `A4` and `A5` of the Nano XL Link board are not connected to the I²C bus. The I²C interfaces of the board are available on the Qwiic connector (`Wire`) and on pins `D26` and `D27` (`Wire1`).
+
 </Alert>
  
 The Nano XL Link's analog pins offer the following specifications:
@@ -611,7 +656,7 @@ You can read analog values using the `analogRead()` function:
 value = analogRead(pin);
 ```
  
-The ADC of the Nano XL Link samples at 12 bits, but by default `analogRead()` returns 10-bit values (0 to 1023) for compatibility with other Arduino boards. You can change the returned resolution using the `analogReadResolution()` function in the `setup()` of your sketch; for example, `analogReadResolution(12)` returns the full 12-bit range (0 to 4095).
+The Nano XL Link's ADC samples at 12 bits, but by default `analogRead()` returns 10-bit values (0 to 1023) for compatibility with other Arduino boards. You can change the returned resolution using the `analogReadResolution()` function in the `setup()` of your sketch; for example, `analogReadResolution(12)` returns the full 12-bit range (0 to 4095).
  
 The following example demonstrates how to read an analog value with the full 12-bit resolution and display it on the Serial Monitor:
  
@@ -665,17 +710,23 @@ To test this example, connect a potentiometer to the Nano XL Link board as follo
 - Connect the middle pin of the potentiometer to `A0`
 - Connect one outer pin of the potentiometer to `+3V3`
 - Connect the other outer pin of the potentiometer to `GND`
+
+![Analog pins test circuit on the Nano XL Link board](assets/analog-pins.png)
  
-You can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the real-time analog values and voltage measurements as you adjust the potentiometer. As you turn the potentiometer, the values will range from 0 to 4095, with corresponding voltage readings from 0 to +3.3 VDC.
+Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see real-time analog values and voltage measurements as you adjust the potentiometer. As you turn the potentiometer, the values will range from 0 to 4095, with corresponding voltage readings from 0 to +3.3 VDC.
+
+![Arduino IDE Serial Monitor output for the analog pins example sketch](assets/serial-monitor-4.png)
 
 <Alert type="warning">
+
 Do not connect the potentiometer to the `+VBUS` pin. Applying more than +3.3 VDC to an analog input can permanently damage the board.
+
 </Alert>
 
 ### PWM (Pulse Width Modulation)
  
-The Nano XL Link features multiple pins with PWM capability that can be used to generate analog-like output signals. PWM works by rapidly switching a digital output between `HIGH` and `LOW` states, where the ratio of `HIGH` time to the total period determines the effective analog voltage output.
- 
+The Nano XL Link has multiple PWM-capable pins you can use to generate analog-like output signals. PWM works by rapidly switching a digital output between `HIGH` and `LOW` states, where the ratio of HIGH time to the total period determines the effective analog voltage output.
+
 The Nano XL Link board provides PWM functionality on the following pins:
  
 | **Arduino Pin** | **Microcontroller Pin** | **Timer** | **Output** |
@@ -693,7 +744,9 @@ The Nano XL Link board provides PWM functionality on the following pins:
 |  `LEDB` (`D41`) |         `PC17`          |  `TCC1`   |   `WO2`    |
  
 <Alert type="info">
-Important note: Pins `D2` and `D3` share the `TCC1` timer with the three channels of the RGB LED, and pins `D4` and `D5` share the `TCC4` timer. Pins that share a timer always run at the same PWM frequency.
+
+Pins `D2` and `D3` share the `TCC1` timer with the three RGB LED channels, and pins `D4` and `D5` share the `TCC4` timer. Pins that share a timer always run at the same PWM frequency.
+
 </Alert>
  
 The Nano XL Link's PWM offers the following technical specifications:
@@ -716,60 +769,69 @@ analogWrite(pin, value);
 analogWriteResolution(resolution);
 ```
 <Alert type="warning">
+
 If `analogWrite()` is called on a pin without PWM capability, the core configures the pin as a digital output and sets it `HIGH` for values above half of the range, or `LOW` otherwise.
+
 </Alert>
  
-The following example demonstrates how to fade an LED connected to pin `D3`:
+The following example demonstrates how to fade an LED connected to pin `D39 (LEDR)`:
  
 ```arduino
 /**
 PWM Example for the Arduino Nano XL Link Board
 Name: nano_xl_link_pwm_led.ino
 Purpose: This sketch demonstrates how to use PWM to control
-the brightness of an external LED connected to pin D3.
- 
+the brightness of the built-in red LED of the Nano XL Link board.
+
 @author Arduino Product Experience Team
 @version 1.0 06/10/26
 */
- 
-// PWM output pin
-const int ledPin = 3;
- 
+
+// Built-in red LED pin (supports PWM)
+const int ledPin = LEDR;
+
 void setup() {
   // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
   for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
- 
+
   // No need to set pinMode for PWM pins - analogWrite() handles this
- 
+
   Serial.println("- Arduino Nano XL Link - PWM LED Example started...");
-  Serial.println("- External LED on D3 will fade in and out continuously");
+  Serial.println("- Built-in red LED will fade in and out continuously");
 }
- 
+
 void loop() {
   // Fade in (0 to 255)
   for (int brightness = 0; brightness <= 255; brightness++) {
     analogWrite(ledPin, brightness);
     delay(5);
   }
- 
+
   Serial.println("- LED at maximum brightness");
   delay(500);
- 
+
   // Fade out (255 to 0)
   for (int brightness = 255; brightness >= 0; brightness--) {
     analogWrite(ledPin, brightness);
     delay(5);
   }
- 
+
   Serial.println("- LED turned off");
   delay(500);
 }
 ```
- 
-To test this example, connect an LED to the Nano XL Link board as follows:
- 
-- Connect the anode (longer leg) of the LED to pin `D3` through a 220 Ω resistor
-- Connect the cathode (shorter leg) of the LED to `GND`
- 
-You should now see the LED gradually fade in and out, creating a smooth breathing effect that repeats continuously. Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends at key brightness levels.
+
+<Alert type="info">
+
+To test this example, no external connections are needed. The red LED is part of the board's built-in RGB LED.
+
+</Alert>
+
+You should now see the built-in red LED of your Nano XL Link board gradually fade in and out, creating a smooth breathing effect that repeats continuously.
+
+![Onboard red LED fading](assets/pwm.gif)
+
+Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends at key brightness levels.
+
+![Arduino IDE Serial Monitor output for the PWM example sketch](assets/serial-monitor-5.png)
