@@ -80,7 +80,7 @@ Here is an overview of the board's main components, most of them shown in the im
 - **USB-C connector**: The Nano XL Link board includes a USB-C connector for programming, power, and serial communication.
 - **Qwiic connector**: The Nano XL Link board includes an onboard Qwiic connector to expand the board’s communication capabilities via I²C, facilitating connection with a wide range of sensors, actuators, and peripherals, such as the Arduino Modulino nodes.
 - **Programmable RGB LED**: The board has an onboard user-programmable RGB LED to provide visual feedback about different operating states.
-- **User LED**: In addition to the RGB LED, the board includes an onboard user-programmable yellow LED for basic status indications.
+- **User LED**: In addition to the RGB LED, the board includes an onboard user-programmable orange LED for basic status indications.
 - **Power LED**: A green LED indicates that the board's +3.3 VDC rail is powered.
 - **Reset button**: An onboard push button resets the microcontroller.
 - **Extended headers**: Two 2x15 pin headers (`J3` and `J4`) with 2.54 mm pitch expose the board's signals, power pins, and fieldbus lines.
@@ -174,7 +174,7 @@ Before connecting any external components to your Nano XL Link board, it is impo
 
 <Alert type="warning">
 
-For +5 VDC components, add external level shifters on all data lines and use the `+VBUS` pin only when the board is powered from USB (see the following section). Always check your component’s datasheet for voltage specifications before connecting. When in doubt, use a multimeter to verify voltage levels or add level-shifting protection.
+For +5 VDC components, add external level shifters on all data lines and use the `VBUS` pin only when the board is powered from USB (see the following section). Always check your component's datasheet for voltage specifications before connecting. When in doubt, use a multimeter to verify voltage levels or add level-shifting protection.
 
 </Alert>
  
@@ -270,7 +270,7 @@ To upload the sketch to the board, click **Verify** to compile the sketch and ch
 
 ![Uploading a sketch to the Nano XL Link board in the Arduino IDE](assets/verify-upload-1.png)
  
-You should see the built-in yellow user LED of your Nano XL Link board turn on for one second, then turn off for one second, repeating this cycle continuously:
+You should see the built-in orange user LED of your Nano XL Link board turn on for one second, then turn off for one second, repeating this cycle continuously:
 
 ![Onboard orange user LED blinking](assets/blink.gif)
  
@@ -453,7 +453,7 @@ The current values in the table above are the conditions under which the PIC32CK
 
 <Alert type="info">
 
-The core also defines the digital PINs `D34` to `D43`. Still, they connect to onboard components (Qwiic connector, Ethernet PHY control, LEDs, and RS-485 transceiver control) and are not available on the headers. Avoid using them as general-purpose I/O.
+The core also defines the digital pins `D34` to `D43`. But they are connect to onboard components (Qwiic connector, Ethernet PHY control, LEDs, and RS-485 transceiver control) and are not available on the headers. Avoid using them as general-purpose I/O.
 
 </Alert>
 
@@ -515,9 +515,9 @@ To read the state of a digital input pin, use the `digitalRead()` function:
 digitalRead(pin);
 ```
  
-The available pin modes are `OUTPUT` for digital output, `INPUT` for digital input with high impedance, and `INPUT_PULLUP` for digital input with internal pull-up resistor enabled. Digital output values can be `HIGH` (+3.3 VDC) or `LOW` (0 VDC), and digital input readings will return `HIGH` or `LOW` based on the voltage level detected on the pin. Digital pins can also trigger interrupts through the `attachInterrupt()` function.
+The available pin modes are `OUTPUT` for digital output, `INPUT` for digital input with high impedance, `INPUT_PULLUP` for digital input with the internal pull-up resistor enabled, and `INPUT_PULLDOWN` for digital input with the internal pull-down resistor enabled. Digital output values can be `HIGH` (+3.3 VDC) or `LOW` (0 VDC), and digital input readings will return `HIGH` or `LOW` based on the voltage level detected on the pin. Digital pins can also trigger interrupts through the `attachInterrupt()` function.
  
-The following example demonstrates how to use a digital input with an external interrupt to toggle the built-in user LED each time a push button connected to pin `D2` is pressed:
+The following example demonstrates how to use a digital input with an external interrupt to toggle the built-in user LED each time a push button connected to pin `D9` is pressed:
  
 ```arduino
 /**
@@ -532,7 +532,7 @@ a push button is pressed.
 */
  
 // Pin definitions
-const int buttonPin = 2;            // Button input on D2
+const int buttonPin = 9;            // Button input on D9
 const int ledPin = LED_BUILTIN;     // Built-in LED
  
 // Debounce time in milliseconds
@@ -706,10 +706,11 @@ void loop() {
 ```
 
 To test this example, connect a potentiometer to the Nano XL Link board as follows:
- 
-- Connect the middle pin of the potentiometer to `A0`
-- Connect one outer pin of the potentiometer to `+3V3`
-- Connect the other outer pin of the potentiometer to `GND`
+
+- Place the potentiometer on a breadboard
+- Connect the middle pin of the potentiometer to pin `A0` of the board
+- Connect one outer pin of the potentiometer to the `3V3` pin of the board
+- Connect the other outer pin of the potentiometer to a `GND` pin of the board
 
 ![Analog pins test circuit on the Nano XL Link board](assets/analog-pins.png)
  
@@ -719,7 +720,7 @@ Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see real-time 
 
 <Alert type="warning">
 
-Do not connect the potentiometer to the `+VBUS` pin. Applying more than +3.3 VDC to an analog input can permanently damage the board.
+Do not connect the potentiometer to the `VBUS` pin. Applying more than +3.3 VDC to an analog input can permanently damage the board.
 
 </Alert>
 
@@ -835,3 +836,153 @@ You should now see the built-in red LED of your Nano XL Link board gradually fad
 Additionally, you can open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages that the example sketch sends at key brightness levels.
 
 ![Arduino IDE Serial Monitor output for the PWM example sketch](assets/serial-monitor-5.png)
+
+## UART Communication
+
+The Nano XL Link board features built-in UART (Universal Asynchronous Receiver-Transmitter) communication, allowing your projects to communicate with other devices through serial data transmission. The board provides one USB serial port for communication with the computer and three hardware UART ports: two available on the board headers for external devices, and one connected to the onboard RS-485 transceiver. This lets you debug a sketch over USB while communicating with sensors, modules, or other microcontrollers at the same time.
+
+UART is particularly useful when your project needs to communicate with devices that require simple, reliable serial communication, rather than the more complex protocols like SPI or I²C. While SPI excels at high-speed communication and I²C is ideal for multiple-device networks, UART provides point-to-point communication that works well with GPS modules, Bluetooth® modules, Wi-Fi® modules, and other serial devices. UART communication is asynchronous, meaning it does not require a shared clock signal.
+
+The Nano XL Link's UART interface offers the following technical specifications:
+
+|   **Parameter**   |      **Value**     |              **Notes**             |
+|:-----------------:|:------------------:|:----------------------------------:|
+|   Hardware Ports  |          3         | `Serial1`, `Serial2` and `Serial3` |
+|     USB Serial    |          1         |       `Serial` (USB CDC-ACM)       |
+|     Data Bits     |       5 to 8       |          8-bit by default          |
+|       Parity      |  None, even or odd |           None by default          |
+|     Stop Bits     |     1, 1.5 or 2    |            1 by default            |
+|   Communication   |     Full-duplex    |         Simultaneous TX/RX         |
+|    Buffer Size    | 1024 bytes (TX/RX) |       Per port, per direction      |
+| Operating Voltage |      +3.3 VDC      |          TTL logic levels          |
+|    Flow Control   |        None        |      No hardware flow control      |
+
+The Nano XL Link board uses the following pins for UART communication:
+
+| **Serial Object** | **Arduino Pin** | **Microcontroller Pin** | **UART Function** |       **Description**      |
+|:-----------------:|:---------------:|:-----------------------:|:-----------------:|:--------------------------:|
+|     `Serial1`     |       `D0`      |          `PA00`         |         TX        |        Transmit data       |
+|     `Serial1`     |       `D1`      |          `PA01`         |         RX        |        Receive data        |
+|     `Serial2`     |      `D32`      |          `PD08`         |         TX        |        Transmit data       |
+|     `Serial2`     |      `D33`      |          `PD09`         |         RX        |        Receive data        |
+|     `Serial3`     |        -        |            -            |         -         | Onboard RS-485 transceiver |
+
+<Alert type="warning">
+
+On the Nano XL Link, pin `D0` is the `Serial1` transmit line (TX) and pin `D1` is the receive line (RX). This is the opposite of the classic Nano boards. When connecting an external device, remember that its RX pin must be connected to `D0` and its TX pin to `D1`.
+
+</Alert>
+
+<Alert type="info">
+
+`Serial3` is connected internally to the onboard RS-485 transceiver and is not available on the headers. Do not use it directly; use the `ArduinoRS485` library instead, as explained in the [RS-485 Communication](#rs-485-communication) section.
+
+</Alert>
+
+You can communicate via UART using the built-in `Serial`, `Serial1`, and `Serial2` objects. The `Serial` object connects to the USB-C port for computer communication, while `Serial1` and `Serial2` connect to the header pins for external device communication. All of them support the standard `begin()`, `print()`, `println()`, `available()` and `read()` functions. The port configuration can be changed with the second argument of `begin()`; for example, `Serial1.begin(9600, SERIAL_8E1)` configures 8 data bits, even parity, and 1 stop bit.
+
+The following example demonstrates basic UART communication by sending a counter value via `Serial1` every second and forwarding messages between the USB serial port and `Serial1`:
+
+```arduino
+/**
+UART Basic Example for the Arduino Nano XL Link Board
+Name: nano_xl_link_uart_basic.ino
+Purpose: This sketch demonstrates basic UART communication
+using both the USB serial port and the hardware Serial1 port.
+
+@author Arduino Product Experience Team
+@version 1.0 03/11/26
+*/
+
+void setup() {
+  // Initialize USB serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+  // Initialize hardware serial on pins D0/D1 at 9600 baud
+  Serial1.begin(9600);
+
+  Serial.println("- Arduino Nano XL Link - UART Basic Example started...");
+  Serial.println("- USB Serial (Serial): 115200 baud");
+  Serial.println("- Hardware Serial (Serial1): 9600 baud on D0 (TX) / D1 (RX)");
+  Serial.println("- Sending a counter value via Serial1 every second");
+  Serial.println("- Type messages in the Serial Monitor to send them via Serial1");
+  Serial.println();
+}
+
+void loop() {
+  // Forward data from USB Serial (computer) to Serial1
+  if (Serial.available()) {
+    String message = Serial.readString();
+
+    // Remove newline characters
+    message.trim();
+
+    if (message.length() > 0) {
+      Serial.print("- USB received: \"");
+      Serial.print(message);
+      Serial.println("\"");
+
+      // Send the message via Serial1 (D0/D1)
+      Serial1.print("- Message from USB: ");
+      Serial1.println(message);
+
+      Serial.println("- Message sent via Serial1!");
+    }
+  }
+
+  // Forward data from Serial1 (external device on D0/D1) to USB Serial
+  if (Serial1.available()) {
+    String response = Serial1.readString();
+
+    // Remove newline characters
+    response.trim();
+
+    if (response.length() > 0) {
+      Serial.print("- Serial1 received: \"");
+      Serial.print(response);
+      Serial.println("\"");
+    }
+  }
+
+  // Send the counter value via Serial1 every second
+  static unsigned long lastSend = 0;
+  static unsigned int counter = 0;
+  if (millis() - lastSend > 1000) {
+    lastSend = millis();
+
+    // Send the current counter value
+    Serial1.print("Counter: ");
+    Serial1.println(counter);
+
+    Serial.print("- Counter value sent via Serial1: ");
+    Serial.println(counter);
+
+    counter++;
+  }
+
+  delay(10);
+}
+```
+
+<Alert type="info">
+
+To test this example, you don't need any external UART devices. You can type messages in the Arduino IDE's Serial Monitor to see them transmitted via `Serial1`. To observe the UART signals, connect a logic analyzer with a UART decoder to pin `D0` (TX) and to a `GND` pin of the board. The images below were captured with a Digilent Analog Discovery 2 and the WaveForms software. If you connect a jumper wire between `D0` and `D1`, the board receives its own transmissions, and the messages appear back in the Serial Monitor as "Serial1 received".
+
+</Alert>
+
+Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to interact with the USB serial port and observe the communication:
+
+![Arduino IDE Serial Monitor output for the UART example sketch](assets/serial-monitor-6.png)
+
+The image below shows how the UART communication from the example appears in the WaveForms Logic Analyzer, with the decoded protocol showing the counter message bytes and timing:
+
+![WaveForms Logic Analyzer output for the UART example](assets/uart-logic-analyzer.png)
+
+When working with UART on the Nano XL Link, there are several key points to keep in mind:
+
+- The USB serial port (`Serial`) and the hardware ports (`Serial1`, `Serial2`) are independent, so you can debug over USB while communicating with an external device at the same time.
+- Always ensure that both devices use the same baud rate, data bits, parity, and stop bits for successful communication.
+- UART communication uses TTL voltage levels (0 VDC for logic `LOW`, +3.3 VDC for logic `HIGH`). Devices with +5 VDC UART signals require a level shifter, and RS-232 devices require a level converter.
+- When connecting external devices, remember that TX connects to RX and RX connects to TX (crossover connection).
+- For long-distance or industrial serial communication, use the onboard RS-485 interface instead of the TTL UART pins.
