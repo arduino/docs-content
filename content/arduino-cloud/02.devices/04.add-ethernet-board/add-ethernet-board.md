@@ -17,19 +17,26 @@ Per [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud):
 
 Authentication uses the same certificate + private key method as the equivalent Wi-Fi® boards in the same family.
 
+<Alert type="note">
+
+Older Ethernet hardware, such as the [Ethernet Shield Rev2](https://store.arduino.cc/products/arduino-ethernet-shield-2) and the [MKR ETH Shield](https://store.arduino.cc/products/arduino-mkr-eth-shield), is not supported by Arduino Cloud.
+
+</Alert>
+
 ## Provisioning the Board
 
-1. Connect the board over USB with the [Cloud Agent](/arduino-cloud/devices/cloud-agent) installed.
-2. Go to **Devices → + Device → Automatic Setup** and select your board.
-3. When prompted for the connection type, choose **Ethernet**.
+1. Connect the board to your computer over USB with the [Cloud Agent](/arduino-cloud/devices/cloud-agent) installed. Connect the Ethernet cable to the board's carrier or shield.
+2. Go to **Devices**, select **+ Device**, and choose **Arduino boards** under **Automatic Setup**.
+3. When the board is detected, select **Configure**.
+4. For Ethernet-capable boards, you are asked to choose between **Wi-Fi®** and **Ethernet**. Choose **Ethernet**.
 
 ![Selecting Ethernet as the connection type.](assets/ethernet-option.png)
 
-<Alert type="warning">
+5. Wait while the wizard uploads a provisioning sketch and configures the board's secure element. Keep the board connected until the wizard finishes.
 
-Needs verification: the exact wizard screenshots for the Ethernet path were not re-walked against real Portenta/Opta + Ethernet hardware in this pass. Confirm the steps against a physical setup before publishing.
+## Network Settings
 
-</Alert>
+After you associate the device with a [Thing](/arduino-cloud/things-data/things), open the **Network** section on the device page. By default, the board gets its address from your network over DHCP, so you can leave the fields empty. To use a static address, enter the IP address, DNS server, gateway and netmask.
 
 ## Sketch Pattern
 
@@ -52,5 +59,5 @@ Here `ArduinoIoTPreferredConnection` is an `EthernetConnectionHandler` rather th
 ## Next Steps
 
 - [Add a Wi-Fi Board](/arduino-cloud/devices/add-wifi-board)
-- [Network Configuration](/arduino-cloud/devices/network-configuration)
+- [Provisioning & Network Configuration](/arduino-cloud/devices/network-configuration)
 - [Arduino C++ Library](/arduino-cloud/device-libraries/arduino-cpp)

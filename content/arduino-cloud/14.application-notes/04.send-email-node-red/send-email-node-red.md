@@ -61,9 +61,9 @@ if (data < 60 && trigger) {
 
 Install an email node the same way as the Arduino nodes — in **Manage palette**, search **Email** and install `node-red-node-email`. Wire the **email** node to the function node's output and configure it with your SMTP credentials and recipient address.
 
-<Alert type="warning">
+<Alert type="info">
 
-Needs verification: email node setup (SMTP host, port, and app-password requirements) depends on your mail provider. Confirm your provider's current SMTP settings before publishing.
+The SMTP settings, such as the server, the port, and whether you need an app password, depend on your email provider. Check your provider's documentation for the current values.
 
 </Alert>
 

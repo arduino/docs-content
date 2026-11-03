@@ -5,19 +5,19 @@ tags: [Arduino Cloud, Templates]
 author: Lenard George, Hannes Siebeneicher
 ---
 
-A **Template** bundles a Thing's variable layout with a matching Dashboard, so you can spin up the same setup repeatedly instead of rebuilding it by hand each time. Official templates cover common starter projects (e.g. "Cloud Blink," a simple remote LED switch); custom templates are your own saved setups.
+A **Template** bundles one or more Things and their variables with matching Dashboards and, where the project needs them, [Triggers](/arduino-cloud/automations/triggers-and-alerts). You can spin up the same setup repeatedly instead of rebuilding it by hand each time. Official templates cover common starter projects (e.g. "Cloud Blink," a simple remote LED switch); custom templates are your own saved setups.
 
 ## Browsing the Gallery
 
-**Templates** in the left navigation (`/templates`) shows official and custom templates, grouped by category and compatible board:
+**Templates** in the left navigation shows official and custom templates, grouped by category and compatible board:
 
 ![The templates gallery.](assets/templates-gallery.png)
 
-Each template's page describes what the project does, the hardware it needs, and how many [Things](/arduino-cloud/things-data/things), [Variables](/arduino-cloud/things-data/cloud-variables), and [Dashboards](/arduino-cloud/dashboards/dashboards) it creates.
+Each template's page describes what the project does, the hardware it needs, and how many [Things](/arduino-cloud/things-data/things), [Variables](/arduino-cloud/things-data/cloud-variables), and [Dashboards](/arduino-cloud/dashboards/dashboards) it creates, along with any Triggers.
 
 ## Applying a Template
 
-With a compatible board connected over USB, **Use Template** provisions everything automatically — the Device, its network credentials, the Thing(s) and Variables, the generated sketch, and the Dashboard(s):
+With a compatible board connected over USB, **Use Template** provisions everything automatically — the Device, its network credentials, the Thing(s) and Variables, the generated sketch, the Dashboard(s), and any Triggers included in the template:
 
 ![Applying a template to a connected board.](assets/use-a-template.png)
 

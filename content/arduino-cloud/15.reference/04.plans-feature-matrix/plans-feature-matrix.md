@@ -7,9 +7,9 @@ author: Karl Söderby & Arduino Team
 
 A side-by-side comparison of what each Arduino Cloud plan includes. Use it to pick a tier or to understand why a feature is locked. For current pricing and the authoritative limits, see [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas).
 
-<Alert type="warning">
+<Alert type="info">
 
-Needs verification: the exact numbers below (Things limits, retention periods, compile time, API quotas) change with plan updates and were not re-confirmed against live pricing this pass. Treat every cell as indicative and verify against [Plan Usage](https://app.arduino.cc/plan-usage) and the official pricing page before publishing.
+Plan limits, such as the number of Things, data retention and compile time, change over time. This page shows which features each plan includes. For the current numbers and prices, see the [Arduino Cloud plans page](https://cloud.arduino.cc/plans) and your [Plan Usage](https://app.arduino.cc/plan-usage).
 
 </Alert>
 
@@ -17,8 +17,8 @@ Needs verification: the exact numbers below (Things limits, retention periods, c
 
 | Feature | Free | Maker | Maker Plus | Business / Enterprise |
 |---|---|---|---|---|
-| Things | Limited (e.g. 2) | More | More | Scales (multiples of 50) |
-| Historical data retention | Short (e.g. 1 day) | Extended | Longer | Longest / configurable |
+| Things | Limited | More | More | Scales with the plan |
+| Historical data retention | Shortest | Extended | Longer | Longest |
 | Over-the-air (OTA) updates | — | Yes | Yes | Yes |
 | Triggers / alerts | Limited | Yes | Yes | Yes |
 | Advanced widgets (Advanced Map/Chart, Image Map) | — | Yes | Yes | Yes |

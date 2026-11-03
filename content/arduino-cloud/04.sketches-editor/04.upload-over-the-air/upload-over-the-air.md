@@ -9,7 +9,7 @@ author: Jose Garcia
 
 ## Requirements
 
-- An [OTA-supported board](https://github.com/arduino-libraries/ArduinoIoTCloud) — including UNO R4 Wi-Fi®, MKR Wi-Fi® 1010, Nano 33 IoT, Nano RP2040 Connect, Nano ESP32, the Portenta family, Nicla family, Opta Wi-Fi®, and GIGA R1 Wi-Fi®.
+- An OTA-supported board: UNO R4 WiFi, MKR WiFi 1010, Nano 33 IoT, Nano RP2040 Connect, Nano ESP32, Portenta H7, Portenta H7 Lite Connected, Portenta Machine Control, Nicla Vision, Opta WiFi or GIGA R1 WiFi. See [Supported Boards & Capabilities](/arduino-cloud/reference/supported-boards-capabilities).
 - **One initial upload over USB** — this installs the OTA-capable partition layout later wireless uploads rely on. See [Upload Over USB](/arduino-cloud/sketches-editor/upload-sketch-usb).
 - The board online in Arduino Cloud over Wi-Fi® (or Ethernet/Cellular, where supported).
 

@@ -77,6 +77,52 @@ Complex types expose getters/setters rather than direct assignment — for examp
 
 </Alert>
 
+### CloudSchedule
+
+Declared as `CloudSchedule x;`. Use it to check for an active state or to read the timestamps.
+
+| Description | Type | Read Value |
+|---|---|---|
+| Active state | `bool` | `x.isActive()` |
+| From (start date) | `int` | `x.getCloudValue().frm` |
+| To (end date) | `int` | `x.getCloudValue().to` |
+| Length | `int` | `x.getCloudValue().len` |
+
+If no end date is selected, **To** defaults to `0`.
+
+### DimmedLight
+
+Declared as `CloudDimmedLight x;`.
+
+| Property | Type | Read Value | Set Value |
+|---|---|---|---|
+| Brightness | `float` (0–100) | `x.getBrightness()` | `x.setBrightness(value)` |
+| Switch | `bool` | `x.getSwitch()` | `x.setSwitch(value)` |
+
+### CloudLocation
+
+Declared as `CloudLocation x;`. Read the coordinates with `Location coordinates = x.getValue();`, then access `coordinates.lat` and `coordinates.lon`. Set the value with a `Location` object: `x = Location(latitude, longitude);`.
+
+| Property | Type | Read Value |
+|---|---|---|
+| Latitude | `float` | `coordinates.lat` |
+| Longitude | `float` | `coordinates.lon` |
+
+Coordinates use decimal degrees (DD), for example `41.40338`, `2.17403`.
+
+### Television
+
+Declared as `CloudTelevision x;`.
+
+| Property | Type | Read Value | Set Value |
+|---|---|---|---|
+| Switch | `bool` | `x.getSwitch()` | `x.setSwitch(value)` |
+| Volume | `int` (0–100) | `x.getVolume()` | `x.setVolume(value)` |
+| Mute | `bool` | `x.getMute()` | `x.setMute(value)` |
+| Playback command | `PlaybackCommands` (FastForward, Next, Pause, Play, Previous, Rewind, StartOver, Stop) | `x.getPlaybackCommand()` | `x.setPlaybackCommand(value)` |
+| Input | `InputValue` ([up to 60 values](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/property/types/automation/CloudTelevision.h), such as HDMI1, HDMI2, DVD, GAME) | `x.getInput()` | `x.setInput(value)` |
+| Channel | `int` | `x.getChannel()` | `x.setChannel(value)` |
+
 ## Color and Colored Light
 
 `CloudColor` and `CloudColoredLight` store colors in the **HSB** (hue, saturation, brightness) format only. They don't have RGB getters or setters of their own. To work with **RGB** values, use the `Color` class from the ArduinoIoTCloud library, which converts between the two formats.

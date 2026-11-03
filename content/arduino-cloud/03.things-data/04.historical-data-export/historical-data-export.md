@@ -5,33 +5,47 @@ tags: [Arduino Cloud, History, Data Export]
 author: Benjamin Dannegård
 ---
 
-Every [Cloud Variable](/arduino-cloud/things-data/cloud-variables) update is stored as a timeseries point. This is what the Chart widget displays, what you can download as a CSV, and what you can query directly through the API for custom analysis or long-term storage.
+Every [Cloud Variable](/arduino-cloud/things-data/cloud-variables) update is stored as a timeseries point. This is what the Chart widget displays, what you can download as CSV, and what you can query directly through the API for custom analysis or long-term storage. You don't need an active board to download historical data, but you need a connected device to collect it in the first place.
 
 ## Data Retention
 
-How long historical data is kept depends on your plan. The Business plan includes **one year** of data retention by default; data stays available and downloadable from your account for that window.
+How long historical data is kept depends on your plan. See [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas) for the retention period of each plan, and [Plan Usage](https://app.arduino.cc/plan-usage) for your current plan.
 
-<Alert type="warning">
+### Choosing the Right History for Your Project
 
-Needs verification: the exact retention window for each free and paid tier wasn't confirmed this pass. Check your current [Plan Usage](https://app.arduino.cc/plan-usage) before quoting a specific number of days.
+How much history you need depends on the project:
 
-</Alert>
+- **Real-time control**, such as home automation that turns on the lights when it's dark, works with current data. A short history is enough, because you don't act on yesterday's light levels.
+- **Trend monitoring**, such as a weather station measuring temperature, rainfall or daylight hours, benefits from several days or weeks of data to compare recent changes.
+- **Long-term analysis**, such as a greenhouse, an aquarium, or an industrial project monitoring equipment for predictive maintenance, may require weeks or months of data.
+
+You can also tune how often data is sent with the variable's [update policy](/arduino-cloud/things-data/cloud-variables#update-policy). For example, a battery-powered sensor at the end of the garden that sends its Wi-Fi® signal strength once a minute instead of every second uses much less power, and the history is just as useful for spotting when and why the signal drops.
 
 ## Exporting to CSV
 
-You can download a variable's history straight from a dashboard. Inside a dashboard, press the **Download** icon in the upper-right corner:
+You can download the history of a dashboard's variables:
 
-![The Download icon on a dashboard.](assets/download-button.png)
+1. Open a dashboard and select the **Download** icon in the upper-right corner.
 
-A dialog opens where you select the variables and the time frame to export:
+   ![The Download icon on a dashboard.](assets/download-button.png)
 
-![Selecting variables and a time range to export.](assets/download-data.png)
+2. Select the variables you want to download by checking their boxes. If the dashboard uses several Things, switch between them from the dropdown at the top. Choose the time frame to export.
 
-Choose your data, confirm the data source, and request the export. The file is delivered in **`.csv`** format by email as a download link, ready for further analysis.
+   ![Selecting variables and a time range to export.](assets/download-data.png)
+
+3. Select **Select Data Source**.
+4. In the next window, select **Get Data**.
+5. A download link is sent to the email address of your account. Open the email and download the data, which is exported in CSV format.
 
 <Alert type="info">
 
-Downloading historical data is a per-space permission. In shared spaces, every Business role (Admin, Editor, Service, and Viewer) and every Education role (Admin, Teacher, and Student) can download historical data; see [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles) for the full role matrix.
+In shared spaces, whether a member can download historical data depends on the permissions of their role. See [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles).
+
+</Alert>
+
+<Alert type="note">
+
+Deleting a dashboard or a widget doesn't affect how your Thing and device work, but it removes the historical data shown by that widget.
 
 </Alert>
 

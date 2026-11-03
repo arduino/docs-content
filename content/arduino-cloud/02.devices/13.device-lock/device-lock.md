@@ -12,9 +12,9 @@ When you set up a physical board in Arduino® Cloud, the board is linked to the 
 
 Each type of space gets a different default when a device is first set up. You can change the setting at any time from the device's page.
 
-<Alert type="warning">
+<Alert type="note">
 
-Needs verification: the **Lock to this account** setting wasn't verified on a live device page this pass, because the test account only had a manually configured device, which doesn't show the setting. Confirm the exact position of the setting on a physical board's device page before publishing.
+The **Lock to this account** setting is only shown for physical boards. Manual devices, such as Python, MicroPython or JavaScript clients, don't have it.
 
 </Alert>
 
@@ -92,6 +92,6 @@ The lock is also exposed to [arduino-cloud-cli](/arduino-cloud/apis-cli/cli-devi
 ## Next Steps
 
 - [Devices Overview](/arduino-cloud/devices/devices-overview)
-- [Network Configuration](/arduino-cloud/devices/network-configuration)
+- [Provisioning & Network Configuration](/arduino-cloud/devices/network-configuration)
 - [Spaces](/arduino-cloud/spaces-plans-account/spaces)
 - [Arduino Cloud for Education](/arduino-cloud/education/arduino-cloud-for-education)

@@ -13,11 +13,25 @@ A **manual** (or **generic**) device is a virtual device with no firmware requir
 - Bridging a non-Arduino system — a Raspberry Pi running plain Linux, a server, or a Node.js backend — into Arduino Cloud.
 - Reproducible demo and test setups, scriptable via `arduino-cloud-cli device create-generic`.
 
+## Before You Start
+
+What you need depends on the client you connect with:
+
+- **Python**: [Python](https://www.python.org/) installed on your computer (check with `python --version`). The client is tested with Python 3.11.
+- **MicroPython**: a supported board, such as GIGA R1 WiFi, Portenta H7 or Nano RP2040 Connect, running MicroPython 1.2 or later. See [MicroPython](/arduino-cloud/device-libraries/micropython) for setup.
+- **JavaScript / Node.js**: [Node.js](https://nodejs.org/en) installed on your computer.
+
 ## Create the Device
 
 1. Go to **Devices → + Device → Manual Setup → Any device**.
 2. Name the device and continue.
-3. Save the generated **Device ID** and **Secret Key** — the key is shown only once.
+3. Save the generated **Device ID** and **Secret Key**. You can download them as a PDF or copy them. The Secret Key is shown only once and cannot be retrieved after you close the window.
+
+<Alert type="warning">
+
+If you lose the Secret Key, delete the device and add it again to generate a new Device ID and Secret Key, then update your client code.
+
+</Alert>
 
 From the terminal, the equivalent is:
 
@@ -25,7 +39,7 @@ From the terminal, the equivalent is:
 arduino-cloud-cli device create-generic --name <deviceName>
 ```
 
-See [Managing Devices from the CLI](/arduino-cloud/apis-cli/cli-devices).
+See [Managing Devices from the CLI](/arduino-cloud/apis-cli/cli-devices). To create and manage devices from your own code, use the [Devices section of the Arduino Cloud API reference](https://docs.arduino.cc/cloud-api/devices-api) and the [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
 
 ## Connect From Python, MicroPython, or Node.js
 
@@ -60,3 +74,4 @@ Each name passed to `register()` must exactly match a Cloud Variable already cre
 - [Python Library](/arduino-cloud/device-libraries/python)
 - [JavaScript Library](/arduino-cloud/device-libraries/javascript-nodejs)
 - [Managing Devices from the CLI](/arduino-cloud/apis-cli/cli-devices)
+- [Devices API reference](https://docs.arduino.cc/cloud-api/devices-api)

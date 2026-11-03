@@ -21,12 +21,6 @@ The most reliable way to browse a device's data in the app is through a [Dashboa
 
 </Alert>
 
-<Alert type="warning">
-
-Needs verification: the exact in-app navigation for browsing devices directly (screen names, whether a standalone device/data browser exists separate from dashboards, and the labels used) wasn't confirmed hands-on this pass. Verify against a current app build before documenting a specific tap-by-tap flow.
-
-</Alert>
-
 ## Next Steps
 
 - [Use Dashboards on Your Phone](/arduino-cloud/iot-remote-app/use-dashboards-on-phone)

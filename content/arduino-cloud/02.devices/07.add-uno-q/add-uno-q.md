@@ -5,31 +5,44 @@ tags: [Arduino Cloud, UNO Q, App Lab, Devices]
 author: Karl Söderby & Arduino Team
 ---
 
-The Arduino **UNO Q** (and Ventuno Q) run a full Linux OS and connect to Arduino Cloud through the [arduino-cloud-connector](https://github.com/arduino/arduino-cloud-connector) daemon rather than an Arduino sketch. Provisioning and Cloud Variable exchange are handled by **Arduino App Lab**, not by code written directly against `ArduinoCloud`.
+The Arduino **UNO Q** (and VENTUNO Q) run a full Linux OS and connect to Arduino Cloud through the [arduino-cloud-connector](https://github.com/arduino/arduino-cloud-connector) service rather than an Arduino sketch. You connect the board to Arduino Cloud directly from **Arduino App Lab**. Once connected to your Cloud space, the board is provisioned automatically and is ready to exchange data with your apps. You don't need to copy a Device ID or Secret Key.
 
-<Alert type="info">
+The communication with Arduino Cloud runs on the board's microprocessor (MPU) and is programmed in Python. Data to and from the microcontroller (MCU) is handled by the [Bridge](/software/app-lab/getting-started/quickstart/#bridge-tool) tool.
 
-The UNO Q board also documents this flow in its own hardware tutorial at `hardware/uno-q/tutorials/06.arduino-cloud`. Use that page for board-specific setup details.
+## What You Need
 
-</Alert>
+- An [Arduino UNO Q](https://store.arduino.cc/products/uno-q) or VENTUNO Q.
+- An [Arduino account](https://login.arduino.cc/login).
+- [Arduino App Lab](https://www.arduino.cc/en/software) installed on your computer.
 
-## Provision the Device
+## Connect the Device
 
-1. In Arduino Cloud, go to **Devices → + Device → Automatic Setup → Arduino UNO Q & VENTUNO Q**. This generates a `device_id` / `secret_key` pair.
-2. Create a [Thing](/arduino-cloud/things-data/things) with a Cloud Variable and associate this device with it, then build a [Dashboard](/arduino-cloud/dashboards/dashboards) — exactly as with any other device type.
+You can start from Arduino Cloud or directly from App Lab:
 
-## Connect From App Lab
+1. *Optional:* In [Arduino Cloud](https://app.arduino.cc/), go to **Devices**, select **+ Device**, and choose **Arduino UNO Q** (or the matching Q device). Arduino Cloud asks you to open App Lab, or to download it if it is not installed.
+2. Open Arduino App Lab, go to the device settings, and select **Connect** in the **Cloud** section.
+3. If you are not logged in to App Lab with your Arduino account, a web login page opens. Log in, and App Lab reopens automatically.
+4. Select the Cloud space to add the device to. You can choose your personal space or an organization space.
+5. A confirmation message appears, and the device is listed in **Devices** in the selected space.
 
-In App Lab, an app is built from **Bricks**. The built-in example **"Blinking LED from Arduino Cloud"** (duplicate it via **Copy and edit app**) shows the pattern:
+## Set Up the Thing and Dashboard
 
-- Its **Arduino Cloud** Brick is configured (**Brick Configuration**) with the `device_id` / `secret_key` from provisioning and handles the MPU-side connection to Arduino Cloud.
-- The app's `main.py` (running on the Linux/MPU side) reacts to Cloud Variable changes delivered through the Arduino Cloud Brick, and uses the **Bridge** tool to relay values to the microcontroller (MCU) side of the board — e.g. toggling a dashboard switch updates a variable, which `main.py` forwards over Bridge to turn an LED on or off.
+1. Create a [Thing](/arduino-cloud/things-data/things) and associate the UNO Q device with it.
+2. Add a **Boolean** Cloud Variable named `led`.
+3. Create a [Dashboard](/arduino-cloud/dashboards/dashboards), select **Edit**, and select the Thing. A switch widget is assigned to the `led` variable automatically.
 
-<Alert type="warning">
+## Run the Cloud Example in App Lab
 
-Needs verification: the exact App Lab UI labels, Brick configuration steps, and whether the UNO Q path appears under Automatic or Manual Setup were not re-walked against real hardware in this pass. Confirm against a physical UNO Q and the current App Lab release before publishing.
+In App Lab, an app is built from **Bricks**. The built-in example **Blinking LED from Arduino Cloud** shows the pattern:
 
-</Alert>
+1. Open the **Examples** tab and select **Blinking LED from Arduino Cloud**.
+2. Select **Copy and edit app** to duplicate the example.
+3. The **Arduino Cloud** Brick is already added to the app. No configuration is needed: the board is already connected to your Cloud space and connects automatically.
+4. Select **Run** and wait until the app has launched.
+
+When you toggle the dashboard switch, Arduino Cloud updates the `led` variable. The app's `main.py`, running on the MPU, receives the change through the Arduino Cloud Brick and uses Bridge to tell the MCU to turn the LED on or off.
+
+For the full walkthrough with screenshots, see [Connect UNO Q to the Arduino Cloud](/tutorials/uno-q/arduino-cloud/).
 
 ## Next Steps
 

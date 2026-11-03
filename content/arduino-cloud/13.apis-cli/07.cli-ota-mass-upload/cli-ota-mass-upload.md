@@ -66,13 +66,7 @@ Tagging devices (see [CLI: Devices](/arduino-cloud/apis-cli/cli-devices#tags)) m
 
 ## Cancel, Encode, Decode
 
-`ota cancel`, `ota encode`, and `ota decode` round out the group.
-
-<Alert type="warning">
-
-Needs verification: the exact flags for `ota cancel`/`encode`/`decode` weren't walked through hands-on in this pass — run `arduino-cloud-cli ota <command> --help` to confirm before quoting specific flag names.
-
-</Alert>
+`ota cancel`, `ota encode`, and `ota decode` round out the group: `cancel` stops a scheduled OTA upload, `encode` adds the OTA header to a binary file, and `decode` reads the header of an OTA file. Run `arduino-cloud-cli ota <command> --help` to list the flags of each command.
 
 ## Next Steps
 

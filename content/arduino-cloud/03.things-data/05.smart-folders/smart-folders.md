@@ -92,7 +92,7 @@ See [Custom Templates](/arduino-cloud/templates/custom-templates) for more detai
 
 <Alert type="note">
 
-During testing, a Thing with no associated device didn't appear in the **Add a Thing** list. If your Thing is missing from the list, associate a device with it first.
+If your Thing is missing from the **Add a Thing** list, associate a device with it first.
 
 </Alert>
 
@@ -108,7 +108,7 @@ During testing, a Thing with no associated device didn't appear in the **Add a T
 1. Open **Templates > Your Templates** and select the template you created.
 2. Apply it to a new device, as described in [Use Templates](/arduino-cloud/templates/use-templates).
 
-Arduino Cloud creates a new Thing from the template, including its tags.
+Arduino Cloud creates a new Thing from the template.
 
 <Alert type="note">
 
@@ -116,15 +116,12 @@ On the Free plan, you can have two Things at a time. Applying the template creat
 
 </Alert>
 
-### 5. Check That the New Thing Is in the Smart Folder
+### 5. Check the Tag and the Smart Folder
 
-Open the **Greenhouse project** Smart Folder on the **Things** page. The Thing you created from the template is listed next to the original, without any manual sorting. Every Thing you create from that template from now on ends up in the same folder.
+1. Open the new Thing and its **Metadata** panel. Check that it has the `project` tag with the value `greenhouse`. If it doesn't, add it as described in step 1.
+2. Open the **Greenhouse project** Smart Folder on the **Things** page. The new Thing is listed next to the original, without any manual sorting.
 
-<Alert type="warning">
-
-Needs verification: steps 2, 4, and 5 of this example weren't run end to end for this article. Confirm that a Thing created from a custom template keeps the original Thing's tags and appears in the Smart Folder.
-
-</Alert>
+Every Thing that carries the same tag ends up in the same folder.
 
 ## Smart Folder Ideas
 

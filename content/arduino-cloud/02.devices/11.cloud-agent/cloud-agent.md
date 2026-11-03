@@ -33,11 +33,18 @@ For manual, per-OS install instructions, see the [Help Center article](https://s
 ## Troubleshooting
 
 - **Board not detected** — confirm the agent is installed and running, then reconnect the USB cable. Try a different cable or port; some cables are power-only.
-- **Connection-refused errors in the browser console** — the browser looks for the agent on local ports `127.0.0.1:8991`–`9000`. These errors are harmless if the agent isn't running or isn't needed for what you're doing.
-- **Agent installed but still not found** — restart the browser, and make sure no firewall or security software is blocking the local ports above.
+- **Connection-refused errors in the browser console**: the browser looks for the agent on local ports `127.0.0.1:8991` to `9000`. If you don't need the agent for what you're doing, for example a manual device or Bluetooth®-only provisioning, you can ignore these errors. If you do need it, start the agent.
+- **Agent installed but still not found**: restart the browser, and make sure no firewall or security software is blocking the local ports above.
+- **"Failed to open serial port"**: close the Serial Monitor in Arduino IDE or any other application using the board, then restart the agent.
+
+For more help, see [Install the Arduino Cloud Agent](https://support.arduino.cc/hc/en-us/articles/360014869820-Install-the-Arduino-Cloud-Agent) in the Help Center and [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections).
+
+## Source Code
+
+The source code for the Cloud Agent is in the [arduino-create-agent](https://github.com/arduino/arduino-create-agent) GitHub repository. Report issues and suggest improvements there.
 
 ## Next Steps
 
-- [Network Configuration](/arduino-cloud/devices/network-configuration)
+- [Provisioning & Network Configuration](/arduino-cloud/devices/network-configuration)
 - [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections)
 - [Cloud Editor Overview](/arduino-cloud/sketches-editor/cloud-editor-overview)

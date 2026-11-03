@@ -27,12 +27,6 @@ The left sidebar shows the Spaces Overview navigation, which has three sections:
 
 To go back to working inside a specific space, select that space from the same account button.
 
-<Alert type="warning">
-
-Needs verification: confirm the exact label and position of the **Spaces Overview** entry in the space selector against the live UI before publishing.
-
-</Alert>
-
 ## Statistics Across All Spaces
 
 The **Statistics** section uses the same widgets as the Statistics section on a space's Home page, but each value is the **sum across every space you belong to**: total Things, devices, members, ingested records, and Trigger activations. It also adds a **Things distribution** chart that shows how your Things are spread across your spaces.

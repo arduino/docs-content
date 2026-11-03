@@ -17,7 +17,9 @@ Arduino Cloud supports many kinds of hardware and clients, and each has a slight
 | A cellular board (SIM-based) | [Add a Cellular Board](/arduino-cloud/devices/add-cellular-board) |
 | A LoRaWAN® device | [Add a LoRaWAN Device](/arduino-cloud/devices/add-lorawan-device) |
 | An Arduino UNO Q | [Add an UNO Q](/arduino-cloud/devices/add-uno-q) |
-| Python, MicroPython, or Node.js | [Add a Manual Device](/arduino-cloud/devices/add-manual-device) |
+| A board running MicroPython | [Add a Manual Device](/arduino-cloud/devices/add-manual-device), then [MicroPython](/arduino-cloud/device-libraries/micropython) |
+| A computer or single-board computer running Python | [Add a Manual Device](/arduino-cloud/devices/add-manual-device), then [Python](/arduino-cloud/device-libraries/python) |
+| A JavaScript or Node.js application | [Add a Manual Device](/arduino-cloud/devices/add-manual-device), then [JavaScript / Node.js](/arduino-cloud/device-libraries/javascript-nodejs) |
 | Just my phone | [Use Your Phone as a Device](/arduino-cloud/iot-remote-app/use-phone-as-device) |
 
 The **Setup Device** dialog offers the same split when you add a device:

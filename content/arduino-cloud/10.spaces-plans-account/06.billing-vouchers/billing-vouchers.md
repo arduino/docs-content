@@ -5,47 +5,55 @@ tags: [Arduino Cloud, Billing, Account]
 author: Karl Söderby & Arduino Team
 ---
 
-Paid Arduino Cloud plans are managed from your account's plan and billing settings, where you can enter payment information, redeem a voucher, and upgrade, downgrade, or cancel a subscription. This page outlines each task; because the billing interface changes periodically, exact menu paths are flagged for verification.
+Paid Arduino Cloud plans are managed from the **My Plans** page, where you can review your plans, update your payment method and billing information, redeem a voucher, and change or cancel a subscription.
 
-## Where Billing Lives
+## Open the My Plans Page
 
-Plan and billing settings are reached from your account menu — typically under a **Plans** or **My Plans / Billing** area, where your current plan, usage, and payment method are shown.
+Use any of the following:
 
-<Alert type="warning">
+- In Arduino Cloud, open the menu in the top-left and select **Billing & Subscriptions**.
+- On other Arduino web pages, select your profile icon in the top-right, then **My Plans**.
+- Open [digital-store.arduino.cc/subscriptions/plans](https://digital-store.arduino.cc/subscriptions/plans) directly.
 
-Needs verification: the exact menu labels and navigation path to billing settings should be confirmed against the current UI before publishing step-by-step instructions.
+The page lists your plans with their subscription period, payment method and billing information. If you belong to spaces with School or Enterprise plans, those plans are listed too.
 
-</Alert>
+## Change Payment Method and Billing Info
 
-## Changing a Plan
+1. Open the **My Plans** page.
+2. Under **Payment method**, select **Change** to update your payment method.
+3. Under **Billing info**, select **Change** to update your billing information.
 
-From the plan settings you can:
+For School and Enterprise plans, only the subscription admin can change the payment method and billing information.
 
-- **Upgrade** to a higher tier for more Things, retention, or features — changes generally take effect immediately.
-- **Downgrade** to a lower tier — be sure your usage fits the lower tier's [limits](/arduino-cloud/spaces-plans-account/plans-limits-quotas) first, as exceeding them can disable resources.
-- **Cancel** a subscription — access to paid features ends at the close of the current billing period.
+## Change a Plan
 
-<Alert type="warning">
+1. Open the **My Plans** page and find the plan you want to change.
+2. Select **Modify plan**.
+3. Select the plan and the billing frequency (monthly or yearly).
+4. Select **Review payment information** to continue.
 
-Needs verification: the precise behavior on downgrade/cancellation (grace periods, what happens to data beyond the new retention window) should be confirmed before publishing.
+Plan upgrades take effect immediately. If you downgrade, you keep access to your paid features until the end of the current billing cycle. Before you downgrade, check that your usage fits the lower plan's [limits](/arduino-cloud/spaces-plans-account/plans-limits-quotas); see [exceeding plan limits when downgrading](https://support.arduino.cc/hc/en-us/articles/360019706820) in the Help Center.
 
-</Alert>
+School and Enterprise plans can only be changed by the subscription admin. To upgrade from an individual plan to an Enterprise plan, [contact Arduino](https://www.arduino.cc/en/contact-us/).
+
+## Cancel a Plan
+
+1. Open the **My Plans** page and find the plan you want to cancel.
+2. Select **Cancel plan**.
+3. A confirmation is sent to the email address of your Arduino account.
+
+You keep access to your paid features until the end of the billing cycle. School and Enterprise plans can only be canceled by the subscription admin. For details, see [Billing and feature changes when switching to a different Cloud plan](https://support.arduino.cc/hc/en-us/articles/4401874211730).
 
 ## Redeeming a Voucher
 
-If you have a voucher or promotional code (for example from a kit, course, or campaign), redeem it from the plans/billing area:
+If you have a voucher code, for example for an Arduino Cloud for Business trial, redeem it while you purchase the plan:
 
-1. Open your plan or billing settings.
-2. Find the **Redeem voucher** (or promo code) field.
-3. Enter the code and confirm.
+1. Log in to your Arduino account and open [digital-store.arduino.cc/subscriptions/redeem](https://digital-store.arduino.cc/subscriptions/redeem).
+2. Select the plan that the voucher applies to and configure it as described in the voucher's instructions.
+3. On the **Payment** page, select **Use coupon** and enter the full voucher code, including any dashes.
+4. Check that the **Purchase Summary** reflects the voucher, then complete the purchase.
 
-The associated plan or credit is then applied to your account.
-
-<Alert type="warning">
-
-Needs verification: the exact location and label of the voucher-redemption field should be confirmed against the current UI.
-
-</Alert>
+For a full walkthrough, see [Redeem Arduino Cloud for Business Voucher](/tutorials/generic/cloud-business-voucher-redeem).
 
 ## Next Steps
 

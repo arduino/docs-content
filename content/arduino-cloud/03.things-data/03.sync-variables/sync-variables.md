@@ -1,5 +1,5 @@
 ---
-title: Sync Variables
+title: Sync Variables Between Things
 description: Keep one Cloud Variable synchronized across multiple devices or Things, turning Arduino Cloud into the link between boards.
 tags: [Arduino Cloud, Synchronization]
 author: Karl Söderby & Arduino Team
@@ -17,7 +17,15 @@ Each board links to its own [Thing](/arduino-cloud/things-data/things), so a two
 
 Repeat for every variable that needs to cross over. In a two-way remote-control setup each Thing ends up with two variables: one it owns and updates locally, and one that mirrors the other Thing's variable.
 
-Synchronization works between any variables of a **compatible type** — not just Booleans. An integer or float reading on one Thing can mirror onto another just as easily.
+Synced variables must be of the **same type**. For example, you can't link an integer to a boolean, or an integer to a float. Synchronization works for any variable type, not just Booleans.
+
+You can sync one or many variables between Things, and you choose which ones to link. In the example below, two Things are set up as follows:
+
+- `switch_1` is synced with `light_1`, a typical remote light switch.
+- The `temperature` variables are **not** linked, so each Thing keeps its own value.
+- `fan_control` is synced with `fan_speed`, for example a potentiometer that remotely controls the speed of a fan.
+
+![Two Things with some of their variables synchronized.](assets/variable-sync-example.png)
 
 ## Reacting to a Synced Variable in a Sketch
 

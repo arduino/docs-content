@@ -18,11 +18,7 @@ Once the agent detects the board, it appears in the board-selection menu at the 
 
 ![A board detected through the Cloud Agent.](assets/board-connected.png)
 
-<Alert type="warning">
-
-Needs verification: the exact label and position of the board/port selector (e.g. "Select Other Board & Port") weren't confirmed against the current UI this pass. Confirm before publishing a precise click path.
-
-</Alert>
+If your board isn't selected automatically, open the board-selection menu and select the board and port manually. If the board isn't listed at all, see [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections#device-cant-be-added).
 
 ## Uploading
 

@@ -22,16 +22,16 @@ The limits below are the ones most likely to influence which plan you need:
 | Limit / Feature | Free | Maker | Paid / Business |
 |---|---|---|---|
 | Number of Things | Lowest | Higher | Highest / tailored |
-| Data retention | Shortest | Longer | Longest (e.g. 1 year) |
+| Data retention | Shortest | Longer | Longest |
 | Over-the-air (OTA) updates | Limited | Included | Included |
 | Triggers & alerts | Not included | Included | Included |
 | Advanced dashboard widgets | Limited | Included | Included |
 | Compile time per day | Lowest | Higher | Highest |
 | Shared spaces & RBAC | Not included | Not included | Included |
 
-<Alert type="warning">
+<Alert type="info">
 
-Needs verification: the exact numeric limits — number of Things per tier, data retention windows, daily compile-time allowances, and which widgets are plan-gated — change over time. Confirm current figures against the [Plans & Feature Matrix](/arduino-cloud/reference/plans-feature-matrix) and the pricing page before publishing specific numbers.
+The exact limits, such as the number of Things, the data retention period and the daily compile time, change over time. For the current numbers and prices, see the [Arduino Cloud plans page](https://cloud.arduino.cc/plans). To see how much of your plan you are using, open [Plan Usage](https://app.arduino.cc/plan-usage).
 
 </Alert>
 

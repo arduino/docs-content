@@ -39,8 +39,9 @@ To create a custom template from an existing project:
 1. In **Your Templates**, click **Create → New Template**.
 2. Add a **Thing** — click **Thing**, search for and select one of your existing Things, then **Add to Template**.
 3. Add a **Dashboard** the same way (it may offer to add the dashboard already associated with your Thing as a shortcut).
-4. Optionally add documentation — a description, wiring diagrams, schematics.
-5. Click **Generate Template**. It then appears under **Your Templates**.
+4. Optionally add **Triggers** linked to the Thing's variables, so the automations are recreated together with the project.
+5. Optionally add documentation — a description, wiring diagrams, schematics.
+6. Click **Generate Template**. It then appears under **Your Templates**.
 
 Exiting before clicking **Generate Template** discards your progress.
 
