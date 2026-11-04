@@ -1,0 +1,149 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    NC DRILL Log                                                     )
+(                                                                     )
+(    Drawing          : 48DMVQAD1_SGDJV-20250922_1010.brd             )
+(    Software Version : 17.4S029                                      )
+(    Date/Time        : Mon Sep 22 10:12:20 2025                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+
+ Processing NC Parameters file 'nc_param.txt' ...
+
+ NC PARAMETERS
+ -------------
+
+ FORMAT   		4.4
+ MACHINE-OFFSET		x:0.00000	y:0.00000   (mm)
+ FEEDRATE		1
+ COORDINATES		ABSOLUTE
+ OUTPUT-UNITS		METRIC
+ TOOL-ORDER		INCREASING
+ REPEAT-CODES		YES
+ SUPPRESS-LEAD-ZEROES	NO
+ SUPPRESS-TRAIL-ZEROES	NO
+ SUPPRESS-EQUAL		NO
+ TOOL-SELECT		YES
+ HEADER			none
+ LEADER			12
+ CODE			ASCII
+ SEPARATE		NO
+ SEPARATE-ROUTING	NO
+ OPTIMIZE_DRILLING	NO
+ ENHANCED_EXCELLON	YES
+ SCALE			1.000000
+
+ WARNING(SPMHMF-358): Design precision is the same as that of the drill output file data.
+ WARNING(SPMHMF-359): Data rounding errors may still be possible.
+ WARNING(SPMHMF-365): This design contains 6 slot holes that cannot be drilled.
+ WARNING(SPMHMF-366): They can be processed by NC routing instead.
+ WARNING(SPMHMF-368): Cannot find NC Drill tool file 'nc_tools.txt'
+ WARNING(SPMHMF-369): ... will auto-generate tool file 'nc_tools_auto.txt'.
+
+
+     Auto-generating tool file 'nc_tools_auto.txt' ...
+
+           Size  Plating  Tool        + Tolerance  - Tolerance
+
+         0.1000  P        T01            0.000000     0.100000
+         0.2000  P        T02            0.076200     0.076200
+         0.2032  P        T03            0.076200     0.076200
+         1.0500  P        T04            0.076200     0.076200
+         1.2100  P        T05            0.076200     0.076200
+         0.5000  N        T06            0.050800     0.050800
+         0.8000  N        T07            0.050800     0.050800
+         3.2000  N        T08            0.050800     0.050800
+
+
+ Drill files being output to directory 'U:/2525/NA/DMVQ-AD01/48DMVQAD1.SGDJV/brd' ...
+
+
+
+     '48DMVQAD1_SGDJV-20250922_1010-2-3.drl' created for holes connecting G2 and S3
+     ------------------------------------------------------------------------------
+
+     Tool  Num     Size      +/- Tolerance     Plating   Quantity
+
+     T01    1.   0.1000    0.0000/  0.1000      PLATED       2360
+
+     ---- Total holes:                                       2360
+
+     ---- Total head travel:              51.88 feet (15.81 meters)
+
+
+
+
+     '48DMVQAD1_SGDJV-20250922_1010-7-8.drl' created for holes connecting G7 and BOTTOM
+     ----------------------------------------------------------------------------------
+
+     Tool  Num     Size      +/- Tolerance     Plating   Quantity
+
+     T01    1.   0.1000    0.0000/  0.1000      PLATED       2099
+
+     ---- Total holes:                                       2099
+
+     ---- Total head travel:              44.49 feet (13.56 meters)
+
+
+
+
+     '48DMVQAD1_SGDJV-20250922_1010-3-6.drl' created for holes connecting S3 and S6
+     ------------------------------------------------------------------------------
+
+     Tool  Num     Size      +/- Tolerance     Plating   Quantity
+
+     T02    1.   0.2000    0.0762/  0.0762      PLATED        850
+
+     ---- Total holes:                                        850
+
+     ---- Total head travel:              32.45 feet (9.89 meters)
+
+
+
+
+     '48DMVQAD1_SGDJV-20250922_1010-6-7.drl' created for holes connecting S6 and G7
+     ------------------------------------------------------------------------------
+
+     Tool  Num     Size      +/- Tolerance     Plating   Quantity
+
+     T01    1.   0.1000    0.0000/  0.1000      PLATED       1428
+
+     ---- Total holes:                                       1428
+
+     ---- Total head travel:              41.12 feet (12.53 meters)
+
+
+
+
+     '48DMVQAD1_SGDJV-20250922_1010-1-8.drl' created for holes connecting TOP and BOTTOM
+     -----------------------------------------------------------------------------------
+
+     Tool  Num     Size      +/- Tolerance     Plating   Quantity
+
+     T03    1.   0.2032    0.0762/  0.0762      PLATED        221
+     T04    2.   1.0500    0.0762/  0.0762      PLATED         32
+     T05    3.   1.2100    0.0762/  0.0762      PLATED          6
+     T06    4.   0.5000    0.0508/  0.0508  NON_PLATED          2
+     T07    5.   0.8000    0.0508/  0.0508  NON_PLATED          4
+     T08    6.   3.2000    0.0508/  0.0508  NON_PLATED          4
+
+     ---- Total holes:                                        269
+
+     ---- Total head travel:              7.04 feet (2.15 meters)
+
+
+
+
+     '48DMVQAD1_SGDJV-20250922_1010-1-2.drl' created for holes connecting TOP and G2
+     -------------------------------------------------------------------------------
+
+     Tool  Num     Size      +/- Tolerance     Plating   Quantity
+
+     T01    1.   0.1000    0.0000/  0.1000      PLATED       2855
+
+     ---- Total holes:                                       2855
+
+     ---- Total head travel:              56.39 feet (17.19 meters)
+
