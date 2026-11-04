@@ -1,0 +1,4 @@
+---
+title: Dashboards
+icon: IconDashboard
+---

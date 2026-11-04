@@ -4,27 +4,27 @@ info:
   [
     {
       icon: IconNet,
-      title: Getting Started with Arduino Cloud,
-      description: 'An online platform that makes it easy for you to code, deploy and monitor IoT projects.',
-      link: /arduino-cloud/guides/overview,
+      title: New to Arduino Cloud? Start here,
+      description: 'Learn what Arduino Cloud is and what you can build with it.',
+      link: /arduino-cloud/get-started/what-is-arduino-cloud,
     },
     {
       icon: IconBrackets,
-      title: Arduino / C++,
-      description: Get started with the Arduino Cloud using the C++ programming language.,
-      link: /arduino-cloud/guides/arduino-c,
+      title: 'Quickstart: Your First IoT Project',
+      description: Go from a new account to controlling a board from a dashboard and your phone.,
+      link: /arduino-cloud/get-started/quickstart-first-project,
     },
     {
       icon: IconCLI,
-      title: ESP32 / ESP8266,
-      description: Learn how to set up ESP32/ESP8266 based boards in the Arduino Cloud.,
-      link: /arduino-cloud/guides/esp32,
+      title: Choose Your Setup Path,
+      description: Find the right setup for Arduino boards, ESP32/ESP8266, LoRaWAN® devices and software clients.,
+      link: /arduino-cloud/get-started/choose-your-setup-path,
     },
     {
       icon: IconBooks,
-      title: Cloud Editor,
-      description: A step-by-step guide to set up your online development environment.,
-      link: /arduino-cloud/guides/cloud-editor,
+      title: Start From a Template,
+      description: Create a complete, working project from a ready-made template in one step.,
+      link: /arduino-cloud/get-started/start-from-a-template,
     },
   ]
 ---
