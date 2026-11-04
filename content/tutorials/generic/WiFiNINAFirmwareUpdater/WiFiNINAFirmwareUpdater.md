@@ -23,7 +23,7 @@ To simplify the process, we have prepared a specific sketch - this *FirmwareUpda
 
 ![](assets/Tools_Updater.jpg)
 
-The "FirmwareUpdater" sketch is available in **Examples -> WiFiNINA -> Tools** or it can be opened directly from the Firmware Uploader plug-in that you find under Tools.
+The "FirmwareUpdater" sketch is available in **File -> Examples -> WiFiNINA -> Tools** or it can be opened directly from the Firmware Uploader plug-in that you find under Tools.
 
 ![](assets/FW_UPD_1.jpg)
 
@@ -53,7 +53,7 @@ With the same procedure, you may load root certificates on the WiFi module to ac
 
 The list you are building is not saved from one session to the next one. It might happen that a few websites share the same root certificate. You don't have to worry about this as we take care of it. The space available on your WiFi module to store the certificates is limited to around 10 certificates that, being issued by a limited number of authorities, should be more than enough for the average projects.
 
-The procedure starts connecting your board to your computer and selecting it from the Tools menu of the Arduino Software (IDE). Load the FirmwareUpdater on the board and launch the **Firmware Updater** from Examples -> WiFiNINA -> Tools and go to the third section of the interface.
+The procedure starts connecting your board to your computer and selecting it from the Tools menu of the Arduino Software (IDE). Load the FirmwareUpdater on the board and launch the **Firmware Updater** from File -> Examples -> WiFiNINA -> Tools and go to the third section of the interface.
 
 ![](assets/FW_UPD_1.jpg)
 

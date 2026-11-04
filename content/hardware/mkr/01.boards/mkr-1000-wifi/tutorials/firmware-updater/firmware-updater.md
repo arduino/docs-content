@@ -39,7 +39,7 @@ The board should be connected to the USB port of the computer ready with Arduino
 To simplify the process, we have prepared a specific sketch: this **FirmwareUpdater**  that you must load on the host board (either the one with the shield plugged in, or the MKR1000 itself) and an easy to use plug-in available in Arduino Software (IDE) 1.6.10 onwards.
 
 
-![The "FirmwareUpdater" sketch is available in Examples -> WiFi101](assets/firmware_updater_sketch_101.png)
+![The "FirmwareUpdater" sketch is available in File -> Examples -> WiFi101](assets/firmware_updater_sketch_101.png)
 
 Upload the sketch and keep the board (either the one with the shield plugged in, or the MKR1000 itself) connected to the computer. Once done, open the plug-in that is available in the **Tools** menu.
 

@@ -13,7 +13,7 @@ Download the [1.5.3 image](https://downloads.arduino.cc/openwrtyun/1/YunSysupgra
 
 ## Preparation
 
-Upload the Yun Serial terminal (Examples -> Bridge - YunSerialTerminal) on the Yún and open a serial monitor of the Arduino Software (IDE), then press YUN RST button. If you have an old Yún board the message from the console may vary. When on serial monitor you should read:
+Upload the Yun Serial terminal (File > Examples > Bridge > YunSerialTerminal) on the Yún and open a serial monitor of the Arduino Software (IDE), then press YUN RST button. If you have an old Yún board the message from the console may vary. When on serial monitor you should read:
 
 `type 'ard' to enter u-boot console`
 

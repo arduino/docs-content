@@ -158,7 +158,7 @@ The 19.6.1 firmware is only available for model B of the WINC1500, this is used 
 
 To simplify the process, we have prepared a specific sketch - this **FirmwareUpdater** - that you must load on the host board (either the one with the shield plugged in, or the MKR1000 itself) and an easy to use plug-in available in Arduino Software (IDE) 1.6.10 onwards.
 
-The `FirmwareUpdater.ino` sketch is available in **Examples > WiFi101**
+The `FirmwareUpdater.ino` sketch is available in **File > Examples > WiFi101**
 
 
 ![Select the "FirmwareUpdater" example.](assets/firmware_updater_sketch_101.png)

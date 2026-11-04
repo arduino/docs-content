@@ -316,7 +316,7 @@ Before uploading the OTA sketch, configure the following settings in the Arduino
 
 #### Running the Script
 
-To proceed with OTA using the QSPI flash, you can open the sketch from **Examples > Arduino_Portenta_OTA > OTA_Qspi_Flash**.
+To proceed with OTA using the QSPI flash, you can open the sketch from **File > Examples > Arduino_Portenta_OTA > OTA_Qspi_Flash**.
 
 ***Do not forget to fill in your Wi-Fi® AP SSID and password in the `arduino_secrets.h` tab.***
 
@@ -403,7 +403,7 @@ void setup()
   {
     Serial.println("Higher version bootloader required to perform OTA.");
     Serial.println("Please update the bootloader.");
-    Serial.println("File -> Examples -> Portenta_System -> PortentaH7_updateBootloader");
+    Serial.println("File -> Examples -> STM32H747_System -> STM32H747_manageBootloader");
     return;
   }
 
@@ -481,7 +481,7 @@ Before uploading the OTA sketch, configure the following settings in the Arduino
 
 #### Running the Script
 
-As with the QSPI storage mode, to proceed with OTA using the SD Card, open the sketch from **Examples > Arduino_Portenta_OTA > OTA_SD_Portenta**.
+As with the QSPI storage mode, to proceed with OTA using the SD Card, open the sketch from **File > Examples > Arduino_Portenta_OTA > OTA_SD_Portenta**.
 
 ***Do not forget to fill in your Wi-Fi® AP SSID and password in the `arduino_secrets.h` tab.***
 
@@ -559,7 +559,7 @@ void setup()
   {
     Serial.println("Higher version bootloader required to perform OTA.");
     Serial.println("Please update the bootloader.");
-    Serial.println("File -> Examples -> Portenta_System -> PortentaH7_updateBootloader");
+    Serial.println("File -> Examples -> STM32H747_System -> STM32H747_manageBootloader");
     return;
   }
 
@@ -730,7 +730,7 @@ void setup()
   {
     Serial.println("Higher version bootloader required to perform OTA.");
     Serial.println("Please update the bootloader.");
-    Serial.println("File -> Examples -> Portenta_System -> PortentaH7_updateBootloader");
+    Serial.println("File -> Examples -> STM32H747_System -> STM32H747_manageBootloader");
     return;
   }
 
