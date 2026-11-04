@@ -50,7 +50,7 @@ The Nano XL Link is a compact microcontroller board designed for industrial and 
 
 ![ ](assets/front-page.png)
  
-The Nano XL Link includes a 32-bit Arm® Cortex®-M33 microcontroller with 2 MB of flash memory and 512 kB of RAM, an onboard Qwiic connector, a programmable RGB LED and a user LED. The board operates at +3.3 VDC logic levels and is rated for an industrial operating temperature range of -20 °C to +85 °C.
+The Nano XL Link includes a 32-bit Arm® Cortex®-M33 microcontroller with 2 MB of flash memory and 512 kB of RAM, an onboard Qwiic connector, a programmable RGB LED, and a user LED. The board operates at +3.3 VDC logic levels and is rated for an industrial operating temperature range of -20 °C to +85 °C.
  
 ### Nano XL Link Architecture Overview
  
@@ -986,3 +986,986 @@ When working with UART on the Nano XL Link, there are several key points to keep
 - UART communication uses TTL voltage levels (0 VDC for logic `LOW`, +3.3 VDC for logic `HIGH`). Devices with +5 VDC UART signals require a level shifter, and RS-232 devices require a level converter.
 - When connecting external devices, remember that TX connects to RX and RX connects to TX (crossover connection).
 - For long-distance or industrial serial communication, use the onboard RS-485 interface instead of the TTL UART pins.
+
+## SPI Communication
+
+The Nano XL Link board features built-in SPI (Serial Peripheral Interface) communication, allowing your projects to communicate with external devices like sensors, displays, memory cards, and other microcontrollers. The board provides two independent SPI buses on its headers: `SPI`, on the classic Nano pins `D10` to `D13`, and `SPI1`, on the extended pins `D22` to `D25`. Each bus uses four dedicated pins to provide high-speed synchronous serial communication.
+
+SPI is particularly useful when your project needs to communicate with external components at high speeds. While I²C is ideal for simple sensor communication and UART for basic serial data exchange, SPI excels at high-speed communication with devices like SD cards, TFT displays, wireless modules, or external memory chips. SPI can achieve much faster data rates than I²C and can handle multiple devices on the same bus through individual chip select lines.
+
+The Nano XL Link's SPI interface offers the following technical specifications:
+
+|   **Parameter**   |       **Value**       |              **Notes**              |
+|:-----------------:|:---------------------:|:-----------------------------------:|
+|   Hardware Buses  |           2           |          `SPI` and `SPI1`           |
+|   Clock Speed     |       1 MHz min.      | Lower settings are raised to 1 MHz  |
+|   Data Transfer   |     8-bit, 16-bit     |     `transfer()`, `transfer16()`    |
+|   Communication   |      Full-duplex      |     Simultaneous send/receive       |
+|  Multiple Devices |       Supported       |      Via different `CS` pins        |
+| Operating Voltage |       +3.3 VDC        |          Same as the board          |
+|  Protocol Support |     Mode 0, 1, 2, 3   |       All SPI modes available       |
+|     Bit Order     |   MSB or LSB first    |     `MSBFIRST` by default           |
+
+The Nano XL Link board uses the following pins for SPI communication:
+
+| **SPI Object** | **Arduino Pin** | **Microcontroller Pin** | **Header Pin** | **SPI Function** |          **Description**          |
+|:--------------:|:---------------:|:-----------------------:|:--------------:|:----------------:|:---------------------------------:|
+|     `SPI`      |      `D10`      |         `PA26`          |     `J4-6`     |       `CS`       |            Chip Select            |
+|     `SPI`      |      `D11`      |         `PA27`          |     `J4-4`     |      `MOSI`      | Controller Out, Peripheral In     |
+|     `SPI`      |      `D12`      |         `PA24`          |     `J4-2`     |      `MISO`      | Controller In, Peripheral Out     |
+|     `SPI`      |      `D13`      |         `PA25`          |     `J3-1`     |      `SCK`       |           Serial Clock            |
+|     `SPI1`     |      `D22`      |         `PC21`          |     `J3-6`     |      `MOSI`      | Controller Out, Peripheral In     |
+|     `SPI1`     |      `D23`      |         `PC23`          |     `J3-8`     |      `MISO`      | Controller In, Peripheral Out     |
+|     `SPI1`     |      `D24`      |         `PC22`          |    `J3-10`     |      `SCK`       |           Serial Clock            |
+|     `SPI1`     |      `D25`      |         `PC14`          |    `J3-12`     |       `CS`       |            Chip Select            |
+
+<Alert type="info">
+
+The SPI library does not control the chip select line. The `CS` pins listed above are the conventional ones for each bus, but any digital pin can be used as chip select by driving it `LOW` and `HIGH` from the sketch with `digitalWrite()`. The SPI pins of both buses behave as general-purpose I/O until `SPI.begin()` or `SPI1.begin()` is called.
+
+</Alert>
+
+You can communicate via SPI using the dedicated `SPI.h` library, which is included in the `Arduino Zephyr` core. The library provides the `SPI` and `SPI1` objects, with functions to initialize each bus, configure its clock speed, bit order, and mode, and send and receive data. On the Nano XL Link, the bus configuration is applied by `beginTransaction()`, so always call it with the appropriate `SPISettings()` before transferring data.
+
+The following example demonstrates how to use SPI communication to send and receive data:
+
+```arduino
+/**
+SPI Basic Example for the Arduino Nano XL Link Board
+Name: nano_xl_link_spi_basic.ino
+Purpose: This sketch demonstrates how to use SPI communication
+to send and receive data.
+
+@author Arduino Product Experience Team
+@version 1.0 03/11/26
+*/
+
+#include <SPI.h>
+
+// Chip Select pin for the SPI device
+const int csPin = 10;
+
+// Counter value to send
+uint8_t counter = 0;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+  Serial.println("- Arduino Nano XL Link - SPI Basic Example started...");
+
+  // Set CS pin as output and set it HIGH (inactive)
+  pinMode(csPin, OUTPUT);
+  digitalWrite(csPin, HIGH);
+
+  // Initialize SPI communication
+  SPI.begin();
+
+  Serial.println("- SPI initialized successfully");
+  Serial.println("- Sending a counter value every second on D10 (CS), D11 (MOSI), D13 (SCK)");
+}
+
+void loop() {
+  // Configure the SPI bus for this transaction
+  // - Clock speed: 1 MHz
+  // - Data order: Most Significant Bit first
+  // - Data mode: Mode 0 (Clock polarity = 0, Clock phase = 0)
+  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));
+
+  // Select the device (CS LOW)
+  digitalWrite(csPin, LOW);
+
+  // Send the counter value and read the response
+  uint8_t response = SPI.transfer(counter);
+
+  // Deselect the device (CS HIGH)
+  digitalWrite(csPin, HIGH);
+
+  // Release the SPI bus
+  SPI.endTransaction();
+
+  // Display results
+  Serial.print("- Sent: 0x");
+  if (counter < 16) Serial.print("0");
+  Serial.print(counter, HEX);
+  Serial.print(" | Received: 0x");
+  if (response < 16) Serial.print("0");
+  Serial.println(response, HEX);
+
+  // Increment counter and wrap around at 255
+  counter++;
+
+  delay(1000);
+}
+```
+
+<Alert type="info">
+
+To test this example, you don't need an external SPI device. The sketch generates SPI transfers that can be observed with a logic analyzer connected to pins `D10` (CS), `D11` (MOSI), `D13` (SCK), and a `GND` pin on the board. Without a connected device, the received data will typically be `0xFF` or `0x00`. The image below was captured with a Digilent Analog Discovery 2 and the WaveForms software.
+
+</Alert>
+
+Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the SPI communication in action. The example sketch shows how to properly select a device, send data, and read the response:
+
+![Arduino IDE Serial Monitor output for the SPI example sketch](assets/serial-monitor-7.png)
+
+The image below shows how the SPI communication from the example appears in the WaveForms Logic Analyzer, with the decoded protocol showing the chip select, clock, and data signals:
+
+![WaveForms Logic Analyzer output for the SPI example](assets/spi-logic-analyzer.png)
+
+To connect multiple SPI devices, use a different digital pin as chip select for each device while sharing the `MOSI`, `MISO`, and `SCK` pins:
+
+```arduino
+// Multiple device example
+const int device1CS = 10;  // First SPI device
+const int device2CS = 9;   // Second SPI device
+const int device3CS = 8;   // Third SPI device
+
+void setup() {
+  SPI.begin();
+
+  // Configure all CS pins as outputs
+  pinMode(device1CS, OUTPUT);
+  pinMode(device2CS, OUTPUT);
+  pinMode(device3CS, OUTPUT);
+
+  // Set all CS pins HIGH (inactive)
+  digitalWrite(device1CS, HIGH);
+  digitalWrite(device2CS, HIGH);
+  digitalWrite(device3CS, HIGH);
+}
+```
+
+The second bus, `SPI1`, works in the same way and is useful to keep a high-speed device, such as a display, on its own bus:
+
+```arduino
+// Second SPI bus example
+const int csPin1 = 25;  // CS pin of the SPI1 bus
+
+void setup() {
+  SPI1.begin();
+
+  pinMode(csPin1, OUTPUT);
+  digitalWrite(csPin1, HIGH);
+}
+
+void loop() {
+  SPI1.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));
+  digitalWrite(csPin1, LOW);
+  SPI1.transfer(0x55);
+  digitalWrite(csPin1, HIGH);
+  SPI1.endTransaction();
+
+  delay(1000);
+}
+```
+
+When working with SPI on the Nano XL Link, there are several key points to keep in mind:
+
+- Always call `beginTransaction()` with the settings required by your device before transferring data, and `endTransaction()` afterward to release the bus.
+- Make sure that only one device is selected (`CS` `LOW`) at a time, and deselect devices (`CS` `HIGH`) after communication to avoid conflicts.
+- Different SPI devices may require different clock speeds and modes, so check your device's datasheet for the correct `SPISettings()` parameters. Clock speeds below 1 MHz are not supported; the core raises them to 1 MHz.
+- SPI is a synchronous protocol, meaning that data is transferred in both directions simultaneously with each clock pulse. Even if you only need to send data, you will still receive data back, and vice versa.
+- The Nano XL Link operates at +3.3 VDC, so SPI devices with +5 VDC logic levels require a level shifter on `MOSI`, `SCK`, and `CS`, and on `MISO` if the device drives it at +5 VDC.
+
+## I²C Communication
+
+The Nano XL Link board features built-in I²C (Inter-Integrated Circuit) communication, allowing your projects to communicate with multiple devices using just two wires. The board provides two independent I²C buses: `Wire`, connected to the onboard Qwiic connector, and `Wire1`, available on header pins `D26` and `D27`. This lets you connect several sensors, displays, or other devices without using many pins, and separate devices onto different buses when needed.
+
+I²C is particularly useful when your project needs to communicate with multiple sensors and devices simply. While SPI is excellent for high-speed communication and UART for basic serial data exchange, I²C excels at connecting many devices with minimal wiring. Multiple I²C devices can share the same two-wire bus, each with its own unique address, making it ideal for sensor networks, display modules, and expandable systems.
+
+The Nano XL Link's I²C interface offers the following technical specifications:
+
+|   **Parameter**   |        **Value**        |                     **Notes**                    |
+|:-----------------:|:-----------------------:|:------------------------------------------------:|
+|   Hardware Buses  |            2            |                `Wire` and `Wire1`                |
+|    Clock Speed    | 100 kHz, 400 kHz, 1 MHz | Standard, Fast and Fast-mode Plus (`setClock()`) |
+|   Data Transfer   |          8-bit          |                Standard data width               |
+|   Communication   |       Half-duplex       |              One direction at a time             |
+| Device Addressing |          7-bit          |            Up to 127 unique addresses            |
+|     Bus Roles     |   Controller or target  |         Target mode via `begin(address)`         |
+| Operating Voltage |         +3.3 VDC        |                 Same as the board                |
+| Pull-up Resistors |   5.1 kΩ (`Wire` only)  |    `Wire1` requires external pull-up resistors   |
+
+The Nano XL Link board uses the following pins and connectors for I²C communication:
+
+| **I²C Object** | **Arduino Pin** | **Microcontroller Pin** |   **Location**  | **I²C Function** |  **Description**  |
+|:--------------:|:---------------:|:-----------------------:|:---------------:|:----------------:|:-----------------:|
+|     `Wire`     |      `D34`      |          `PB04`         | Qwiic connector |        SDA       |  Serial Data Line |
+|     `Wire`     |      `D35`      |          `PB05`         | Qwiic connector |        SCL       | Serial Clock Line |
+|     `Wire1`    |      `D26`      |          `PB21`         |     `J3-14`     |        SDA       |  Serial Data Line |
+|     `Wire1`    |      `D27`      |          `PB22`         |     `J3-16`     |        SCL       | Serial Clock Line |
+
+<Alert type="info">
+
+Unlike classic Nano boards, the Nano XL Link's I²C bus is not available on pins `A4` and `A5`. The `Wire` bus routes only to the Qwiic connector, which includes 5.1 kω pull-up resistors to +3.3 VDC and supplies +3.3 VDC power to connected devices. The `Wire1` bus on pins `D26` and `D27` has no onboard pull-up resistors, so external pull-up resistors (typically 4.7 kΩ to +3.3 VDC) are required for proper operation.
+
+</Alert>
+
+The Qwiic connector is the simplest way to add I²C devices to the Nano XL Link. It provides a standard 4-pin JST SH connector with `GND`, `+3.3 VDC`, `SDA`, and `SCL`, compatible with Qwiic, STEMMA QT, and Modulino® devices. You can daisy-chain devices, so several can share the same connector.
+
+You can communicate via I²C using the dedicated `Wire.h` library, which is included in the `Arduino Zephyr` core. The library provides the `Wire` and `Wire1` objects, with functions to initialize each bus, send and receive data, and manage multiple devices. The bus clock can be changed with `setClock()`, which accepts 100000, 400000, or 1000000; other values fall back to 100 kHz.
+
+The following example demonstrates basic I²C communication patterns on the `Wire1` bus:
+
+```arduino
+/**
+I2C Basic Example for the Arduino Nano XL Link Board
+Name: nano_xl_link_i2c_basic.ino
+Purpose: This sketch demonstrates basic I2C communication
+patterns on the Wire1 bus (pins D26 and D27).
+
+@author Arduino Product Experience Team
+@version 1.0 03/11/26
+*/
+
+#include <Wire.h>
+
+// Example device address
+const int deviceAddress = 0x48;
+
+// Counter value to send
+uint8_t counter = 0;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+  Serial.println("- Arduino Nano XL Link - I2C Basic Example started...");
+
+  // Initialize I2C communication as controller on the Wire1 bus
+  Wire1.begin();
+
+  Serial.println("- I2C initialized successfully on the Wire1 bus (D26 SDA / D27 SCL)");
+  Serial.println("- Sending a counter value to device 0x48 every second");
+}
+
+void loop() {
+  // Write the counter value to the device
+  Wire1.beginTransmission(deviceAddress);
+  Wire1.write(counter);
+  uint8_t error = Wire1.endTransmission();
+
+  // Display results
+  Serial.print("- Sent: 0x");
+  if (counter < 16) {
+    Serial.print("0");
+  }
+  Serial.print(counter, HEX);
+  Serial.print(" | Result: ");
+  if (error == 0) {
+    Serial.println("ACK received");
+  } else {
+    Serial.println("no ACK (device not found)");
+  }
+
+  // Increment counter and wrap around at 255
+  counter++;
+
+  delay(1000);
+}
+```
+
+<Alert type="info">
+
+To test this example, you don't need an external I²C device, but the `Wire1` bus requires external pull-up resistors: connect a 4.7 kΩ resistor from `D26` (SDA) to `3V3` and another from `D27` (SCL) to `3V3`. The sketch generates I²C transactions that can be observed with a logic analyzer connected to pins `D26` (SDA), `D27` (SCL), and a `GND` pin of the board. Without a device at address `0x48`, the transactions end with a NACK and the Serial Monitor reports "no ACK". The image below was captured with a Digilent Analog Discovery 2 and the WaveForms software.
+
+</Alert>
+
+Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the I²C operations being performed:
+
+![Arduino IDE Serial Monitor output for the I²C example sketch](assets/serial-monitor-8.png)
+
+The image below shows how the I²C communication from the example appears in the WaveForms Logic Analyzer, with the decoded protocol showing the device address, the data byte, and the acknowledge bit:
+
+![WaveForms Logic Analyzer output for the I²C example](assets/i2c-logic-analyzer.png)
+
+To read data from an I²C device, use `requestFrom()` followed by `available()` and `read()`:
+
+```arduino
+// Request 2 bytes from the device
+Wire.requestFrom(deviceAddress, 2);
+
+// Read the received bytes
+while (Wire.available()) {
+  uint8_t data = Wire.read();
+  Serial.print("Received: 0x");
+  Serial.println(data, HEX);
+}
+```
+
+The `Wire` bus works in the same way and is the simplest option for Qwiic, STEMMA QT, and Modulino® devices, since the Qwiic connector already includes the pull-up resistors and supplies power to the connected devices:
+
+```arduino
+// Qwiic connector example
+void setup() {
+  Wire.begin();
+  Wire.setClock(400000);  // Fast mode (400 kHz)
+}
+
+void loop() {
+  Wire.beginTransmission(0x3C);
+  Wire.write(0x00);
+  Wire.endTransmission();
+
+  delay(1000);
+}
+```
+
+When working with I²C on the Nano XL Link, there are several key points to keep in mind:
+
+- Each I²C device must have a unique address on the bus, so check device datasheets to avoid address conflicts. Devices with the same address can be placed on different buses (`Wire` and `Wire1`).
+- I²C is a half-duplex protocol, meaning data flows in only one direction at a time. The controller device (your Nano XL Link) controls the clock line and initiates all communication.
+- When connecting multiple devices, connect all `SDA` pins and all `SCL` pins, along with power and ground connections. The Qwiic connector lets you daisy-chain compatible devices directly.
+- The Nano XL Link operates at +3.3 VDC, so I²C devices with +5 VDC logic levels require a bidirectional level shifter. Qwiic, STEMMA QT, and Modulino® devices run at +3.3 VDC and can connect directly.
+- The board can also act as an I²C target by calling `begin()` with an address and registering the `onReceive()` and `onRequest()` callbacks, which is useful for connecting two boards.
+
+## CAN FD Communication
+
+The Nano XL Link board features a built-in CAN FD (Controller Area Network with Flexible Data-rate) interface that allows your projects to communicate with automotive systems, industrial devices, and other CAN-enabled equipment. Unlike boards that only expose the microcontroller’s logic-level CAN signals, the Nano XL Link integrates an onboard CAN FD transceiver, so the `CANH` and `CANL` bus lines are available directly on the board headers, and you can connect to a CAN bus without additional hardware.
+
+CAN is particularly useful when your project needs to communicate in industrial or automotive environments where reliability and noise immunity are critical. While UART excels at simple serial communication and SPI provides high-speed data transfer, CAN offers multi-node networking with built-in error detection, collision handling, and message prioritization. CAN uses differential signaling, making it highly resistant to electromagnetic interference and suitable for harsh environments. CAN FD extends the classic CAN protocol with payloads of up to 64 bytes and a higher bit rate for the data phase of each frame.
+
+The Nano XL Link's CAN FD interface offers the following technical specifications:
+
+|    **Parameter**    |              **Value**               |                **Notes**                 |
+|:-------------------:|:------------------------------------:|:----------------------------------------:|
+|     Transceiver     |      Texas Instruments TCAN3414      |         Onboard, +3.3 VDC CAN FD         |
+|      Protocols      |        Classic CAN, CAN FD           |   Selected with `begin()` or `beginFD()` |
+| Arbitration Bitrate |     125, 250, 500 kbps, 1 Mbps       |         `CanBitRate` enumeration         |
+|    Data Bitrate     |            Up to 8 Mbps              |   CAN FD data phase, set in `beginFD()`  |
+|     Data Length     | 0-8 bytes (CAN), 0-64 bytes (CAN FD) |     `CanMsg` and `CanFDMsg` classes      |
+|     Message IDs     |           11-bit, 29-bit             |       Standard and extended format       |
+|     Termination     |           120 Ω onboard              |  Solder jumper `SJ1`, closed by default  |
+|    Communication    |            Multi-master              |          Multiple nodes support          |
+
+The Nano XL Link board uses the following pins for CAN FD communication:
+
+| **Signal** | **Header Pin** |          **Description**          |
+|:----------:|:--------------:|:---------------------------------:|
+|   `CANH`   |    `J4-23`     |  CAN bus high differential line   |
+|   `CANL`   |    `J4-25`     |  CAN bus low differential line    |
+
+The transceiver is connected internally to the microcontroller's CAN controller (`PB08` as CAN TX and `PB09` as CAN RX); these logic-level signals are not available on the headers.
+
+<Alert type="info">
+
+A CAN bus must be terminated with 120 Ω resistors at both ends. The Nano XL Link includes an onboard 120 Ω termination resistor between `CANH` and `CANL`, connected through the solder jumper `SJ1`, which is closed by default. When you place the board at one end of the bus, leave `SJ1` closed; when you connect the board in the middle of an already terminated bus, open `SJ1` to remove the onboard termination.
+
+</Alert>
+
+You can communicate via CAN using the dedicated `CAN.h` library, which is included in the `Arduino Zephyr` core. The library provides the `CAN` object, with functions to initialize the bus in classic or FD mode, send and receive frames, filter incoming messages by ID, and register a callback that is executed when a frame is received. Classic CAN frames use the `CanMsg` class, and CAN FD frames use the `CanFDMsg` class, which supports payloads of up to 64 bytes.
+
+The following examples show the Nano XL Link exchanging frames with another node on the bus. The second node can be another Nano XL Link, any CAN device operating at the same bitrate, or a USB-CAN adapter connected to a computer, as in this section: the board sends a counter value every second, and the adapter receives it. The adapter sends a frame that the board receives and prints to the Serial Monitor. Upload the first sketch to send frames from the board:
+
+```arduino
+/**
+CAN Write Example for the Arduino Nano XL Link Board
+Name: nano_xl_link_can_write.ino
+Purpose: This sketch demonstrates how to send CAN frames
+with a counter value every second.
+
+@author Arduino Product Experience Team
+@version 1.0 04/11/26
+*/
+
+#include <CAN.h>
+
+// CAN message ID (11-bit standard identifier)
+const uint32_t canId = 0x123;
+
+// Counter value to send
+uint8_t counter = 0;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+  Serial.println("- Arduino Nano XL Link - CAN Write Example started...");
+
+  // Initialize the CAN bus at 500 kbps (classic CAN)
+  if (!CAN.begin(CanBitRate::BR_500k)) {
+    Serial.println("- Error: failed to initialize the CAN bus!");
+    while (1) delay(10);
+  }
+
+  Serial.println("- CAN bus initialized at 500 kbps");
+  Serial.println("- Sending a counter value with ID 0x123 every second");
+}
+
+void loop() {
+  // Build the message: counter in the first byte, rest filled with zeros
+  uint8_t data[8] = {counter, 0, 0, 0, 0, 0, 0, 0};
+  CanMsg msg(CanStandardId(canId), sizeof(data), data);
+
+  // Send the message
+  int result = CAN.write(msg);
+  if (result == 1) {
+    Serial.print("- CAN message sent: ");
+    Serial.println(msg);
+  } else {
+    Serial.print("- Error: failed to send CAN message, code ");
+    Serial.println(result);
+  }
+
+  // Increment counter and wrap around at 255
+  counter++;
+
+  delay(1000);
+}
+```
+
+Upload the second sketch to receive frames on the board:
+
+```arduino
+/**
+CAN Read Example for the Arduino Nano XL Link Board
+Name: nano_xl_link_can_read.ino
+Purpose: This sketch demonstrates how to receive CAN frames
+and print them to the Serial Monitor.
+
+@author Arduino Product Experience Team
+@version 1.0 04/11/26
+*/
+
+#include <CAN.h>
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+  Serial.println("- Arduino Nano XL Link - CAN Read Example started...");
+
+  // Initialize the CAN bus at 500 kbps (classic CAN)
+  if (!CAN.begin(CanBitRate::BR_500k)) {
+    Serial.println("- Error: failed to initialize the CAN bus!");
+    while (1) delay(10);
+  }
+
+  // Configure the built-in LED to blink on each received message
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  Serial.println("- CAN bus initialized at 500 kbps");
+  Serial.println("- Waiting for CAN messages...");
+}
+
+void loop() {
+  // Check for incoming CAN messages
+  if (CAN.available()) {
+    CanMsg msg = CAN.read();
+
+    // Print the message (ID, length and data)
+    Serial.print("- CAN message received: ");
+    Serial.println(msg);
+
+    // Blink the built-in LED
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(50);
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+}
+```
+
+To test these examples, connect the Nano XL Link board to a USB-CAN adapter as follows:
+
+- Connect the `CANH` pin of the board to the `CANH` terminal of the adapter
+- Connect the `CANL` pin of the board to the `CANL` terminal of the adapter
+- Connect a `GND` pin of the board to the `GND` terminal of the adapter
+- Keep the `SJ1` jumper closed on the board and enable the termination resistor of the adapter, so the bus is terminated at both ends
+
+![CAN bus test setup with a Nano XL Link board and a USB-CAN adapter](assets/can-connection.png)
+
+<Alert type="info">
+
+You can make the connections above through the screw terminals of the Nano Connector Carrier (our recommended way) or with jumper wires from the board's header pins. The examples in this section were tested with a [Waveshare USB-CAN-A](https://www.waveshare.com/wiki/USB-CAN-A) adapter and its configuration tool, set to normal mode, standard frames, and 500 kbps. You can use any CAN adapter or device configured with the same bitrate. A CAN frame is only transmitted successfully when another node on the bus acknowledges it, so a single Nano XL Link connected to nothing cannot be used to test the examples.
+
+</Alert>
+
+With the first sketch running, open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see each transmitted message, and the adapter's software to see the frames received with ID `0x123` and the counter value in the first data byte:
+
+![Arduino IDE Serial Monitor output for the CAN write example sketch](assets/serial-monitor-9.png)
+
+![CAN frames received by the USB-CAN adapter](assets/can-adapter-receive.png)
+
+With the second sketch running, send a frame from the adapter's software (for example, ID `0x456` with data `01 02 03 04`). The Serial Monitor shows the received message and the built-in LED blinks:
+
+![CAN frames sent by the USB-CAN adapter](assets/can-adapter-send.png)
+
+![Arduino IDE Serial Monitor output for the CAN read example sketch](assets/serial-monitor-10.png)
+
+To use CAN FD instead of classic CAN, replace `begin()` with `beginFD()`, which takes the arbitration bitrate and the data bitrate, and use the `CanFDMsg` class, `writeFD()`, and `readFD()`:
+
+```arduino
+// Initialize the CAN bus in FD mode: 500 kbps arbitration, 2 Mbps data
+if (!CAN.beginFD(CanBitRate::BR_500k, 2000000)) {
+  Serial.println("- Error: failed to initialize the CAN FD bus!");
+  while (1) delay(10);
+}
+
+// Send a 16-byte CAN FD frame
+uint8_t data[16] = {0xCA, 0xFE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+CanFDMsg msg(CanStandardId(0x123), sizeof(data), data);
+CAN.writeFD(msg);
+
+// Receive a CAN FD frame
+if (CAN.available()) {
+  CanFDMsg msg = CAN.readFD();
+  Serial.println(msg);
+}
+```
+
+<Alert type="info">
+
+All nodes on a CAN FD bus must support CAN FD and use the same arbitration and data bitrates. Many low-cost USB-CAN adapters, including the one used in this section, support only classic CAN.
+
+</Alert>
+
+The library can also filter incoming messages by ID and deliver them through a callback instead of polling. Filters must be configured before calling `begin()` or `beginFD()`:
+
+```arduino
+// Accept only messages with the standard ID 0x123
+CAN.addReceiveFilter(0x123, 0x7FF, false);
+
+// Callback executed for each received message
+void onCanMessage(CanFDMsg const &msg, void *user_data) {
+  Serial.print("- Received: ");
+  Serial.println(msg);
+}
+
+// Register the callback after begin()
+CAN.onReceive(onCanMessage);
+```
+
+When working with CAN on the Nano XL Link, there are several key points to keep in mind:
+
+- All nodes on the bus must use the same bitrate (and the same data bitrate in CAN FD mode). A node with a different bitrate will generate errors and can disturb the whole bus.
+- A CAN frame is only transmitted successfully when at least one other node acknowledges it. A single board connected to nothing will keep retransmitting the frame and `write()` will not complete; always test with another node on the bus, such as a second board or a USB-CAN adapter.
+- CAN uses message-based communication with unique identifiers rather than device addresses. Lower ID numbers have higher priority, so critical messages should use lower IDs.
+- When a receive callback is registered with `onReceive()`, incoming messages are delivered only to the callback and no longer to `available()` and `read()`. Call `clearReceiveCallback()` to return to polling.
+- The library tracks one standard-ID filter and one extended-ID filter; if no filter is configured, all messages are accepted.
+- The Nano XL Link supports both standard (11-bit) and extended (29-bit) CAN identifiers, allowing compatibility with most automotive and industrial CAN networks.
+
+## RS-485 Communication
+
+The Nano XL Link board features a built-in RS-485 interface that allows your projects to communicate with industrial equipment, sensors, and controllers over long distances and in electrically noisy environments. The board integrates an onboard RS-485 transceiver connected to one of the microcontroller's hardware UART ports, so the `A` and `B` bus lines are available directly on the board headers, and you don't need an external transceiver.
+
+RS-485 is particularly useful when your project needs serial communication over distances beyond what the TTL UART pins allow. While UART signals on the board headers are limited to a few meters, RS-485 uses differential signaling over a twisted pair to reach distances of up to 1200 m and to connect up to 32 devices on the same bus. It is the physical layer for protocols widely used in industrial automation and building automation, such as Modbus RTU, making the Nano XL Link suitable for reading industrial sensors, controlling actuators, and integrating with PLCs and HMIs.
+
+The Nano XL Link's RS-485 interface offers the following technical specifications:
+
+|   **Parameter**   |          **Value**         |                **Notes**                |
+|:-----------------:|:--------------------------:|:---------------------------------------:|
+|    Transceiver    | Texas Instruments THVD2410 |         Onboard, surge-protected        |
+|   Communication   |         Half-duplex        |  One direction at a time, two-wire bus  |
+|    Serial Port    |          `Serial3`         |   Internal, used by the RS-485 library  |
+| Direction Control |   `D42` (DE), `D43` (RE)   | Internal, handled by the RS-485 library |
+|     Baud Rates    |       Up to 500 kbps       |      Transceiver maximum data rate      |
+|    Termination    |        120 Ω onboard       |  Solder jumper `SJ2`, closed by default |
+|    Bus Devices    |          Up to 32          |        Standard RS-485 unit loads       |
+
+The Nano XL Link board uses the following pins for RS-485 communication:
+
+| **Signal** | **Header Pin** |              **Description**               |
+|:----------:|:--------------:|:------------------------------------------:|
+|    `A`     |    `J4-27`     |    RS-485 non-inverting differential line  |
+|    `B`     |    `J4-29`     |     RS-485 inverting differential line     |
+
+The transceiver connects internally to the microcontroller's `Serial3` port, with the driver enable (`DE`) and receiver enable (`RE`) control lines on the internal pins `D42` and `D43`. **These signals are not available on the headers and are managed automatically by the RS-485 library**.
+
+<Alert type="info">
+
+An RS-485 bus must be terminated with 120 Ω resistors at both ends. The Nano XL Link includes an onboard 120 Ω termination resistor between `A` and `B`, connected through the solder jumper `SJ2`, which is closed by default. When you place the board at one end of the bus, leave `SJ2` closed; when you connect the board in the middle of an already terminated bus, open `SJ2` to remove the onboard termination.
+
+</Alert>
+
+You can communicate via RS-485 using the `ArduinoRS485` library, which can be installed from the Arduino IDE's Library Manager (search for `ArduinoRS485`). The library provides the `RS485` object, which on the Nano XL Link is already configured to use `Serial3` and the onboard transceiver's control lines. The `RS485` object works like a serial port, with `beginTransmission()` and `endTransmission()` to switch the transceiver to transmit mode around the data you send, and `receive()` and `noReceive()` to turn the receiver on or off.
+
+![Installing the ArduinoRS485 library in the Arduino IDE](assets/rs485-library.png)
+
+The following example sends a counter value over the RS-485 bus every second and prints to the Serial Monitor any data received from the bus:
+
+```arduino
+/**
+RS-485 Basic Example for the Arduino Nano XL Link Board
+Name: nano_xl_link_rs485_basic.ino
+Purpose: This sketch demonstrates basic RS-485 communication
+by sending a counter value every second and printing received data.
+
+@author Arduino Product Experience Team
+@version 1.0 04/11/26
+*/
+
+#include <ArduinoRS485.h>
+
+// Counter value to send
+unsigned int counter = 0;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+  Serial.println("- Arduino Nano XL Link - RS-485 Basic Example started...");
+
+  // Initialize the RS-485 interface at 9600 baud
+  RS485.begin(9600);
+
+  // Enable the receiver
+  RS485.receive();
+
+  Serial.println("- RS-485 initialized at 9600 baud");
+  Serial.println("- Sending a counter value every second");
+  Serial.println("- Type messages in the Serial Monitor to send them via RS-485");
+}
+
+void loop() {
+  // Forward data from USB Serial (computer) to the RS-485 bus
+  if (Serial.available()) {
+    String message = Serial.readString();
+
+    // Remove newline characters
+    message.trim();
+
+    if (message.length() > 0) {
+      RS485.beginTransmission();
+      RS485.println(message);
+      RS485.endTransmission();
+
+      Serial.print("- Message sent via RS-485: \"");
+      Serial.print(message);
+      Serial.println("\"");
+    }
+  }
+
+  // Forward data received from the RS-485 bus to USB Serial
+  if (RS485.available()) {
+    String response = RS485.readString();
+
+    // Remove newline characters
+    response.trim();
+
+    if (response.length() > 0) {
+      Serial.print("- RS-485 received: \"");
+      Serial.print(response);
+      Serial.println("\"");
+    }
+  }
+
+  // Send the counter value every second
+  static unsigned long lastSend = 0;
+  if (millis() - lastSend > 1000) {
+    lastSend = millis();
+
+    RS485.beginTransmission();
+    RS485.print("Counter: ");
+    RS485.println(counter);
+    RS485.endTransmission();
+
+    Serial.print("- Counter value sent via RS-485: ");
+    Serial.println(counter);
+
+    counter++;
+  }
+
+  delay(10);
+}
+```
+
+To test this example, connect the Nano XL Link board to a USB-RS485 adapter as follows:
+
+- Connect the `A` pin of the board to the `A+` terminal of the adapter
+- Connect the `B` pin of the board to the `B-` terminal of the adapter
+- Connect a `GND` pin of the board to the `GND` terminal of the adapter
+- Keep the `SJ2` jumper closed on the board; the adapter includes its own 120 Ω termination resistor, so the bus is terminated at both ends
+
+![RS-485 test setup with a Nano XL Link board and a USB-RS485 adapter](assets/rs485-connection.png)
+
+<Alert type="info">
+
+You can make the connections above through the screw terminals of the Nano Connector Carrier (our recommended way) or with jumper wires from the board's header pins. The example in this section was tested with a [Waveshare USB TO RS485](https://www.waveshare.com/wiki/USB_TO_RS485) adapter, which appears on the computer as a standard serial port and handles the transmit/receive switching automatically. Any RS-485 device configured with the same serial settings (9600 baud, 8 data bits, no parity, 1 stop bit) can be used instead, including a second Nano XL Link running the same sketch. If no data is received, swap the `A` and `B` connections: the labeling of RS-485 lines is not consistent between manufacturers.
+
+</Alert>
+
+Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) and a serial terminal connected to the adapter's COM port at 9600 baud. The terminal shows the counter messages sent by the board every second and any text typed in the Serial Monitor, while text typed in the terminal appears in the Serial Monitor as data received by the board:
+
+![Arduino IDE Serial Monitor output for the RS-485 example sketch](assets/serial-monitor-11.png)
+
+![Serial terminal output of the USB-RS485 adapter](assets/rs485-terminal.png)
+
+<Alert type="info">
+
+RS-485 is the physical layer of the Modbus RTU protocol, used by many industrial sensors, meters, and controllers. Modbus RTU frames can be sent and received with the `RS485` object following the protocol specification, or with a Modbus library compatible with the `ArduinoRS485` library and the `Arduino Zephyr` core.
+
+</Alert>
+
+When working with RS-485 on the Nano XL Link, there are several key points to keep in mind:
+
+- RS-485 on the Nano XL Link is half-duplex: the bus carries data in one direction at a time. Always wrap the data you send between `beginTransmission()` and `endTransmission()`, so the transceiver's driver is enabled only while transmitting and the bus is free for other devices the rest of the time.
+- All devices on the bus must use the same baud rate, data bits, parity, and stop bits.
+- For long cables or noisy environments, use a twisted pair for `A` and `B`, and connect the ground reference of all devices when possible to keep the common-mode voltage within the transceiver's limits.
+- Terminate the bus at both ends only. Additional termination resistors in the middle of the bus load the drivers and reduce the signal amplitude.
+- `Serial3` is reserved for the RS-485 transceiver; do not use it directly in sketches that use the `ArduinoRS485` library.
+
+## Ethernet Communication
+
+The Nano XL Link board features a built-in 10/100 Mbps Ethernet interface that allows your projects to connect to local networks and the Internet with a wired, reliable connection. The board integrates an onboard Ethernet PHY connected to the microcontroller’s Ethernet controller, so the only external components needed are the magnetics and the RJ45 connector, which the Nano Connector Carrier provides.
+
+Ethernet is particularly useful when your project needs a stable, low-latency network connection in industrial or building environments, where wireless connectivity may be unreliable or not allowed. With Ethernet, the Nano XL Link can act as a web server for monitoring and control, publish data to cloud services, communicate with other devices through TCP or UDP, or integrate with industrial protocols such as Modbus TCP.
+
+The Nano XL Link's Ethernet interface offers the following technical specifications:
+
+|   **Parameter**  |              **Value**             |                **Notes**                |
+|:----------------:|:----------------------------------:|:---------------------------------------:|
+|        PHY       |       Microchip KSZ8081RNAIA       |     Onboard, industrial temperature     |
+|       Speed      |             10/100 Mbps            |   Auto-negotiation enabled by default   |
+|   Network Stack  |          Zephyr native IP          |     IPv4, TCP, UDP, DHCP client, DNS    |
+| IP Configuration |           DHCP or static           |            Set with `begin()`           |
+|     Connector    | RJ45 on the Nano Connector Carrier |  Magnetics and connector on the carrier |
+|   Activity LED   |          `LED_ACT` signal          | Driven by the PHY, available on `J4-19` |
+
+The Nano XL Link board uses the following pins for Ethernet communication:
+
+|  **Signal**  | **Header Pin** |           **Description**           |
+|:------------:|:--------------:|:-----------------------------------:|
+|  `ETH_TX_P`  |     `J4-7`     |   Transmit differential pair (+)    |
+|  `ETH_TX_N`  |     `J4-9`     |   Transmit differential pair (-)    |
+|  `ETH_RX_P`  |    `J4-13`     |    Receive differential pair (+)    |
+|  `ETH_RX_N`  |    `J4-15`     |    Receive differential pair (-)    |
+|  `LED_ACT`   |    `J4-19`     |     Link/activity LED output        |
+
+The PHY is connected internally to the microcontroller through an RMII interface, and its reset and interrupt lines use the internal pins `D37` and `D36`. The Ethernet driver manages these signals, and they are not available on the headers.
+
+<Alert type="warning">
+
+The Ethernet signals on the headers are the PHY's differential pairs, which must be connected to an RJ45 connector with integrated magnetics. Do not connect them directly to an Ethernet cable. The Nano Connector Carrier provides the RJ45 connector and magnetics, so the board can be connected to a network with a standard Ethernet cable when mounted on the carrier.
+
+</Alert>
+
+You can communicate via Ethernet using the dedicated `Ethernet` library, which is included in the `Arduino Zephyr` core. The library provides the `Ethernet` object to configure the network interface, and the `EthernetClient` and `ZephyrServer` classes to open TCP connections and accept incoming ones, using the same API as the Ethernet libraries on other Arduino boards. UDP communication is available through the `EthernetUDP` class.
+
+The following example connects the board to the network using DHCP and prints the network configuration to the Serial Monitor:
+
+```arduino
+/**
+Ethernet DHCP Example for the Arduino Nano XL Link Board
+Name: nano_xl_link_ethernet_dhcp.ino
+Purpose: This sketch demonstrates how to connect the board to a
+network using DHCP and print its network configuration.
+
+@author Arduino Product Experience Team
+@version 1.0 04/11/26
+*/
+
+#include <ZephyrEthernet.h>
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+  Serial.println("- Arduino Nano XL Link - Ethernet DHCP Example started...");
+
+  // Check that the Ethernet hardware is present
+  if (Ethernet.hardwareStatus() == EthernetNoHardware) {
+    Serial.println("- Error: Ethernet hardware not found!");
+    while (1) delay(10);
+  }
+
+  // Wait for the Ethernet cable to be connected
+  Serial.println("- Waiting for the Ethernet link...");
+  while (Ethernet.linkStatus() != LinkON) {
+    delay(100);
+  }
+  Serial.println("- Ethernet link is up");
+
+  // Request an IP address from the DHCP server
+  Serial.println("- Requesting an IP address via DHCP...");
+  if (Ethernet.begin() == 0) {
+    Serial.println("- Error: failed to configure Ethernet using DHCP!");
+    while (1) delay(10);
+  }
+
+  // Print the network configuration
+  uint8_t mac[6];
+  Ethernet.MACAddress(mac);
+
+  Serial.print("- MAC address: ");
+  for (int i = 0; i < 6; i++) {
+    if (mac[i] < 16) Serial.print("0");
+    Serial.print(mac[i], HEX);
+    if (i < 5) Serial.print(":");
+  }
+  Serial.println();
+
+  Serial.print("- IP address: ");
+  Serial.println(Ethernet.localIP());
+  Serial.print("- Subnet mask: ");
+  Serial.println(Ethernet.subnetMask());
+  Serial.print("- Gateway: ");
+  Serial.println(Ethernet.gatewayIP());
+  Serial.print("- DNS server: ");
+  Serial.println(Ethernet.dnsServerIP());
+}
+
+void loop() {
+  // Report the link status every 5 seconds
+  static unsigned long lastCheck = 0;
+  if (millis() - lastCheck > 5000) {
+    lastCheck = millis();
+
+    Serial.print("- Link status: ");
+    Serial.println(Ethernet.linkStatus() == LinkON ? "ON" : "OFF");
+  }
+
+  delay(10);
+}
+```
+
+To test this example, mount the Nano XL Link board on the Nano Connector Carrier and connect an Ethernet cable from the carrier's RJ45 connector to a router or switch with a DHCP server (most home and office networks provide one).
+
+![Ethernet test setup with the Nano XL Link board on the Nano Connector Carrier](assets/ethernet-connection.png)
+
+Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the network configuration assigned by the DHCP server and the link status updates:
+
+![Arduino IDE Serial Monitor output for the Ethernet DHCP example sketch](assets/serial-monitor-12.png)
+
+To use a static IP address instead of DHCP, call `begin()` with the IP address, DNS server, gateway, and subnet mask:
+
+```arduino
+// Static IP configuration (adapt the values to your network)
+IPAddress ip(192, 168, 1, 177);
+IPAddress dns(192, 168, 1, 1);
+IPAddress gateway(192, 168, 1, 1);
+IPAddress subnet(255, 255, 255, 0);
+
+Ethernet.begin(ip, dns, gateway, subnet);
+```
+
+The following example turns the Nano XL Link into a simple web server. When a browser on the same network opens the board's IP address, the board responds with a page showing its uptime and the values of its analog inputs, refreshed every five seconds:
+
+```arduino
+/**
+Ethernet Web Server Example for the Arduino Nano XL Link Board
+Name: nano_xl_link_ethernet_web_server.ino
+Purpose: This sketch demonstrates how to run a simple web server
+that shows the board's uptime and analog input values.
+
+@author Arduino Product Experience Team
+@version 1.0 04/11/26
+*/
+
+#include <ZephyrEthernet.h>
+#include <ZephyrServer.h>
+#include <ZephyrClient.h>
+
+// Web server on port 80 (HTTP)
+ZephyrServer server(80);
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+  Serial.println("- Arduino Nano XL Link - Ethernet Web Server Example started...");
+
+  // Wait for the Ethernet cable to be connected
+  Serial.println("- Waiting for the Ethernet link...");
+  while (Ethernet.linkStatus() != LinkON) {
+    delay(100);
+  }
+
+  // Request an IP address from the DHCP server
+  if (Ethernet.begin() == 0) {
+    Serial.println("- Error: failed to configure Ethernet using DHCP!");
+    while (1) delay(10);
+  }
+
+  // Start the web server
+  server.begin();
+
+  Serial.print("- Web server started at http://");
+  Serial.println(Ethernet.localIP());
+}
+
+void loop() {
+  // Wait for an incoming client connection
+  ZephyrClient client = server.accept();
+
+  if (client) {
+    Serial.println("- New client connected");
+
+    // Read the HTTP request until the empty line that ends the header
+    bool currentLineIsBlank = true;
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+
+        if (c == '\n' && currentLineIsBlank) {
+          // Request complete, send the HTTP response
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-Type: text/html");
+          client.println("Connection: close");
+          client.println("Refresh: 5");
+          client.println();
+          client.println("<!DOCTYPE HTML>");
+          client.println("<html>");
+          client.println("<h1>Arduino Nano XL Link</h1>");
+
+          // Uptime in seconds
+          client.print("<p>Uptime: ");
+          client.print(millis() / 1000);
+          client.println(" s</p>");
+
+          // Analog input values
+          for (int channel = 0; channel < 8; channel++) {
+            client.print("<p>A");
+            client.print(channel);
+            client.print(": ");
+            client.print(analogRead(A0 + channel));
+            client.println("</p>");
+          }
+
+          client.println("</html>");
+          break;
+        }
+
+        if (c == '\n') {
+          // New line received
+          currentLineIsBlank = true;
+        } else if (c != '\r') {
+          // Character received on the current line
+          currentLineIsBlank = false;
+        }
+      }
+    }
+
+    // Give the browser time to receive the data, then close the connection
+    delay(1);
+    client.stop();
+    Serial.println("- Client disconnected");
+  }
+}
+```
+
+Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the address assigned to the board, then open that address in a web browser on a computer connected to the same network. The page shows the board's uptime and analog values, and updates automatically every five seconds:
+
+![Arduino IDE Serial Monitor output for the Ethernet web server example sketch](assets/serial-monitor-13.png)
+
+![Web page served by the Nano XL Link board](assets/ethernet-web-server.png)
+
+<Alert type="info">
+
+If the page does not load, **make sure that the computer and the board are on the same network and subnet, and that the network does not isolate wired clients from each other**. The board's IP address can change between power cycles when using DHCP; for permanent installations, use a static IP address or a DHCP reservation in your router.
+
+</Alert>
+
+When working with Ethernet on the Nano XL Link, there are several key points to keep in mind:
+
+- Always check `linkStatus()` before calling `begin()`. With DHCP, `begin()` waits for an address for up to 10 seconds and returns 0 if no DHCP server responds.
+- The board uses a default MAC address provided by the core. To use a specific MAC address, for example in networks with address filtering, pass it as the first argument of `begin()`.
+- The Ethernet library uses the Zephyr network stack. The `EthernetClient` and `EthernetUDP` classes are compatible with most Arduino libraries that accept a `Client` or `UDP` object, such as `ArduinoHttpClient`, `ArduinoMqttClient`, and `ArduinoModbus` (Modbus TCP).
+- The `LED_ACT` signal on `J4-19` is driven by the PHY to indicate link and activity, and is used by the Nano Connector Carrier for the LED of its RJ45 connector.
