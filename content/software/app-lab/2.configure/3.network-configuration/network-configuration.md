@@ -73,7 +73,9 @@ If you are operating behind a restrictive firewall, you must allow traffic to th
 When you use [Agent Mode](../../integrations/agent-mode/), the device running App Lab needs access to these domains: your computer in Connected Mode, or the board itself in [SBC Mode](../../setup/standalone/).
 
 - `nodejs.org` and `registry.npmjs.org`: Download of the agent runtime when you install an agent.
-- `claude.ai`, `platform.claude.com`, and `api.anthropic.com`: Sign-in and requests to Claude.
+- `claude.ai`, `platform.claude.com`, and `api.anthropic.com`: Sign-in and requests to Claude Code or Anthropic models in OpenCode.
+- `models.dev` and `opencode.ai`: Model catalogue and OpenCode models when using **OpenCode**.
+- Provider APIs when using **OpenCode**: `generativelanguage.googleapis.com` (Google Gemini), `api.openai.com` (OpenAI), `openrouter.ai` (OpenRouter), or `github.com` and `api.githubcopilot.com` (GitHub Copilot).
 
 ### Application Specific
 

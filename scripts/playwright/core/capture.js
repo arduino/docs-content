@@ -3,8 +3,30 @@ const path = require('path');
 
 const CONFIG = {
     baseUrl: 'http://localhost:34115',
-    viewport: { width: 1282, height: 720 }
+    viewport: { width: 1282, height: 720 },
+    repoRoot: path.resolve(__dirname, '../../..'),
+    ledgerPath: path.resolve(__dirname, '../capture-ledger.json')
 };
+
+function recordCaptureDate(fullPath, dateStr) {
+    const ledgerPath = CONFIG.ledgerPath;
+    let ledger = {};
+    if (fs.existsSync(ledgerPath)) {
+        try {
+            ledger = JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
+        } catch (e) {
+            ledger = {};
+        }
+    }
+    const relPath = path.relative(CONFIG.repoRoot, path.resolve(fullPath)).split(path.sep).join('/');
+    const day = dateStr || new Date().toISOString().slice(0, 10);
+    ledger[relPath] = day;
+    const sorted = {};
+    for (const k of Object.keys(ledger).sort()) {
+        sorted[k] = ledger[k];
+    }
+    fs.writeFileSync(ledgerPath, JSON.stringify(sorted, null, 2) + '\n', 'utf8');
+}
 
 async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
     const defsWithHandles = [];
@@ -416,6 +438,8 @@ async function capture(page, pathname, outDir, options = {}) {
         }
     });
 
+    recordCaptureDate(fullPath, options.captureDate);
+
     console.log(`📸 Captured: ${pathname}`);
     if (shouldClear) await clearHighlights(page);
 }
@@ -454,6 +478,7 @@ async function dismissToasts(page) {
 module.exports = {
     CONFIG,
     capture,
+    recordCaptureDate,
     highlightElement,
     clearHighlights,
     suppressToasts,
