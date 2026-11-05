@@ -190,17 +190,17 @@ The board can be powered in several ways:
 
 ![Power pins of the Nano XL Link board](assets/power-pins.png)
  
- <Alert type="warning">
+<Alert type="warning">
 
 The Nano XL Link's `VIN` pin accepts +7-24 VDC. Do not connect voltages outside this range, as you could permanently damage the board.
 
- </Alert>
+</Alert>
  
 <Alert type="warning">
 
 When powering the board through the `3V3` pin, do not connect a power source to the `VIN` pin or the USB-C connector at the same time. Applying an external +3.3 VDC source together with another power source can damage the board. Always verify all the connections before applying power.
 
- </Alert>
+</Alert>
 
 #### Power Inputs and Outputs
  
