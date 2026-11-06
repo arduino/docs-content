@@ -28,7 +28,7 @@ This user manual provides an overview of the Nano XL Link board, highlighting it
 
 - [Arduino Nano XL Link](https://store.arduino.cc/products/nano-xl-link) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
-- [Arduino Nano Connector Carrier](https://store.arduino.cc/products/nano-connector-carrier) (x1) (recommended)
+- [Arduino Nano XL Link Connector Carrier](https://store.arduino.cc/products/nano-xl-link-connector-carrier) (x1) (recommended)
 - [Breadboard](https://store.arduino.cc/products/breadboard-400-contacts) (x1) (recommended)
 - [Female/male jumper wires](https://store.arduino.cc/products/40-colored-male-female-jumper-wires) (recommended)
 
@@ -135,20 +135,20 @@ The complete STEP files are available and downloadable from the link below:
 
 When opening the Nano XL Link box, you will find the board and its corresponding documentation. **The Nano XL Link does not include additional cables**, so you will need a USB-C cable ([available separately here](https://store.arduino.cc/products/usb-cable2in1-type-c)) to connect the board to your computer.
 
-The Nano XL Link is a standalone device that can be programmed directly without requiring additional boards. For prototyping and for connecting the board to CAN, RS-485 and Ethernet networks, we recommend the [Nano Connector Carrier (ASX00090)](https://store.arduino.cc/products/nano-connector-carrier), which provides screw terminals and connectors for the board's signals. Refer to the Nano Connector Carrier user manual for more information.
+The Nano XL Link is a standalone device that can be programmed directly without requiring additional boards. For prototyping and for connecting the board to CAN, RS-485 and Ethernet networks, we recommend the [Nano XL Link Connector Carrier (ASX00090)](https://store.arduino.cc/products/nano-connector-carrier), which provides screw terminals and connectors for the board's signals. Refer to the Nano XL Link Connector Carrier user manual for more information.
 
 ### Connecting the Board
 
 The Nano XL Link can be connected to your computer using its onboard USB-C connector. It can also be integrated into larger projects using the following:
 
 - **Direct USB-C connection**: For programming, power supply and serial communication with the computer
-- **Nano Connector Carrier**: For prototyping and field installations, providing screw terminals and connectors for the board's signals and fieldbus lines
+- **Nano XL Link Connector Carrier**: For prototyping and field installations, providing screw terminals and connectors for the board's signals and fieldbus lines
 - **Jumper wire connection**: For connecting the board's pins to a breadboard or to external circuits
 - **Qwiic connection**: For rapid expansion with compatible sensors and modules, such as the Modulino® nodes
 - **Pin connection**: For integration into custom PCBs through the `J3` and `J4` headers
 
 <Alert type="warning">
-The Nano XL Link cannot be inserted directly into a breadboard. Its double-row headers would connect the inner and outer rows of each header together, short-circuiting the board's signals. For prototyping, we recommend mounting the board on the Nano Connector Carrier or using female/male jumper wires to connect its pins to a breadboard.
+The Nano XL Link cannot be inserted directly into a breadboard. Its double-row headers would connect the inner and outer rows of each header together, short-circuiting the board's signals. For prototyping, we recommend mounting the board on the Nano XL Link Connector Carrier or using female/male jumper wires to connect its pins to a breadboard.
 </Alert>
 
 <Alert type="warning">
@@ -580,7 +580,7 @@ To test this example, connect a push button to the Nano XL Link board as follows
 ![Digital pins test circuit on the Nano XL Link board](assets/digital-pins.png)
 
 <Alert type="info">
-You can make these connections with female/male jumper wires from the board's header pins, or through the screw terminals of the Nano Connector Carrier (our recommended way), as shown above.
+You can make these connections with female/male jumper wires from the board's header pins, or through the screw terminals of the Nano XL Link Connector Carrier (our recommended way), as shown above.
 </Alert>
 
 You should now see the built-in user LED toggle on and off each time you press the button. The interrupt is triggered on the falling edge (`FALLING`) of the pin, and the sketch ignores presses detected within 50 ms of the previous one to filter out the mechanical bounce of the button. You can also open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see messages indicating when the button is pressed and the current LED state.
@@ -1423,7 +1423,7 @@ To test these examples, connect the Nano XL Link board to a USB-CAN adapter as f
 ![CAN bus test setup with a Nano XL Link board and a USB-CAN adapter](assets/can-connection.png)
 
 <Alert type="info">
-You can make the connections above through the screw terminals of the Nano Connector Carrier (our recommended way) or with jumper wires from the board's header pins. The examples in this section were tested with a [Waveshare USB-CAN-A](https://www.waveshare.com/wiki/USB-CAN-A) adapter and its configuration tool, set to normal mode, standard frames, and 500 kbps. You can use any CAN adapter or device configured with the same bitrate. A CAN frame is only transmitted successfully when another node on the bus acknowledges it, so a single Nano XL Link connected to nothing cannot be used to test the examples.
+You can make the connections above through the screw terminals of the Nano XL Link Connector Carrier (our recommended way) or with jumper wires from the board's header pins. The examples in this section were tested with a [Waveshare USB-CAN-A](https://www.waveshare.com/wiki/USB-CAN-A) adapter and its configuration tool, set to normal mode, standard frames, and 500 kbps. You can use any CAN adapter or device configured with the same bitrate. A CAN frame is only transmitted successfully when another node on the bus acknowledges it, so a single Nano XL Link connected to nothing cannot be used to test the examples.
 </Alert>
 
 With the first sketch running, open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see each transmitted message, and the adapter's software to see the frames received with ID `0x123` and the counter value in the first data byte:
@@ -1622,7 +1622,7 @@ To test this example, connect the Nano XL Link board to a USB-RS485 adapter as f
 ![RS-485 test setup with a Nano XL Link board and a USB-RS485 adapter](assets/rs485-connection.png)
 
 <Alert type="info">
-You can make the connections above through the screw terminals of the Nano Connector Carrier (our recommended way) or with jumper wires from the board's header pins. The example in this section was tested with a [Waveshare USB TO RS485](https://www.waveshare.com/wiki/USB_TO_RS485) adapter, which appears on the computer as a standard serial port and handles the transmit/receive switching automatically. Any RS-485 device configured with the same serial settings (9600 baud, 8 data bits, no parity, 1 stop bit) can be used instead, including a second Nano XL Link running the same sketch. If no data is received, swap the `A` and `B` connections: the labeling of RS-485 lines is not consistent between manufacturers.
+You can make the connections above through the screw terminals of the Nano XL Link Connector Carrier (our recommended way) or with jumper wires from the board's header pins. The example in this section was tested with a [Waveshare USB TO RS485](https://www.waveshare.com/wiki/USB_TO_RS485) adapter, which appears on the computer as a standard serial port and handles the transmit/receive switching automatically. Any RS-485 device configured with the same serial settings (9600 baud, 8 data bits, no parity, 1 stop bit) can be used instead, including a second Nano XL Link running the same sketch. If no data is received, swap the `A` and `B` connections: the labeling of RS-485 lines is not consistent between manufacturers.
 </Alert>
 
 Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) and a serial terminal connected to the adapter's COM port at 9600 baud. The terminal shows the counter messages sent by the board every second and any text typed in the Serial Monitor, while text typed in the terminal appears in the Serial Monitor as data received by the board:
@@ -1645,20 +1645,20 @@ When working with RS-485 on the Nano XL Link, there are several key points to ke
 
 ## Ethernet Communication
 
-The Nano XL Link board features a built-in 10/100 Mbps Ethernet interface that allows your projects to connect to local networks and the Internet with a wired, reliable connection. The board integrates an onboard Ethernet PHY connected to the microcontroller's Ethernet controller, so the only external components needed are the magnetics and the RJ45 connector, which the Nano Connector Carrier provides.
+The Nano XL Link board features a built-in 10/100 Mbps Ethernet interface that allows your projects to connect to local networks and the Internet with a wired, reliable connection. The board integrates an onboard Ethernet PHY connected to the microcontroller's Ethernet controller, so the only external components needed are the magnetics and the RJ45 connector, which the Nano XL Link Connector Carrier provides.
 
 Ethernet is particularly useful when your project needs a stable, low-latency network connection in industrial or building environments, where wireless connectivity may be unreliable or not allowed. With Ethernet, the Nano XL Link can act as a web server for monitoring and control, publish data to cloud services, communicate with other devices through TCP or UDP, or integrate with industrial protocols such as Modbus TCP.
 
 The Nano XL Link's Ethernet interface offers the following technical specifications:
 
-|   **Parameter**  |              **Value**             |                **Notes**                |
-|:----------------:|:----------------------------------:|:---------------------------------------:|
-|        PHY       |       Microchip KSZ8081RNAIA       |     Onboard, industrial temperature     |
-|       Speed      |             10/100 Mbps            |   Auto-negotiation enabled by default   |
-|   Network Stack  |          Zephyr native IP          |     IPv4, TCP, UDP, DHCP client, DNS    |
-| IP Configuration |           DHCP or static           |            Set with `begin()`           |
-|     Connector    | RJ45 on the Nano Connector Carrier |  Magnetics and connector on the carrier |
-|   Activity LED   |          `LED_ACT` signal          | Driven by the PHY, available on `J4-19` |
+|   **Parameter**  |                  **Value**                 |                **Notes**                |
+|:----------------:|:------------------------------------------:|:---------------------------------------:|
+|        PHY       |           Microchip KSZ8081RNAIA           |     Onboard, industrial temperature     |
+|       Speed      |                 10/100 Mbps                |   Auto-negotiation enabled by default   |
+|   Network Stack  |              Zephyr native IP              |     IPv4, TCP, UDP, DHCP client, DNS    |
+| IP Configuration |               DHCP or static               |            Set with `begin()`           |
+|     Connector    | RJ45 on the Nano XL Link Connector Carrier |  Magnetics and connector on the carrier |
+|   Activity LED   |              `LED_ACT` signal              | Driven by the PHY, available on `J4-19` |
 
 The Nano XL Link board uses the following pins for Ethernet communication:
 
@@ -1673,7 +1673,7 @@ The Nano XL Link board uses the following pins for Ethernet communication:
 The PHY is connected internally to the microcontroller through an RMII interface, and its reset and interrupt lines use the internal pins `D37` and `D36`. The Ethernet driver manages these signals, and they are not available on the headers.
 
 <Alert type="warning">
-The Ethernet signals on the headers are the PHY's differential pairs and must connect to an RJ45 connector with integrated magnetics. Do not connect them directly to an Ethernet cable. The Nano Connector Carrier provides the RJ45 connector and magnetics, so you can connect the board to a network with a standard Ethernet cable when mounted on the carrier.
+The Ethernet signals on the headers are the PHY's differential pairs and must connect to an RJ45 connector with integrated magnetics. Do not connect them directly to an Ethernet cable. The Nano XL Link Connector Carrier provides the RJ45 connector and magnetics, so you can connect the board to a network with a standard Ethernet cable when mounted on the carrier.
 </Alert>
 
 You can communicate via Ethernet using the dedicated `Ethernet` library, which is included in the `Arduino Zephyr` core. The library provides the `Ethernet` object to configure the network interface, and the `EthernetClient` and `ZephyrServer` classes to open TCP connections and accept incoming ones, using the same API as the Ethernet libraries on other Arduino boards. UDP communication is available through the `EthernetUDP` class.
@@ -1756,9 +1756,9 @@ void loop() {
 }
 ```
 
-To test this example, mount the Nano XL Link board on the Nano Connector Carrier and connect an Ethernet cable from the carrier's RJ45 connector to a router or switch with a DHCP server (most home and office networks provide one).
+To test this example, mount the Nano XL Link board on the Nano XL Link Connector Carrier and connect an Ethernet cable from the carrier's RJ45 connector to a router or switch with a DHCP server (most home and office networks provide one).
 
-![Ethernet test setup with the Nano XL Link board on the Nano Connector Carrier](assets/ethernet-connection.png)
+![Ethernet test setup with the Nano XL Link board on the Nano XL Link Connector Carrier](assets/ethernet-connection.png)
 
 Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the network configuration assigned by the DHCP server and the link status updates:
 
@@ -1897,7 +1897,7 @@ When working with Ethernet on the Nano XL Link, there are several key points to 
 - Always check `linkStatus()` before calling `begin()`. With DHCP, `begin()` waits for an address for up to 10 seconds and returns 0 if no DHCP server responds.
 - The board uses a default MAC address provided by the core. To use a specific MAC address, for example in networks with address filtering, pass it as the first argument of `begin()`.
 - The Ethernet library uses the Zephyr network stack. The `EthernetClient` and `EthernetUDP` classes are compatible with most Arduino libraries that accept a `Client` or `UDP` object, such as `ArduinoHttpClient`, `ArduinoMqttClient`, and `ArduinoModbus` (Modbus TCP).
-- The `LED_ACT` signal on `J4-19` is driven by the PHY to indicate link and activity, and is used by the Nano Connector Carrier for the LED of its RJ45 connector.
+- The `LED_ACT` signal on `J4-19` is driven by the PHY to indicate link and activity, and is used by the Nano XL Link Connector Carrier for the LED of its RJ45 connector.
 
 ## Bootloader
 
