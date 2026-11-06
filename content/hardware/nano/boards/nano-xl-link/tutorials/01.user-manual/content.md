@@ -1955,7 +1955,7 @@ If you encounter any issues or have questions while working with your Nano XL Li
 
 Explore our Help Center, which offers a collection of articles and guides for Nano family boards. The Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
-- [Nano family help center page](https://support.arduino.cc/hc/en-us/sections/360004605400-Nano-Family)
+- [Nano Family Help Center page](https://support.arduino.cc/hc/en-us/sections/360004605400-Nano-Family)
 
 ### Forum
 
