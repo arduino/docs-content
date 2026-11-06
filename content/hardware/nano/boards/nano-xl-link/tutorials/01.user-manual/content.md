@@ -579,7 +579,7 @@ To test this example, connect a push button to the Nano XL Link board as follows
 ![Digital pins test circuit on the Nano XL Link board](assets/digital-pins.png)
 
 <Alert type="info">
-You can make the connections explained above with female/male jumper wires from the board’s header pins, or through the screw terminals of the Nano Connector Carrier (our recommended way), as shown above.
+You can make these connections with female/male jumper wires from the board's header pins, or through the screw terminals of the Nano Connector Carrier (our recommended way), as shown above.
 </Alert>
 
 You should now see the built-in user LED toggle on and off each time you press the button. The interrupt is triggered on the falling edge (`FALLING`) of the pin, and the sketch ignores presses detected within 50 ms of the previous one to filter out the mechanical bounce of the button. You can also open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see messages indicating when the button is pressed and the current LED state.
