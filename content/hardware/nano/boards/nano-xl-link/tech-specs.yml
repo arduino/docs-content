@@ -27,7 +27,7 @@ Industrial Interfaces:
   CAN FD:
     Transceiver: Texas Instruments® TCAN3414
     Protocols: Classic CAN and CAN FD
-    Arbitration Bitrate: 125 kbps to 1 Mbps
+    Arbitration Bitrate: 125, 250, 500 kbps and 1 Mbps
     Data Bitrate: Up to 8 Mbps (CAN FD)
     Termination: 120 Ω onboard, solder jumper SJ1 (closed by default)
   RS-485:
