@@ -407,7 +407,7 @@ The Nano XL Link's header pins are organized into the following categories:
 |  **Digital Pins** |     26    |                         `D0` - `D13`, `D22` - `D33`                         | Digital I/O, PWM (8 pins), UART, SPI, I²C, I²S |
 |  **Analog Pins**  |     8     |                         `A0` - `A7` (`D14` - `D21`)                         |            Analog input, Digital I/O           |
 | **Fieldbus Pins** |     9     | `CANH`, `CANL`, `RS485 A`, `RS485 B`, `ETH_TX_P/N`, `ETH_RX_P/N`, `LED_ACT` |      CAN FD, RS-485 and Ethernet bus lines     |
-|    **USB Pins**   |     4     |                 `USB_D+`, `USB_D-`, `USB_HS D+`, `USB_HS D-`                |                 USB data lines                 |
+|    **USB Pins**   |     4     |                 `USB_FS D+`, `USB_FS D-`, `USB_D_P`, `USB_D_N`               |                 USB data lines                 |
 |   **Power Pins**  |     8     |                       `VIN`, `VBUS`, `3V3`, `GND` (x5)                      |             Power supply and ground            |
 |  **Special Pins** |     4     |                      `RESET`, `AREF`, `SWDIO`, `SWCLK`                      |       System control, reference and debug      |
 
