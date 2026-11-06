@@ -10,4 +10,4 @@ releaseDate: 2026-11-10
 isNew: true
 ---
 
-The Nano XL Link is a compact board for industrial and building automation, based on the Microchip® PIC32CK2051SG01144 microcontroller (Arm® Cortex®-M33). Its onboard CAN FD, RS-485 and Ethernet transceivers connect directly to industrial equipment, and its extended Nano pinout adds a second row of headers with additional I/O and fieldbus lines.
+The Nano XL Link is a compact board for industrial and building automation, based on the Microchip® PIC32CK2051SG01144 microcontroller (Arm® Cortex®-M33). Its onboard CAN FD, RS-485, and Ethernet interfaces connect it to industrial networks, and its extended Nano pinout adds a second row of headers with additional I/O and fieldbus lines.
