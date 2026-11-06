@@ -11,7 +11,7 @@ This bulletin informs customers and partners about the planned **End‑of‑Life
 
 We strongly recommend transitioning to the suggested replacement products to ensure continued support, performance improvements, and compatibility with future developments.
 
-| Product Name                                  | SKU      | Suggested Alternative | End of Life announcement | End of Sales Date | End of Support Date |
+| Product Name                                  | SKU      | Suggested Alternative | End of Life Announcement | End of Sales Date | End of Support Date |
 | :-------------------------------------------: | :------: | :-------------------: | :----------------------: | :---------------: | :-----------------: |
 | Arduino Certification Bundle: Kit & Exam      | AKX00020 |                       | November 10, 2026        | December 15, 2026 | December 15, 2028   |
 | Arduino Education Starter Kit                 | AKX00023 |                       | November 10, 2026        | December 15, 2026 | December 15, 2028   |
