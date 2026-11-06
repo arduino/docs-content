@@ -430,7 +430,7 @@ The following table shows the electrical specifications and operating limits for
 The current values in the table above are the conditions under which the PIC32CK microcontroller guarantees its output voltage levels at the default (4x) drive strength. The microcontroller also supports an 8x drive strength (13 mA sink and 19 mA source), but the Arduino core does not expose this setting.
 
 <Alert type="info">
-The core also defines the digital pins `D34` to `D43`. But they are connect to onboard components (Qwiic connector, Ethernet PHY control, LEDs, and RS-485 transceiver control) and are not available on the headers. Avoid using them as general-purpose I/O.
+The core also defines the digital pins `D34` to `D43`, but they are connected to onboard components (Qwiic connector, Ethernet PHY control, LEDs, and RS-485 transceiver control) and are not available on the headers. Avoid using them as general-purpose I/O.
 </Alert>
 
 ### Digital Pins
