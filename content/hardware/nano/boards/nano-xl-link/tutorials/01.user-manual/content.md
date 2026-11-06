@@ -173,7 +173,7 @@ For +5 VDC components, add external level shifters on all data lines and use the
 
 ### Powering the Board
 
-The Nano XL Link has three power inputs and two power outputs on its headers. Understanding which pins accept power and which pins only supply it is important to avoid damaging the board.
+The Nano XL Link has four power inputs and two power outputs on its headers. Understanding which pins accept power and which pins only supply it is important to avoid damaging the board.
 
 The board can be powered in several ways:
 
@@ -824,8 +824,8 @@ The Nano XL Link board uses the following pins for UART communication:
 
 | **Serial Object** | **Arduino Pin** | **Microcontroller Pin** | **UART Function** |       **Description**      |
 |:-----------------:|:---------------:|:-----------------------:|:-----------------:|:--------------------------:|
-|     `Serial1`     |       `D0`      |          `PA01`         |         RX        |        Transmit data       |
-|     `Serial1`     |       `D1`      |          `PA00`         |         TX        |        Receive data        |
+|     `Serial1`     |       `D0`      |          `PA01`         |         RX        |        Receive data        |
+|     `Serial1`     |       `D1`      |          `PA00`         |         TX        |        Transmit data       |
 |     `Serial2`     |      `D32`      |          `PD08`         |         TX        |        Transmit data       |
 |     `Serial2`     |      `D33`      |          `PD09`         |         RX        |        Receive data        |
 |     `Serial3`     |        -        |            -            |         -         | Onboard RS-485 transceiver |
