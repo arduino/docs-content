@@ -131,11 +131,11 @@ An App release is a packaged, read-only version of an App, saved as an `.ard` fi
    ![Screenshot of the App release dialog in Arduino App Lab.](../../assets/playwright/editor/create-release-dialog.png)
 1. Select **Save and download**, then choose where to save the `.ard` file on your computer.
 
-App Lab builds the release on the board in the background and shows its progress in a card in the corner of the screen. Select **Hide in notifications** to dismiss the card while the build continues, or **Stop** to cancel the build. When the build finishes, App Lab downloads the `.ard` file to the location you chose. If the build fails, select **View log** in the notification to see the build log.
+App Lab builds the release on the board in the background and shows its progress in a card in the corner of the screen. Select **Hide in notifications** to dismiss the card while the build continues, or **Stop `<release name>`** to cancel a running build. When the build finishes, App Lab downloads the `.ard` file to the location you chose. If the build fails, select **View log** in the notification to see the build log.
 
 <Alert type="info">
 
-**Note:** You can build one release of the same App at a time. **Create release** is disabled until the current build finishes.
+**Note:** You can build one release of the same App at a time. **Create release** is disabled until the current build finishes. Apps that include a [Custom Brick](../../bricks/custom-bricks/) whose container is built from a `Dockerfile` (`build:` in `brick_compose.yaml`) cannot be packaged as a release. Use a pre-built container image instead.
 
 </Alert>
 
