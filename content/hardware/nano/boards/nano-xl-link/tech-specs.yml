@@ -45,7 +45,7 @@ Onboard Components:
   User LED: Orange, user-programmable (LED_BUILTIN)
   Power LED: Green, +3.3 VDC rail
   Reset Button: Yes
-  Debug: SWD test points (bottom side)
+  Debug: SWD on J3 header (SWDIO, SWCLK) and bottom-side test points
 Power:
   Input Voltage (VIN): +7-24 VDC
   USB Input: 5 V via USB-C®
