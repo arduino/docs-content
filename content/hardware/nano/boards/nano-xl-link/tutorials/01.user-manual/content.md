@@ -592,7 +592,7 @@ Keep interrupt service routines as short as possible. In this example, the routi
 
 ### Analog Pins
 
-The Nano XL Link has **8 analog input pins** (`A0` to `A7`) that you can read with the `analogRead()`. These pins let you measure continuously varying voltages, making them suitable for reading sensors like potentiometers, light sensors, temperature sensors, and other analog components. The PIC32CK microcontroller's analog-to-digital converter (ADC) converts the analog voltage into a digital value your sketch can process.
+The Nano XL Link has **8 analog input pins** (`A0` to `A7`) that you can read with the `analogRead()` function. These pins let you measure continuously varying voltages, making them suitable for reading sensors like potentiometers, light sensors, temperature sensors, and other analog components. The PIC32CK microcontroller's analog-to-digital converter (ADC) converts the analog voltage into a digital value your sketch can process.
 
 The Nano XL Link analog pins provide the following functionality:
 
