@@ -30,7 +30,7 @@ Agent Mode supports **Claude Code™** (by Anthropic) and **OpenCode** as a **Pr
    - **Claude Code**: Select **Manage** on the card, then sign in using one of the two tabs:
      - **Sign in**: Select **Sign in with Anthropic**. Your browser opens the Anthropic sign-in page. When the page shows a sign-in token, copy it, paste it in the **Paste token** field in App Lab, and confirm. If the browser does not open, select **Copy link** and open the link manually.
      - **API Key**: Paste your Anthropic API key and select **Verify**.
-   - **OpenCode**: OpenCode connects automatically after installation and can use **OpenCode free models** right away (**No API key needed**). To add models from another provider, select **Add provider** and choose a **Provider** (**Google Gemini**, **OpenCode**, **Anthropic**, **OpenAI**, **OpenRouter**, or **GitHub Copilot**):
+   - **OpenCode**: OpenCode connects automatically after installation and can use **OpenCode free models** right away (**No API key needed**). To add models from another provider, select **Add provider** and choose a **Provider** (Google Gemini, OpenCode, Anthropic, OpenAI, OpenRouter, or GitHub Copilot):
      - For an API key provider: paste your **API key** and select **Verify** (or **Cancel** to go back). App Lab checks the key with the provider before saving it.
      - For **GitHub Copilot**, your browser opens the GitHub device activation page and App Lab shows a **Device code** (**Copy sign-in page** and **Copy device code**). Enter the code on GitHub to authorize OpenCode.
      - Select **Start building** when you are ready. You can add or remove providers at any time under **AI model providers** in **Settings**.
