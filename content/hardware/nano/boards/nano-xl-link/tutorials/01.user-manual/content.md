@@ -122,6 +122,7 @@ The complete datasheet is available and downloadable as a PDF from the link belo
 The complete schematics are available and downloadable as a PDF from the link below:
 
 - [Nano XL Link schematics](https://docs.arduino.cc/resources/schematics/ABX00182-schematics.pdf)
+
 ### STEP Files
 
 The complete STEP files are available and downloadable from the link below:
