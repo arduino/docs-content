@@ -290,7 +290,7 @@ The Nano XL Link features a built-in RGB LED that provides visual feedback. The 
 |     Blue LED     |        `LEDB`        |      `D41`      |         `PC17`          |
 
 <Alert type="info">
-The built-in RGB LED on the Nano XL Link is a common-anode LED connected to +3.3 VDC, so each color must be pulled to ground (`GND`)  to make it light up. This means a `LOW` voltage on each pin turns on that color, and a `HIGH` voltage turns it off.
+The built-in RGB LED on the Nano XL Link is a common-anode LED connected to +3.3 VDC, so each color must be pulled to ground (`GND`) to make it light up. This means a `LOW` voltage on each pin turns on that color, and a `HIGH` voltage turns it off.
 </Alert>
 
 You can turn each color on and off using the `pinMode()` and `digitalWrite()` functions of the Arduino programming language. The following example sketch turns on each of the RGB LED colors at an interval of 500 ms:
