@@ -601,8 +601,8 @@ The Nano XL Link analog pins provide the following functionality:
 |      `A1`       |      `D15`      |         `PA05`          |     `J3-9`     |    ADC0 ch 1    |
 |      `A2`       |      `D16`      |         `PA06`          |    `J3-11`     |    ADC0 ch 2    |
 |      `A3`       |      `D17`      |         `PA07`          |    `J3-13`     |    ADC0 ch 3    |
-|      `A4`       |      `D18`      |         `PA11`          |    `J3-15`     |    ADC0 ch 7    |
-|      `A5`       |      `D19`      |         `PA12`          |    `J3-17`     |    ADC0 ch 8    |
+|      `A4`       |      `D18`      |         `PA12`          |    `J3-15`     |    ADC0 ch 8    |
+|      `A5`       |      `D19`      |         `PA11`          |    `J3-17`     |    ADC0 ch 7    |
 |      `A6`       |      `D20`      |         `PA09`          |    `J3-19`     |    ADC0 ch 5    |
 |      `A7`       |      `D21`      |         `PA10`          |    `J3-21`     |    ADC0 ch 6    |
 
