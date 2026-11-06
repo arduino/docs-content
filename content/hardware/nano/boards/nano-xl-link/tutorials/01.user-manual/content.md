@@ -1962,7 +1962,7 @@ Explore our Help Center, which offers a collection of articles and guides for Na
 
 ### Forum
 
-Join our community forum to connect with other Nano family board users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nano XL Link.
+Join our community forum to connect with other Nano family board users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nano XL Link.
 
 - [Nano category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/nano-family/87)
 
