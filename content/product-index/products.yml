@@ -1,12 +1,12 @@
 # One entry per product name. SKU takes one value or a list ([A, B]), and each SKU gets its own row.
-# Label: Active, Not recommended for new designs, Declared End of Life or Discontinued.
-# Dates: YYYY-MM-DD or DD-MM-YYYY. Leave a field empty, or write "-" with the quotes, when there is no value.
-# Replacement: the name of the product to choose instead; it links to that product page when one has that title.
+# Status: Active, End of Life or Discontinued.
+# Dates: YYYY-MM-DD. Leave a field empty, when there is no value. Relates to 'Release Date', 'End of Life', 'End of Sales' and 'End of Support'.
+# Replacement: the name of the product to choose instead; it links to that product page when one has that title. eg. nano-esp32
 # Bulletin: the name of a folder in tutorials/bulletin. Once End of Sales has passed, the page shows Discontinued.
 
 Arduino 4 Relays Shield:
   SKU: A000110
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -16,7 +16,7 @@ Arduino 4 Relays Shield:
 
 Arduino 9 Axis Motion Shield:
   SKU: A000070
-  Label: Active
+  Status: Active
   Release Date: 2021-01-12
   End of Life:
   End of Sales:
@@ -26,7 +26,7 @@ Arduino 9 Axis Motion Shield:
 
 Arduino Alvik:
   SKU: AKX00066
-  Label: Active
+  Status: Active
   Release Date: 2024-03-25
   End of Life: 
   End of Sales: 
@@ -36,7 +36,7 @@ Arduino Alvik:
 
 Arduino Opta Lite:
   SKU: AFX00003
-  Label: Active
+  Status: Active
   Release Date: 2023-02-08
   End of Life:
   End of Sales:
@@ -46,7 +46,7 @@ Arduino Opta Lite:
 
 Arduino Braccio ++:
   SKU: T050002
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2022-03-23
   End of Life:
   End of Sales:
@@ -56,7 +56,7 @@ Arduino Braccio ++:
 
 Arduino Bughopper:
   SKU: ABX00156
-  Label: Active
+  Status: Active
   Release Date: #missing release date
   End of Life:
   End of Sales:
@@ -66,7 +66,7 @@ Arduino Bughopper:
 
 Arduino Opta RS485:
   SKU: AFX00001
-  Label: Active
+  Status: Active
   Release Date: 2023-01-09
   End of Life:
   End of Sales:
@@ -76,7 +76,7 @@ Arduino Opta RS485:
 
 Arduino Opta WiFi:
   SKU: AFX00002
-  Label: Active
+  Status: Active
   Release Date: 2023-02-08
   End of Life:
   End of Sales:
@@ -86,7 +86,7 @@ Arduino Opta WiFi:
 
 Arduino Pro Opta Ext A0602:
   SKU: AFX00007
-  Label: Active
+  Status: Active
   Release Date: 2024-07-22
   End of Life:
   End of Sales:
@@ -96,7 +96,7 @@ Arduino Pro Opta Ext A0602:
 
 Arduino Pro Opta Ext D1608E:
   SKU: AFX00005
-  Label: Active
+  Status: Active
   Release Date: 2024-04-29
   End of Life:
   End of Sales:
@@ -106,7 +106,7 @@ Arduino Pro Opta Ext D1608E:
 
 Arduino Pro Opta Ext D1608S:
   SKU: AFX00006
-  Label: Active
+  Status: Active
   Release Date: 2024-04-29
   End of Life:
   End of Sales:
@@ -116,7 +116,7 @@ Arduino Pro Opta Ext D1608S:
 
 Arduino Due:
   SKU: A000062
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -126,7 +126,7 @@ Arduino Due:
 
 Arduino Due (for China):
   SKU: A000062_CN
-  Label: Active
+  Status: Active
   Release Date:
   End of Life:
   End of Sales:
@@ -136,7 +136,7 @@ Arduino Due (for China):
 
 Arduino Due (without headers):
   SKU: A000056
-  Label: Active
+  Status: Active
   Release Date: 2021-01-14
   End of Life:
   End of Sales:
@@ -146,7 +146,7 @@ Arduino Due (without headers):
 
 "Arduino Certification Bundle: Kit & Exam":
   SKU: AKX00020
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -156,7 +156,7 @@ Arduino Due (without headers):
 
 Arduino Explore IoT Kit Rev2:
   SKU: AKX00044
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2023-04-12
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -166,7 +166,7 @@ Arduino Explore IoT Kit Rev2:
 
 Arduino MKR CAN Shield:
   SKU: ASX00005
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -176,7 +176,7 @@ Arduino MKR CAN Shield:
 
 Arduino Education Starter Kit:
   SKU: AKX00023
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -186,7 +186,7 @@ Arduino Education Starter Kit:
 
 Arduino Engineering Kit:
   SKU: AKX00004
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-28
   End of Life:
   End of Sales:
@@ -196,7 +196,7 @@ Arduino Engineering Kit:
 
 Arduino Engineering Kit Motors Backup:
   SKU: AKX00033
-  Label: Active
+  Status: Active
   Release Date: 2021-05-25
   End of Life:
   End of Sales:
@@ -206,7 +206,7 @@ Arduino Engineering Kit Motors Backup:
 
 Arduino MKR Connector Carrier:
   SKU: ASX00007
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -216,7 +216,7 @@ Arduino MKR Connector Carrier:
 
 Arduino Ethernet Shield:
   SKU: A000024
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -226,7 +226,7 @@ Arduino Ethernet Shield:
 
 Arduino MKR ENV Shield Rev2:
   SKU: ASX00029
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-02-22
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -236,7 +236,7 @@ Arduino MKR ENV Shield Rev2:
 
 Arduino MKR ETH Shield:
   SKU: ASX00006
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-05
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -246,7 +246,7 @@ Arduino MKR ETH Shield:
 
 Arduino GIGA Display Shield:
   SKU: ASX00039
-  Label: Active
+  Status: Active
   Release Date: 2023-08-16
   End of Life:
   End of Sales:
@@ -256,7 +256,7 @@ Arduino GIGA Display Shield:
 
 Arduino GIGA R1 WiFi:
   SKU: ABX00063
-  Label: Active
+  Status: Active
   Release Date: 2023-02-14
   End of Life:
   End of Sales:
@@ -266,7 +266,7 @@ Arduino GIGA R1 WiFi:
 
 Arduino MKR GPS Shield:
   SKU: ASX00017
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -276,7 +276,7 @@ Arduino MKR GPS Shield:
 
 Arduino IoT Bundle:
   SKU: AKX00042
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2022-11-25
   End of Life:
   End of Sales:
@@ -286,7 +286,7 @@ Arduino IoT Bundle:
 
 Arduino MKR IoT Carrier Rev2:
   SKU: ABX00073
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2023-01-09
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -296,7 +296,7 @@ Arduino MKR IoT Carrier Rev2:
 
 Arduino Leonardo (with headers):
   SKU: A000057
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -306,7 +306,7 @@ Arduino Leonardo (with headers):
 
 Arduino Leonardo (without headers):
   SKU: A000052
-  Label: Active
+  Status: Active
   Release Date: 2021-01-11
   End of Life:
   End of Sales:
@@ -316,7 +316,7 @@ Arduino Leonardo (without headers):
 
 Arduino MKR NB 1500:
   SKU: ABX00019
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-19
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -326,7 +326,7 @@ Arduino MKR NB 1500:
 
 Arduino Mega 2560 Rev3:
   SKU: A000067
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -336,7 +336,7 @@ Arduino Mega 2560 Rev3:
 
 Arduino Mega 2560 Rev3 (for China):
   SKU: A000067_CN
-  Label: Active
+  Status: Active
   Release Date:
   End of Life:
   End of Sales:
@@ -346,7 +346,7 @@ Arduino Mega 2560 Rev3 (for China):
 
 Arduino Mega Proto Shield Rev3:
   SKU: A000080
-  Label: Active
+  Status: Active
   Release Date: 2021-01-05
   End of Life:
   End of Sales:
@@ -356,7 +356,7 @@ Arduino Mega Proto Shield Rev3:
 
 Arduino Micro:
   SKU: A000053
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -366,7 +366,7 @@ Arduino Micro:
 
 Arduino Micro (without headers):
   SKU: A000093
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -376,7 +376,7 @@ Arduino Micro (without headers):
 
 Arduino MKR 1000 WiFi (with headers):
   SKU: ABX00011
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -386,7 +386,7 @@ Arduino MKR 1000 WiFi (with headers):
 
 Arduino MKR 1000 WiFi (without headers):
   SKU: ABX00004
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -396,7 +396,7 @@ Arduino MKR 1000 WiFi (without headers):
 
 Arduino MKR Proto Shield:
   SKU: TSX00001
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-05
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -406,7 +406,7 @@ Arduino MKR Proto Shield:
 
 Arduino MKR Relay Proto Shield:
   SKU: TSX00003
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -416,7 +416,7 @@ Arduino MKR Relay Proto Shield:
 
 Arduino MKR WAN 1310:
   SKU: ABX00029
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-05
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -426,7 +426,7 @@ Arduino MKR WAN 1310:
 
 Arduino MKR WAN 1310 + Antenna:
   SKU: ABX00039
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-31
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -436,7 +436,7 @@ Arduino MKR WAN 1310 + Antenna:
 
 Arduino MKR WiFi 1010:
   SKU: ABX00023
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -446,7 +446,7 @@ Arduino MKR WiFi 1010:
 
 Arduino MKR Zero:
   SKU: ABX00012
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -456,7 +456,7 @@ Arduino MKR Zero:
 
 Arduino MKR FOX 1200:
   SKU: ABX00014
-  Label: Discontinued
+  Status: Discontinued
   Release Date: #missing release date
   End of Life:
   End of Sales:
@@ -466,7 +466,7 @@ Arduino MKR FOX 1200:
 
 Arduino Nano 33 BLE:
   SKU: ABX00030
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -476,7 +476,7 @@ Arduino Nano 33 BLE:
 
 Arduino Nano 33 BLE (with headers):
   SKU: ABX00034
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -486,7 +486,7 @@ Arduino Nano 33 BLE (with headers):
 
 Arduino Nano 33 BLE Rev2:
   SKU: ABX00071
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2023-11-17
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -496,7 +496,7 @@ Arduino Nano 33 BLE Rev2:
 
 Arduino Nano 33 BLE Rev2 (with headers):
   SKU: ABX00072
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2023-11-17
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -506,7 +506,7 @@ Arduino Nano 33 BLE Rev2 (with headers):
 
 Arduino Nano 33 BLE Sense:
   SKU: ABX00031
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -516,7 +516,7 @@ Arduino Nano 33 BLE Sense:
 
 Arduino Nano 33 BLE Sense (with headers):
   SKU: ABX00035
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -526,7 +526,7 @@ Arduino Nano 33 BLE Sense (with headers):
 
 Arduino Nano 33 BLE Sense Rev2:
   SKU: ABX00069
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2022-10-13
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -536,7 +536,7 @@ Arduino Nano 33 BLE Sense Rev2:
 
 Arduino Nano 33 BLE Sense Rev2 (with headers):
   SKU: ABX00070
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2022-10-17
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -546,7 +546,7 @@ Arduino Nano 33 BLE Sense Rev2 (with headers):
 
 Arduino Nano 33 IoT:
   SKU: ABX00027
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -556,7 +556,7 @@ Arduino Nano 33 IoT:
 
 Arduino Nano 33 IoT (with headers):
   SKU: ABX00032
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -566,7 +566,7 @@ Arduino Nano 33 IoT (with headers):
 
 Arduino Oplà IoT Kit:
   SKU: AKX00026
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -576,7 +576,7 @@ Arduino Oplà IoT Kit:
 
 Arduino Portenta C33:
   SKU: ABX00074
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2023-06-16
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -586,7 +586,7 @@ Arduino Portenta C33:
 
 Arduino Portenta Cat. M1/NB IoT GNSS Shield:
   SKU: ASX00027
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2022-01-26
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -596,7 +596,7 @@ Arduino Portenta Cat. M1/NB IoT GNSS Shield:
 
 Arduino Portenta Max Carrier:
   SKU: ABX00043
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2022-06-10
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -606,7 +606,7 @@ Arduino Portenta Max Carrier:
 
 Arduino Starter Kit - Portuguese:
   SKU: K060007
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-02-02
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -616,7 +616,7 @@ Arduino Starter Kit - Portuguese:
 
 Arduino MKR Vidor 4000:
   SKU: ABX00022
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -626,7 +626,7 @@ Arduino MKR Vidor 4000:
 
 Arduino MKR WAN 1300:
   SKU: ABX00017
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-14
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -636,7 +636,7 @@ Arduino MKR WAN 1300:
 
 Arduino Stella:
   SKU: ABX00131
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2025-06-19
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -646,7 +646,7 @@ Arduino Stella:
 
 Arduino Tiny Machine Learning Kit:
   SKU: AKX00028
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-09
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -656,7 +656,7 @@ Arduino Tiny Machine Learning Kit:
 
 Arduino UNO WiFi Rev2:
   SKU: ABX00021
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -666,7 +666,7 @@ Arduino UNO WiFi Rev2:
 
 Arduino Zero:
   SKU: ABX00003
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -676,7 +676,7 @@ Arduino Zero:
 
 Arduino Modulino Buttons:
   SKU: ABX00110
-  Label: Active
+  Status: Active
   Release Date: 2025-05-25
   End of Life:
   End of Sales:
@@ -686,7 +686,7 @@ Arduino Modulino Buttons:
 
 Arduino Modulino Buzzer:
   SKU: ABX00108
-  Label: Active
+  Status: Active
   Release Date: 2025-05-23
   End of Life:
   End of Sales:
@@ -696,7 +696,7 @@ Arduino Modulino Buzzer:
 
 Arduino Modulino Distance:
   SKU: ABX00102
-  Label: Active
+  Status: Active
   Release Date: 2025-05-25
   End of Life:
   End of Sales:
@@ -706,7 +706,7 @@ Arduino Modulino Distance:
 
 Arduino Modulino Extender:
   SKU: ABX00174
-  Label: Active
+  Status: Active
   Release Date: #missing release date
   End of Life:
   End of Sales:
@@ -716,7 +716,7 @@ Arduino Modulino Extender:
 
 Arduino Modulino Hub:
   SKU: ABX00100
-  Label: Active
+  Status: Active
   Release Date: #missing release date
   End of Life:
   End of Sales:
@@ -726,7 +726,7 @@ Arduino Modulino Hub:
 
 Arduino Modulino Joystick:
   SKU: ABX00135
-  Label: Active
+  Status: Active
   Release Date: 2025-12-04
   End of Life:
   End of Sales:
@@ -736,7 +736,7 @@ Arduino Modulino Joystick:
 
 Arduino Modulino Knob:
   SKU: ABX00107
-  Label: Active
+  Status: Active
   Release Date: 2025-05-23
   End of Life:
   End of Sales:
@@ -746,7 +746,7 @@ Arduino Modulino Knob:
 
 Arduino Modulino Latch Relay:
   SKU: ABX00138
-  Label: Active
+  Status: Active
   Release Date: 2025-12-04
   End of Life:
   End of Sales:
@@ -756,7 +756,7 @@ Arduino Modulino Latch Relay:
 
 Arduino Modulino LED Matrix:
   SKU: ABX00152
-  Label: Active
+  Status: Active
   Release Date: 2026-04-03
   End of Life:
   End of Sales:
@@ -766,7 +766,7 @@ Arduino Modulino LED Matrix:
 
 Arduino Modulino Light:
   SKU: ABX00111
-  Label: Active
+  Status: Active
   Release Date: 2025-12-04
   End of Life:
   End of Sales:
@@ -776,7 +776,7 @@ Arduino Modulino Light:
 
 Arduino Modulino Motors:
   SKU: ABX00114
-  Label: Active
+  Status: Active
   Release Date: #missing release date
   End of Life:
   End of Sales:
@@ -786,7 +786,7 @@ Arduino Modulino Motors:
 
 Arduino Modulino Movement:
   SKU: ABX00101
-  Label: Active
+  Status: Active
   Release Date: 2025-05-25
   End of Life:
   End of Sales:
@@ -796,7 +796,7 @@ Arduino Modulino Movement:
 
 Arduino Modulino Pixels:
   SKU: ABX00109
-  Label: Active
+  Status: Active
   Release Date: 2025-05-25
   End of Life:
   End of Sales:
@@ -806,7 +806,7 @@ Arduino Modulino Pixels:
 
 Arduino Modulino Thermo:
   SKU: ABX00103
-  Label: Active
+  Status: Active
   Release Date: 2025-05-22
   End of Life:
   End of Sales:
@@ -816,7 +816,7 @@ Arduino Modulino Thermo:
 
 Arduino Modulino Vibro:
   SKU: ABX00130
-  Label: Active
+  Status: Active
   Release Date: 2025-12-04
   End of Life:
   End of Sales:
@@ -826,7 +826,7 @@ Arduino Modulino Vibro:
 
 Arduino Motor Shield Rev3:
   SKU: A000079
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -836,7 +836,7 @@ Arduino Motor Shield Rev3:
 
 Arduino Nano:
   SKU: A000005
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -846,7 +846,7 @@ Arduino Nano:
 
 Arduino Nano (for China):
   SKU: A000005_CN
-  Label: Active
+  Status: Active
   Release Date: #missing release date
   End of Life:
   End of Sales:
@@ -856,7 +856,7 @@ Arduino Nano (for China):
 
 Arduino Alvik Robot Classroom Pack:
   SKU: AKX00068
-  Label: Active
+  Status: Active
   Release Date: 2024-03-27
   End of Life: 
   End of Sales: 
@@ -866,7 +866,7 @@ Arduino Alvik Robot Classroom Pack:
 
 Arduino CTC 101 Program (Self Learning):
   SKU: AKX00002SL
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-13
   End of Life:
   End of Sales:
@@ -876,7 +876,7 @@ Arduino CTC 101 Program (Self Learning):
 
 Arduino CTC 101 Program Full:
   SKU: AKX00002
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-11
   End of Life:
   End of Sales:
@@ -886,7 +886,7 @@ Arduino CTC 101 Program Full:
 
 Arduino CTC GO! Core Module (English):
   SKU: AKX00015
-  Label: Active
+  Status: Active
   Release Date: 2021-02-02
   End of Life: 
   End of Sales: 
@@ -896,7 +896,7 @@ Arduino CTC GO! Core Module (English):
 
 Arduino CTC GO! Motions Expansion Pack:
   SKU: AKX00021
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-02-18
   End of Life:
   End of Sales:
@@ -906,7 +906,7 @@ Arduino CTC GO! Motions Expansion Pack:
 
 Arduino Edge Control:
   SKU: AKX00034
-  Label: Active
+  Status: Active
   Release Date: 2021-04-23
   End of Life: 
   End of Sales: 
@@ -916,7 +916,7 @@ Arduino Edge Control:
 
 Arduino Edge Control Enclosure Kit:
   SKU: AKX00031
-  Label: Active
+  Status: Active
   Release Date: 2022-07-04
   End of Life: 
   End of Sales: 
@@ -926,7 +926,7 @@ Arduino Edge Control Enclosure Kit:
 
 Arduino Education Shield:
   SKU: TSX00006
-  Label: Active
+  Status: Active
   Release Date: 2021-01-07
   End of Life: 
   End of Sales: 
@@ -936,7 +936,7 @@ Arduino Education Shield:
 
 Arduino Engineering Kit Rev2:
   SKU: AKX00022
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life: 
   End of Sales: 
@@ -946,7 +946,7 @@ Arduino Engineering Kit Rev2:
 
 Arduino Explore IoT Kit Incl. 12 Months Create Maker Plan:
   SKU: AKX00027
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -956,7 +956,7 @@ Arduino Explore IoT Kit Incl. 12 Months Create Maker Plan:
 
 Arduino Nano Connector Carrier:
   SKU: ASX00061
-  Label: Active
+  Status: Active
   Release Date: 2025-05-22
   End of Life:
   End of Sales:
@@ -966,7 +966,7 @@ Arduino Nano Connector Carrier:
 
 Arduino Nano ESP32 (with headers, for China):
   SKU: ABX00083_CN
-  Label: Active
+  Status: Active
   Release Date: #missing release date
   End of Life:
   End of Sales:
@@ -976,7 +976,7 @@ Arduino Nano ESP32 (with headers, for China):
 
 Arduino Nano ESP32 (with headers):
   SKU: ABX00083
-  Label: Active
+  Status: Active
   Release Date: 2023-06-27
   End of Life:
   End of Sales:
@@ -986,7 +986,7 @@ Arduino Nano ESP32 (with headers):
 
 Arduino Nano ESP32 (without headers, for China):
   SKU: ABX00092_CN
-  Label: Active
+  Status: Active
   Release Date: #missing release dare
   End of Life:
   End of Sales:
@@ -996,7 +996,7 @@ Arduino Nano ESP32 (without headers, for China):
 
 Arduino Nano ESP32 (without headers):
   SKU: ABX00092
-  Label: Active
+  Status: Active
   Release Date: 2023-06-19
   End of Life:
   End of Sales:
@@ -1006,7 +1006,7 @@ Arduino Nano ESP32 (without headers):
 
 Arduino Nano Every:
   SKU: ABX00028
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -1016,7 +1016,7 @@ Arduino Nano Every:
 
 Arduino Nano Every (with headers):
   SKU: ABX00033
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -1026,7 +1026,7 @@ Arduino Nano Every (with headers):
 
 Arduino Nano Matter:
   SKU: ABX00112
-  Label: Active
+  Status: Active
   Release Date: 2024-05-07
   End of Life:
   End of Sales:
@@ -1036,7 +1036,7 @@ Arduino Nano Matter:
 
 Arduino Nano Matter (with headers):
   SKU: ABX00137
-  Label: Active
+  Status: Active
   Release Date: 2025-02-13
   End of Life:
   End of Sales:
@@ -1046,7 +1046,7 @@ Arduino Nano Matter (with headers):
 
 Arduino Greenhouse Kit:
   SKU: AKX00040
-  Label: Active
+  Status: Active
   Release Date: 2022-11-30
   End of Life: 
   End of Sales: 
@@ -1056,7 +1056,7 @@ Arduino Greenhouse Kit:
 
 Arduino Nano R4:
   SKU: ABX00142
-  Label: Active
+  Status: Active
   Release Date: 2025-07-07
   End of Life:
   End of Sales:
@@ -1066,7 +1066,7 @@ Arduino Nano R4:
 
 Arduino Nano R4 (with headers):
   SKU: ABX00143
-  Label: Active
+  Status: Active
   Release Date: 2025-07-07
   End of Life:
   End of Sales:
@@ -1076,7 +1076,7 @@ Arduino Nano R4 (with headers):
 
 Arduino Nano RP2040 Connect:
   SKU: ABX00052
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-05-13
   End of Life:
   End of Sales:
@@ -1086,7 +1086,7 @@ Arduino Nano RP2040 Connect:
 
 Arduino Nano RP2040 Connect (with headers):
   SKU: ABX00053
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-05-13
   End of Life:
   End of Sales:
@@ -1096,7 +1096,7 @@ Arduino Nano RP2040 Connect (with headers):
 
 Arduino Nano Screw Terminal Adapter:
   SKU: ASX00037
-  Label: Active
+  Status: Active
   Release Date: 2022-11-14
   End of Life:
   End of Sales:
@@ -1106,7 +1106,7 @@ Arduino Nano Screw Terminal Adapter:
 
 Arduino Nano Screw Terminal Adapter - 3 Boards Pack:
   SKU: ASX00037-3P
-  Label: Active
+  Status: Active
   Release Date: 2022-07-20
   End of Life:
   End of Sales:
@@ -1116,7 +1116,7 @@ Arduino Nano Screw Terminal Adapter - 3 Boards Pack:
 
 Arduino Nesso N1:
   SKU: TPX00227
-  Label: Active
+  Status: Active
   Release Date: 2025-11-11
   End of Life:
   End of Sales:
@@ -1126,7 +1126,7 @@ Arduino Nesso N1:
 
 Arduino Junior Certification Bundle [Student Kit + Junior Certification Exam]:
   SKU: AKX00043
-  Label: Active
+  Status: Active
   Release Date: 2023-05-24
   End of Life: 
   End of Sales: 
@@ -1136,7 +1136,7 @@ Arduino Junior Certification Bundle [Student Kit + Junior Certification Exam]:
 
 Arduino Make Your UNO Kit:
   SKU: AKX00037
-  Label: Active
+  Status: Active
   Release Date: 2022-10-31
   End of Life: 
   End of Sales: 
@@ -1146,7 +1146,7 @@ Arduino Make Your UNO Kit:
 
 Arduino MKR 485 Shield:
   SKU: ASX00004
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -1156,7 +1156,7 @@ Arduino MKR 485 Shield:
 
 Arduino MKR ENV Shield:
   SKU: ASX00011
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life: 
   End of Sales: 
@@ -1166,7 +1166,7 @@ Arduino MKR ENV Shield:
 
 Arduino MKR GSM 1400:
   SKU: ABX00018
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-12
   End of Life:
   End of Sales:
@@ -1176,7 +1176,7 @@ Arduino MKR GSM 1400:
 
 Arduino MKR IMU Shield:
   SKU: ASX00002
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life: 
   End of Sales: 
@@ -1186,7 +1186,7 @@ Arduino MKR IMU Shield:
 
 Arduino MKR IoT Carrier:
   SKU: ABX00047
-  Label: Active
+  Status: Active
   Release Date: 2021-02-25
   End of Life: 
   End of Sales: 
@@ -1196,7 +1196,7 @@ Arduino MKR IoT Carrier:
 
 Arduino MKR MEM Shield:
   SKU: ASX00008
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life: 
   End of Sales: 
@@ -1206,7 +1206,7 @@ Arduino MKR MEM Shield:
 
 Arduino MKR Motor Carrier:
   SKU: ASX00003
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-06
   End of Life:
   End of Sales:
@@ -1216,7 +1216,7 @@ Arduino MKR Motor Carrier:
 
 Arduino Plant Watering Kit:
   SKU: AKX00041
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2023-01-31
   End of Life:
   End of Sales:
@@ -1226,7 +1226,7 @@ Arduino Plant Watering Kit:
 
 Arduino MKR Proto Large Shield:
   SKU: TSX00002
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life: 
   End of Sales: 
@@ -1236,7 +1236,7 @@ Arduino MKR Proto Large Shield:
 
 Arduino Plug and Make Kit:
   SKU: AKX00069
-  Label: Active
+  Status: Active
   Release Date: 2024-06-11
   End of Life:
   End of Sales:
@@ -1246,7 +1246,7 @@ Arduino Plug and Make Kit:
 
 Arduino MKR RGB Shield:
   SKU: ASX00010
-  Label: Active
+  Status: Active
   Release Date: 2021-01-09
   End of Life: 
   End of Sales: 
@@ -1256,7 +1256,7 @@ Arduino MKR RGB Shield:
 
 Arduino MKR SD Proto Shield:
   SKU: TSX00004
-  Label: Active
+  Status: Active
   Release Date: 2021-01-05
   End of Life: 
   End of Sales: 
@@ -1266,7 +1266,7 @@ Arduino MKR SD Proto Shield:
 
 Arduino MKR Therm Shield:
   SKU: ASX00012
-  Label: Active
+  Status: Active
   Release Date: 2021-01-05
   End of Life: 
   End of Sales: 
@@ -1276,7 +1276,7 @@ Arduino MKR Therm Shield:
 
 Arduino Portenta H7:
   SKU: ABX00042
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -1286,7 +1286,7 @@ Arduino Portenta H7:
 
 Arduino Portenta H7 Lite:
   SKU: ABX00045
-  Label: Active
+  Status: Active
   Release Date: 2021-09-07
   End of Life:
   End of Sales:
@@ -1296,7 +1296,7 @@ Arduino Portenta H7 Lite:
 
 Arduino MKR2UNO Adapter:
   SKU: TSX00005
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life: 
   End of Sales: 
@@ -1306,7 +1306,7 @@ Arduino MKR2UNO Adapter:
 
 Arduino Portenta Hat Carrier:
   SKU: ASX00049
-  Label: Active
+  Status: Active
   Release Date: 2023-10-11
   End of Life:
   End of Sales:
@@ -1316,7 +1316,7 @@ Arduino Portenta Hat Carrier:
 
 Arduino Portenta Machine Control:
   SKU: AKX00032
-  Label: Active
+  Status: Active
   Release Date: 2021-05-10
   End of Life:
   End of Sales:
@@ -1326,7 +1326,7 @@ Arduino Portenta Machine Control:
 
 Arduino Nano Motor Carrier:
   SKU: ABX00041
-  Label: Active
+  Status: Active
   Release Date: 2021-06-15
   End of Life: 
   End of Sales: 
@@ -1336,7 +1336,7 @@ Arduino Nano Motor Carrier:
 
 Arduino Portenta Mid Carrier:
   SKU: ASX00055
-  Label: Active
+  Status: Active
   Release Date: 2024-03-29
   End of Life:
   End of Sales:
@@ -1346,7 +1346,7 @@ Arduino Portenta Mid Carrier:
 
 Arduino Nicla Sense:
   SKU: ABX00050
-  Label: Active
+  Status: Active
   Release Date: 2021-09-28
   End of Life: 
   End of Sales: 
@@ -1356,7 +1356,7 @@ Arduino Nicla Sense:
 
 Arduino Nicla Sense (with headers):
   SKU: ABX00078
-  Label: Active
+  Status: Active
   Release Date: 2024-02-15
   End of Life: 
   End of Sales: 
@@ -1366,7 +1366,7 @@ Arduino Nicla Sense (with headers):
 
 Arduino Portenta UWB Shield:
   SKU: ASX00074
-  Label: Active
+  Status: Active
   Release Date: 2025-06-19
   End of Life:
   End of Sales:
@@ -1376,7 +1376,7 @@ Arduino Portenta UWB Shield:
 
 Arduino Nicla Sense Env:
   SKU: ABX00089
-  Label: Active
+  Status: Active
   Release Date: 2024-10-10
   End of Life: 
   End of Sales: 
@@ -1386,7 +1386,7 @@ Arduino Nicla Sense Env:
 
 Arduino Nicla Sense ME:
   SKU: ABX00050
-  Label: Active
+  Status: Active
   Release Date: 2021-09-28
   End of Life: 
   End of Sales: 
@@ -1396,7 +1396,7 @@ Arduino Nicla Sense ME:
 
 Arduino Nicla Vision:
   SKU: ABX00051
-  Label: Active
+  Status: Active
   Release Date: 2022-02-28
   End of Life: 
   End of Sales: 
@@ -1406,7 +1406,7 @@ Arduino Nicla Vision:
 
 Arduino Pro 4G GNSS Module [Global]:
   SKU: TPX00200
-  Label: Active
+  Status: Active
   Release Date: 2024-03-21
   End of Life:
   End of Sales:
@@ -1416,7 +1416,7 @@ Arduino Pro 4G GNSS Module [Global]:
 
 Arduino Pro 4G Module [EMEA]:
   SKU: TPX00201
-  Label: Active
+  Status: Active
   Release Date: 2024-03-21
   End of Life:
   End of Sales:
@@ -1426,7 +1426,7 @@ Arduino Pro 4G Module [EMEA]:
 
 Arduino Pro Gateway:
   SKU: AKX00016
-  Label: Discontinued
+  Status: Discontinued
   Release Date: #missing release date
   End of Life:
   End of Sales:
@@ -1436,7 +1436,7 @@ Arduino Pro Gateway:
 
 Arduino Nicla Voice:
   SKU: ABX00061
-  Label: Active
+  Status: Active
   Release Date: 2023-01-30
   End of Life: 
   End of Sales: 
@@ -1446,7 +1446,7 @@ Arduino Nicla Voice:
 
 Arduino PLC Starter Kit:
   SKU: AKX00051
-  Label: Active
+  Status: Active
   Release Date: 2024-03-25
   End of Life: 
   End of Sales: 
@@ -1456,7 +1456,7 @@ Arduino PLC Starter Kit:
 
 Arduino Portenta Breakout:
   SKU: ASX00031
-  Label: Active
+  Status: Active
   Release Date: 2021-03-05
   End of Life: 
   End of Sales: 
@@ -1466,7 +1466,7 @@ Arduino Portenta Breakout:
 
 Arduino Proto Shield Rev3:
   SKU: TSX00083
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -1476,7 +1476,7 @@ Arduino Proto Shield Rev3:
 
 Arduino Replacements Pack:
   SKU: AKX00030
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -1486,7 +1486,7 @@ Arduino Replacements Pack:
 
 Arduino Portenta H7 Lite Connected:
   SKU: ABX00046
-  Label: Active
+  Status: Active
   Release Date: 2021-10-07
   End of Life: 
   End of Sales: 
@@ -1496,7 +1496,7 @@ Arduino Portenta H7 Lite Connected:
 
 Arduino Portenta Proto Kit ME:
   SKU: AKX00073
-  Label: Active
+  Status: Active
   Release Date: 2024-12-20
   End of Life: 
   End of Sales: 
@@ -1506,7 +1506,7 @@ Arduino Portenta Proto Kit ME:
 
 Arduino Portenta Proto Kit VE:
   SKU: AKX00074
-  Label: Active
+  Status: Active
   Release Date: 2025-03-03
   End of Life: 
   End of Sales: 
@@ -1516,7 +1516,7 @@ Arduino Portenta Proto Kit VE:
 
 Arduino Science Kit R3:
   SKU: AKX00045
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2023-10-09
   End of Life:
   End of Sales:
@@ -1526,7 +1526,7 @@ Arduino Science Kit R3:
 
 Arduino SIM:
   SKU: AAX00002
-  Label: Discontinued
+  Status: Discontinued
   Release Date:
   End of Life:
   End of Sales:
@@ -1536,7 +1536,7 @@ Arduino SIM:
 
 Arduino Portenta Vision Shield - Ethernet:
   SKU: ASX00021
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life: 
   End of Sales: 
@@ -1546,7 +1546,7 @@ Arduino Portenta Vision Shield - Ethernet:
 
 Arduino Portenta Vision Shield - LoRa:
   SKU: ASX00026
-  Label: Active
+  Status: Active
   Release Date: 2021-01-11
   End of Life: 
   End of Sales: 
@@ -1556,7 +1556,7 @@ Arduino Portenta Vision Shield - LoRa:
 
 Arduino Starter Kit - English:
   SKU: K000007
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
@@ -1566,7 +1566,7 @@ Arduino Starter Kit - English:
 
 Arduino Starter Kit - French:
   SKU: K020007
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-05
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
@@ -1576,7 +1576,7 @@ Arduino Starter Kit - French:
 
 Arduino Starter Kit - German:
   SKU: K040007
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
@@ -1586,7 +1586,7 @@ Arduino Starter Kit - German:
 
 Arduino Starter Kit - Italian:
   SKU: K010007
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
@@ -1596,7 +1596,7 @@ Arduino Starter Kit - Italian:
 
 Arduino Portenta X8:
   SKU: ABX00049
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-05-28
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -1606,7 +1606,7 @@ Arduino Portenta X8:
 
 Arduino Science Kit Physics Lab:
   SKU: AKX00014
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-07
   End of Life:
   End of Sales:
@@ -1616,7 +1616,7 @@ Arduino Science Kit Physics Lab:
 
 Arduino Science Kit Physics Lab (Spanish):
   SKU: AKX30014
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-08
   End of Life:
   End of Sales:
@@ -1626,7 +1626,7 @@ Arduino Science Kit Physics Lab (Spanish):
 
 Arduino Science Kit Physics Lab Rev2:
   SKU: AKX00038
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2022-08-08
   End of Life:
   End of Sales:
@@ -1636,7 +1636,7 @@ Arduino Science Kit Physics Lab Rev2:
 
 Arduino Starter Kit - Spanish:
   SKU: K030007
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
@@ -1646,7 +1646,7 @@ Arduino Starter Kit - Spanish:
 
 Arduino Starter Kit Classroom Pack - Arabic:
   SKU: K050007-6P
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: #missing release date
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
@@ -1656,7 +1656,7 @@ Arduino Starter Kit Classroom Pack - Arabic:
 
 Arduino Starter Kit Classroom Pack - English:
   SKU: K000007-6P
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-05
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
@@ -1666,7 +1666,7 @@ Arduino Starter Kit Classroom Pack - English:
 
 Arduino Starter Kit Classroom Pack - French:
   SKU: K020007-6P
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-06-28
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
@@ -1676,7 +1676,7 @@ Arduino Starter Kit Classroom Pack - French:
 
 Arduino Starter Kit Classroom Pack - German:
   SKU: K040007-6P
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-09-03
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
@@ -1686,7 +1686,7 @@ Arduino Starter Kit Classroom Pack - German:
 
 Arduino Starter Kit Classroom Pack - Italian:
   SKU: K010007-6P
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-13
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
@@ -1696,7 +1696,7 @@ Arduino Starter Kit Classroom Pack - Italian:
 
 Arduino Starter Kit Classroom Pack - Spanish:
   SKU: K030007-6P
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-08
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
@@ -1706,7 +1706,7 @@ Arduino Starter Kit Classroom Pack - Spanish:
 
 Arduino Starter Kit R4:
   SKU: K000007_R4
-  Label: Active
+  Status: Active
   Release Date: 2025-10-22
   End of Life:
   End of Sales:
@@ -1716,7 +1716,7 @@ Arduino Starter Kit R4:
 
 Arduino Starter Kit R4 Classroom Pack:
   SKU: K000007_R4-6P
-  Label: Active
+  Status: Active
   Release Date: 2025-12-22
   End of Life:
   End of Sales:
@@ -1726,7 +1726,7 @@ Arduino Starter Kit R4 Classroom Pack:
 
 Arduino Starter Kit - Arabic:
   SKU: K050007
-  Label: Active
+  Status: Active
   Release Date: 2021-01-11
   End of Life: 
   End of Sales: 
@@ -1736,7 +1736,7 @@ Arduino Starter Kit - Arabic:
 
 Arduino Student Kit (English):
   SKU: AKX00025
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -1746,7 +1746,7 @@ Arduino Student Kit (English):
 
 Arduino Starter Kit - Chinese:
   SKU: K110007
-  Label: Active
+  Status: Active
   Release Date: 2021-01-26
   End of Life: 
   End of Sales: 
@@ -1756,7 +1756,7 @@ Arduino Starter Kit - Chinese:
 
 Arduino Starter Kit - Japanese:
   SKU: K090007
-  Label: Active
+  Status: Active
   Release Date: 2021-01-19
   End of Life: 
   End of Sales: 
@@ -1766,7 +1766,7 @@ Arduino Starter Kit - Japanese:
 
 Arduino Starter Kit - Korean:
   SKU: K120007
-  Label: Active
+  Status: Active
   Release Date: 2021-01-06
   End of Life: 
   End of Sales: 
@@ -1776,7 +1776,7 @@ Arduino Starter Kit - Korean:
 
 Arduino UNO Mini Limited Edition:
   SKU: ABX00062
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-11-26
   End of Life:
   End of Sales:
@@ -1786,7 +1786,7 @@ Arduino UNO Mini Limited Edition:
 
 Arduino UNO Q (2GB):
   SKU: ABX00162
-  Label: Active
+  Status: Active
   Release Date: 2025-10-10
   End of Life:
   End of Sales:
@@ -1796,7 +1796,7 @@ Arduino UNO Q (2GB):
 
 Arduino UNO Q (4GB):
   SKU: ABX00173
-  Label: Active
+  Status: Active
   Release Date: 2026-01-09
   End of Life:
   End of Sales:
@@ -1806,7 +1806,7 @@ Arduino UNO Q (4GB):
 
 Arduino UNO R3:
   SKU: A000066
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -1816,7 +1816,7 @@ Arduino UNO R3:
 
 Arduino UNO R3 (for China):
   SKU: A000066_CN
-  Label: Active
+  Status: Active
   Release Date:
   End of Life:
   End of Sales:
@@ -1826,7 +1826,7 @@ Arduino UNO R3 (for China):
 
 Arduino UNO R3 SMD:
   SKU: A000073
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -1836,7 +1836,7 @@ Arduino UNO R3 SMD:
 
 Arduino UNO R4 Minima:
   SKU: ABX00080
-  Label: Active
+  Status: Active
   Release Date: 2023-05-29
   End of Life:
   End of Sales:
@@ -1846,7 +1846,7 @@ Arduino UNO R4 Minima:
 
 Arduino UNO R4 Minima (for China):
   SKU: ABX00080_CN
-  Label: Active
+  Status: Active
   Release Date: #missing release date
   End of Life:
   End of Sales:
@@ -1856,7 +1856,7 @@ Arduino UNO R4 Minima (for China):
 
 Arduino UNO R4 WiFi:
   SKU: ABX00087
-  Label: Active
+  Status: Active
   Release Date: 2023-06-20
   End of Life:
   End of Sales:
@@ -1866,7 +1866,7 @@ Arduino UNO R4 WiFi:
 
 Arduino UNO SPE Shield:
   SKU: ASX00073
-  Label: Active
+  Status: Active
   Release Date: 2025-06-06
   End of Life:
   End of Sales:
@@ -1876,7 +1876,7 @@ Arduino UNO SPE Shield:
 
 Arduino UNO WiFi R4 (for China):
   SKU: ABX00087_CN
-  Label: Active
+  Status: Active
   Release Date:
   End of Life:
   End of Sales:
@@ -1886,7 +1886,7 @@ Arduino UNO WiFi R4 (for China):
 
 Arduino UNO Breakout Carrier:
   SKU: ASX00085
-  Label: Active
+  Status: Active
   Release Date: 2026-04-14
   End of Life: 
   End of Sales: 
@@ -1896,7 +1896,7 @@ Arduino UNO Breakout Carrier:
 
 Arduino UNO एक R4 Minima:
   SKU: ABX00080_IN
-  Label: Active
+  Status: Active
   Release Date:
   End of Life:
   End of Sales:
@@ -1906,7 +1906,7 @@ Arduino UNO एक R4 Minima:
 
 Arduino UNO एक R4 WiFi:
   SKU: ABX00087_IN
-  Label: Active
+  Status: Active
   Release Date:
   End of Life:
   End of Sales:
@@ -1916,7 +1916,7 @@ Arduino UNO एक R4 WiFi:
 
 Arduino USB-C Cable (Full 24-Pin):
   SKU: TPX00243
-  Label: Active
+  Status: Active
   Release Date: 2026-04-13
   End of Life:
   End of Sales:
@@ -1926,7 +1926,7 @@ Arduino USB-C Cable (Full 24-Pin):
 
 Arduino USB-C Hub (8 in 1):
   SKU: TPX00241
-  Label: Active
+  Status: Active
   Release Date: 2026-04-17
   End of Life:
   End of Sales:
@@ -1936,7 +1936,7 @@ Arduino USB-C Hub (8 in 1):
 
 Arduino USB-C Power Supply (45W):
   SKU: TPX00242
-  Label: Active
+  Status: Active
   Release Date: 2026-04-13
   End of Life:
   End of Sales:
@@ -1946,7 +1946,7 @@ Arduino USB-C Power Supply (45W):
 
 Arduino Vidor 4000:
   SKU: ABX00022
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
@@ -1956,7 +1956,7 @@ Arduino Vidor 4000:
 
 Arduino WisGate Edge Lite 2 [EU]:
   SKU: TPX00098
-  Label: Active
+  Status: Active
   Release Date: 2022-08-26
   End of Life:
   End of Sales:
@@ -1966,7 +1966,7 @@ Arduino WisGate Edge Lite 2 [EU]:
 
 Arduino WisGate Edge Pro [EU]:
   SKU: TPX00095
-  Label: Active
+  Status: Active
   Release Date: 2022-08-31
   End of Life:
   End of Sales:
@@ -1976,7 +1976,7 @@ Arduino WisGate Edge Pro [EU]:
 
 Arduino UNO Media Carrier:
   SKU: ASX00083
-  Label: Active
+  Status: Active
   Release Date:
   End of Life: 
   End of Sales: 
@@ -1986,7 +1986,7 @@ Arduino UNO Media Carrier:
 
 Arduino Workshop Kit:
   SKU: [AKX00013, AKX00019]
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life: 
   End of Sales: 
@@ -1996,7 +1996,7 @@ Arduino Workshop Kit:
 
 Arduino YUN Rev2:
   SKU: ABX00020
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-07
   End of Life:
   End of Sales:
@@ -2006,7 +2006,7 @@ Arduino YUN Rev2:
 
 Cyberon Runtime Tinker Licence for Cortex M0:
   SKU: AVX00032
-  Label: Active
+  Status: Active
   Release Date: 2023-08-12
   End of Life: 
   End of Sales: 
@@ -2016,7 +2016,7 @@ Cyberon Runtime Tinker Licence for Cortex M0:
 
 Cyberon Runtime Tinker Licence for Cortex M4/M7:
   SKU: AVX00031
-  Label: Active
+  Status: Active
   Release Date: 2023-02-17
   End of Life: 
   End of Sales: 
@@ -2026,7 +2026,7 @@ Cyberon Runtime Tinker Licence for Cortex M4/M7:
 
 "Edge AI/ML: Vision and Speech Kit":
   SKU: AKX00058
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2023-12-18
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -2036,7 +2036,7 @@ Cyberon Runtime Tinker Licence for Cortex M4/M7:
 
 Industrial Automation and Lighting Kit:
   SKU: AKX00056
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2023-12-18
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -2046,7 +2046,7 @@ Industrial Automation and Lighting Kit:
 
 Nano Motor Carrier:
   SKU: ABX00041
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2021-06-15
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -2056,7 +2056,7 @@ Nano Motor Carrier:
 
 PLC IDE Key:
   SKU: AVX00070
-  Label: Active
+  Status: Active
   Release Date: #missing release date
   End of Life: 
   End of Sales: 
@@ -2066,7 +2066,7 @@ PLC IDE Key:
 
 Smart Industry OEM Condition Monitoring Kit:
   SKU: AKX00057
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2023-12-18
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -2076,7 +2076,7 @@ Smart Industry OEM Condition Monitoring Kit:
 
 Smart Industry Predictive Maintenance Kit:
   SKU: AKX00059
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2023-12-18
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -2086,7 +2086,7 @@ Smart Industry Predictive Maintenance Kit:
 
 Smart Industry Prototyping Kit:
   SKU: AKX00060
-  Label: Declared End of Life
+  Status: Declared End of Life
   Release Date: 2023-12-18
   End of Life: 2026-11-10
   End of Sales: 2026-12-15
@@ -2096,7 +2096,7 @@ Smart Industry Prototyping Kit:
 
 Tinkerkit Braccio Rescue Kit:
   SKU: T050001
-  Label: Discontinued
+  Status: Discontinued
   Release Date: 2021-01-18
   End of Life:
   End of Sales:
@@ -2106,7 +2106,7 @@ Tinkerkit Braccio Rescue Kit:
 
 Tinkerkit Braccio Robot:
   SKU: T050000
-  Label: Active
+  Status: Active
   Release Date: 2021-01-04
   End of Life: 
   End of Sales: 
@@ -2116,7 +2116,7 @@ Tinkerkit Braccio Robot:
 
 Arduino Pro Gateway for LoRa - Outdoor version:
   SKU: AKX00024
-  Label: Discontinued
+  Status: Discontinued
   Release Date: #missing release date
   End of Life:
   End of Sales:
