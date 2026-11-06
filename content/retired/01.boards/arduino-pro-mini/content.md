@@ -117,7 +117,7 @@ The dimensions of the Pro Mini PCB are approximately 0.7" x 1.3".
 | EEPROM                    | 1 KB \*                                        |
 | Clock Speed               | 8 MHz (3.3V versions) or 16 MHz (5V versions)  |
 
-**Older boards were equipped with ATmega 168 with this specs:**
+* **Older boards were equipped with ATmega 168 with this specs:**
 
 - Flash memory: 16 KB
 - SRAM: 1 KB
