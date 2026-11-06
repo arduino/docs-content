@@ -34,7 +34,7 @@ An onboard KSZ8081RNAIA PHY provides a 10/100 Mbps Ethernet interface through th
 
 <Feature title="Extended Nano Pinout" image="nano-form-factor">
 
-Two 2x15 headers keep the classic Nano signals and add a second row with 12 extra digital pins, a second SPI bus, a second I²C bus, a second UART and the fieldbus lines.
+Two 2x15 headers keep the classic Nano digital, analog and power pins and add a second row with 12 extra digital pins, a second SPI bus, an I²C bus, a second UART, I²S and the fieldbus lines.
 
 </Feature>
 
