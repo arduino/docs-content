@@ -76,7 +76,7 @@ Here is an overview of the board's main components, most of them shown in the im
 - **Ethernet PHY**: An onboard Microchip® KSZ8081RNAIA PHY provides a 10/100 Mbps Ethernet interface. The differential transmit and receive pairs and an activity LED signal are available on the board headers.
 - **Bus termination jumpers**: Two solder jumpers connect 120 Ω termination resistors to the fieldbuses: `SJ1` for the CAN bus and `SJ2` for the RS-485 bus. Both jumpers are **closed** by default.
 - **USB-C connector**: The Nano XL Link board includes a USB-C connector for programming, power, and serial communication.
-- **Qwiic connector**: The Nano XL Link board includes an onboard Qwiic connector to expand the board’s communication capabilities via I²C, facilitating connection with a wide range of sensors, actuators, and peripherals, such as the Arduino Modulino nodes.
+- **Qwiic connector**: The Nano XL Link board includes an onboard Qwiic connector to expand the board's communication capabilities via I²C, facilitating connection with a wide range of sensors, actuators, and peripherals, such as the Arduino Modulino nodes.
 - **Programmable RGB LED**: The board has an onboard user-programmable RGB LED to provide visual feedback about different operating states.
 - **User LED**: In addition to the RGB LED, the board includes an onboard user-programmable orange LED for basic status indications.
 - **Power LED**: A green LED indicates that the board's +3.3 VDC rail is powered.
@@ -85,7 +85,7 @@ Here is an overview of the board's main components, most of them shown in the im
 
 ### Board Core and Libraries
 
-The **`Arduino Zephyr`** core includes libraries and examples for the Arduino Nano XL Link’s peripherals and onboard components, such as its PIC32CK microcontroller, CAN FD controller, Ethernet interface, and onboard LEDs.
+The **`Arduino Zephyr`** core includes libraries and examples for the Arduino Nano XL Link's peripherals and onboard components, such as its PIC32CK microcontroller, CAN FD controller, Ethernet interface, and onboard LEDs.
 
 To install the core for the Nano XL Link board, navigate to **Tools > Board > Boards Manager** or click the Boards **Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `Zephyr` and install the latest core version.
 
@@ -209,7 +209,7 @@ The Nano XL Link does not generate +5 VDC on its own: when the board is powered 
 
 ### Hello World Example
 
-Let’s program the Nano XL Link to reproduce the classic `Hello World` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the Nano XL Link connects to the computer, the Arduino IDE is configured correctly, and the board and development environment work as expected.
+Let's program the Nano XL Link to reproduce the classic `Hello World` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the Nano XL Link connects to the computer, the Arduino IDE is configured correctly, and the board and development environment work as expected.
 
 First, connect your Nano XL Link to your computer with a USB-C cable, open the Arduino IDE, and make sure the board connects correctly. If you are new to the Arduino IDE, please refer to the official Arduino documentation for more detailed information about initial setup.
 
@@ -360,7 +360,7 @@ You should now see the built-in RGB LED cycle through red, green, and blue, then
 
 ![Onboard RGB user LED blinking](assets/rgb.gif)
 
-You can also open the Arduino IDE’s Serial Monitor (Tools > Serial Monitor) to see the status messages the example sketch sends each time the RGB LED state changes.
+You can also open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the status messages the example sketch sends each time the RGB LED state changes.
 
 ![Arduino IDE Serial Monitor output for the RGB example sketch](assets/serial-monitor-2.png)
 
@@ -394,7 +394,7 @@ The green power LED is connected directly to the +3.3 VDC rail and turns on when
 
 ## Pins
 
-This user manual section provides information about the Nano XL Link’s pin capabilities and functionality. Understanding the board’s pin capabilities and configurations helps you make the most of your projects with the Nano XL Link.
+This user manual section provides information about the Nano XL Link's pin capabilities and functionality. Understanding the board's pin capabilities and configurations helps you make the most of your projects with the Nano XL Link.
 
 ### Pins Overview
 
@@ -1269,7 +1269,7 @@ When working with I²C on the Nano XL Link, there are several key points to keep
 
 ## CAN FD Communication
 
-The Nano XL Link board features a built-in CAN FD (Controller Area Network with Flexible Data-rate) interface that allows your projects to communicate with automotive systems, industrial devices, and other CAN-enabled equipment. Unlike boards that only expose the microcontroller’s logic-level CAN signals, the Nano XL Link integrates an onboard CAN FD transceiver, so the `CANH` and `CANL` bus lines are available directly on the board headers, and you can connect to a CAN bus without additional hardware.
+The Nano XL Link board features a built-in CAN FD (Controller Area Network with Flexible Data-rate) interface that allows your projects to communicate with automotive systems, industrial devices, and other CAN-enabled equipment. Unlike boards that only expose the microcontroller's logic-level CAN signals, the Nano XL Link integrates an onboard CAN FD transceiver, so the `CANH` and `CANL` bus lines are available directly on the board headers, and you can connect to a CAN bus without additional hardware.
 
 CAN is particularly useful when your project needs to communicate in industrial or automotive environments where reliability and noise immunity are critical. While UART excels at simple serial communication and SPI provides high-speed data transfer, CAN offers multi-node networking with built-in error detection, collision handling, and message prioritization. CAN uses differential signaling, making it highly resistant to electromagnetic interference and suitable for harsh environments. CAN FD extends the classic CAN protocol with payloads of up to 64 bytes and a higher bit rate for the data phase of each frame.
 
@@ -1645,7 +1645,7 @@ When working with RS-485 on the Nano XL Link, there are several key points to ke
 
 ## Ethernet Communication
 
-The Nano XL Link board features a built-in 10/100 Mbps Ethernet interface that allows your projects to connect to local networks and the Internet with a wired, reliable connection. The board integrates an onboard Ethernet PHY connected to the microcontroller’s Ethernet controller, so the only external components needed are the magnetics and the RJ45 connector, which the Nano Connector Carrier provides.
+The Nano XL Link board features a built-in 10/100 Mbps Ethernet interface that allows your projects to connect to local networks and the Internet with a wired, reliable connection. The board integrates an onboard Ethernet PHY connected to the microcontroller's Ethernet controller, so the only external components needed are the magnetics and the RJ45 connector, which the Nano Connector Carrier provides.
 
 Ethernet is particularly useful when your project needs a stable, low-latency network connection in industrial or building environments, where wireless connectivity may be unreliable or not allowed. With Ethernet, the Nano XL Link can act as a web server for monitoring and control, publish data to cloud services, communicate with other devices through TCP or UDP, or integrate with industrial protocols such as Modbus TCP.
 
