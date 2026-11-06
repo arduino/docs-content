@@ -105,7 +105,7 @@ The `Arduino Zephyr` core runs Arduino sketches on top of the Zephyr® real-time
 
 ### Pinout
 
- ![The Nano XL Link simple pinout](assets/simple-pinout.png)
+- ![The Nano XL Link simple pinout](assets/simple-pinout.png)
 
 The full pinout is available and downloadable as a PDF from the link below:
 
