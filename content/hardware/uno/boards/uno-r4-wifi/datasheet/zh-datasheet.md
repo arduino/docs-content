@@ -502,4 +502,4 @@ Arduino S.r.l. 特此声明，本产品符合《2014/53/EU 指令》的基本要
 | 09/04/2025 | 7            | Fixed I2C information                |
 | 10/29/2025 | 8            | Mechanical drawing update            |
 | 20/10/2026 |       9      | Added note for Intended Use, and divided language |
-| 23/10/2026 |      10      | Removed SRRC sentence |
+| 06/11/2026 |      10      | Removed SRRC sentence, and translated certifications |

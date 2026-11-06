@@ -508,5 +508,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 09/04/2025 | 7            | Fixed I2C information                |
 | 10/29/2025 | 8            | Mechanical drawing update            |
 | 20/10/2026 |       9      | Added note for Intended Use, and divided language |
-| 23/10/2026 |      10      | Removed SRRC sentence |
+| 06/11/2026 |      10      | Removed SRRC sentence |
 
