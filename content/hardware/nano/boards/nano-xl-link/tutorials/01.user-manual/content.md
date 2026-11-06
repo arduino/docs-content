@@ -180,6 +180,7 @@ The board can be powered in several ways:
 - **Via USB-C connector**: The most common method during development and programming
 - **Via `VIN` pin**: Using an external +7-24 VDC power supply that is regulated down to +3.3 VDC by the onboard buck converter (MPQ4334)
 - **Via `3V3` pin**: Directly connecting a regulated +3.3 VDC source, which bypasses the onboard buck converter and powers the microcontroller directly
+- **Via `VBUS` pin**: Directly connecting a regulated +5 VDC source, which follows the same path as the USB-C power
 
 ![Power pins of the Nano XL Link board](assets/power-pins.png)
 
@@ -193,17 +194,17 @@ When powering the board through the `3V3` pin, do not connect a power source to 
 
 #### Power Inputs and Outputs
 
-The direction of each power pin depends on how you power the board. The `3V3` pin is an output when the board is powered through the USB-C connector or the `VIN` pin, and an input when it powers the board. The `VBUS` pin is always an output: it connects directly to the USB-C connector, and it carries +5 VDC only when a USB-C cable is connected. The same USB-C line also supplies the onboard MP5077 load switch, which provides the VBUS signal to the microcontroller's USB interface. The following table summarizes the function of each power pin:
+The direction of each power pin depends on how you power the board. The `3V3` pin is an output when the board is powered through the USB-C connector or the `VIN` pin, and an input when it powers the board. The `VBUS` pin is connected to the same +5 VDC net as the USB-C connector: it is an output that supplies +5 VDC to external circuits when the board is powered via USB-C, and an input that powers the board when a regulated +5 VDC source is connected to it. The following table summarizes the function of each power pin:
 
-| **Pin** | **Voltage** | **Direction** | **Maximum Current** |                    **Notes**                    |
-|:-------:|:-----------:|:-------------:|:-------------------:|:-----------------------------------------------:|
-|  `VIN`  |  +7-24 VDC  |     Input     |          -          |          Regulated to +3.3 VDC onboard          |
-|  `3V3`  |   +3.3 VDC  |  Input/Output |     1 A (output)    | Output of the buck converter, or external input |
-|  `VBUS` |    +5 VDC   |  Output only  |        500 mA       |      Available only when powered via USB-C      |
-|  `GND`  |      -      |       -       |          -          |         Five ground pins on the headers         |
+| **Pin** | **Voltage** | **Direction** | **Maximum Current** |                             **Notes**                            |
+|:-------:|:-----------:|:-------------:|:-------------------:|:----------------------------------------------------------------:|
+|  `VIN`  |  +7-24 VDC  |     Input     |          -          |                   Regulated to +3.3 VDC onboard                  |
+|  `3V3`  |   +3.3 VDC  |  Input/Output |     1 A (output)    |          Output of the buck converter, or external input         |
+|  `VBUS` |    +5 VDC   |  Input/Output |   500 mA (output)   | Same net as the USB-C +5 VDC; output only when powered via USB-C |
+|  `GND`  |      -      |       -       |          -          |                  Five ground pins on the headers                 |
 
-<Alert type="info">
-The Nano XL Link does not generate +5 VDC on its own. When you power the board through the `VIN` or `3V3` pins, the `VBUS` pin carries no voltage, so external circuits that need +5 VDC must be powered from a separate source. Never apply an external voltage to the `VBUS` pin.
+<Alert type="warning">
+The Nano XL Link does not generate +5 VDC on its own: when the board is powered through the `VIN` or `3V3` pins, the `VBUS` pin carries no voltage. Never power the board through the USB-C connector and the `VBUS` pin at the same time, nor through `VBUS` together with `VIN` or `3V3`. Connecting two supplies to the same net can cause back-powering and ground return problems and damage the board or the power sources.
 </Alert>
 
 ### Hello World Example
@@ -418,15 +419,15 @@ The Nano XL Link operates at +3.3 VDC. This applies to all digital and analog pi
 
 The following table shows the electrical specifications and operating limits for the pins on the Nano XL Link board:
 
-|     **Specification**     |        **Value**       |                       **Notes**                       |
-|:-------------------------:|:----------------------:|:-----------------------------------------------------:|
-|   **Operating Voltage**   |        +3.3 VDC        |            Logic level for all digital pins           |
-|  **Input Voltage Range**  |      0 to +3.3 VDC     | Analog and digital (except 5 V-tolerant digital pins) |
-|  **Max Current per Pin**  | 7 mA sink/11 mA source |   Guaranteed output levels at default drive strength  |
-|   **Input Low Voltage**   |     0 to +0.66 VDC     |             Maximum voltage read as `LOW`             |
-|   **Input High Voltage**  |    +2.31 to +3.3 VDC   |             Minimum voltage read as `HIGH`            |
-| **Internal Pull-up/down** |      12 to 14.6 kΩ     |    Selectable with `INPUT_PULLUP`/`INPUT_PULLDOWN`    |
-|    **Analog Reference**   |        +3.3 VDC        |               Default reference (`VDD`)               |
+|     **Specification**     |        **Value**       |                                   **Notes**                                   |
+|:-------------------------:|:----------------------:|:-----------------------------------------------------------------------------:|
+|   **Operating Voltage**   |        +3.3 VDC        |                        Logic level for all digital pins                       |
+|  **Input Voltage Range**  |      0 to +3.3 VDC     |             Analog and digital (except 5 V-tolerant digital pins)             |
+|  **Max Current per Pin**  | 7 mA sink/11 mA source |               Guaranteed output levels at default drive strength              |
+|   **Input Low Voltage**   |     0 to +0.66 VDC     |                         Maximum voltage read as `LOW`                         |
+|   **Input High Voltage**  |    +2.31 to +3.3 VDC   |                         Minimum voltage read as `HIGH`                        |
+| **Internal Pull-up/down** |      12 to 14.6 kΩ     |                Selectable with `INPUT_PULLUP`/`INPUT_PULLDOWN`                |
+|    **Analog Reference**   |        +3.3 VDC        | Default reference (`VDD`); AREF connected to the ADC external reference input |
 
 The current values in the table above are the conditions under which the PIC32CK microcontroller guarantees its output voltage levels at the default (4x) drive strength. The microcontroller also supports an 8x drive strength (13 mA sink and 19 mA source), but the Arduino core does not expose this setting.
 
@@ -442,8 +443,8 @@ The Nano XL Link digital pins provide the following functionality:
 
 | **Arduino Pin** | **Microcontroller Pin** | **Header Pin** | **Additional Functions** |
 | :-------------: | :---------------------: | :------------: | :----------------------: |
-|      `D0`       |         `PA00`          |    `J4-30`     |     `Serial1` TX         |
-|      `D1`       |         `PA01`          |    `J4-28`     |     `Serial1` RX         |
+|      `D0`       |         `PA01`          |    `J4-28`     |     `Serial1` RX         |
+|      `D1`       |         `PA00`          |    `J4-30`     |     `Serial1` TX         |
 |      `D2`       |         `PC19`          |    `J4-22`     |           PWM            |
 |      `D3`       |         `PC20`          |    `J4-20`     |           PWM            |
 |      `D4`       |         `PA21`          |    `J4-18`     |           PWM            |
@@ -470,7 +471,7 @@ The Nano XL Link digital pins provide the following functionality:
 |      `D33`      |         `PD09`          |    `J3-30`     |     `Serial2` RX         |
 
 <Alert type="info">
-On the Nano XL Link, pin `D0` is the `Serial1` transmit line (TX) and pin `D1` is the receive line (RX). This is the opposite of the classic Nano boards, where `D0` is RX and `D1` is TX. Keep this in mind when connecting serial devices or reusing Nano shields. Pins `D28` to `D31` are reserved for a future I²S interface and can currently be used as general-purpose digital I/O.
+Pins `D0` and `D1` are used by Serial1 (RX and TX respectively) and should be avoided for general digital I/O when that port is in use. Pins `D28` to `D31` are reserved for a future I²S interface and can currently be used as general-purpose digital I/O.
 </Alert>
 
 You can configure and control digital pins using the following basic Arduino functions. You can configure a pin's mode using the `pinMode()` function:
@@ -823,15 +824,11 @@ The Nano XL Link board uses the following pins for UART communication:
 
 | **Serial Object** | **Arduino Pin** | **Microcontroller Pin** | **UART Function** |       **Description**      |
 |:-----------------:|:---------------:|:-----------------------:|:-----------------:|:--------------------------:|
-|     `Serial1`     |       `D0`      |          `PA00`         |         TX        |        Transmit data       |
-|     `Serial1`     |       `D1`      |          `PA01`         |         RX        |        Receive data        |
+|     `Serial1`     |       `D0`      |          `PA01`         |         RX        |        Transmit data       |
+|     `Serial1`     |       `D1`      |          `PA00`         |         TX        |        Receive data        |
 |     `Serial2`     |      `D32`      |          `PD08`         |         TX        |        Transmit data       |
 |     `Serial2`     |      `D33`      |          `PD09`         |         RX        |        Receive data        |
 |     `Serial3`     |        -        |            -            |         -         | Onboard RS-485 transceiver |
-
-<Alert type="warning">
-On the Nano XL Link, pin `D0` is the `Serial1` transmit line (TX) and pin `D1` is the receive line (RX). This is the opposite of the classic Nano boards. When connecting an external device, remember that its RX pin must be connected to `D0` and its TX pin to `D1`.
-</Alert>
 
 <Alert type="info">
 `Serial3` is connected internally to the onboard RS-485 transceiver and is not available on the headers. Do not use it directly; use the `ArduinoRS485` library instead, as explained in the [RS-485 Communication](#rs-485-communication) section.
@@ -862,7 +859,7 @@ void setup() {
 
   Serial.println("- Arduino Nano XL Link - UART Basic Example started...");
   Serial.println("- USB Serial (Serial): 115200 baud");
-  Serial.println("- Hardware Serial (Serial1): 9600 baud on D0 (TX) / D1 (RX)");
+  Serial.println("- Hardware Serial (Serial1): 9600 baud on D1 (TX) / D0 (RX)");
   Serial.println("- Sending a counter value via Serial1 every second");
   Serial.println("- Type messages in the Serial Monitor to send them via Serial1");
   Serial.println();
@@ -924,7 +921,7 @@ void loop() {
 ```
 
 <Alert type="info">
-To test this example, you don't need any external UART devices. You can type messages in the Arduino IDE's Serial Monitor to see them transmitted via `Serial1`. To observe the UART signals, connect a logic analyzer with a UART decoder to pin `D0` (TX) and to a `GND` pin of the board. The images below were captured with a Digilent Analog Discovery 2 and the WaveForms software. If you connect a jumper wire between `D0` and `D1`, the board receives its own transmissions, and the messages appear back in the Serial Monitor as "Serial1 received".
+To test this example, you don't need any external UART devices. You can type messages in the Arduino IDE's Serial Monitor to see them transmitted via `Serial1`. To observe the UART signals, connect a logic analyzer with a UART decoder to pin `D1` (TX) and to a `GND` pin of the board. The images below were captured with a Digilent Analog Discovery 2 and the WaveForms software. If you connect a jumper wire between `D0` and `D1`, the board receives its own transmissions, and the messages appear back in the Serial Monitor as "Serial1 received".
 </Alert>
 
 Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to interact with the USB serial port and observe the communication:
