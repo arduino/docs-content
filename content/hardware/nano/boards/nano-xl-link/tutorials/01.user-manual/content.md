@@ -26,7 +26,7 @@ This user manual provides an overview of the Nano XL Link board, highlighting it
 
 ### Hardware Requirements
 
-- [Nano XL Link](https://store.arduino.cc/products/nano-xl-link) (x1)
+- [Arduino Nano XL Link](https://store.arduino.cc/products/nano-xl-link) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - [Nano Connector Carrier](https://store.arduino.cc/products/nano-connector-carrier) (x1) (recommended)
 - [Breadboard](https://store.arduino.cc/products/breadboard-400-contacts) (x1) (recommended)
