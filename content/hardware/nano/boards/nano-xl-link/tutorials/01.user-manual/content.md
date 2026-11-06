@@ -192,7 +192,7 @@ When powering the board through the `3V3` pin, do not connect a power source to 
 
 #### Power Inputs and Outputs
 
-The direction of each power pin depends on how you power the board. The `3V3` pin is an output when the board is powered through the USB-C connector or the `VIN` pin, and an input when it powers the board. The `VBUS` pin is always an output: it connects to the USB-C connector through the onboard MP5077 load switch, which delays rail activation during power-up, and it carries +5 VDC only when a USB-C cable is connected. The following table summarizes the function of each power pin:
+The direction of each power pin depends on how you power the board. The `3V3` pin is an output when the board is powered through the USB-C connector or the `VIN` pin, and an input when it powers the board. The `VBUS` pin is always an output: it connects directly to the USB-C connector, and it carries +5 VDC only when a USB-C cable is connected. The same USB-C line also supplies the onboard MP5077 load switch, which provides the VBUS signal to the microcontroller's USB interface. The following table summarizes the function of each power pin:
 
 | **Pin** | **Voltage** | **Direction** | **Maximum Current** |                    **Notes**                    |
 |:-------:|:-----------:|:-------------:|:-------------------:|:-----------------------------------------------:|
