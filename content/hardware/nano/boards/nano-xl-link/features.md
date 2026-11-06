@@ -2,7 +2,7 @@
 
 The Nano XL Link is based on the Microchip® PIC32CK2051SG01144 microcontroller, a 32-bit Arm® Cortex®-M33 with 2 MB of flash memory, 512 kB of RAM and an integrated hardware security module (HSM). The board is programmed with the Arduino Zephyr core, which runs Arduino sketches on top of the Zephyr® real-time operating system.
 
-The board integrates three industrial communication transceivers (CAN FD, RS-485 and 10/100 Ethernet) and extends the classic Nano pinout through two 2x15 headers, so it can communicate with industrial equipment without additional interface boards.
+The board integrates CAN FD, RS-485 and 10/100 Ethernet interfaces and extends the classic Nano pinout through two 2x15 headers, so it can connect directly to industrial networks.
 
 </FeatureDescription>
 
