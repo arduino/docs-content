@@ -38,11 +38,13 @@ Agent Mode supports **Claude Code™** (by Anthropic) and **OpenCode** as a **Pr
 
 ![Agent Mode connect screen](../../assets/playwright/agent/agent-mode-connect.png)
 
-<Alert type="info">
+### Credential Storage
 
-**Note:** Your Claude credentials are handled by the Claude Code sign-in flow and are not stored by App Lab. To sign out of Claude Code, select **Manage** on its card, and then **Disconnect**. App Lab stores OpenCode API keys in your system keychain (or in a user-only file on Linux when no keychain is available). To remove a provider key or sign out, select **Remove** next to the provider, or **Remove all** to keep only the free models.
+- **API keys**: App Lab stores your Claude Code and OpenCode API keys in your system keychain. Without a keychain on Linux, OpenCode keys go in a file only your user can read, and a Claude Code key lasts only until you close App Lab.
+- **Claude Code sign-in**: Claude Code stores your sign-in in your system keychain. Without a keychain, it uses its own file.
+- **GitHub Copilot sign-in**: OpenCode stores your sign-in in its own file. The **Device code** only authorizes the sign-in on GitHub, and App Lab doesn't keep it.
 
-</Alert>
+To sign out of Claude Code and remove its stored API key, select **Manage** on its card, and then **Disconnect**. To remove an OpenCode key or GitHub Copilot sign-in, select the **Remove** button (X icon) next to the provider, or **Remove all** to keep only the free models.
 
 ## Open the Agent
 
