@@ -70,7 +70,7 @@ The bottom side of the Nano XL Link board features test points for debugging and
 
 Here is an overview of the board's main components, most of them shown in the images above:
 
-- **Microcontroller**: The Nano XL Link board's heart is a Microchip PIC32CK2051SG01144 microcontroller, based on an Arm® Cortex®-M33 core with 2 MB of flash memory, 512 kB of RAM, and an integrated hardware security module (HSM). The microcontroller is clocked from a 12 MHz quartz crystal.
+- **Microcontroller**: The Nano XL Link board's heart is a Microchip PIC32CK2051SG01144 microcontroller, based on an Arm® Cortex®-M33 core running at 120 MHz, with 2 MB of flash memory, 512 kB of RAM, and an integrated hardware security module (HSM). The microcontroller is clocked from a 12 MHz quartz crystal.
 - **CAN FD transceiver**: An onboard Texas Instruments® TCAN3414 transceiver provides the physical layer for the microcontroller's CAN FD controller. The `CANH` and `CANL` signals are available on the board headers.
 - **RS-485 transceiver**: An onboard Texas Instruments® THVD2410 transceiver provides a half-duplex RS-485 interface. The `A` and `B` signals are available on the board headers.
 - **Ethernet PHY**: An onboard Microchip® KSZ8081RNAIA PHY provides a 10/100 Mbps Ethernet interface. The differential transmit and receive pairs and an activity LED signal are available on the board headers.
@@ -1895,7 +1895,7 @@ If the page does not load, **make sure that the computer and the board are on th
 When working with Ethernet on the Nano XL Link, there are several key points to keep in mind:
 
 - Always check `linkStatus()` before calling `begin()`. With DHCP, `begin()` waits for an address for up to 10 seconds and returns 0 if no DHCP server responds.
-- The board uses a default MAC address provided by the core. To use a specific MAC address, for example in networks with address filtering, pass it as the first argument of `begin()`.
+- Each Nano XL Link has a unique MAC address programmed by Microchip in the microcontroller's configuration memory, which the core uses by default. To use a different MAC address, for example in networks with address filtering, pass it as the first argument of `begin()`.
 - The Ethernet library uses the Zephyr network stack. The `EthernetClient` and `EthernetUDP` classes are compatible with most Arduino libraries that accept a `Client` or `UDP` object, such as `ArduinoHttpClient`, `ArduinoMqttClient`, and `ArduinoModbus` (Modbus TCP).
 - The `LED_ACT` signal on `J4-19` is driven by the PHY to indicate link and activity, and is used by the Nano XL Link Connector Carrier for the LED of its RJ45 connector.
 
