@@ -57,3 +57,7 @@ Software:
   Bootloader: MCUboot (USB serial recovery)
 Operating Conditions:
   Operating Temperature: -20 °C to +85 °C
+Physical Specifications:
+  Dimensions:
+    Width: 23 mm
+    Length: 43 mm

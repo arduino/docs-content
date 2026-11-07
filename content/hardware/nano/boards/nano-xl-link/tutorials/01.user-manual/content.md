@@ -148,11 +148,15 @@ The Nano XL Link can be connected to your computer using its onboard USB-C conne
 - **Pin connection**: For integration into custom PCBs through the `J3` and `J4` headers
 
 <Alert type="warning">
-The Nano XL Link cannot be inserted directly into a breadboard. Its double-row headers would connect the inner and outer rows of each header together, short-circuiting the board's signals. For prototyping, we recommend mounting the board on the Nano XL Link Connector Carrier or using female/male jumper wires to connect its pins to a breadboard.
+
+**Important note**: The Nano XL Link cannot be inserted directly into a breadboard. Its double-row headers would connect the inner and outer rows of each header together, short-circuiting the board's signals. For prototyping, we recommend mounting the board on the Nano XL Link Connector Carrier or using female/male jumper wires to connect its pins to a breadboard.
+
 </Alert>
 
 <Alert type="warning">
-The Nano XL Link operates at +3.3 VDC. When connecting sensors, modules, or shields designed for +5 VDC logic, verify voltage compatibility to avoid component damage.
+
+**Important note**: The Nano XL Link operates at +3.3 VDC. When connecting sensors, modules, or shields designed for +5 VDC logic, verify voltage compatibility to avoid component damage.
+
 </Alert>
 
 
@@ -168,7 +172,9 @@ Before connecting any external components to your Nano XL Link board, it is impo
 - The Qwiic connector operates at +3.3 VDC and can be used directly with Qwiic, STEMMA QT and Modulino® nodes
 
 <Alert type="warning">
-For +5 VDC components, add external level shifters on all data lines and use the `VBUS` pin only when the board is powered from USB (see the following section). Always check your component's datasheet for voltage specifications before connecting. When in doubt, use a multimeter to verify voltage levels or add level-shifting protection.
+
+**Important note**: For +5 VDC components, add external level shifters on all data lines and use the `VBUS` pin only when the board is powered from USB (see the following section). Always check your component's datasheet for voltage specifications before connecting. When in doubt, use a multimeter to verify voltage levels or add level-shifting protection.
+
 </Alert>
 
 ### Powering the Board
@@ -185,11 +191,15 @@ The board can be powered in several ways:
 ![Power pins of the Nano XL Link board](assets/power-pins.png)
 
 <Alert type="warning">
-The Nano XL Link's `VIN` pin accepts +7-24 VDC. Do not connect voltages outside this range, as you could permanently damage the board.
+
+**Important note**: The Nano XL Link's `VIN` pin accepts +7-24 VDC. Do not connect voltages outside this range, as you could permanently damage the board.
+
 </Alert>
 
 <Alert type="warning">
-When powering the board through the `3V3` pin, do not connect a power source to the `VIN` pin or the USB-C connector at the same time. Applying an external +3.3 VDC source together with another power source can damage the board. Always verify all the connections before applying power.
+
+**Important note**: When powering the board through the `3V3` pin, do not connect a power source to the `VIN` pin or the USB-C connector at the same time. Applying an external +3.3 VDC source together with another power source can damage the board. Always verify all the connections before applying power.
+
 </Alert>
 
 #### Power Inputs and Outputs
@@ -204,7 +214,9 @@ The direction of each power pin depends on how you power the board. The `3V3` pi
 |  `GND`  |      -      |       -       |          -          |                  Five ground pins on the headers                 |
 
 <Alert type="warning">
-The Nano XL Link does not generate +5 VDC on its own: when the board is powered through the `VIN` or `3V3` pins, the `VBUS` pin carries no voltage. Never power the board through the USB-C connector and the `VBUS` pin at the same time, nor through `VBUS` together with `VIN` or `3V3`. Connecting two supplies to the same net can cause back-powering and ground return problems and damage the board or the power sources.
+
+**Important note**: The Nano XL Link does not generate +5 VDC on its own: when the board is powered through the `VIN` or `3V3` pins, the `VBUS` pin carries no voltage. Never power the board through the USB-C connector and the `VBUS` pin at the same time, nor through `VBUS` together with `VIN` or `3V3`. Connecting two supplies to the same net can cause back-powering and ground return problems and damage the board or the power sources.
+
 </Alert>
 
 ### Hello World Example
@@ -291,7 +303,9 @@ The Nano XL Link features a built-in RGB LED that provides visual feedback. The 
 |     Blue LED     |        `LEDB`        |      `D41`      |         `PC17`          |
 
 <Alert type="info">
-The built-in RGB LED on the Nano XL Link is a common-anode LED connected to +3.3 VDC, so each color must be pulled to ground (`GND`) to make it light up. This means a `LOW` voltage on each pin turns on that color, and a `HIGH` voltage turns it off.
+
+**Note**: The built-in RGB LED on the Nano XL Link is a common-anode LED connected to +3.3 VDC, so each color must be pulled to ground (`GND`) to make it light up. This means a `LOW` voltage on each pin turns on that color, and a `HIGH` voltage turns it off.
+
 </Alert>
 
 You can turn each color on and off using the `pinMode()` and `digitalWrite()` functions of the Arduino programming language. The following example sketch turns on each of the RGB LED colors at an interval of 500 ms:
@@ -365,7 +379,9 @@ You can also open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to s
 ![Arduino IDE Serial Monitor output for the RGB example sketch](assets/serial-monitor-2.png)
 
 <Alert type="info">
-The three RGB LED pins also support PWM for brightness control. When using `analogWrite()`, the core already inverts the polarity, so higher values make the LED brighter; for example `analogWrite(LEDG, 255)` sets the green LED at maximum brightness.
+
+**Note**: The three RGB LED pins also support PWM for brightness control. When using `analogWrite()`, the core already inverts the polarity, so higher values make the LED brighter; for example `analogWrite(LEDG, 255)` sets the green LED at maximum brightness.
+
 </Alert>
 
 ### User LED
@@ -381,7 +397,9 @@ The built-in user LED can be accessed through the following macro definition:
 ![Onboard user LED of the Nano XL Link board](assets/orange-led.png)
 
 <Alert type="info">
-Unlike the RGB LED, the built-in user LED on the Nano XL Link operates with standard logic levels. This means that a voltage level of `HIGH` will turn the LED on, and a voltage level of `LOW` will turn it off.
+
+**Note**: Unlike the RGB LED, the built-in user LED on the Nano XL Link operates with standard logic levels. This means that a voltage level of `HIGH` will turn the LED on, and a voltage level of `LOW` will turn it off.
+
 </Alert>
 
 The [Hello World example](#hello-world-example) shows how to control the built-in orange user LED. **Unlike the RGB LED pins, `LED_BUILTIN` does not support PWM**.
@@ -414,7 +432,9 @@ The Nano XL Link's header pins are organized into the following categories:
 |  **Special Pins** |     4     |                      `RESET`, `AREF`, `SWDIO`, `SWCLK`                      |       System control, reference and debug      |
 
 <Alert type="info">
-The Nano XL Link operates at +3.3 VDC. This applies to all digital and analog pins, including communication interfaces like I²C, SPI, and UART. Before connecting any sensors, modules, or shields, always verify their voltage compatibility. Applying +5 VDC signals to the board's pins without proper level shifting can permanently damage the board.
+
+**Note**: The Nano XL Link operates at +3.3 VDC. This applies to all digital and analog pins, including communication interfaces like I²C, SPI, and UART. Before connecting any sensors, modules, or shields, always verify their voltage compatibility. Applying +5 VDC signals to the board's pins without proper level shifting can permanently damage the board.
+
 </Alert>
 
 The following table shows the electrical specifications and operating limits for the pins on the Nano XL Link board:
@@ -432,7 +452,9 @@ The following table shows the electrical specifications and operating limits for
 The current values in the table above are the conditions under which the PIC32CK microcontroller guarantees its output voltage levels at the default (4x) drive strength. The microcontroller also supports an 8x drive strength (13 mA sink and 19 mA source), but the Arduino core does not expose this setting.
 
 <Alert type="info">
-The core also defines the digital pins `D34` to `D43`, but they are connected to onboard components (Qwiic connector, Ethernet PHY control, LEDs, and RS-485 transceiver control) and are not available on the headers. Avoid using them as general-purpose I/O.
+
+**Note**: The core also defines the digital pins `D34` to `D43`, but they are connected to onboard components (Qwiic connector, Ethernet PHY control, LEDs, and RS-485 transceiver control) and are not available on the headers. Avoid using them as general-purpose I/O.
+
 </Alert>
 
 ### Digital Pins
@@ -471,7 +493,9 @@ The Nano XL Link digital pins provide the following functionality:
 |      `D33`      |         `PD09`          |    `J3-30`     |     `Serial2` RX         |
 
 <Alert type="info">
-Pins `D0` and `D1` are used by Serial1 (RX and TX respectively) and should be avoided for general digital I/O when that port is in use. Pins `D28` to `D31` are reserved for a future I²S interface and can currently be used as general-purpose digital I/O.
+
+**Note**: Pins `D0` and `D1` are used by Serial1 (RX and TX respectively) and should be avoided for general digital I/O when that port is in use. Pins `D28` to `D31` are reserved for a future I²S interface and can currently be used as general-purpose digital I/O.
+
 </Alert>
 
 You can configure and control digital pins using the following basic Arduino functions. You can configure a pin's mode using the `pinMode()` function:
@@ -579,8 +603,10 @@ To test this example, connect a push button to the Nano XL Link board as follows
 
 ![Digital pins test circuit on the Nano XL Link board](assets/digital-pins.png)
 
-<Alert type="info">
-You can make these connections with female/male jumper wires from the board's header pins, or through the screw terminals of the Nano XL Link Connector Carrier (our recommended way), as shown above.
+<Alert type="info"> 
+
+**Note**: You can make these connections with female/male jumper wires from the board's header pins, or through the screw terminals of the Nano XL Link Connector Carrier (our recommended way), as shown above.
+
 </Alert>
 
 You should now see the built-in user LED toggle on and off each time you press the button. The interrupt is triggered on the falling edge (`FALLING`) of the pin, and the sketch ignores presses detected within 50 ms of the previous one to filter out the mechanical bounce of the button. You can also open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see messages indicating when the button is pressed and the current LED state.
@@ -588,7 +614,9 @@ You should now see the built-in user LED toggle on and off each time you press t
 ![Arduino IDE Serial Monitor output for the digital pins example sketch](assets/serial-monitor-3.png)
 
 <Alert type="info">
-Keep interrupt service routines as short as possible. In this example, the routine only sets a flag, and the LED and IDE's Serial Monitor updates are handled in the `loop()` function.
+
+**Note**: Keep interrupt service routines as short as possible. In this example, the routine only sets a flag, and the LED and IDE's Serial Monitor updates are handled in the `loop()` function.
+
 </Alert>
 
 ### Analog Pins
@@ -609,7 +637,9 @@ The Nano XL Link analog pins provide the following functionality:
 |      `A7`       |      `D21`      |         `PA10`          |    `J3-21`     |    ADC0 ch 6    |
 
 <Alert type="info">
-Unlike the classic Nano boards, pins `A4` and `A5` of the Nano XL Link board are not connected to the I²C bus. The I²C interfaces of the board are available on the Qwiic connector (`Wire`) and on pins `D26` and `D27` (`Wire1`).
+
+**Note**: Unlike the classic Nano boards, pins `A4` and `A5` of the Nano XL Link board are not connected to the I²C bus. The I²C interfaces of the board are available on the Qwiic connector (`Wire`) and on pins `D26` and `D27` (`Wire1`).
+
 </Alert>
 
 The Nano XL Link's analog pins offer the following specifications:
@@ -690,7 +720,9 @@ Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see real-time 
 ![Arduino IDE Serial Monitor output for the analog pins example sketch](assets/serial-monitor-4.png)
 
 <Alert type="warning">
-Do not connect the potentiometer to the `VBUS` pin. Applying more than +3.3 VDC to an analog input can permanently damage the board.
+
+**Note**: Do not connect the potentiometer to the `VBUS` pin. Applying more than +3.3 VDC to an analog input can permanently damage the board.
+
 </Alert>
 
 ### PWM (Pulse Width Modulation)
@@ -714,7 +746,9 @@ The Nano XL Link board provides PWM functionality on the following pins:
 |  `LEDB` (`D41`) |         `PC17`          |  `TCC1`   |   `WO2`    |
 
 <Alert type="info">
-Pins `D2` and `D3` share the `TCC1` timer with the three RGB LED channels, and pins `D4` and `D5` share the `TCC4` timer. Pins that share a timer always run at the same PWM frequency.
+
+**Note**: Pins `D2` and `D3` share the `TCC1` timer with the three RGB LED channels, and pins `D4` and `D5` share the `TCC4` timer. Pins that share a timer always run at the same PWM frequency.
+
 </Alert>
 
 The Nano XL Link's PWM offers the following technical specifications:
@@ -737,7 +771,9 @@ analogWrite(pin, value);
 analogWriteResolution(resolution);
 ```
 <Alert type="warning">
-If `analogWrite()` is called on a pin without PWM capability, the core configures the pin as a digital output and sets it `HIGH` for values above half of the range, or `LOW` otherwise.
+
+**Important note**: If `analogWrite()` is called on a pin without PWM capability, the core configures the pin as a digital output and sets it `HIGH` for values above half of the range, or `LOW` otherwise.
+
 </Alert>
 
 The following example demonstrates how to fade an LED connected to pin `D39 (LEDR)`:
@@ -788,8 +824,10 @@ void loop() {
 }
 ```
 
-<Alert type="info">
-To test this example, no external connections are needed. The red LED is part of the board's built-in RGB LED.
+<Alert type="info"> 
+
+**Note**: To test this example, no external connections are needed. The red LED is part of the board's built-in RGB LED.
+
 </Alert>
 
 You should now see the built-in red LED of your Nano XL Link board gradually fade in and out, creating a smooth breathing effect that repeats continuously.
@@ -831,7 +869,9 @@ The Nano XL Link board uses the following pins for UART communication:
 |     `Serial3`     |        -        |            -            |         -         | Onboard RS-485 transceiver |
 
 <Alert type="info">
-`Serial3` is connected internally to the onboard RS-485 transceiver and is not available on the headers. Do not use it directly; use the `ArduinoRS485` library instead, as explained in the [RS-485 Communication](#rs-485-communication) section.
+
+**Note**: `Serial3` is connected internally to the onboard RS-485 transceiver and is not available on the headers. Do not use it directly; use the `ArduinoRS485` library instead, as explained in the [RS-485 Communication](#rs-485-communication) section.
+
 </Alert>
 
 You can communicate via UART using the built-in `Serial`, `Serial1`, and `Serial2` objects. The `Serial` object connects to the USB-C port for computer communication, while `Serial1` and `Serial2` connect to the header pins for external device communication. All of them support the standard `begin()`, `print()`, `println()`, `available()` and `read()` functions. The port configuration can be changed with the second argument of `begin()`; for example, `Serial1.begin(9600, SERIAL_8E1)` configures 8 data bits, even parity, and 1 stop bit.
@@ -921,7 +961,8 @@ void loop() {
 ```
 
 <Alert type="info">
-To test this example, you don't need any external UART devices. You can type messages in the Arduino IDE's Serial Monitor to see them transmitted via `Serial1`. To observe the UART signals, connect a logic analyzer with a UART decoder to pin `D1` (TX) and to a `GND` pin of the board. The images below were captured with a Digilent Analog Discovery 2 and the WaveForms software. If you connect a jumper wire between `D0` and `D1`, the board receives its own transmissions, and the messages appear back in the Serial Monitor as "Serial1 received".
+**Note**: To test this example, you don't need any external UART devices. You can type messages in the Arduino IDE's Serial Monitor to see them transmitted via `Serial1`. To observe the UART signals, connect a logic analyzer with a UART decoder to pin `D1` (TX) and to a `GND` pin of the board. The images below were captured with a Digilent Analog Discovery 2 and the WaveForms software. If you connect a jumper wire between `D0` and `D1`, the board receives its own transmissions, and the messages appear back in the Serial Monitor as "Serial1 received".
+
 </Alert>
 
 Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to interact with the USB serial port and observe the communication:
@@ -973,7 +1014,9 @@ The Nano XL Link board uses the following pins for SPI communication:
 |     `SPI1`     |      `D25`      |         `PC14`          |    `J3-12`     |       `CS`       |            Chip Select            |
 
 <Alert type="info">
-The SPI library does not control the chip select line. The `CS` pins listed above are the conventional ones for each bus, but any digital pin can be used as chip select by driving it `LOW` and `HIGH` from the sketch with `digitalWrite()`. The SPI pins of both buses behave as general-purpose I/O until `SPI.begin()` or `SPI1.begin()` is called.
+
+**Note**: The SPI library does not control the chip select line. The `CS` pins listed above are the conventional ones for each bus, but any digital pin can be used as chip select by driving it `LOW` and `HIGH` from the sketch with `digitalWrite()`. The SPI pins of both buses behave as general-purpose I/O until `SPI.begin()` or `SPI1.begin()` is called.
+
 </Alert>
 
 You can communicate via SPI using the dedicated `SPI.h` library, which is included in the `Arduino Zephyr` core. The library provides the `SPI` and `SPI1` objects, with functions to initialize each bus, configure its clock speed, bit order, and mode, and send and receive data. On the Nano XL Link, the bus configuration is applied by `beginTransaction()`, so always call it with the appropriate `SPISettings()` before transferring data.
@@ -1052,7 +1095,9 @@ void loop() {
 ```
 
 <Alert type="info">
-To test this example, you don't need an external SPI device. The sketch generates SPI transfers that can be observed with a logic analyzer connected to pins `D10` (CS), `D11` (MOSI), `D13` (SCK), and a `GND` pin on the board. Without a connected device, the received data will typically be `0xFF` or `0x00`. The image below was captured with a Digilent Analog Discovery 2 and the WaveForms software.
+
+**Note**: To test this example, you don't need an external SPI device. The sketch generates SPI transfers that can be observed with a logic analyzer connected to pins `D10` (CS), `D11` (MOSI), `D13` (SCK), and a `GND` pin on the board. Without a connected device, the received data will typically be `0xFF` or `0x00`. The image below was captured with a Digilent Analog Discovery 2 and the WaveForms software.
+
 </Alert>
 
 Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the SPI communication in action. The example sketch shows how to properly select a device, send data, and read the response:
@@ -1147,7 +1192,9 @@ The Nano XL Link board uses the following pins and connectors for I²C communica
 |     `Wire1`    |      `D27`      |          `PB22`         |     `J3-16`     |        SCL       | Serial Clock Line |
 
 <Alert type="info">
-Unlike classic Nano boards, the Nano XL Link's I²C bus is not available on pins `A4` and `A5`. The `Wire` bus routes only to the Qwiic connector, which includes 5.1 kω pull-up resistors to +3.3 VDC and supplies +3.3 VDC power to connected devices. The `Wire1` bus on pins `D26` and `D27` has no onboard pull-up resistors, so external pull-up resistors (typically 4.7 kΩ to +3.3 VDC) are required for proper operation.
+
+**Note**: Unlike classic Nano boards, the Nano XL Link's I²C bus is not available on pins `A4` and `A5`. The `Wire` bus routes only to the Qwiic connector, which includes 5.1 kω pull-up resistors to +3.3 VDC and supplies +3.3 VDC power to connected devices. The `Wire1` bus on pins `D26` and `D27` has no onboard pull-up resistors, so external pull-up resistors (typically 4.7 kΩ to +3.3 VDC) are required for proper operation.
+
 </Alert>
 
 The Qwiic connector is the simplest way to add I²C devices to the Nano XL Link. It provides a standard 4-pin JST SH connector with `GND`, `+3.3 VDC`, `SDA`, and `SCL`, compatible with Qwiic, STEMMA QT, and Modulino® devices. You can daisy-chain devices, so several can share the same connector.
@@ -1216,7 +1263,9 @@ void loop() {
 ```
 
 <Alert type="info">
-To test this example, you don't need an external I²C device, but the `Wire1` bus requires external pull-up resistors: connect a 4.7 kΩ resistor from `D26` (SDA) to `3V3` and another from `D27` (SCL) to `3V3`. The sketch generates I²C transactions that can be observed with a logic analyzer connected to pins `D26` (SDA), `D27` (SCL), and a `GND` pin of the board. Without a device at address `0x48`, the transactions end with a NACK and the Serial Monitor reports "no ACK". The image below was captured with a Digilent Analog Discovery 2 and the WaveForms software.
+
+**Note**: To test this example, you don't need an external I²C device, but the `Wire1` bus requires external pull-up resistors: connect a 4.7 kΩ resistor from `D26` (SDA) to `3V3` and another from `D27` (SCL) to `3V3`. The sketch generates I²C transactions that can be observed with a logic analyzer connected to pins `D26` (SDA), `D27` (SCL), and a `GND` pin of the board. Without a device at address `0x48`, the transactions end with a NACK and the Serial Monitor reports "no ACK". The image below was captured with a Digilent Analog Discovery 2 and the WaveForms software.
+
 </Alert>
 
 Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the I²C operations being performed:
@@ -1296,7 +1345,9 @@ The Nano XL Link board uses the following pins for CAN FD communication:
 The transceiver is connected internally to the microcontroller's CAN controller (`PB08` as CAN TX and `PB09` as CAN RX); these logic-level signals are not available on the headers.
 
 <Alert type="info">
-A CAN bus must be terminated with 120 Ω resistors at both ends. The Nano XL Link includes an onboard 120 Ω termination resistor between `CANH` and `CANL`, connected through the solder jumper `SJ1`, which is closed by default. When you place the board at one end of the bus, leave `SJ1` closed; when you connect the board in the middle of an already terminated bus, open `SJ1` to remove the onboard termination.
+
+**Note**: A CAN bus must be terminated with 120 Ω resistors at both ends. The Nano XL Link includes an onboard 120 Ω termination resistor between `CANH` and `CANL`, connected through the solder jumper `SJ1`, which is closed by default. When you place the board at one end of the bus, leave `SJ1` closed; when you connect the board in the middle of an already terminated bus, open `SJ1` to remove the onboard termination.
+
 </Alert>
 
 You can communicate via CAN using the dedicated `CAN.h` library, which is included in the `Arduino Zephyr` core. The library provides the `CAN` object, with functions to initialize the bus in classic or FD mode, send and receive frames, filter incoming messages by ID, and register a callback that is executed when a frame is received. Classic CAN frames use the `CanMsg` class, and CAN FD frames use the `CanFDMsg` class, which supports payloads of up to 64 bytes.
@@ -1423,7 +1474,9 @@ To test these examples, connect the Nano XL Link board to a USB-CAN adapter as f
 ![CAN bus test setup with a Nano XL Link board and a USB-CAN adapter](assets/can-connection.png)
 
 <Alert type="info">
-You can make the connections above through the screw terminals of the Nano XL Link Connector Carrier (our recommended way) or with jumper wires from the board's header pins. The examples in this section were tested with a [Waveshare USB-CAN-A](https://www.waveshare.com/wiki/USB-CAN-A) adapter and its configuration tool, set to normal mode, standard frames, and 500 kbps. You can use any CAN adapter or device configured with the same bitrate. A CAN frame is only transmitted successfully when another node on the bus acknowledges it, so a single Nano XL Link connected to nothing cannot be used to test the examples.
+
+**Note**: You can make the connections above through the screw terminals of the Nano XL Link Connector Carrier (our recommended way) or with jumper wires from the board's header pins. The examples in this section were tested with a [Waveshare USB-CAN-A](https://www.waveshare.com/wiki/USB-CAN-A) adapter and its configuration tool, set to normal mode, standard frames, and 500 kbps. You can use any CAN adapter or device configured with the same bitrate. A CAN frame is only transmitted successfully when another node on the bus acknowledges it, so a single Nano XL Link connected to nothing cannot be used to test the examples.
+
 </Alert>
 
 With the first sketch running, open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see each transmitted message, and the adapter's software to see the frames received with ID `0x123` and the counter value in the first data byte:
@@ -1460,7 +1513,9 @@ if (CAN.available()) {
 ```
 
 <Alert type="info">
-All nodes on a CAN FD bus must support CAN FD and use the same arbitration and data bitrates. Many low-cost USB-CAN adapters, including the one used in this section, support only classic CAN.
+
+**Note**: All nodes on a CAN FD bus must support CAN FD and use the same arbitration and data bitrates. Many low-cost USB-CAN adapters, including the one used in this section, support only classic CAN.
+
 </Alert>
 
 The library can also filter incoming messages by ID and deliver them through a callback instead of polling. Filters must be configured before calling `begin()` or `beginFD()`:
@@ -1516,7 +1571,9 @@ The Nano XL Link board uses the following pins for RS-485 communication:
 The transceiver connects internally to the microcontroller's `Serial3` port, with the driver enable (`DE`) and receiver enable (`RE`) control lines on the internal pins `D42` and `D43`. **These signals are not available on the headers and are managed automatically by the RS-485 library**.
 
 <Alert type="info">
-An RS-485 bus must be terminated with 120 Ω resistors at both ends. The Nano XL Link includes an onboard 120 Ω termination resistor between `A` and `B`, connected through the solder jumper `SJ2`, which is closed by default. When you place the board at one end of the bus, leave `SJ2` closed; when you connect the board in the middle of an already terminated bus, open `SJ2` to remove the onboard termination.
+
+**Note**: An RS-485 bus must be terminated with 120 Ω resistors at both ends. The Nano XL Link includes an onboard 120 Ω termination resistor between `A` and `B`, connected through the solder jumper `SJ2`, which is closed by default. When you place the board at one end of the bus, leave `SJ2` closed; when you connect the board in the middle of an already terminated bus, open `SJ2` to remove the onboard termination.
+
 </Alert>
 
 You can communicate via RS-485 using the `ArduinoRS485` library, which can be installed from the Arduino IDE's Library Manager (search for `ArduinoRS485`). The library provides the `RS485` object, which on the Nano XL Link is already configured to use `Serial3` and the onboard transceiver's control lines. The `RS485` object works like a serial port, with `beginTransmission()` and `endTransmission()` to switch the transceiver to transmit mode around the data you send, and `receive()` and `noReceive()` to turn the receiver on or off.
@@ -1622,7 +1679,9 @@ To test this example, connect the Nano XL Link board to a USB-RS485 adapter as f
 ![RS-485 test setup with a Nano XL Link board and a USB-RS485 adapter](assets/rs485-connection.png)
 
 <Alert type="info">
-You can make the connections above through the screw terminals of the Nano XL Link Connector Carrier (our recommended way) or with jumper wires from the board's header pins. The example in this section was tested with a [Waveshare USB TO RS485](https://www.waveshare.com/wiki/USB_TO_RS485) adapter, which appears on the computer as a standard serial port and handles the transmit/receive switching automatically. Any RS-485 device configured with the same serial settings (9600 baud, 8 data bits, no parity, 1 stop bit) can be used instead, including a second Nano XL Link running the same sketch. If no data is received, swap the `A` and `B` connections: the labeling of RS-485 lines is not consistent between manufacturers.
+
+**Note**: You can make the connections above through the screw terminals of the Nano XL Link Connector Carrier (our recommended way) or with jumper wires from the board's header pins. The example in this section was tested with a [Waveshare USB TO RS485](https://www.waveshare.com/wiki/USB_TO_RS485) adapter, which appears on the computer as a standard serial port and handles the transmit/receive switching automatically. Any RS-485 device configured with the same serial settings (9600 baud, 8 data bits, no parity, 1 stop bit) can be used instead, including a second Nano XL Link running the same sketch. If no data is received, swap the `A` and `B` connections: the labeling of RS-485 lines is not consistent between manufacturers.
+
 </Alert>
 
 Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) and a serial terminal connected to the adapter's COM port at 9600 baud. The terminal shows the counter messages sent by the board every second and any text typed in the Serial Monitor, while text typed in the terminal appears in the Serial Monitor as data received by the board:
@@ -1632,7 +1691,9 @@ Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) and a serial term
 ![Serial terminal output of the USB-RS485 adapter](assets/rs485-terminal.png)
 
 <Alert type="info">
-RS-485 is the physical layer of the Modbus RTU protocol, used by many industrial sensors, meters, and controllers. Modbus RTU frames can be sent and received with the `RS485` object following the protocol specification, or with a Modbus library compatible with the `ArduinoRS485` library and the `Arduino Zephyr` core.
+
+**Note**: RS-485 is the physical layer of the Modbus RTU protocol, used by many industrial sensors, meters, and controllers. Modbus RTU frames can be sent and received with the `RS485` object following the protocol specification, or with a Modbus library compatible with the `ArduinoRS485` library and the `Arduino Zephyr` core.
+
 </Alert>
 
 When working with RS-485 on the Nano XL Link, there are several key points to keep in mind:
@@ -1673,7 +1734,9 @@ The Nano XL Link board uses the following pins for Ethernet communication:
 The PHY is connected internally to the microcontroller through an RMII interface, and its reset and interrupt lines use the internal pins `D37` and `D36`. The Ethernet driver manages these signals, and they are not available on the headers.
 
 <Alert type="warning">
-The Ethernet signals on the headers are the PHY's differential pairs and must connect to an RJ45 connector with integrated magnetics. Do not connect them directly to an Ethernet cable. The Nano XL Link Connector Carrier provides the RJ45 connector and magnetics, so you can connect the board to a network with a standard Ethernet cable when mounted on the carrier.
+
+**Important note**: The Ethernet signals on the headers are the PHY's differential pairs and must connect to an RJ45 connector with integrated magnetics. Do not connect them directly to an Ethernet cable. The Nano XL Link Connector Carrier provides the RJ45 connector and magnetics, so you can connect the board to a network with a standard Ethernet cable when mounted on the carrier.
+
 </Alert>
 
 You can communicate via Ethernet using the dedicated `Ethernet` library, which is included in the `Arduino Zephyr` core. The library provides the `Ethernet` object to configure the network interface, and the `EthernetClient` and `ZephyrServer` classes to open TCP connections and accept incoming ones, using the same API as the Ethernet libraries on other Arduino boards. UDP communication is available through the `EthernetUDP` class.
@@ -1889,7 +1952,9 @@ Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the addres
 ![Web page served by the Nano XL Link board](assets/ethernet-web-server.png)
 
 <Alert type="info">
-If the page does not load, **make sure that the computer and the board are on the same network and subnet, and that the network does not isolate wired clients from each other**. The board's IP address can change between power cycles when using DHCP; for permanent installations, use a static IP address or a DHCP reservation in your router.
+
+**Note**: If the page does not load, **make sure that the computer and the board are on the same network and subnet, and that the network does not isolate wired clients from each other**. The board's IP address can change between power cycles when using DHCP; for permanent installations, use a static IP address or a DHCP reservation in your router.
+
 </Alert>
 
 When working with Ethernet on the Nano XL Link, there are several key points to keep in mind:
@@ -1919,7 +1984,9 @@ The recovery request can be triggered in two ways, which produce the same result
 - **Manually by the user**: Pressing the `RESET` button twice quickly (double-tap) restarts the board into recovery mode
 
 <Alert type="info">
-The double-tap reset is useful when a sketch prevents the Arduino IDE from restarting the board automatically, for example, because it turns off the USB serial port, crashes shortly after starting, or keeps the microcontroller busy. After the double-tap, the board waits in recovery mode until you upload a new sketch, and you can upload normally from the IDE.
+
+**Note**: The double-tap reset is useful when a sketch prevents the Arduino IDE from restarting the board automatically, for example, because it turns off the USB serial port, crashes shortly after starting, or keeps the microcontroller busy. After the double-tap, the board waits in recovery mode until you upload a new sketch, and you can upload normally from the IDE.
+
 </Alert>
 
 ### Technical Specifications
@@ -1934,7 +2001,9 @@ The Nano XL Link's bootloader offers the following technical specifications:
 | Sketch Memory |               728 KB               | Flash partition available for sketches |
 
 <Alert type="warning">
-Never disconnect the USB cable or remove power during a sketch upload. An interrupted upload can leave the board without a valid program; in that case, use the double-tap reset to enter recovery mode and upload the sketch again.
+
+**Important note**: Never disconnect the USB cable or remove power during a sketch upload. An interrupted upload can leave the board without a valid program; in that case, use the double-tap reset to enter recovery mode and upload the sketch again.
+
 </Alert>
 
 ### Maintaining Bootloader Health

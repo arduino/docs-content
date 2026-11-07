@@ -16,13 +16,13 @@ The PIC32CK2051SG01144 provides 2 MB of flash memory, 512 kB of RAM and a hardwa
 
 <Feature title="CAN FD Interface" image="industry">
 
-An onboard TCAN3414 transceiver exposes the `CANH` and `CANL` lines on the headers. Supports classic CAN and CAN FD with payloads of up to 64 bytes and data rates of up to 8 Mbps.
+An onboard TCAN3414 transceiver exposes the CANH and CANL lines on the headers. Supports classic CAN and CAN FD with payloads of up to 64 bytes and data rates of up to 8 Mbps.
 
 </Feature>
 
 <Feature title="RS-485 Interface" image="communication">
 
-An onboard THVD2410 half-duplex transceiver exposes the `A` and `B` lines on the headers, with support for the `ArduinoRS485` library and Modbus RTU applications.
+An onboard THVD2410 half-duplex transceiver exposes the A and B lines on the headers, with support for the ArduinoRS485 library and Modbus RTU applications.
 
 </Feature>
 
@@ -46,7 +46,7 @@ The onboard Qwiic connector provides a +3.3 VDC I²C bus with pull-up resistors 
 
 <Feature title="Wide Power Input" image="power">
 
-The board can be powered from USB-C, from +7-24 VDC on the `VIN` pin through the onboard buck converter, or from a regulated +3.3 VDC source on the `3V3` pin.
+The board can be powered from USB-C, from +7-24 VDC on the VIN pin through the onboard buck converter, or from a regulated +3.3 VDC source on the 3V3 pin.
 
 </Feature>
 
