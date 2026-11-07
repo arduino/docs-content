@@ -1,0 +1,13 @@
+# Site sections and pages that something other than this repo's Markdown serves under docs.arduino.cc: the site's own
+# code (docs.arduino.cc), or other repos it builds from. No page here maps to them, so the link validator doesn't check
+# links into them; it counts them. One path per line: a section prefix (the path and everything below it), or a single
+# page with a trailing $ (/software$ is that page, not /software/app-lab).
+/libraries             # the library reference, built from the libraries' own repos
+/language-reference    # the language reference, built from arduino/reference-en
+/arduino-cli           # the Arduino CLI docs, built from arduino/arduino-cli
+/cloud-api             # the Arduino Cloud API reference
+/$                     # the home page (docs.arduino.cc: src/pages/index)
+/software$             # docs.arduino.cc: src/pages/software.tsx
+/software/ide$         # docs.arduino.cc: src/pages/software/ide.tsx
+/tutorials$            # docs.arduino.cc: src/pages/tutorials.tsx
+/certifications$       # docs.arduino.cc builds it from every product.md and certifications/ folder here
