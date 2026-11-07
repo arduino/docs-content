@@ -35,7 +35,7 @@ Arduino App Lab requires the `libwebkit2gtk-4.1-0` library to render the user in
 - **Arch Linux:**
 
   ```bash
-  sudo pacman -S webkit2gtk-4.1
+  sudo pacman -S webkit2gtk-4.1 konsole
   ```
 
 - **Fedora:**
@@ -56,10 +56,19 @@ You must create a `udev` rule to ensure your Linux system correctly identifies a
 
 2. Paste the following configuration into the file:
 
-   ```systemd
-   SUBSYSTEM=="usb", ATTRS{idVendor}=="2341", MODE="0666", GROUP="dialout"
-   SUBSYSTEM=="usb", ATTRS{idVendor}=="05c6", MODE="0666", GROUP="dialout"
-   ```
+   - **Debian/Ubuntu/Fedora:**
+
+     ```systemd
+     SUBSYSTEM=="usb", ATTRS{idVendor}=="2341", MODE="0666", GROUP="dialout"
+     SUBSYSTEM=="usb", ATTRS{idVendor}=="05c6", MODE="0666", GROUP="dialout"
+     ```
+
+   - **Arch Linux:**
+
+     ```systemd
+     SUBSYSTEM=="usb", ATTRS{idVendor}=="2341", MODE="0666", GROUP="uucp"
+     SUBSYSTEM=="usb", ATTRS{idVendor}=="05c6", MODE="0666", GROUP="uucp"
+     ```
 
 3. Save and exit (Ctrl+O, Enter, Ctrl+X).
 4. Reload the rules:
@@ -71,11 +80,19 @@ You must create a `udev` rule to ensure your Linux system correctly identifies a
 
 ### Step 3: Set User Permissions
 
-Add your user account to the `dialout` group to allow access to the serial and USB interfaces used by the board.
+Add your user account to the correct group to allow access to the serial and USB interfaces used by the board.
 
-```bash
-sudo usermod -a -G dialout $USER
-```
+- **Debian/Ubuntu/Fedora:**
+
+  ```bash
+  sudo usermod -a -G dialout $USER
+  ```
+
+- **Arch Linux:**
+
+  ```bash
+  sudo usermod -a -G uucp $USER
+  ```
 
 <Alert type="note">
 
