@@ -2,7 +2,6 @@
 identifier: ABX00182
 title: Arduino® Nano XL Link
 type: maker
-variant: 'Datasheet'
 author: José Bagur
 ---
 
