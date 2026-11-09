@@ -1383,7 +1383,11 @@ void setup() {
   // Initialize the CAN bus at 500 kbps (classic CAN)
   if (!CAN.begin(CanBitRate::BR_500k)) {
     Serial.println("- Error: failed to initialize the CAN bus!");
-    while (1) delay(10);
+
+    // Halt the sketch
+    while (true) {
+      delay(10);
+    }
   }
 
   Serial.println("- CAN bus initialized at 500 kbps");
@@ -1437,7 +1441,11 @@ void setup() {
   // Initialize the CAN bus at 500 kbps (classic CAN)
   if (!CAN.begin(CanBitRate::BR_500k)) {
     Serial.println("- Error: failed to initialize the CAN bus!");
-    while (1) delay(10);
+
+    // Halt the sketch
+    while (true) {
+      delay(10);
+    }
   }
 
   // Configure the built-in LED to blink on each received message
@@ -1497,7 +1505,11 @@ To use CAN FD instead of classic CAN, replace `begin()` with `beginFD()`, which 
 // Initialize the CAN bus in FD mode: 500 kbps arbitration, 2 Mbps data
 if (!CAN.beginFD(CanBitRate::BR_500k, 2000000)) {
   Serial.println("- Error: failed to initialize the CAN FD bus!");
-  while (1) delay(10);
+
+  // Halt the sketch
+  while (true) {
+    delay(10);
+  }
 }
 
 // Send a 16-byte CAN FD frame
@@ -1766,7 +1778,11 @@ void setup() {
   // Check that the Ethernet hardware is present
   if (Ethernet.hardwareStatus() == EthernetNoHardware) {
     Serial.println("- Error: Ethernet hardware not found!");
-    while (1) delay(10);
+
+    // Halt the sketch
+    while (true) {
+      delay(10);
+    }
   }
 
   // Wait for the Ethernet cable to be connected
@@ -1780,7 +1796,11 @@ void setup() {
   Serial.println("- Requesting an IP address via DHCP...");
   if (Ethernet.begin() == 0) {
     Serial.println("- Error: failed to configure Ethernet using DHCP!");
-    while (1) delay(10);
+
+    // Halt the sketch
+    while (true) {
+      delay(10);
+    }
   }
 
   // Print the network configuration
@@ -1875,7 +1895,11 @@ void setup() {
   // Request an IP address from the DHCP server
   if (Ethernet.begin() == 0) {
     Serial.println("- Error: failed to configure Ethernet using DHCP!");
-    while (1) delay(10);
+
+    // Halt the sketch
+    while (true) {
+      delay(10);
+    }
   }
 
   // Start the web server
@@ -1963,6 +1987,110 @@ When working with Ethernet on the Nano XL Link, there are several key points to 
 - Each Nano XL Link has a unique MAC address programmed by Microchip in the microcontroller's configuration memory, which the core uses by default. To use a different MAC address, for example in networks with address filtering, pass it as the first argument of `begin()`.
 - The Ethernet library uses the Zephyr network stack. The `EthernetClient` and `EthernetUDP` classes are compatible with most Arduino libraries that accept a `Client` or `UDP` object, such as `ArduinoHttpClient`, `ArduinoMqttClient`, and `ArduinoModbus` (Modbus TCP).
 - The `LED_ACT` signal on `J4-19` is driven by the PHY to indicate link and activity, and is used by the Nano XL Link Connector Carrier for the LED of its RJ45 connector.
+
+## Qwiic Connector
+
+The Nano XL Link board features an onboard Qwiic connector that allows you to add sensors, actuators, and other I²C devices to your projects without soldering or wiring. Qwiic is a standard 4-pin connector system for I²C devices, adopted by Arduino's Modulino® nodes and by hundreds of modules from other manufacturers (Qwiic and STEMMA QT compatible). Devices are connected with a cable and can be daisy-chained, so several of them share the same connector.
+
+The Qwiic connector of the Nano XL Link offers the following technical specifications:
+
+|   **Parameter**    |        **Value**         |                 **Notes**                 |
+|:------------------:|:------------------------:|:-----------------------------------------:|
+|     Connector      |   JST SH 1.0 mm, 4-pin   |     Standard Qwiic/STEMMA QT connector    |
+|      I²C Bus       |          `Wire`          |    Microcontroller pins `PB04`/`PB05`     |
+|   Supply Voltage   |        +3.3 VDC          |       Powers the connected devices        |
+| Pull-up Resistors  |    5.1 kΩ to +3.3 VDC    |     Onboard, on both `SDA` and `SCL`      |
+|    Logic Level     |        +3.3 VDC          |    Compatible with all Qwiic devices      |
+
+The Qwiic connector uses the following pinout:
+
+| **Pin** | **Signal** | **Wire Color** |      **Description**      |
+|:-------:|:----------:|:--------------:|:-------------------------:|
+|    1    |   `GND`    |     Black      |          Ground           |
+|    2    |   `3V3`    |      Red       |    +3.3 VDC power supply  |
+|    3    |   `SDA`    |      Blue      |      I²C serial data      |
+|    4    |   `SCL`    |     Yellow     |      I²C serial clock     | 
+
+<Alert type="info">
+
+**Note**: The onboard Qwiic connector is connected to the `Wire` I²C bus, which is available only on this connector and not on the header pins. When the board is mounted on the Nano Connector Carrier, the carrier's own Qwiic connector is wired to pins `D26` and `D27`, that is, to the `Wire1` bus. Device libraries must be initialized on the bus of the connector in use. The +3.3 VDC supply of both connectors comes from the board's main regulator, so the current drawn by the connected devices adds to the board's total consumption.
+
+</Alert>
+
+Qwiic devices are controlled with the library of each device. Arduino's Modulino® nodes use the `Arduino_Modulino` library, which can be installed from the Arduino IDE's Library Manager (search for `Modulino`). When prompted, install the library with all its dependencies, since it includes the drivers of every Modulino node. On the Nano XL Link, the bus must be passed to `Modulino.begin()`: `Wire` for the onboard Qwiic connector, or `Wire1` for the Qwiic connector of the Nano Connector Carrier.
+
+The following example reads the temperature and relative humidity measured by a Modulino Thermo node connected to the Qwiic connector of the Nano Connector Carrier and prints them to the Serial Monitor:
+
+```arduino
+/**
+Qwiic Example for the Arduino Nano XL Link Board
+Name: nano_xl_link_qwiic_modulino.ino
+Purpose: This sketch demonstrates how to read a Modulino Thermo
+node connected to the Qwiic connector of the Nano Connector Carrier.
+
+@author Arduino Product Experience Team
+@version 1.0 09/11/26
+*/
+
+#include <Arduino_Modulino.h>
+
+// Modulino Thermo node
+ModulinoThermo thermo;
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+  Serial.println("- Arduino Nano XL Link - Qwiic Modulino Example started...");
+
+  // Initialize the Modulino library on the carrier's Qwiic connector (Wire1 bus)
+  // Use Modulino.begin(Wire) for the onboard Qwiic connector
+  Modulino.begin(Wire1);
+
+  // Initialize the Modulino Thermo node
+  if (!thermo.begin()) {
+    Serial.println("- Error: Modulino Thermo not found on the Qwiic connector!");
+    while (1) delay(10);
+  }
+
+  Serial.println("- Modulino Thermo initialized");
+  Serial.println("- Reading temperature and humidity every second");
+}
+
+void loop() {
+  // Read the temperature (degrees Celsius) and the relative humidity (%)
+  float temperature = thermo.getTemperature();
+  float humidity = thermo.getHumidity();
+
+  // Display the results
+  Serial.print("- Temperature: ");
+  Serial.print(temperature, 1);
+  Serial.print(" C | Humidity: ");
+  Serial.print(humidity, 1);
+  Serial.println(" %");
+
+  // Wait one second before next reading
+  delay(1000);
+}
+```
+
+<Alert type="info">
+
+**Note**: If the sketch fails to compile with an error such as `SHT31.h: No such file or directory`, one or more dependencies of the `Arduino_Modulino` library are missing. Open the Library Manager, search for `Modulino`, and reinstall the library choosing to install all dependencies.
+
+</Alert>
+
+To test this example, you can mount the Nano XL Link board on the Nano Connector Carrier and connect a Modulino Thermo node to the carrier's Qwiic connector with a Qwiic cable. No additional components are needed.
+
+Open the Arduino IDE's Serial Monitor (Tools > Serial Monitor) to see the temperature and humidity readings; breathe on the sensor to see the values change.
+
+When working with the Qwiic connector on the Nano XL Link, there are several key points to keep in mind:
+
+- Qwiic devices can be daisy-chained: connect the first device to the board and the next ones to the free connector of the previous device. All of them share the same bus (`Wire` or `Wire1`, depending on the connector), so each device must have a unique I²C address.
+- Device libraries that default to the `Wire` bus work directly on the onboard Qwiic connector; when using the carrier's connector, pass `Wire1` to their `begin()` function.
+- The connectors supply +3.3 VDC only. Devices that require +5 VDC must be powered separately and connected through a level shifter.
+- The onboard pull-up resistors are sufficient for a few devices on a short cable. With many devices or long cables, the total bus capacitance may require a lower I²C clock, which can be set with `Wire.setClock()` or `Wire1.setClock()`.
 
 ## Bootloader
 
