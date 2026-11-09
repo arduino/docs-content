@@ -1,10 +1,15 @@
-# One entry per product name. SKU takes one value or a list ([A, B]), and each SKU gets its own row.
-# Status: Active, End of Life or Discontinued.
-# Dates: YYYY-MM-DD. Leave a field empty, when there is no value. Relates to 'Release Date', 'End of Life', 'End of Sales' and 'End of Support'.
-# Replacement: the name of the product to choose instead; it links to that product page when one has that title. eg. nano-esp32
-# Bulletin: the name of a folder in tutorials/bulletin. Once End of Sales has passed, the page shows Discontinued.
+# One entry per product. The key is the product name without "Arduino", written like the folder names in docs-content/hardware
+# (lowercase, hyphens instead of spaces), and it never changes once it is in use.
+# Name: the full product name, with "Arduino" and without trademark symbols.
+# SKU: the SKU of the product.
+# Status: Active, Not recommended for new designs, Declared End of Life or Discontinued.
+# Dates: YYYY-MM-DD. Leave a field empty, or write "-" with the quotes, when there is no value.
+# Replacement: the folder name of the replacement product in docs-content/hardware, e.g. nano-esp32. It links to that product page.
+# Bulletin: the name of a folder in tutorials/bulletin.
+# Whatever the Status says, the page shows Declared End of Life from the End of Life date, and Discontinued once End of Sales has passed.
 
-Arduino 4 Relays Shield:
+4-relays-shield:
+  Name: Arduino 4 Relays Shield
   SKU: A000110
   Status: Active
   Release Date: 2021-01-04
@@ -14,7 +19,8 @@ Arduino 4 Relays Shield:
   Replacement:
   Bulletin:
 
-Arduino 9 Axis Motion Shield:
+9-axis-motion-shield:
+  Name: Arduino 9 Axis Motion Shield
   SKU: A000070
   Status: Active
   Release Date: 2021-01-12
@@ -24,17 +30,19 @@ Arduino 9 Axis Motion Shield:
   Replacement:
   Bulletin:
 
-Arduino Alvik:
+alvik:
+  Name: Arduino Alvik
   SKU: AKX00066
   Status: Active
   Release Date: 2024-03-25
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Opta Lite:
+opta-lite:
+  Name: Arduino Opta Lite
   SKU: AFX00003
   Status: Active
   Release Date: 2023-02-08
@@ -44,27 +52,30 @@ Arduino Opta Lite:
   Replacement:
   Bulletin:
 
-Arduino Braccio ++:
+braccio++:
+  Name: Arduino Braccio ++
   SKU: T050002
   Status: Discontinued
   Release Date: 2022-03-23
-  End of Life:
-  End of Sales:
-  End of Support: #missing end of support date
-  Replacement:
-  Bulletin:
-
-Arduino Bughopper:
-  SKU: ABX00156
-  Status: Active
-  Release Date: #missing release date
   End of Life:
   End of Sales:
   End of Support:
   Replacement:
   Bulletin:
 
-Arduino Opta RS485:
+bughopper:
+  Name: Arduino Bughopper
+  SKU: ABX00156
+  Status: Active
+  Release Date:
+  End of Life:
+  End of Sales:
+  End of Support:
+  Replacement:
+  Bulletin:
+
+opta-rs485:
+  Name: Arduino Opta RS485
   SKU: AFX00001
   Status: Active
   Release Date: 2023-01-09
@@ -74,7 +85,8 @@ Arduino Opta RS485:
   Replacement:
   Bulletin:
 
-Arduino Opta WiFi:
+opta-wifi:
+  Name: Arduino Opta WiFi
   SKU: AFX00002
   Status: Active
   Release Date: 2023-02-08
@@ -84,7 +96,8 @@ Arduino Opta WiFi:
   Replacement:
   Bulletin:
 
-Arduino Pro Opta Ext A0602:
+pro-opta-ext-a0602:
+  Name: Arduino Pro Opta Ext A0602
   SKU: AFX00007
   Status: Active
   Release Date: 2024-07-22
@@ -94,7 +107,8 @@ Arduino Pro Opta Ext A0602:
   Replacement:
   Bulletin:
 
-Arduino Pro Opta Ext D1608E:
+pro-opta-ext-d1608e:
+  Name: Arduino Pro Opta Ext D1608E
   SKU: AFX00005
   Status: Active
   Release Date: 2024-04-29
@@ -104,7 +118,8 @@ Arduino Pro Opta Ext D1608E:
   Replacement:
   Bulletin:
 
-Arduino Pro Opta Ext D1608S:
+pro-opta-ext-d1608s:
+  Name: Arduino Pro Opta Ext D1608S
   SKU: AFX00006
   Status: Active
   Release Date: 2024-04-29
@@ -114,7 +129,8 @@ Arduino Pro Opta Ext D1608S:
   Replacement:
   Bulletin:
 
-Arduino Due:
+due:
+  Name: Arduino Due
   SKU: A000062
   Status: Active
   Release Date: 2021-01-04
@@ -124,7 +140,8 @@ Arduino Due:
   Replacement:
   Bulletin:
 
-Arduino Due (for China):
+due-for-china:
+  Name: Arduino Due (for China)
   SKU: A000062_CN
   Status: Active
   Release Date:
@@ -134,7 +151,8 @@ Arduino Due (for China):
   Replacement:
   Bulletin:
 
-Arduino Due (without headers):
+due-without-headers:
+  Name: Arduino Due (without headers)
   SKU: A000056
   Status: Active
   Release Date: 2021-01-14
@@ -144,7 +162,8 @@ Arduino Due (without headers):
   Replacement:
   Bulletin:
 
-"Arduino Certification Bundle: Kit & Exam":
+certification-bundle-kit-exam:
+  Name: 'Arduino Certification Bundle: Kit & Exam'
   SKU: AKX00020
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -154,7 +173,8 @@ Arduino Due (without headers):
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Explore IoT Kit Rev2:
+explore-iot-kit-rev2:
+  Name: Arduino Explore IoT Kit Rev2
   SKU: AKX00044
   Status: Declared End of Life
   Release Date: 2023-04-12
@@ -164,7 +184,8 @@ Arduino Explore IoT Kit Rev2:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino MKR CAN Shield:
+mkr-can-shield:
+  Name: Arduino MKR CAN Shield
   SKU: ASX00005
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -174,7 +195,8 @@ Arduino MKR CAN Shield:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Education Starter Kit:
+education-starter-kit:
+  Name: Arduino Education Starter Kit
   SKU: AKX00023
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -184,17 +206,19 @@ Arduino Education Starter Kit:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Engineering Kit:
+engineering-kit:
+  Name: Arduino Engineering Kit
   SKU: AKX00004
   Status: Discontinued
   Release Date: 2021-01-28
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Engineering Kit Motors Backup:
+engineering-kit-motors-backup:
+  Name: Arduino Engineering Kit Motors Backup
   SKU: AKX00033
   Status: Active
   Release Date: 2021-05-25
@@ -204,7 +228,8 @@ Arduino Engineering Kit Motors Backup:
   Replacement:
   Bulletin:
 
-Arduino MKR Connector Carrier:
+mkr-connector-carrier:
+  Name: Arduino MKR Connector Carrier
   SKU: ASX00007
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -214,7 +239,8 @@ Arduino MKR Connector Carrier:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Ethernet Shield:
+ethernet-shield:
+  Name: Arduino Ethernet Shield
   SKU: A000024
   Status: Active
   Release Date: 2021-01-04
@@ -224,7 +250,8 @@ Arduino Ethernet Shield:
   Replacement:
   Bulletin:
 
-Arduino MKR ENV Shield Rev2:
+mkr-env-shield-rev2:
+  Name: Arduino MKR ENV Shield Rev2
   SKU: ASX00029
   Status: Declared End of Life
   Release Date: 2021-02-22
@@ -234,7 +261,8 @@ Arduino MKR ENV Shield Rev2:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino MKR ETH Shield:
+mkr-eth-shield:
+  Name: Arduino MKR ETH Shield
   SKU: ASX00006
   Status: Declared End of Life
   Release Date: 2021-01-05
@@ -244,7 +272,8 @@ Arduino MKR ETH Shield:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino GIGA Display Shield:
+giga-display-shield:
+  Name: Arduino GIGA Display Shield
   SKU: ASX00039
   Status: Active
   Release Date: 2023-08-16
@@ -254,7 +283,8 @@ Arduino GIGA Display Shield:
   Replacement:
   Bulletin:
 
-Arduino GIGA R1 WiFi:
+giga-r1-wifi:
+  Name: Arduino GIGA R1 WiFi
   SKU: ABX00063
   Status: Active
   Release Date: 2023-02-14
@@ -264,7 +294,8 @@ Arduino GIGA R1 WiFi:
   Replacement:
   Bulletin:
 
-Arduino MKR GPS Shield:
+mkr-gps-shield:
+  Name: Arduino MKR GPS Shield
   SKU: ASX00017
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -274,17 +305,19 @@ Arduino MKR GPS Shield:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino IoT Bundle:
+iot-bundle:
+  Name: Arduino IoT Bundle
   SKU: AKX00042
   Status: Discontinued
   Release Date: 2022-11-25
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR IoT Carrier Rev2:
+mkr-iot-carrier-rev2:
+  Name: Arduino MKR IoT Carrier Rev2
   SKU: ABX00073
   Status: Declared End of Life
   Release Date: 2023-01-09
@@ -294,7 +327,8 @@ Arduino MKR IoT Carrier Rev2:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Leonardo (with headers):
+leonardo-with-headers:
+  Name: Arduino Leonardo (with headers)
   SKU: A000057
   Status: Active
   Release Date: 2021-01-04
@@ -304,7 +338,8 @@ Arduino Leonardo (with headers):
   Replacement:
   Bulletin:
 
-Arduino Leonardo (without headers):
+leonardo-without-headers:
+  Name: Arduino Leonardo (without headers)
   SKU: A000052
   Status: Active
   Release Date: 2021-01-11
@@ -314,7 +349,8 @@ Arduino Leonardo (without headers):
   Replacement:
   Bulletin:
 
-Arduino MKR NB 1500:
+mkr-nb-1500:
+  Name: Arduino MKR NB 1500
   SKU: ABX00019
   Status: Declared End of Life
   Release Date: 2021-01-19
@@ -324,7 +360,8 @@ Arduino MKR NB 1500:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Mega 2560 Rev3:
+mega-2560-rev3:
+  Name: Arduino Mega 2560 Rev3
   SKU: A000067
   Status: Active
   Release Date: 2021-01-04
@@ -334,7 +371,8 @@ Arduino Mega 2560 Rev3:
   Replacement:
   Bulletin:
 
-Arduino Mega 2560 Rev3 (for China):
+mega-2560-rev3-for-china:
+  Name: Arduino Mega 2560 Rev3 (for China)
   SKU: A000067_CN
   Status: Active
   Release Date:
@@ -344,7 +382,8 @@ Arduino Mega 2560 Rev3 (for China):
   Replacement:
   Bulletin:
 
-Arduino Mega Proto Shield Rev3:
+mega-proto-shield-rev3:
+  Name: Arduino Mega Proto Shield Rev3
   SKU: A000080
   Status: Active
   Release Date: 2021-01-05
@@ -354,7 +393,8 @@ Arduino Mega Proto Shield Rev3:
   Replacement:
   Bulletin:
 
-Arduino Micro:
+micro:
+  Name: Arduino Micro
   SKU: A000053
   Status: Active
   Release Date: 2021-01-04
@@ -364,7 +404,8 @@ Arduino Micro:
   Replacement:
   Bulletin:
 
-Arduino Micro (without headers):
+micro-without-headers:
+  Name: Arduino Micro (without headers)
   SKU: A000093
   Status: Active
   Release Date: 2021-01-04
@@ -374,27 +415,30 @@ Arduino Micro (without headers):
   Replacement:
   Bulletin:
 
-Arduino MKR 1000 WiFi (with headers):
+mkr-1000-wifi-with-headers:
+  Name: Arduino MKR 1000 WiFi (with headers)
   SKU: ABX00011
   Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR 1000 WiFi (without headers):
+mkr-1000-wifi-without-headers:
+  Name: Arduino MKR 1000 WiFi (without headers)
   SKU: ABX00004
   Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR Proto Shield:
+mkr-proto-shield:
+  Name: Arduino MKR Proto Shield
   SKU: TSX00001
   Status: Declared End of Life
   Release Date: 2021-01-05
@@ -404,7 +448,8 @@ Arduino MKR Proto Shield:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino MKR Relay Proto Shield:
+mkr-relay-proto-shield:
+  Name: Arduino MKR Relay Proto Shield
   SKU: TSX00003
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -414,7 +459,8 @@ Arduino MKR Relay Proto Shield:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino MKR WAN 1310:
+mkr-wan-1310:
+  Name: Arduino MKR WAN 1310
   SKU: ABX00029
   Status: Declared End of Life
   Release Date: 2021-01-05
@@ -424,7 +470,8 @@ Arduino MKR WAN 1310:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino MKR WAN 1310 + Antenna:
+mkr-wan-1310-antenna:
+  Name: Arduino MKR WAN 1310 + Antenna
   SKU: ABX00039
   Status: Declared End of Life
   Release Date: 2021-01-31
@@ -434,7 +481,8 @@ Arduino MKR WAN 1310 + Antenna:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino MKR WiFi 1010:
+mkr-wifi-1010:
+  Name: Arduino MKR WiFi 1010
   SKU: ABX00023
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -444,7 +492,8 @@ Arduino MKR WiFi 1010:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino MKR Zero:
+mkr-zero:
+  Name: Arduino MKR Zero
   SKU: ABX00012
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -454,37 +503,41 @@ Arduino MKR Zero:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino MKR FOX 1200:
+mkr-fox-1200:
+  Name: Arduino MKR FOX 1200
   SKU: ABX00014
   Status: Discontinued
-  Release Date: #missing release date
+  Release Date:
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nano 33 BLE:
+nano-33-ble:
+  Name: Arduino Nano 33 BLE
   SKU: ABX00030
   Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nano 33 BLE (with headers):
+nano-33-ble-with-headers:
+  Name: Arduino Nano 33 BLE (with headers)
   SKU: ABX00034
   Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
-  End of Support: # missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nano 33 BLE Rev2:
+nano-33-ble-rev2:
+  Name: Arduino Nano 33 BLE Rev2
   SKU: ABX00071
   Status: Declared End of Life
   Release Date: 2023-11-17
@@ -494,7 +547,8 @@ Arduino Nano 33 BLE Rev2:
   Replacement: nano-esp32
   Bulletin: bulletin-001
 
-Arduino Nano 33 BLE Rev2 (with headers):
+nano-33-ble-rev2-with-headers:
+  Name: Arduino Nano 33 BLE Rev2 (with headers)
   SKU: ABX00072
   Status: Declared End of Life
   Release Date: 2023-11-17
@@ -504,27 +558,30 @@ Arduino Nano 33 BLE Rev2 (with headers):
   Replacement: nano-esp32
   Bulletin: bulletin-001
 
-Arduino Nano 33 BLE Sense:
+nano-33-ble-sense:
+  Name: Arduino Nano 33 BLE Sense
   SKU: ABX00031
   Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
-  End of Support: # missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nano 33 BLE Sense (with headers):
+nano-33-ble-sense-with-headers:
+  Name: Arduino Nano 33 BLE Sense (with headers)
   SKU: ABX00035
   Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
-  End of Support: # missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nano 33 BLE Sense Rev2:
+nano-33-ble-sense-rev2:
+  Name: Arduino Nano 33 BLE Sense Rev2
   SKU: ABX00069
   Status: Declared End of Life
   Release Date: 2022-10-13
@@ -534,7 +591,8 @@ Arduino Nano 33 BLE Sense Rev2:
   Replacement: nano-esp32
   Bulletin: bulletin-001
 
-Arduino Nano 33 BLE Sense Rev2 (with headers):
+nano-33-ble-sense-rev2-with-headers:
+  Name: Arduino Nano 33 BLE Sense Rev2 (with headers)
   SKU: ABX00070
   Status: Declared End of Life
   Release Date: 2022-10-17
@@ -544,7 +602,8 @@ Arduino Nano 33 BLE Sense Rev2 (with headers):
   Replacement: nano-esp32
   Bulletin: bulletin-001
 
-Arduino Nano 33 IoT:
+nano-33-iot:
+  Name: Arduino Nano 33 IoT
   SKU: ABX00027
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -554,7 +613,8 @@ Arduino Nano 33 IoT:
   Replacement: nano-esp32
   Bulletin: bulletin-001
 
-Arduino Nano 33 IoT (with headers):
+nano-33-iot-with-headers:
+  Name: Arduino Nano 33 IoT (with headers)
   SKU: ABX00032
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -564,7 +624,8 @@ Arduino Nano 33 IoT (with headers):
   Replacement: nano-esp32
   Bulletin: bulletin-001
 
-Arduino Oplà IoT Kit:
+opla-iot-kit:
+  Name: Arduino Oplà IoT Kit
   SKU: AKX00026
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -574,7 +635,8 @@ Arduino Oplà IoT Kit:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Portenta C33:
+portenta-c33:
+  Name: Arduino Portenta C33
   SKU: ABX00074
   Status: Declared End of Life
   Release Date: 2023-06-16
@@ -584,7 +646,8 @@ Arduino Portenta C33:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Portenta Cat. M1/NB IoT GNSS Shield:
+portenta-cat-m1-nb-iot-gnss-shield:
+  Name: Arduino Portenta Cat. M1/NB IoT GNSS Shield
   SKU: ASX00027
   Status: Declared End of Life
   Release Date: 2022-01-26
@@ -594,7 +657,8 @@ Arduino Portenta Cat. M1/NB IoT GNSS Shield:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Portenta Max Carrier:
+portenta-max-carrier:
+  Name: Arduino Portenta Max Carrier
   SKU: ABX00043
   Status: Declared End of Life
   Release Date: 2022-06-10
@@ -604,7 +668,8 @@ Arduino Portenta Max Carrier:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Starter Kit - Portuguese:
+starter-kit-portuguese:
+  Name: Arduino Starter Kit - Portuguese
   SKU: K060007
   Status: Declared End of Life
   Release Date: 2021-02-02
@@ -614,17 +679,19 @@ Arduino Starter Kit - Portuguese:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino MKR Vidor 4000:
+mkr-vidor-4000:
+  Name: Arduino MKR Vidor 4000
   SKU: ABX00022
   Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR WAN 1300:
+mkr-wan-1300:
+  Name: Arduino MKR WAN 1300
   SKU: ABX00017
   Status: Declared End of Life
   Release Date: 2021-01-14
@@ -634,7 +701,8 @@ Arduino MKR WAN 1300:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Stella:
+stella:
+  Name: Arduino Stella
   SKU: ABX00131
   Status: Declared End of Life
   Release Date: 2025-06-19
@@ -644,7 +712,8 @@ Arduino Stella:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Tiny Machine Learning Kit:
+tiny-machine-learning-kit:
+  Name: Arduino Tiny Machine Learning Kit
   SKU: AKX00028
   Status: Declared End of Life
   Release Date: 2021-01-09
@@ -654,7 +723,8 @@ Arduino Tiny Machine Learning Kit:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino UNO WiFi Rev2:
+uno-wifi-rev2:
+  Name: Arduino UNO WiFi Rev2
   SKU: ABX00021
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -664,7 +734,8 @@ Arduino UNO WiFi Rev2:
   Replacement: uno-r4-wifi
   Bulletin: bulletin-001
 
-Arduino Zero:
+zero:
+  Name: Arduino Zero
   SKU: ABX00003
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -674,7 +745,8 @@ Arduino Zero:
   Replacement: uno-r4-wifi
   Bulletin: bulletin-001
 
-Arduino Modulino Buttons:
+modulino-buttons:
+  Name: Arduino Modulino Buttons
   SKU: ABX00110
   Status: Active
   Release Date: 2025-05-25
@@ -684,7 +756,8 @@ Arduino Modulino Buttons:
   Replacement:
   Bulletin:
 
-Arduino Modulino Buzzer:
+modulino-buzzer:
+  Name: Arduino Modulino Buzzer
   SKU: ABX00108
   Status: Active
   Release Date: 2025-05-23
@@ -694,7 +767,8 @@ Arduino Modulino Buzzer:
   Replacement:
   Bulletin:
 
-Arduino Modulino Distance:
+modulino-distance:
+  Name: Arduino Modulino Distance
   SKU: ABX00102
   Status: Active
   Release Date: 2025-05-25
@@ -704,27 +778,30 @@ Arduino Modulino Distance:
   Replacement:
   Bulletin:
 
-Arduino Modulino Extender:
+modulino-extender:
+  Name: Arduino Modulino Extender
   SKU: ABX00174
   Status: Active
-  Release Date: #missing release date
+  Release Date:
   End of Life:
   End of Sales:
   End of Support:
   Replacement:
   Bulletin:
 
-Arduino Modulino Hub:
+modulino-hub:
+  Name: Arduino Modulino Hub
   SKU: ABX00100
   Status: Active
-  Release Date: #missing release date
+  Release Date:
   End of Life:
   End of Sales:
   End of Support:
   Replacement:
   Bulletin:
 
-Arduino Modulino Joystick:
+modulino-joystick:
+  Name: Arduino Modulino Joystick
   SKU: ABX00135
   Status: Active
   Release Date: 2025-12-04
@@ -734,7 +811,8 @@ Arduino Modulino Joystick:
   Replacement:
   Bulletin:
 
-Arduino Modulino Knob:
+modulino-knob:
+  Name: Arduino Modulino Knob
   SKU: ABX00107
   Status: Active
   Release Date: 2025-05-23
@@ -744,7 +822,8 @@ Arduino Modulino Knob:
   Replacement:
   Bulletin:
 
-Arduino Modulino Latch Relay:
+modulino-latch-relay:
+  Name: Arduino Modulino Latch Relay
   SKU: ABX00138
   Status: Active
   Release Date: 2025-12-04
@@ -754,7 +833,8 @@ Arduino Modulino Latch Relay:
   Replacement:
   Bulletin:
 
-Arduino Modulino LED Matrix:
+modulino-led-matrix:
+  Name: Arduino Modulino LED Matrix
   SKU: ABX00152
   Status: Active
   Release Date: 2026-04-03
@@ -764,7 +844,8 @@ Arduino Modulino LED Matrix:
   Replacement:
   Bulletin:
 
-Arduino Modulino Light:
+modulino-light:
+  Name: Arduino Modulino Light
   SKU: ABX00111
   Status: Active
   Release Date: 2025-12-04
@@ -774,17 +855,19 @@ Arduino Modulino Light:
   Replacement:
   Bulletin:
 
-Arduino Modulino Motors:
+modulino-motors:
+  Name: Arduino Modulino Motors
   SKU: ABX00114
   Status: Active
-  Release Date: #missing release date
+  Release Date:
   End of Life:
   End of Sales:
   End of Support:
   Replacement:
   Bulletin:
 
-Arduino Modulino Movement:
+modulino-movement:
+  Name: Arduino Modulino Movement
   SKU: ABX00101
   Status: Active
   Release Date: 2025-05-25
@@ -794,7 +877,8 @@ Arduino Modulino Movement:
   Replacement:
   Bulletin:
 
-Arduino Modulino Pixels:
+modulino-pixels:
+  Name: Arduino Modulino Pixels
   SKU: ABX00109
   Status: Active
   Release Date: 2025-05-25
@@ -804,7 +888,8 @@ Arduino Modulino Pixels:
   Replacement:
   Bulletin:
 
-Arduino Modulino Thermo:
+modulino-thermo:
+  Name: Arduino Modulino Thermo
   SKU: ABX00103
   Status: Active
   Release Date: 2025-05-22
@@ -814,7 +899,8 @@ Arduino Modulino Thermo:
   Replacement:
   Bulletin:
 
-Arduino Modulino Vibro:
+modulino-vibro:
+  Name: Arduino Modulino Vibro
   SKU: ABX00130
   Status: Active
   Release Date: 2025-12-04
@@ -824,7 +910,8 @@ Arduino Modulino Vibro:
   Replacement:
   Bulletin:
 
-Arduino Motor Shield Rev3:
+motor-shield-rev3:
+  Name: Arduino Motor Shield Rev3
   SKU: A000079
   Status: Active
   Release Date: 2021-01-04
@@ -834,7 +921,8 @@ Arduino Motor Shield Rev3:
   Replacement:
   Bulletin:
 
-Arduino Nano:
+nano:
+  Name: Arduino Nano
   SKU: A000005
   Status: Active
   Release Date: 2021-01-04
@@ -844,117 +932,129 @@ Arduino Nano:
   Replacement:
   Bulletin:
 
-Arduino Nano (for China):
+nano-for-china:
+  Name: Arduino Nano (for China)
   SKU: A000005_CN
   Status: Active
-  Release Date: #missing release date
+  Release Date:
   End of Life:
   End of Sales:
   End of Support:
   Replacement:
   Bulletin:
 
-Arduino Alvik Robot Classroom Pack:
+alvik-robot-classroom-pack:
+  Name: Arduino Alvik Robot Classroom Pack
   SKU: AKX00068
   Status: Active
   Release Date: 2024-03-27
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino CTC 101 Program (Self Learning):
+ctc-101-program-self-learning:
+  Name: Arduino CTC 101 Program (Self Learning)
   SKU: AKX00002SL
   Status: Discontinued
   Release Date: 2021-01-13
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino CTC 101 Program Full:
+ctc-101-program-full:
+  Name: Arduino CTC 101 Program Full
   SKU: AKX00002
   Status: Discontinued
   Release Date: 2021-01-11
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino CTC GO! Core Module (English):
+ctc-go-core-module-english:
+  Name: Arduino CTC GO! Core Module (English)
   SKU: AKX00015
   Status: Active
   Release Date: 2021-02-02
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino CTC GO! Motions Expansion Pack:
+ctc-go-motions-expansion-pack:
+  Name: Arduino CTC GO! Motions Expansion Pack
   SKU: AKX00021
   Status: Discontinued
   Release Date: 2021-02-18
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Edge Control:
+edge-control:
+  Name: Arduino Edge Control
   SKU: AKX00034
   Status: Active
   Release Date: 2021-04-23
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Edge Control Enclosure Kit:
+edge-control-enclosure-kit:
+  Name: Arduino Edge Control Enclosure Kit
   SKU: AKX00031
   Status: Active
   Release Date: 2022-07-04
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Education Shield:
+education-shield:
+  Name: Arduino Education Shield
   SKU: TSX00006
   Status: Active
   Release Date: 2021-01-07
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Engineering Kit Rev2:
+engineering-kit-rev2:
+  Name: Arduino Engineering Kit Rev2
   SKU: AKX00022
   Status: Active
   Release Date: 2021-01-04
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Explore IoT Kit Incl. 12 Months Create Maker Plan:
+explore-iot-kit-incl-12-months-create-maker-plan:
+  Name: Arduino Explore IoT Kit Incl. 12 Months Create Maker Plan
   SKU: AKX00027
   Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nano Connector Carrier:
+nano-connector-carrier:
+  Name: Arduino Nano Connector Carrier
   SKU: ASX00061
   Status: Active
   Release Date: 2025-05-22
@@ -964,17 +1064,19 @@ Arduino Nano Connector Carrier:
   Replacement:
   Bulletin:
 
-Arduino Nano ESP32 (with headers, for China):
+nano-esp32-with-headers-for-china:
+  Name: Arduino Nano ESP32 (with headers, for China)
   SKU: ABX00083_CN
   Status: Active
-  Release Date: #missing release date
+  Release Date:
   End of Life:
   End of Sales:
   End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nano ESP32 (with headers):
+nano-esp32-with-headers:
+  Name: Arduino Nano ESP32 (with headers)
   SKU: ABX00083
   Status: Active
   Release Date: 2023-06-27
@@ -984,17 +1086,19 @@ Arduino Nano ESP32 (with headers):
   Replacement:
   Bulletin:
 
-Arduino Nano ESP32 (without headers, for China):
+nano-esp32-without-headers-for-china:
+  Name: Arduino Nano ESP32 (without headers, for China)
   SKU: ABX00092_CN
   Status: Active
-  Release Date: #missing release dare
+  Release Date:
   End of Life:
   End of Sales:
   End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nano ESP32 (without headers):
+nano-esp32-without-headers:
+  Name: Arduino Nano ESP32 (without headers)
   SKU: ABX00092
   Status: Active
   Release Date: 2023-06-19
@@ -1004,7 +1108,8 @@ Arduino Nano ESP32 (without headers):
   Replacement:
   Bulletin:
 
-Arduino Nano Every:
+nano-every:
+  Name: Arduino Nano Every
   SKU: ABX00028
   Status: Active
   Release Date: 2021-01-04
@@ -1014,7 +1119,8 @@ Arduino Nano Every:
   Replacement:
   Bulletin:
 
-Arduino Nano Every (with headers):
+nano-every-with-headers:
+  Name: Arduino Nano Every (with headers)
   SKU: ABX00033
   Status: Active
   Release Date: 2021-01-04
@@ -1024,7 +1130,8 @@ Arduino Nano Every (with headers):
   Replacement:
   Bulletin:
 
-Arduino Nano Matter:
+nano-matter:
+  Name: Arduino Nano Matter
   SKU: ABX00112
   Status: Active
   Release Date: 2024-05-07
@@ -1034,7 +1141,8 @@ Arduino Nano Matter:
   Replacement:
   Bulletin:
 
-Arduino Nano Matter (with headers):
+nano-matter-with-headers:
+  Name: Arduino Nano Matter (with headers)
   SKU: ABX00137
   Status: Active
   Release Date: 2025-02-13
@@ -1044,17 +1152,19 @@ Arduino Nano Matter (with headers):
   Replacement:
   Bulletin:
 
-Arduino Greenhouse Kit:
+greenhouse-kit:
+  Name: Arduino Greenhouse Kit
   SKU: AKX00040
   Status: Active
   Release Date: 2022-11-30
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nano R4:
+nano-r4:
+  Name: Arduino Nano R4
   SKU: ABX00142
   Status: Active
   Release Date: 2025-07-07
@@ -1064,7 +1174,8 @@ Arduino Nano R4:
   Replacement:
   Bulletin:
 
-Arduino Nano R4 (with headers):
+nano-r4-with-headers:
+  Name: Arduino Nano R4 (with headers)
   SKU: ABX00143
   Status: Active
   Release Date: 2025-07-07
@@ -1074,27 +1185,30 @@ Arduino Nano R4 (with headers):
   Replacement:
   Bulletin:
 
-Arduino Nano RP2040 Connect:
+nano-rp2040-connect:
+  Name: Arduino Nano RP2040 Connect
   SKU: ABX00052
   Status: Discontinued
   Release Date: 2021-05-13
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nano RP2040 Connect (with headers):
+nano-rp2040-connect-with-headers:
+  Name: Arduino Nano RP2040 Connect (with headers)
   SKU: ABX00053
   Status: Discontinued
   Release Date: 2021-05-13
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nano Screw Terminal Adapter:
+nano-screw-terminal-adapter:
+  Name: Arduino Nano Screw Terminal Adapter
   SKU: ASX00037
   Status: Active
   Release Date: 2022-11-14
@@ -1104,7 +1218,8 @@ Arduino Nano Screw Terminal Adapter:
   Replacement:
   Bulletin:
 
-Arduino Nano Screw Terminal Adapter - 3 Boards Pack:
+nano-screw-terminal-adapter-3-boards-pack:
+  Name: Arduino Nano Screw Terminal Adapter - 3 Boards Pack
   SKU: ASX00037-3P
   Status: Active
   Release Date: 2022-07-20
@@ -1114,7 +1229,8 @@ Arduino Nano Screw Terminal Adapter - 3 Boards Pack:
   Replacement:
   Bulletin:
 
-Arduino Nesso N1:
+nesso-n1:
+  Name: Arduino Nesso N1
   SKU: TPX00227
   Status: Active
   Release Date: 2025-11-11
@@ -1124,117 +1240,129 @@ Arduino Nesso N1:
   Replacement:
   Bulletin:
 
-Arduino Junior Certification Bundle [Student Kit + Junior Certification Exam]:
+junior-certification-bundle-student-kit-junior-certification-exam:
+  Name: Arduino Junior Certification Bundle [Student Kit + Junior Certification Exam]
   SKU: AKX00043
   Status: Active
   Release Date: 2023-05-24
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Make Your UNO Kit:
+make-your-uno-kit:
+  Name: Arduino Make Your UNO Kit
   SKU: AKX00037
   Status: Active
   Release Date: 2022-10-31
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR 485 Shield:
+mkr-485-shield:
+  Name: Arduino MKR 485 Shield
   SKU: ASX00004
   Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR ENV Shield:
+mkr-env-shield:
+  Name: Arduino MKR ENV Shield
   SKU: ASX00011
   Status: Active
   Release Date: 2021-01-04
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR GSM 1400:
+mkr-gsm-1400:
+  Name: Arduino MKR GSM 1400
   SKU: ABX00018
   Status: Discontinued
   Release Date: 2021-01-12
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR IMU Shield:
+mkr-imu-shield:
+  Name: Arduino MKR IMU Shield
   SKU: ASX00002
   Status: Active
   Release Date: 2021-01-04
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR IoT Carrier:
+mkr-iot-carrier:
+  Name: Arduino MKR IoT Carrier
   SKU: ABX00047
   Status: Active
   Release Date: 2021-02-25
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR MEM Shield:
+mkr-mem-shield:
+  Name: Arduino MKR MEM Shield
   SKU: ASX00008
   Status: Active
   Release Date: 2021-01-04
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR Motor Carrier:
+mkr-motor-carrier:
+  Name: Arduino MKR Motor Carrier
   SKU: ASX00003
   Status: Discontinued
   Release Date: 2021-01-06
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Plant Watering Kit:
+plant-watering-kit:
+  Name: Arduino Plant Watering Kit
   SKU: AKX00041
   Status: Discontinued
   Release Date: 2023-01-31
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR Proto Large Shield:
+mkr-proto-large-shield:
+  Name: Arduino MKR Proto Large Shield
   SKU: TSX00002
   Status: Active
   Release Date: 2021-01-04
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Plug and Make Kit:
+plug-and-make-kit:
+  Name: Arduino Plug and Make Kit
   SKU: AKX00069
   Status: Active
   Release Date: 2024-06-11
@@ -1244,37 +1372,41 @@ Arduino Plug and Make Kit:
   Replacement:
   Bulletin:
 
-Arduino MKR RGB Shield:
+mkr-rgb-shield:
+  Name: Arduino MKR RGB Shield
   SKU: ASX00010
   Status: Active
   Release Date: 2021-01-09
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR SD Proto Shield:
+mkr-sd-proto-shield:
+  Name: Arduino MKR SD Proto Shield
   SKU: TSX00004
   Status: Active
   Release Date: 2021-01-05
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino MKR Therm Shield:
+mkr-therm-shield:
+  Name: Arduino MKR Therm Shield
   SKU: ASX00012
   Status: Active
   Release Date: 2021-01-05
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Portenta H7:
+portenta-h7:
+  Name: Arduino Portenta H7
   SKU: ABX00042
   Status: Active
   Release Date: 2021-01-04
@@ -1284,7 +1416,8 @@ Arduino Portenta H7:
   Replacement:
   Bulletin:
 
-Arduino Portenta H7 Lite:
+portenta-h7-lite:
+  Name: Arduino Portenta H7 Lite
   SKU: ABX00045
   Status: Active
   Release Date: 2021-09-07
@@ -1294,17 +1427,19 @@ Arduino Portenta H7 Lite:
   Replacement:
   Bulletin:
 
-Arduino MKR2UNO Adapter:
+mkr2uno-adapter:
+  Name: Arduino MKR2UNO Adapter
   SKU: TSX00005
   Status: Active
   Release Date: 2021-01-04
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Portenta Hat Carrier:
+portenta-hat-carrier:
+  Name: Arduino Portenta Hat Carrier
   SKU: ASX00049
   Status: Active
   Release Date: 2023-10-11
@@ -1314,7 +1449,8 @@ Arduino Portenta Hat Carrier:
   Replacement:
   Bulletin:
 
-Arduino Portenta Machine Control:
+portenta-machine-control:
+  Name: Arduino Portenta Machine Control
   SKU: AKX00032
   Status: Active
   Release Date: 2021-05-10
@@ -1324,17 +1460,19 @@ Arduino Portenta Machine Control:
   Replacement:
   Bulletin:
 
-Arduino Nano Motor Carrier:
+nano-motor-carrier:
+  Name: Arduino Nano Motor Carrier
   SKU: ABX00041
   Status: Active
   Release Date: 2021-06-15
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Portenta Mid Carrier:
+portenta-mid-carrier:
+  Name: Arduino Portenta Mid Carrier
   SKU: ASX00055
   Status: Active
   Release Date: 2024-03-29
@@ -1344,27 +1482,30 @@ Arduino Portenta Mid Carrier:
   Replacement:
   Bulletin:
 
-Arduino Nicla Sense:
+nicla-sense:
+  Name: Arduino Nicla Sense
   SKU: ABX00050
   Status: Active
   Release Date: 2021-09-28
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nicla Sense (with headers):
+nicla-sense-with-headers:
+  Name: Arduino Nicla Sense (with headers)
   SKU: ABX00078
   Status: Active
   Release Date: 2024-02-15
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Portenta UWB Shield:
+portenta-uwb-shield:
+  Name: Arduino Portenta UWB Shield
   SKU: ASX00074
   Status: Active
   Release Date: 2025-06-19
@@ -1374,37 +1515,41 @@ Arduino Portenta UWB Shield:
   Replacement:
   Bulletin:
 
-Arduino Nicla Sense Env:
+nicla-sense-env:
+  Name: Arduino Nicla Sense Env
   SKU: ABX00089
   Status: Active
   Release Date: 2024-10-10
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nicla Sense ME:
+nicla-sense-me:
+  Name: Arduino Nicla Sense ME
   SKU: ABX00050
   Status: Active
   Release Date: 2021-09-28
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nicla Vision:
+nicla-vision:
+  Name: Arduino Nicla Vision
   SKU: ABX00051
   Status: Active
   Release Date: 2022-02-28
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Pro 4G GNSS Module [Global]:
+pro-4g-gnss-module-global:
+  Name: Arduino Pro 4G GNSS Module [Global]
   SKU: TPX00200
   Status: Active
   Release Date: 2024-03-21
@@ -1414,7 +1559,8 @@ Arduino Pro 4G GNSS Module [Global]:
   Replacement:
   Bulletin:
 
-Arduino Pro 4G Module [EMEA]:
+pro-4g-module-emea:
+  Name: Arduino Pro 4G Module [EMEA]
   SKU: TPX00201
   Status: Active
   Release Date: 2024-03-21
@@ -1424,47 +1570,52 @@ Arduino Pro 4G Module [EMEA]:
   Replacement:
   Bulletin:
 
-Arduino Pro Gateway:
+pro-gateway:
+  Name: Arduino Pro Gateway
   SKU: AKX00016
   Status: Discontinued
-  Release Date: #missing release date
+  Release Date:
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Nicla Voice:
+nicla-voice:
+  Name: Arduino Nicla Voice
   SKU: ABX00061
   Status: Active
   Release Date: 2023-01-30
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino PLC Starter Kit:
+plc-starter-kit:
+  Name: Arduino PLC Starter Kit
   SKU: AKX00051
   Status: Active
   Release Date: 2024-03-25
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Portenta Breakout:
+portenta-breakout:
+  Name: Arduino Portenta Breakout
   SKU: ASX00031
   Status: Active
   Release Date: 2021-03-05
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Proto Shield Rev3:
+proto-shield-rev3:
+  Name: Arduino Proto Shield Rev3
   SKU: TSX00083
   Status: Active
   Release Date: 2021-01-04
@@ -1474,7 +1625,8 @@ Arduino Proto Shield Rev3:
   Replacement:
   Bulletin:
 
-Arduino Replacements Pack:
+replacements-pack:
+  Name: Arduino Replacements Pack
   SKU: AKX00030
   Status: Active
   Release Date: 2021-01-04
@@ -1484,77 +1636,85 @@ Arduino Replacements Pack:
   Replacement:
   Bulletin:
 
-Arduino Portenta H7 Lite Connected:
+portenta-h7-lite-connected:
+  Name: Arduino Portenta H7 Lite Connected
   SKU: ABX00046
   Status: Active
   Release Date: 2021-10-07
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Portenta Proto Kit ME:
+portenta-proto-kit-me:
+  Name: Arduino Portenta Proto Kit ME
   SKU: AKX00073
   Status: Active
   Release Date: 2024-12-20
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Portenta Proto Kit VE:
+portenta-proto-kit-ve:
+  Name: Arduino Portenta Proto Kit VE
   SKU: AKX00074
   Status: Active
   Release Date: 2025-03-03
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Science Kit R3:
+science-kit-r3:
+  Name: Arduino Science Kit R3
   SKU: AKX00045
   Status: Discontinued
   Release Date: 2023-10-09
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino SIM:
+sim:
+  Name: Arduino SIM
   SKU: AAX00002
   Status: Discontinued
   Release Date:
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Portenta Vision Shield - Ethernet:
+portenta-vision-shield-ethernet:
+  Name: Arduino Portenta Vision Shield - Ethernet
   SKU: ASX00021
   Status: Active
   Release Date: 2021-01-04
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Portenta Vision Shield - LoRa:
+portenta-vision-shield-lora:
+  Name: Arduino Portenta Vision Shield - LoRa
   SKU: ASX00026
   Status: Active
   Release Date: 2021-01-11
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit - English:
+starter-kit-english:
+  Name: Arduino Starter Kit - English
   SKU: K000007
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -1564,7 +1724,8 @@ Arduino Starter Kit - English:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit - French:
+starter-kit-french:
+  Name: Arduino Starter Kit - French
   SKU: K020007
   Status: Declared End of Life
   Release Date: 2021-01-05
@@ -1574,7 +1735,8 @@ Arduino Starter Kit - French:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit - German:
+starter-kit-german:
+  Name: Arduino Starter Kit - German
   SKU: K040007
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -1584,7 +1746,8 @@ Arduino Starter Kit - German:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit - Italian:
+starter-kit-italian:
+  Name: Arduino Starter Kit - Italian
   SKU: K010007
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -1594,7 +1757,8 @@ Arduino Starter Kit - Italian:
   Replacement:
   Bulletin:
 
-Arduino Portenta X8:
+portenta-x8:
+  Name: Arduino Portenta X8
   SKU: ABX00049
   Status: Declared End of Life
   Release Date: 2021-05-28
@@ -1604,37 +1768,41 @@ Arduino Portenta X8:
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Science Kit Physics Lab:
+science-kit-physics-lab:
+  Name: Arduino Science Kit Physics Lab
   SKU: AKX00014
   Status: Discontinued
   Release Date: 2021-01-07
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Science Kit Physics Lab (Spanish):
+science-kit-physics-lab-spanish:
+  Name: Arduino Science Kit Physics Lab (Spanish)
   SKU: AKX30014
   Status: Discontinued
   Release Date: 2021-01-08
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Science Kit Physics Lab Rev2:
+science-kit-physics-lab-rev2:
+  Name: Arduino Science Kit Physics Lab Rev2
   SKU: AKX00038
   Status: Discontinued
   Release Date: 2022-08-08
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit - Spanish:
+starter-kit-spanish:
+  Name: Arduino Starter Kit - Spanish
   SKU: K030007
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -1644,17 +1812,19 @@ Arduino Starter Kit - Spanish:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit Classroom Pack - Arabic:
+starter-kit-classroom-pack-arabic:
+  Name: Arduino Starter Kit Classroom Pack - Arabic
   SKU: K050007-6P
   Status: Declared End of Life
-  Release Date: #missing release date
+  Release Date:
   End of Life: 2025-12-09
   End of Sales: 2028-03-01
   End of Support: 2030-03-01
   Replacement:
   Bulletin:
 
-Arduino Starter Kit Classroom Pack - English:
+starter-kit-classroom-pack-english:
+  Name: Arduino Starter Kit Classroom Pack - English
   SKU: K000007-6P
   Status: Declared End of Life
   Release Date: 2021-01-05
@@ -1664,7 +1834,8 @@ Arduino Starter Kit Classroom Pack - English:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit Classroom Pack - French:
+starter-kit-classroom-pack-french:
+  Name: Arduino Starter Kit Classroom Pack - French
   SKU: K020007-6P
   Status: Declared End of Life
   Release Date: 2021-06-28
@@ -1674,7 +1845,8 @@ Arduino Starter Kit Classroom Pack - French:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit Classroom Pack - German:
+starter-kit-classroom-pack-german:
+  Name: Arduino Starter Kit Classroom Pack - German
   SKU: K040007-6P
   Status: Declared End of Life
   Release Date: 2021-09-03
@@ -1684,7 +1856,8 @@ Arduino Starter Kit Classroom Pack - German:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit Classroom Pack - Italian:
+starter-kit-classroom-pack-italian:
+  Name: Arduino Starter Kit Classroom Pack - Italian
   SKU: K010007-6P
   Status: Declared End of Life
   Release Date: 2021-01-13
@@ -1694,7 +1867,8 @@ Arduino Starter Kit Classroom Pack - Italian:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit Classroom Pack - Spanish:
+starter-kit-classroom-pack-spanish:
+  Name: Arduino Starter Kit Classroom Pack - Spanish
   SKU: K030007-6P
   Status: Declared End of Life
   Release Date: 2021-01-08
@@ -1704,7 +1878,8 @@ Arduino Starter Kit Classroom Pack - Spanish:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit R4:
+starter-kit-r4:
+  Name: Arduino Starter Kit R4
   SKU: K000007_R4
   Status: Active
   Release Date: 2025-10-22
@@ -1714,7 +1889,8 @@ Arduino Starter Kit R4:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit R4 Classroom Pack:
+starter-kit-r4-classroom-pack:
+  Name: Arduino Starter Kit R4 Classroom Pack
   SKU: K000007_R4-6P
   Status: Active
   Release Date: 2025-12-22
@@ -1724,17 +1900,19 @@ Arduino Starter Kit R4 Classroom Pack:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit - Arabic:
+starter-kit-arabic:
+  Name: Arduino Starter Kit - Arabic
   SKU: K050007
   Status: Active
   Release Date: 2021-01-11
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Student Kit (English):
+student-kit-english:
+  Name: Arduino Student Kit (English)
   SKU: AKX00025
   Status: Declared End of Life
   Release Date: 2021-01-04
@@ -1744,47 +1922,52 @@ Arduino Student Kit (English):
   Replacement:
   Bulletin: bulletin-001
 
-Arduino Starter Kit - Chinese:
+starter-kit-chinese:
+  Name: Arduino Starter Kit - Chinese
   SKU: K110007
   Status: Active
   Release Date: 2021-01-26
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit - Japanese:
+starter-kit-japanese:
+  Name: Arduino Starter Kit - Japanese
   SKU: K090007
   Status: Active
   Release Date: 2021-01-19
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Starter Kit - Korean:
+starter-kit-korean:
+  Name: Arduino Starter Kit - Korean
   SKU: K120007
   Status: Active
   Release Date: 2021-01-06
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino UNO Mini Limited Edition:
+uno-mini-limited-edition:
+  Name: Arduino UNO Mini Limited Edition
   SKU: ABX00062
   Status: Discontinued
   Release Date: 2021-11-26
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino UNO Q (2GB):
+uno-q-2gb:
+  Name: Arduino UNO Q (2GB)
   SKU: ABX00162
   Status: Active
   Release Date: 2025-10-10
@@ -1794,7 +1977,8 @@ Arduino UNO Q (2GB):
   Replacement:
   Bulletin:
 
-Arduino UNO Q (4GB):
+uno-q-4gb:
+  Name: Arduino UNO Q (4GB)
   SKU: ABX00173
   Status: Active
   Release Date: 2026-01-09
@@ -1804,7 +1988,8 @@ Arduino UNO Q (4GB):
   Replacement:
   Bulletin:
 
-Arduino UNO R3:
+uno-r3:
+  Name: Arduino UNO R3
   SKU: A000066
   Status: Active
   Release Date: 2021-01-04
@@ -1814,7 +1999,8 @@ Arduino UNO R3:
   Replacement:
   Bulletin:
 
-Arduino UNO R3 (for China):
+uno-r3-for-china:
+  Name: Arduino UNO R3 (for China)
   SKU: A000066_CN
   Status: Active
   Release Date:
@@ -1824,7 +2010,8 @@ Arduino UNO R3 (for China):
   Replacement:
   Bulletin:
 
-Arduino UNO R3 SMD:
+uno-r3-smd:
+  Name: Arduino UNO R3 SMD
   SKU: A000073
   Status: Active
   Release Date: 2021-01-04
@@ -1834,7 +2021,8 @@ Arduino UNO R3 SMD:
   Replacement:
   Bulletin:
 
-Arduino UNO R4 Minima:
+uno-r4-minima:
+  Name: Arduino UNO R4 Minima
   SKU: ABX00080
   Status: Active
   Release Date: 2023-05-29
@@ -1844,17 +2032,19 @@ Arduino UNO R4 Minima:
   Replacement:
   Bulletin:
 
-Arduino UNO R4 Minima (for China):
+uno-r4-minima-for-china:
+  Name: Arduino UNO R4 Minima (for China)
   SKU: ABX00080_CN
   Status: Active
-  Release Date: #missing release date
+  Release Date:
   End of Life:
   End of Sales:
   End of Support:
   Replacement:
   Bulletin:
 
-Arduino UNO R4 WiFi:
+uno-r4-wifi:
+  Name: Arduino UNO R4 WiFi
   SKU: ABX00087
   Status: Active
   Release Date: 2023-06-20
@@ -1864,7 +2054,8 @@ Arduino UNO R4 WiFi:
   Replacement:
   Bulletin:
 
-Arduino UNO SPE Shield:
+uno-spe-shield:
+  Name: Arduino UNO SPE Shield
   SKU: ASX00073
   Status: Active
   Release Date: 2025-06-06
@@ -1874,7 +2065,8 @@ Arduino UNO SPE Shield:
   Replacement:
   Bulletin:
 
-Arduino UNO WiFi R4 (for China):
+uno-wifi-r4-for-china:
+  Name: Arduino UNO WiFi R4 (for China)
   SKU: ABX00087_CN
   Status: Active
   Release Date:
@@ -1884,17 +2076,19 @@ Arduino UNO WiFi R4 (for China):
   Replacement:
   Bulletin:
 
-Arduino UNO Breakout Carrier:
+uno-breakout-carrier:
+  Name: Arduino UNO Breakout Carrier
   SKU: ASX00085
   Status: Active
   Release Date: 2026-04-14
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino UNO एक R4 Minima:
+uno-ek-r4-minima:
+  Name: Arduino UNO एक R4 Minima
   SKU: ABX00080_IN
   Status: Active
   Release Date:
@@ -1904,7 +2098,8 @@ Arduino UNO एक R4 Minima:
   Replacement:
   Bulletin:
 
-Arduino UNO एक R4 WiFi:
+uno-ek-r4-wifi:
+  Name: Arduino UNO एक R4 WiFi
   SKU: ABX00087_IN
   Status: Active
   Release Date:
@@ -1914,7 +2109,8 @@ Arduino UNO एक R4 WiFi:
   Replacement:
   Bulletin:
 
-Arduino USB-C Cable (Full 24-Pin):
+usb-c-cable-full-24-pin:
+  Name: Arduino USB-C Cable (Full 24-Pin)
   SKU: TPX00243
   Status: Active
   Release Date: 2026-04-13
@@ -1924,7 +2120,8 @@ Arduino USB-C Cable (Full 24-Pin):
   Replacement:
   Bulletin:
 
-Arduino USB-C Hub (8 in 1):
+usb-c-hub-8-in-1:
+  Name: Arduino USB-C Hub (8 in 1)
   SKU: TPX00241
   Status: Active
   Release Date: 2026-04-17
@@ -1934,7 +2131,8 @@ Arduino USB-C Hub (8 in 1):
   Replacement:
   Bulletin:
 
-Arduino USB-C Power Supply (45W):
+usb-c-power-supply-45w:
+  Name: Arduino USB-C Power Supply (45W)
   SKU: TPX00242
   Status: Active
   Release Date: 2026-04-13
@@ -1944,17 +2142,19 @@ Arduino USB-C Power Supply (45W):
   Replacement:
   Bulletin:
 
-Arduino Vidor 4000:
+vidor-4000:
+  Name: Arduino Vidor 4000
   SKU: ABX00022
   Status: Discontinued
   Release Date: 2021-01-04
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino WisGate Edge Lite 2 [EU]:
+wisgate-edge-lite-2-eu:
+  Name: Arduino WisGate Edge Lite 2 [EU]
   SKU: TPX00098
   Status: Active
   Release Date: 2022-08-26
@@ -1964,7 +2164,8 @@ Arduino WisGate Edge Lite 2 [EU]:
   Replacement:
   Bulletin:
 
-Arduino WisGate Edge Pro [EU]:
+wisgate-edge-pro-eu:
+  Name: Arduino WisGate Edge Pro [EU]
   SKU: TPX00095
   Status: Active
   Release Date: 2022-08-31
@@ -1974,57 +2175,63 @@ Arduino WisGate Edge Pro [EU]:
   Replacement:
   Bulletin:
 
-Arduino UNO Media Carrier:
+uno-media-carrier:
+  Name: Arduino UNO Media Carrier
   SKU: ASX00083
   Status: Active
   Release Date:
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Workshop Kit:
+workshop-kit:
+  Name: Arduino Workshop Kit
   SKU: [AKX00013, AKX00019]
   Status: Active
   Release Date: 2021-01-04
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino YUN Rev2:
+yun-rev2:
+  Name: Arduino YUN Rev2
   SKU: ABX00020
   Status: Discontinued
   Release Date: 2021-01-07
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Cyberon Runtime Tinker Licence for Cortex M0:
+cyberon-runtime-tinker-licence-for-cortex-m0:
+  Name: Cyberon Runtime Tinker Licence for Cortex M0
   SKU: AVX00032
   Status: Active
   Release Date: 2023-08-12
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Cyberon Runtime Tinker Licence for Cortex M4/M7:
+cyberon-runtime-tinker-licence-for-cortex-m4-m7:
+  Name: Cyberon Runtime Tinker Licence for Cortex M4/M7
   SKU: AVX00031
   Status: Active
   Release Date: 2023-02-17
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-"Edge AI/ML: Vision and Speech Kit":
+edge-ai-ml-vision-and-speech-kit:
+  Name: 'Edge AI/ML: Vision and Speech Kit'
   SKU: AKX00058
   Status: Declared End of Life
   Release Date: 2023-12-18
@@ -2034,7 +2241,8 @@ Cyberon Runtime Tinker Licence for Cortex M4/M7:
   Replacement:
   Bulletin: bulletin-001
 
-Industrial Automation and Lighting Kit:
+industrial-automation-and-lighting-kit:
+  Name: Industrial Automation and Lighting Kit
   SKU: AKX00056
   Status: Declared End of Life
   Release Date: 2023-12-18
@@ -2044,7 +2252,9 @@ Industrial Automation and Lighting Kit:
   Replacement:
   Bulletin: bulletin-001
 
-Nano Motor Carrier:
+# Same key as the entry for "Arduino Nano Motor Carrier": check which of the two is right before release
+nano-motor-carrier-2:
+  Name: Nano Motor Carrier
   SKU: ABX00041
   Status: Declared End of Life
   Release Date: 2021-06-15
@@ -2054,17 +2264,19 @@ Nano Motor Carrier:
   Replacement:
   Bulletin: bulletin-001
 
-PLC IDE Key:
+plc-ide-key:
+  Name: PLC IDE Key
   SKU: AVX00070
   Status: Active
-  Release Date: #missing release date
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  Release Date:
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Smart Industry OEM Condition Monitoring Kit:
+smart-industry-oem-condition-monitoring-kit:
+  Name: Smart Industry OEM Condition Monitoring Kit
   SKU: AKX00057
   Status: Declared End of Life
   Release Date: 2023-12-18
@@ -2074,7 +2286,8 @@ Smart Industry OEM Condition Monitoring Kit:
   Replacement:
   Bulletin: bulletin-001
 
-Smart Industry Predictive Maintenance Kit:
+smart-industry-predictive-maintenance-kit:
+  Name: Smart Industry Predictive Maintenance Kit
   SKU: AKX00059
   Status: Declared End of Life
   Release Date: 2023-12-18
@@ -2084,7 +2297,8 @@ Smart Industry Predictive Maintenance Kit:
   Replacement:
   Bulletin: bulletin-001
 
-Smart Industry Prototyping Kit:
+smart-industry-prototyping-kit:
+  Name: Smart Industry Prototyping Kit
   SKU: AKX00060
   Status: Declared End of Life
   Release Date: 2023-12-18
@@ -2094,32 +2308,35 @@ Smart Industry Prototyping Kit:
   Replacement:
   Bulletin: bulletin-001
 
-Tinkerkit Braccio Rescue Kit:
+tinkerkit-braccio-rescue-kit:
+  Name: Tinkerkit Braccio Rescue Kit
   SKU: T050001
   Status: Discontinued
   Release Date: 2021-01-18
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
 
-Tinkerkit Braccio Robot:
+tinkerkit-braccio-robot:
+  Name: Tinkerkit Braccio Robot
   SKU: T050000
   Status: Active
   Release Date: 2021-01-04
-  End of Life: 
-  End of Sales: 
-  End of Support: 
+  End of Life:
+  End of Sales:
+  End of Support:
   Replacement:
   Bulletin:
 
-Arduino Pro Gateway for LoRa - Outdoor version:
+pro-gateway-for-lora-outdoor-version:
+  Name: Arduino Pro Gateway for LoRa - Outdoor version
   SKU: AKX00024
   Status: Discontinued
-  Release Date: #missing release date
+  Release Date:
   End of Life:
   End of Sales:
-  End of Support: #missing end of support date
+  End of Support:
   Replacement:
   Bulletin:
