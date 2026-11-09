@@ -5,9 +5,9 @@ tags: [Arduino Cloud, LoRaWAN, The Things Stack]
 author: Karl Söderby & Arduino Team
 ---
 
-[The Things Stack](https://www.thethingsindustries.com/stack/) is the LoRaWAN® network server Arduino Cloud uses to receive data from LoRaWAN® devices. Rather than a standalone integration you configure separately, it is set up as part of registering a LoRaWAN® device — the device joins a The Things Stack application, and its uplinks are forwarded into Arduino Cloud as Cloud Variable updates.
+[The Things Stack](https://www.thethingsindustries.com/stack/) (TTS) is the LoRaWAN® network server Arduino Cloud uses to receive data from LoRaWAN® devices. It is connected to thousands of public LoRa® gateways. Rather than a standalone integration you configure separately, it is set up as part of adding a LoRaWAN® device: when you configure a device such as the MKR WAN 1300/1310 in Arduino Cloud, it is automatically registered on The Things Stack platform.
 
-Because the configuration (application, device registration, and the webhook that links the two) happens during device setup, the full walkthrough lives with the device documentation.
+Because this registration happens during device setup, the full walkthrough lives with the device documentation.
 
 ## Next Steps
 

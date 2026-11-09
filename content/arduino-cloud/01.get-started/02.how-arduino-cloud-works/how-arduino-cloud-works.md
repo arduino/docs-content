@@ -11,13 +11,13 @@ Before building anything, it helps to know the handful of concepts every Arduino
 
 | Concept | What it is |
 |---|---|
-| **Device** | A board (or a Python/JavaScript client) registered in Arduino Cloud, identified by a **Device ID** and a **Secret Key**. See [Devices](/arduino-cloud/devices/devices-overview). |
+| **Device** | A board (or a Python/JavaScript client) registered in Arduino Cloud and identified by a unique **Device ID**. Boards with a secure element authenticate with a certificate; other devices use a **Secret Key**. See [Devices](/arduino-cloud/devices/devices-overview). |
 | **Thing** | The logical model of one project: a named container that holds your variables and links to a device. See [Things](/arduino-cloud/things-data/things). |
 | **Cloud Variable** | A single value (temperature, an on/off state, a location) that stays in sync between the device and the cloud. See [Cloud Variables](/arduino-cloud/things-data/cloud-variables). |
 | **Sketch** | The program running on the board. For Arduino/C++ devices it's generated from your Thing's variables. See [Sketchbook and Sketches](/arduino-cloud/sketches-editor/sketchbook-and-sketches). |
 | **Dashboard** | A visual interface built from widgets, showing and controlling your variables. See [Dashboards](/arduino-cloud/dashboards/dashboards). |
 | **Widget** | One control or display element on a dashboard (a gauge, switch, chart, map), bound to a variable. See [Add and Link Widgets](/arduino-cloud/dashboards/add-link-widgets). |
-| **Trigger** | An automation that runs an action (email, push, webhook) when a condition is met. See [Triggers and Alerts](/arduino-cloud/automations/triggers-and-alerts). |
+| **Trigger** | An automation that sends an email or push notification when a condition is met. See [Triggers and Alerts](/arduino-cloud/automations/triggers-and-alerts). |
 | **Space** | The account context that owns your resources — a personal space, or a shared space for a team or classroom. See [Spaces](/arduino-cloud/spaces-plans-account/spaces). |
 
 A Thing holds the Cloud Variables for one project:
@@ -30,16 +30,13 @@ A dashboard widget is bound to one of those variables:
 
 ## How Data Flows
 
-A Cloud Variable is the unit of exchange. When it changes on either side, the platform propagates the new value to the other side and to any open dashboard.
+A Cloud Variable is the unit of exchange. When it changes on either side, the platform propagates the new value to the other side and to any open dashboard:
 
-```mermaid
-flowchart LR
-  Sensor[Sensor / Actuator] --> Sketch
-  Sketch -->|ArduinoCloud.update| Broker[(Arduino Cloud<br/>sync backend)]
-  Broker --> Sketch
-  Broker <-->|real-time| Dash[Dashboard & IoT Remote app]
-  Broker <-->|REST / SDK| API[API & CLI clients]
-```
+- **Device ↔ Arduino Cloud** — the sketch reads sensors and drives actuators; `ArduinoCloud.update()` sends changed values up and applies incoming changes.
+- **Arduino Cloud ↔ dashboards and the IoT Remote app** — values are shown and controlled in real time, so you can both monitor what the device sends and interact with it.
+- **Arduino Cloud ↔ API and CLI clients** — the REST API, SDKs and CLI read and write the same variables programmatically.
+
+Each variable's permission and update policy decide the direction and frequency of that flow:
 
 - A **read** variable is updated by the device (a sensor reading) and displayed in dashboards.
 - A **read/write** variable can be changed from either side — the device or a dashboard widget — and the change is mirrored back.

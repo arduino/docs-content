@@ -59,6 +59,72 @@ Non-data widgets for organizing a dashboard.
 
 </Alert>
 
+## Widget Code Examples
+
+Each widget is linked to a Cloud Variable declared in your Thing's generated `thingProperties.h`. Variable names below are examples.
+
+### Basic Widgets
+
+Most widgets need nothing beyond normal variable use. Display widgets (**Value**, **Gauge**, **Percentage**, **Chart**, **LED**, **Status**) show whatever the sketch assigns, and the **Advanced Chart** plots up to five such variables at once. Control widgets (**Switch**, **Push Button**, **Slider**, **Stepper**, **Value Selector**, **Value Dropdown**) update the variable, which the sketch reads. The Push Button is `true` only while held, and the Stepper changes the value in steps of 1.
+
+```arduino
+gaugeVariable = analogRead(A0);          // Value, Gauge, Percentage, Chart
+digitalWrite(ledPin, switchVariable);    // Switch, Push Button
+analogWrite(ledPin, sliderVariable);     // Slider, Stepper
+if (valueSelector == 0) { /* ... */ }    // Value Selector/Dropdown (int or String)
+```
+
+### Messenger
+
+Assign a `String` to send it to the widget, or clear the widget window from the sketch:
+
+```arduino
+stringVariable = "This is a string";
+stringVariable = PropertyActions::CLEAR;
+```
+
+<Alert type="info">
+
+For ArduinoIoTCloud library versions below `1.7`, use `stringVariable = "\x1b";` to clear the widget window.
+
+</Alert>
+
+### Color, Colored Light, and Dimmed Light
+
+Color values are stored as HSB. Read them as RGB through `getValue()`, and check the switch and brightness on lights separately (see [Cloud Variable Types](/arduino-cloud/reference/cloud-variable-types#color-and-colored-light)):
+
+```arduino
+uint8_t r, g, b;
+rgbVariable.getValue().getRGB(r, g, b);
+
+uint8_t brightness = map(dimmedVariable.getBrightness(), 0, 100, 0, 255);
+analogWrite(6, dimmedVariable.getSwitch() ? brightness : 0);
+```
+
+### Map and Advanced Map
+
+Both are linked to a **Location** variable. The Advanced Map adds each new location to the map and draws a path between them.
+
+```arduino
+locationVariable = Location(51.5074, 0.1278);  // latitude, longitude
+```
+
+### Scheduler
+
+Check whether the schedule is currently active:
+
+```arduino
+if (scheduleVariable.isActive()) { /* ... */ }
+```
+
+### Time Picker
+
+Linked to a **CloudTime** variable. `ArduinoCloud.getLocalTime()` returns the Unix timestamp (in seconds) of the local time zone:
+
+```arduino
+cloudTimeVariable = ArduinoCloud.getLocalTime();
+```
+
 ## Next Steps
 
 - [Dashboards](/arduino-cloud/dashboards/dashboards)

@@ -13,17 +13,34 @@ Node-RED integration requires a paid Arduino Cloud plan.
 
 </Alert>
 
+## Requirements
+
+- An [Arduino Cloud](https://app.arduino.cc/) account and a [Cloud-compatible board](/arduino-cloud/reference/supported-boards-capabilities).
+- [Arduino Create Agent](https://github.com/arduino/arduino-create-agent).
+- [Node.js](https://nodejs.org/en/) (check with `node --version`) and [Node-RED](https://nodered.org/).
+
 ## The Node-RED Editor
 
-Node-RED runs locally (`npm install -g --unsafe-perm node-red`, then `node-red` to start it, opening at `http://localhost:1880`). Its editor has a header with the **Deploy** button, a **palette** of nodes on the left, the **workspace** in the middle where flows are wired together, and a **sidebar** on the right for node configuration and debugging.
+Node-RED runs locally. Install and start it from a terminal (omit `sudo` on Windows), then open `http://localhost:1880`. See the [Node-RED installation page](https://nodered.org/docs/getting-started/local) for details.
+
+```shell
+sudo npm install -g --unsafe-perm node-red
+node-red
+```
+
+The editor has a header with the **Deploy** button and main menu, a **palette** of nodes on the left, the **workspace** in the middle where flows are wired together, and a **sidebar** on the right for node configuration and debugging.
 
 ![The Node-RED editor.](assets/nodered-01.png)
 
-A flow is built by dragging nodes from the palette into the workspace and wiring them together — an `inject` node (to trigger a message) connected to a `debug` node (to print it to the sidebar console) is the simplest possible flow.
+To try a first flow:
+
+1. Drag an **inject** node into the workspace, double-click it, set `msg.payload` to **string**, enter a message, and click **Done**.
+2. Drag a **debug** node into the workspace and wire the inject node to it.
+3. Open the debug tab in the sidebar, click **Deploy**, then click the inject node's button. The message is printed in the sidebar console.
 
 ## Installing the Arduino Cloud Nodes
 
-The palette's default nodes don't include Arduino Cloud support — install it via the palette manager (menu → **Manage palette** → **Install** tab), searching for **Arduino** and installing `@arduino/node-red-contrib-arduino-iot-cloud`:
+The default palette doesn't include Arduino Cloud support. Open the menu > **Manage palette** > **Install** tab, search for **Arduino**, and install `@arduino/node-red-contrib-arduino-iot-cloud`:
 
 ![Installing the Arduino Cloud node package via the palette manager.](assets/nodered-03.gif)
 
@@ -33,19 +50,26 @@ Search the palette manager (or npm) for the current package name/version before 
 
 </Alert>
 
-This adds five Arduino Cloud nodes to the palette: **property in**, **property out**, **historic**, **periodic**, and **inject**.
+This adds five Arduino Cloud nodes to the palette: **property in**, **property out**, **historic**, **periodic**, and **inject**. Hover over a node to see its description.
 
 ## Connecting a Flow to a Thing
 
-A **property out** node reads a Cloud Variable's value into a flow. Its configuration needs an Arduino connection, authenticated with a Client ID/Secret from [API Keys](/arduino-cloud/apis-cli/rest-api-sdks), and then a specific Thing + variable to read from:
+A **property out** node reads a Cloud Variable's value into a flow:
 
-![Selecting a Thing and variable to pull data from.](assets/nodered-05.gif)
+1. Create an API key in [API Keys](https://app.arduino.cc/api-keys) and store the Client ID and Client Secret safely. See [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
+2. Add a **property out** node, double-click it, and select **Add new Arduino-connection**.
+3. Click the pen icon, enter the Client ID and Client Secret, and click **Add**.
+4. Select the Thing and variable to read, for example a `humidity` variable.
 
-Once connected, an `inject` node wired into the **property out** node, with a `debug` node on its output, prints the Cloud Variable's live value into the Node-RED console — the basic pattern every more complex flow builds on.
+    ![Selecting a Thing and variable to pull data from.](assets/nodered-05.gif)
+
+5. Wire an **inject** node into the **property out** node and a **debug** node to its output, then click **Deploy**. The variable's live values are printed in the console.
+
+This is the basic pattern every more complex flow builds on.
 
 ## Processing Values With a Function Node
 
-A **function** node runs custom JavaScript against each message passing through the flow — useful for turning a raw stream of values into discrete events. For example, to only forward a value the first time it crosses above 60 (and again when it drops back below):
+A **function** node runs custom JavaScript against each message passing through the flow, which is useful for turning a raw stream of values into discrete events. Add this code in the node's **On Message** tab to only forward a value the first time it crosses above 60 (and again when it drops back below):
 
 ```js
 let data = msg.payload;
@@ -70,7 +94,7 @@ Wired between the **property out** node and a debug/email/notification node, thi
 
 ## Example: Email Alerts From a Sensor Reading
 
-For a complete walkthrough — a Thing exposing a humidity variable, a **property out** node pulling it into Node-RED, a function node filtering it to threshold-crossing events, and an email node sending a notification — see [Send Email Alerts With Node-RED](/arduino-cloud/application-notes/send-email-node-red).
+To email the filtered values, install `node-red-node-email` via **Manage palette** and replace the debug node with an **email** node configured with the recipient and sender details. For a complete walkthrough, see [Send Email Alerts With Node-RED](/arduino-cloud/application-notes/send-email-node-red).
 
 ## Next Steps
 

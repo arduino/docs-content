@@ -3,6 +3,8 @@ title: Python
 description: Connect a Python (CPython) client — on a Raspberry Pi or PC — to Arduino Cloud with arduino-iot-cloud-py.
 tags: [Arduino Cloud, Python, Device Libraries]
 author: Karl Söderby & Arduino Team
+libraries: 
+  - name: Arduino IoT Cloud Python
 ---
 
 Python (CPython) devices — a Raspberry Pi, a PC, a server — connect to Arduino Cloud as a [manual (generic) device](/arduino-cloud/devices/add-manual-device), using the same [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) library that also supports [MicroPython](/arduino-cloud/device-libraries/micropython). It syncs Cloud Variables over MQTT; it does not manage account resources — for that, see the [REST API SDKs](/arduino-cloud/apis-cli/rest-api-sdks).

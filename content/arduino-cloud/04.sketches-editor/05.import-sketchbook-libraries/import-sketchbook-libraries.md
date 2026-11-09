@@ -19,7 +19,7 @@ If your sketches and libraries currently live only on your computer (in the offl
 2. Compress it to a `.zip` (not another archive format); you should get an `Arduino.zip`.
 3. In the Cloud Editor, click the **Create** button in the top-right corner, select **Import local file**, and follow the instructions to upload your zip (or a single sketch).
 
-A maximum of 100 MB is allowed per upload. Files in a `hardware` folder are ignored, so exclude them from the zip. Sketches or custom libraries with names that already exist online will prompt to overwrite rather than silently replacing — proceed with caution.
+A maximum of 100 MB is allowed per upload. Files in a `hardware` folder are ignored, so exclude them from the zip. If you already have sketches with the same name in the Cloud Editor, those sketches fail to import, to avoid conflicts.
 
 ### Importing a Custom Library
 

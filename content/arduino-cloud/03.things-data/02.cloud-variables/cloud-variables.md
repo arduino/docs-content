@@ -61,7 +61,7 @@ void onButtonSwitchChange() {
 }
 ```
 
-See [Arduino C++ Library](/arduino-cloud/device-libraries/arduino-cpp) for more on callbacks.
+See [Arduino C++ Library](/arduino-cloud/device-libraries/arduino-cpp) for more on callbacks. For examples using basic, Colored Light, and Television variables, see [Cloud Variable Types](/arduino-cloud/reference/cloud-variable-types#examples).
 
 <Alert type="note">
 

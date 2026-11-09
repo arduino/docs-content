@@ -15,20 +15,22 @@ Plan limits, such as the number of Things, data retention and compile time, chan
 
 ## Feature Comparison
 
-| Feature | Free | Maker | Maker Plus | Business / Enterprise |
-|---|---|---|---|---|
-| Things | Limited | More | More | Scales with the plan |
-| Historical data retention | Shortest | Extended | Longer | Longest |
-| Over-the-air (OTA) updates | — | Yes | Yes | Yes |
-| Triggers / alerts | Limited | Yes | Yes | Yes |
-| Advanced widgets (Advanced Map/Chart, Image Map) | — | Yes | Yes | Yes |
-| Dashboard sharing | Limited | Yes | Yes | Yes + RBAC |
-| API access | Limited | Yes | Yes | Yes |
-| Compile/upload time | Limited/day | Extended | Unlimited | Unlimited |
-| Node-RED integration | — | Yes | Yes | Yes |
-| Fleet management / RBAC | — | — | — | Yes |
-| Custom branding / white labeling | — | — | — | Yes |
-| Data export (e.g. AWS S3) | — | — | Varies | Yes |
+| Feature | Free | Maker | Team / Enterprise |
+|---|---|---|---|
+| Things | Limited | More | Scales with the plan |
+| Historical data retention | Shortest | Extended | Longest |
+| Over-the-air (OTA) updates | See [plans page](https://cloud.arduino.cc/plans) | Yes | Yes |
+| Triggers / alerts | — | Yes, with a daily notification quota | Yes |
+| Advanced widgets (Advanced Map/Chart, Image Map) | — | Yes | Yes |
+| Dashboard sharing | — | Yes | Yes + RBAC |
+| API access | Limited | Yes | Yes |
+| Compilations | Limited per day | Unlimited | Unlimited |
+| Node-RED integration | — | Yes | Yes |
+| Fleet management / RBAC | — | — | Yes |
+| Custom branding / white labeling | — | — | Yes |
+| Data export (e.g. AWS S3) | — | — | Yes |
+
+School plans add shared spaces with role permissions and classroom tools. See [Arduino Cloud for Education](/arduino-cloud/education).
 
 <Alert type="note">
 

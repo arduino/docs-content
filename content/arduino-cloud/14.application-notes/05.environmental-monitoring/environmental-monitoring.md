@@ -3,6 +3,7 @@ title: Environmental Monitoring Dashboard
 description: Collect temperature, humidity, pressure, and illuminance from an MKR ENV Shield and display it live on an Arduino Cloud dashboard.
 tags: [Arduino Cloud, Environmental Data, Sensors, Tutorial]
 author: Karl Söderby & Arduino Team
+featuredImage: 'cloud'
 ---
 
 In this project you'll combine an [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) with an [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield) to record temperature, humidity, pressure, and illuminance, then stream it live to an Arduino Cloud dashboard. It's a compact, self-contained environmental logger you can read from anywhere.

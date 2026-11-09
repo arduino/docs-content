@@ -23,13 +23,27 @@ With a compatible board connected over USB, **Use Template** provisions everythi
 
 <Alert type="note">
 
-A free-plan account is limited to two Things at a time — if you're already at that limit, **Use Template** is disabled until you delete an existing Thing or upgrade the plan.
+The Free plan limits how many Things you can have — if you're already at that limit, **Use Template** is disabled until you delete an existing Thing or upgrade the plan. See the [Plans and Feature Matrix](/arduino-cloud/reference/plans-feature-matrix).
 
 </Alert>
 
 ## Editing an Applied Template
 
 Once applied, a template's Dashboard and Thing are regular, fully editable resources — add or remove widgets from the Dashboard's Edit mode, or open the matching Thing (same name as the template) to add variables or change its sketch.
+
+## Templates in the Classroom
+
+Templates give students a hands-on way to explore sensor data, cloud computing, and IoT across subjects:
+
+| Subject | Templates |
+|---|---|
+| Physics | [Thermodynamics](https://app.arduino.cc/templates/ventilation), [Pressure, temperature and light](https://app.arduino.cc/templates/humidity-and-temperature) |
+| Chemistry | [Soil properties](https://app.arduino.cc/templates/soil-moist), [Monitoring indoor air quality](https://app.arduino.cc/templates/thermostat-control) |
+| Biology | [Photosynthesis and respiration](https://app.arduino.cc/templates/photosynthesis), [Studying indoor plant growth](https://app.arduino.cc/templates/natural-and-artificial-light), [Weather Stations](https://app.arduino.cc/templates/personal-weather-station) |
+| Computer Science | [Remote LED Control](https://app.arduino.cc/templates/cloud-blink), [Greenhouse Monitoring](https://app.arduino.cc/templates/watering), [Introducing Sensor technology](https://app.arduino.cc/templates/remote-controlled-lights), [Basics of structuring data](https://app.arduino.cc/templates/sparkfun-weather-station), [Loops, Pointers, Arrays and Functions](https://app.arduino.cc/templates/puzzle-box) |
+| Arts and Design | [Fun and Games](https://app.arduino.cc/templates/pavlovs-cat), [UI Design of industrial systems](https://app.arduino.cc/templates/smart-garden), [Ideation and prototyping easy to use home projects](https://app.arduino.cc/templates/plant-watering-kit), [Emotional expressions through technology](https://app.arduino.cc/templates/thinking-about-you) |
+
+For classes or workshops, set up a [shared space](/arduino-cloud/education/shared-spaces) and add every participant's individual account to it.
 
 ## Next Steps
 

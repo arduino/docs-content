@@ -206,6 +206,58 @@ The [Amazon Alexa integration](/arduino-cloud/integrations/amazon-alexa) support
 | Switch | `bool` |
 | Temperature Sensor | `float` |
 
+## Examples
+
+The following snippets show how each type is used in the generated sketch. Variables are declared in your Thing's `thingProperties.h`; the names are examples.
+
+### Basic Types
+
+Basic types behave like plain C++ variables. Assign a value to send it to the Cloud, and read the variable to get the latest value set from a dashboard:
+
+```arduino
+void loop() {
+  ArduinoCloud.update();
+  sensorVal = analogRead(A0);                             // int
+  digitalWrite(LED_BUILTIN, buttonSwitch);                // bool
+  messageString = buttonSwitch ? "LED ON!" : "LED OFF!";  // String
+}
+```
+
+### Colored Light
+
+A `CloudColoredLight` variable (here `cLight`) gets an auto-generated `onCLightChange()` callback that runs whenever the value is updated in the Cloud. Convert the color to RGB and check the switch separately, for example to drive an RGB LED or the MKR RGB Shield:
+
+```arduino
+void onCLightChange() {
+  uint8_t r, g, b;
+  cLight.getValue().getRGB(r, g, b);
+  if (cLight.getSwitch()) {
+    // light on: output r, g, b
+  } else {
+    // light off
+  }
+}
+```
+
+### Television
+
+A `CloudTelevision` variable (here `tv`) gets an auto-generated `onTvChange()` callback. Since one callback covers every property, compare each getter with the value from the previous call to find what changed. For example, to simulate a remote control that sends IR codes (recorded earlier with an IR receiver) through an IR transmitter:
+
+```arduino
+void onTvChange() {
+  if (tv.getVolume() > prevVolume) sendIR(volUp);
+  else if (tv.getVolume() < prevVolume) sendIR(volDown);
+  if (tv.getMute() != prevMute) sendIR(mute);
+  if (tv.getSwitch() != prevSwitch) sendIR(onoff);
+
+  prevVolume = tv.getVolume();
+  prevMute = tv.getMute();
+  prevSwitch = tv.getSwitch();
+}
+```
+
+Channel changes work the same way with `tv.getChannel()`, and a volume jump of several steps needs one IR code per step. Store the initial values on the first callback so that the board doesn't send codes for the initial sync.
+
 ## Next Steps
 
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)

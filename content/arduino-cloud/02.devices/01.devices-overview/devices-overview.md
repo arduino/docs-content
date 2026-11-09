@@ -20,7 +20,7 @@ Every device gets a unique **Device ID** when it is registered. How the device p
 
 ### The Secret Key
 
-The Secret Key is generated only for devices without a secure element that you set up through the third-party ESP32/ESP8266 or Manual path. It is shown only once, at the end of the setup. Download or copy it before you close the window: it cannot be retrieved later.
+You only see the Secret Key for devices without a secure element that you set up through the third-party ESP32/ESP8266 or Manual path. Official boards without a secure element, such as UNO R4 WiFi and Nano ESP32, also authenticate with a Secret Key, but the wizard configures it on the board for you. When shown, the key appears only once, at the end of the setup. Download or copy it before you close the window: it cannot be retrieved later.
 
 ![The Device ID and Secret Key generated for a device.](assets/device-key.png)
 

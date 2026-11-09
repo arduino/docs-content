@@ -23,6 +23,27 @@ Arduino Cloud is really several tools that share one account and one data layer.
 | [IoT Remote app](/arduino-cloud/iot-remote-app/iot-remote-app-overview) | A mobile app that shows your dashboards and can turn a phone into a sensor-streaming device. |
 | [APIs and CLI](/arduino-cloud/apis-cli/developer-overview) | A REST API, client SDKs, and a command-line tool for automating everything above at scale. |
 
+Dashboards aren't tied to a single Thing or device, so one dashboard can control many boards.
+
+## Navigating the Interface
+
+Everything is reachable from the left navigation bar:
+
+- **[Sketches](/arduino-cloud/sketches-editor/sketchbook-and-sketches)** — your stored programs.
+- **[Devices](/arduino-cloud/devices/devices-overview)** — Arduino boards, ESP32 boards, and manual devices (Python, JavaScript, and more).
+- **[Things](/arduino-cloud/things-data/things)** — project configurations: a device, its synced variables, and network credentials.
+- **[Dashboards](/arduino-cloud/dashboards/dashboards)** — widgets to monitor and control your boards, also available in the [IoT Remote app](/arduino-cloud/iot-remote-app/iot-remote-app-overview).
+- **[Triggers](/arduino-cloud/automations/triggers-and-alerts)** — email and push notifications on variable changes.
+- **[Templates](/arduino-cloud/templates/use-templates)** — ready-made projects that configure a device and Thing for you.
+- **[Integrations](/arduino-cloud/integrations/integrations-overview)** — connected third-party services.
+- **Resources** and **Courses** — helpful links, and content tailored to specific products and kits.
+
+## Compatible Boards
+
+In these docs, a *board* is your hardware (or virtual Python/JavaScript client) and a *device* is its configuration in the Cloud. The Cloud Editor can program **any** official Arduino board and many third-party boards; IoT features need a board with a radio module (Wi-Fi®, LoRa®, Cellular) or Ethernet, including ESP32-based boards. You can also create a [manual device](/arduino-cloud/devices/add-manual-device) that runs on your computer with JavaScript, Python, or MicroPython.
+
+See [Wi-Fi®](/arduino-cloud/devices/add-wifi-board), [LoRa®](/arduino-cloud/devices/add-lorawan-device), [Ethernet](/arduino-cloud/devices/add-ethernet-board), and [Cellular](/arduino-cloud/devices/add-cellular-board) boards, or the full [Supported Boards and Capabilities](/arduino-cloud/reference/supported-boards-capabilities) list.
+
 ## Who It Is For
 
 - **Makers and hobbyists** who want to connect a board to the internet without writing networking code or hosting a server.

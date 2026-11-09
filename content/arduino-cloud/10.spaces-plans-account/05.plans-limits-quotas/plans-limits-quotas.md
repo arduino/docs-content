@@ -13,31 +13,33 @@ Arduino Cloud is available on a free tier and several paid tiers. Every tier inc
 |---|---|
 | **Free** | Trying the platform and small personal projects |
 | **Maker** | Hobbyists wanting more Things, retention, and advanced features |
-| **Paid / Business** | Teams and companies needing fleet management, RBAC, and longer retention |
+| **Team / Enterprise** | Teams and companies needing shared spaces, RBAC, fleet management, and longer retention |
+| **School** | Classrooms, with shared spaces and per-member limits |
 
 ## What Differs Between Tiers
 
 The limits below are the ones most likely to influence which plan you need:
 
-| Limit / Feature | Free | Maker | Paid / Business |
+| Limit / Feature | Free | Maker | Team / Enterprise |
 |---|---|---|---|
 | Number of Things | Lowest | Higher | Highest / tailored |
 | Data retention | Shortest | Longer | Longest |
-| Over-the-air (OTA) updates | Limited | Included | Included |
-| Triggers & alerts | Not included | Included | Included |
-| Advanced dashboard widgets | Limited | Included | Included |
-| Compile time per day | Lowest | Higher | Highest |
+| Over-the-air (OTA) updates | See [plans page](https://cloud.arduino.cc/plans) | Included | Included |
+| Triggers & alerts | Not included | Included, with a daily notification quota | Included |
+| Dashboard sharing | Not included | Included | Included |
+| Advanced dashboard widgets (Advanced Map, Advanced Chart, Image Map) | Not included | Included | Included |
+| Compilations | Limited per day | Unlimited | Unlimited |
 | Shared spaces & RBAC | Not included | Not included | Included |
 
 <Alert type="info">
 
-The exact limits, such as the number of Things, the data retention period and the daily compile time, change over time. For the current numbers and prices, see the [Arduino Cloud plans page](https://cloud.arduino.cc/plans). To see how much of your plan you are using, open [Plan Usage](https://app.arduino.cc/plan-usage).
+The exact limits, such as the number of Things, the data retention period, the daily Trigger notification quota and the daily compilations, change over time. For the current numbers and prices, see the [Arduino Cloud plans page](https://cloud.arduino.cc/plans). To see how much of your plan you are using, open [Plan Usage](https://app.arduino.cc/plan-usage).
 
 </Alert>
 
 ## Choosing a Plan
 
-Start on **Free** to validate a project end to end — it's enough to build a complete IoT project. Move to **Maker** when you hit the Things limit, need longer data retention, or want [Triggers](/arduino-cloud/automations/triggers-and-alerts) and advanced widgets. Choose a **paid/Business** plan when you need [shared spaces](/arduino-cloud/spaces-plans-account/spaces), [roles](/arduino-cloud/spaces-plans-account/members-roles), fleet management, or extended retention.
+Start on **Free** to validate a project end to end — it's enough to build a complete IoT project. Move to **Maker** when you hit the Things limit, need longer data retention, or want [Triggers](/arduino-cloud/automations/triggers-and-alerts) and advanced widgets. Choose a **Team / Enterprise** plan when you need [shared spaces](/arduino-cloud/spaces-plans-account/spaces), [roles](/arduino-cloud/spaces-plans-account/members-roles), fleet management, or extended retention.
 
 ## Next Steps
 

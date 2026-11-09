@@ -34,7 +34,7 @@ Short definitions of the core Arduino Cloud concepts, each linking to its main d
 
 - **Thing** — The container for a project — its device association, Cloud Variables, and data history. See [Things](/arduino-cloud/things-data/things).
 - **Template** — A pre-built Thing/dashboard/sketch bundle that sets up a project in a few steps. See [Integrations](/arduino-cloud/integrations/integrations-overview).
-- **Trigger** — An automation that runs an action (email, webhook, push notification) when a condition is met. See [Triggers & Alerts](/arduino-cloud/automations/triggers-and-alerts).
+- **Trigger** — An automation that sends an email or push notification when a condition on a Boolean or String variable is met. See [Triggers & Alerts](/arduino-cloud/automations/triggers-and-alerts).
 - **Update Policy** — Whether a variable publishes **On change** or **Periodically**. See [Cloud Variables](/arduino-cloud/things-data/cloud-variables).
 
 ## Next Steps

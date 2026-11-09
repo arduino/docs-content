@@ -11,16 +11,16 @@ Arduino Cloud offers several ways to act on your project automatically. They ove
 
 | Your goal | Use | Why |
 |---|---|---|
-| React when a variable crosses a threshold or matches a value (e.g. temperature > 30 → email/push) | [Triggers & Alerts](/arduino-cloud/automations/triggers-and-alerts) | Watches a Cloud Variable's condition and fires email, push, or a webhook. Paid plan. |
+| React when a Boolean or String variable meets a condition (e.g. a motion sensor's `motion` boolean becomes true → email/push) | [Triggers & Alerts](/arduino-cloud/automations/triggers-and-alerts) | Watches a Boolean or String Cloud Variable and sends an email or push notification. Maker plan or higher. |
 | Know when a device connects or disconnects | [Device Online/Offline Alerts](/arduino-cloud/automations/device-online-offline-alerts) | Reacts to connectivity state rather than a variable value. |
 | Do something on a time schedule (e.g. run a pump every morning) | [Scheduler](/arduino-cloud/automations/scheduler) | Drives a variable's state on a recurring schedule, no timing code needed. |
-| Send data or events to an external service (IFTTT, Zapier, your backend) | [Webhooks](/arduino-cloud/automations/webhooks) | POSTs variable updates or Trigger events to a URL you control. |
+| Send data or events to an external service (IFTTT, Zapier, your backend) | [Webhooks](/arduino-cloud/automations/webhooks) | POSTs a Thing's variable updates to a URL you control. |
 
 ## How They Combine
 
 These aren't mutually exclusive — a real project often uses several together:
 
-- A **Trigger** can *use* a **webhook** as its action, so only a specific condition forwards data to an external service.
+- A **Thing-level webhook** forwards every variable update to an external service, while a **Trigger** notifies you only when a Boolean or String condition is met.
 - A **Scheduler** changes a variable on a schedule, and a **Trigger** or **Thing-level webhook** can then react to that change.
 - **Device alerts** complement value-based Triggers: one watches *connectivity*, the other watches *data*.
 

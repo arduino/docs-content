@@ -32,7 +32,7 @@ Connect your board to your computer over USB, then open [Devices](/arduino-cloud
 
 <Alert type="info">
 
-A **Secret Key** is only generated for devices without a secure element that you set up manually, such as third-party ESP32/ESP8266 boards and Python, MicroPython or JavaScript clients. See [Devices Overview](/arduino-cloud/devices/devices-overview#device-identity-and-credentials).
+A **Secret Key** is only shown for devices you set up manually without a secure element, such as third-party ESP32/ESP8266 boards and Python, MicroPython or JavaScript clients. Official boards without a secure element, such as UNO R4 WiFi and Nano ESP32, also use a Secret Key, but the setup wizard configures it for you. See [Devices Overview](/arduino-cloud/devices/devices-overview#device-identity-and-credentials).
 
 </Alert>
 

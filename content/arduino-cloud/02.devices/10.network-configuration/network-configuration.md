@@ -165,6 +165,8 @@ NetworkConfigurator.setReconfigurePin(YOUR_PIN);    // use another pin
 NetworkConfigurator.setReconfigurePin(DISABLE_PIN); // disable the procedure
 ```
 
+To run your own code when the reconfiguration pin changes state, or to remove the `BLEAgent`, `SerialAgent`, or the whole NetworkConfigurator to save memory, see [NetworkConfigurator](/arduino-cloud/reference/generated-sketch-files#networkconfigurator) in the generated sketch files reference.
+
 ## Deleting a Stored Configuration
 
 Two ways to clear saved credentials without setting new ones:

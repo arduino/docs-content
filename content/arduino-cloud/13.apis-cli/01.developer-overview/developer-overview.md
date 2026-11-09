@@ -29,7 +29,14 @@ Naming gotcha: `arduino-iot-js` (MQTT, device-side) and `@arduino/arduino-iot-cl
 
 ## Compatibility Policy
 
-The REST API is versioned per resource group (for example Devices and Things are at v2, Dashboards at v3), and the generated SDKs track the same OpenAPI spec. Versions change over time, so check exact method and field names against the [generated client repos](/arduino-cloud/apis-cli/rest-api-sdks) or the [API reference](https://docs.arduino.cc/cloud-api/) rather than assuming a field hasn't moved. Use the latest version of the official clients to stay aligned with the API.
+Public Arduino Cloud API endpoints are versioned, with these backward-compatibility rules:
+
+- **Breaking changes** to an endpoint's signature or behavior ship as a new endpoint version.
+- **Backward-compatible changes** keep the current version.
+- **Deprecation:** the previous version stays available, deprecated, long enough for clients to migrate.
+- **Only N-1 is kept** — older versions are removed, so upgrade when a new version ships.
+- **Frequency:** version changes are expected less than once a year.
+- **Base URL:** keep it configurable in your client — it (currently `api2.arduino.cc`) may also change.
 
 ## Next Steps
 

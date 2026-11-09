@@ -32,7 +32,12 @@ The editor has a left-hand icon rail covering the whole coding workflow:
 
 ## Serial Monitor
 
-The Serial Monitor reads the serial data your sketch prints (e.g. `Serial.println(...)`) — useful for debugging without a dashboard.
+The Serial Monitor reads the serial data your sketch prints (e.g. `Serial.println(...)`) from a board connected to your computer — useful for debugging without a dashboard, such as checking that a block of code runs or that values are accurate. Clicking **Serial Monitor** opens it in a new window, where you can:
+
+- Change the baud rate (default is 9600).
+- Enable timestamps.
+- Download the data as `.csv`.
+- Pause the stream, search through the log, or clear it.
 
 ## Working Offline
 

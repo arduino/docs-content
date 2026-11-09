@@ -82,7 +82,7 @@ You can **download** your sketch via a .zip file or sort your sketches into **fo
 
 The Cloud Editor is part of Arduino Cloud, that simplifies a project by bringing all the different tools you need together in one place. This is a complementary solution for schools or institutions that don't want to install [Arduino IDE](https://www.arduino.cc/en/software) to program their devices.
 
-***Interested in getting started? Get to know more about Arduino Cloud Editor by [visiting this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor).***
+***Interested in getting started? Get to know more about Arduino Cloud Editor by [visiting this link](/arduino-cloud/sketches-editor/cloud-editor-overview).***
 
 ## IoT Tools 
 
@@ -112,7 +112,7 @@ Each Thing is represented by a collection of properties, such as
 - **Sketch** - access to the editor to edit or preview a sketch saved in the Cloud.
 - **Metadata** - such as tags, time zone and Thing ID.
 
-Read more about Things [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things).
+Read more about Things [here](/arduino-cloud/things-data/things).
 
 ### Dashboards 
 
@@ -208,12 +208,12 @@ You can find a full list of tutorials on the [Arduino Cloud documentation page](
 
 If you are a enthusiast and would like to explore more about our Cloud platform, here are some documentation on all the important elements you can familiarize yourself with: 
 
-- [Sketches](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches/)
-- [Device Provisioning](https://docs.arduino.cc/arduino-cloud/hardware/device-provisioning/)
-- [Arduino Cloud Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor)
-- [Cloud Variables](https://docs.arduino.cc/arduino-cloud/cloud-interface/variables/) 
-- [Dashboards & Widgets](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets)
-- [Cloud Remote App](https://docs.arduino.cc/arduino-cloud/iot-remote-app/getting-started)
+- [Sketches](/arduino-cloud/sketches-editor/sketchbook-and-sketches)
+- [Device Provisioning](/arduino-cloud/devices/network-configuration)
+- [Arduino Cloud Editor](/arduino-cloud/sketches-editor/cloud-editor-overview)
+- [Cloud Variables](/arduino-cloud/things-data/cloud-variables)
+- [Dashboards & Widgets](/arduino-cloud/reference/widget-catalog)
+- [Cloud Remote App](/arduino-cloud/iot-remote-app/iot-remote-app-overview)
 - [Setup a Shared Space for your class](https://docs.arduino.cc/arduino-cloud/education/shared-spaces)
 
 ## Trademark Acknowledgments

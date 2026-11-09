@@ -3,6 +3,11 @@ title: Add an Ethernet Board
 description: Connect an Arduino board to Arduino Cloud over wired Ethernet, including supported hardware and the sketch pattern.
 tags: [Arduino Cloud, Ethernet, Devices]
 author: Karl Söderby & Arduino Team
+hardware:
+  - hardware/04.pro/boards/portenta-h7
+  - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
+  - hardware/07.opta/opta-family/opta
 ---
 
 Ethernet is used when Wi-Fi® isn't practical — industrial settings, reliability requirements, or locations without wireless coverage. A wired board provisions the same way as its Wi-Fi® counterpart; only the connection type differs.

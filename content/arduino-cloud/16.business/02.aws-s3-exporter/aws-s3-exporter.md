@@ -18,6 +18,8 @@ software:
 
 The Arduino AWS S3 CSV Exporter is designed to extract time series data from Arduino Cloud and publish it in CSV format to an AWS S3 bucket.
 
+For a short summary of the exporter and its deployment, see the [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3) integration page. This tutorial covers every setup step in detail.
+
 A scheduled AWS Lambda function runs the data extraction process at configurable intervals. The extraction frequency, sampling resolution and filters can be customized to refine the data stored in S3.
 
 ![Arduino AWS S3 CSV Exporter Build](assets/cloudformation_stack_creation.gif)
@@ -199,7 +201,7 @@ Configure the following required parameters before proceeding with stack creatio
 * S3 bucket for code storage
 * CSV destination bucket
 
-***For more information about Arduino Cloud API, please refer to the [APIs Overview](https://docs.arduino.cc/arduino-cloud/api/api-overview/) or [Arduino Cloud API from Getting started with Arduino Cloud for Business](https://docs.arduino.cc/arduino-cloud/business/arduino-cloud-for-business/#arduino-cloud-api).***
+***For more information about Arduino Cloud API, please refer to the [APIs Overview](/arduino-cloud/apis-cli/developer-overview) or [Arduino Cloud API from Getting started with Arduino Cloud for Business](https://docs.arduino.cc/arduino-cloud/business/arduino-cloud-for-business/#arduino-cloud-api).***
 
 You can also configure optional parameters such as **tag filters**, **organization ID (Space ID for Arduino Cloud)**, and **data resolution settings**.
 
@@ -219,7 +221,7 @@ The **`LambdaCodeS3Bucket`** refers to the bucket containing the Lambda function
 
 Specify the corresponding API key and secret in the `IotApiKey` and `IotApiSecret` fields.
 
-***For more information about Arduino Cloud API, please refer to the [APIs Overview](https://docs.arduino.cc/arduino-cloud/api/api-overview/) or [Arduino Cloud API from Getting started with Arduino Cloud for Business](https://docs.arduino.cc/arduino-cloud/business/arduino-cloud-for-business/#arduino-cloud-api).***
+***For more information about Arduino Cloud API, please refer to the [APIs Overview](/arduino-cloud/apis-cli/developer-overview) or [Arduino Cloud API from Getting started with Arduino Cloud for Business](https://docs.arduino.cc/arduino-cloud/business/arduino-cloud-for-business/#arduino-cloud-api).***
 
 ![Stack Creation - Parameters (5)](assets/cloud_stack_create_5.png)
 

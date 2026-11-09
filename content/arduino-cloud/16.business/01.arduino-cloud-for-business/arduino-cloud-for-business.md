@@ -70,7 +70,7 @@ Once your plan has been successfully activated, you will be asked to define the 
 
 Your Arduino Cloud for Business plan comes with two spaces by default:
 
-* **My Cloud**. My Cloud is an automatically created private space once the Arduino Cloud for Business plan is purchased. You can use this space for personal projects you do not want to share with all your team. This space is free and includes two Things, unlimited dashboards, and 100MB of Sketch storage by default, but it can be further extended and customized within *My plans* settings. Have a look at the [Arduino IT Cloud Getting Started](https://docs.arduino.cc/arduino-cloud/guides/overview) if you would like to start using your private space.
+* **My Cloud**. My Cloud is an automatically created private space once the Arduino Cloud for Business plan is purchased. You can use this space for personal projects you do not want to share with all your team. This space is free and includes two Things, unlimited dashboards, and 100MB of Sketch storage by default, but it can be further extended and customized within *My plans* settings. Have a look at the [Arduino IT Cloud Getting Started](/arduino-cloud/get-started/quickstart-first-project) if you would like to start using your private space.
 
 * **Shared Space**. A *Shared Space* is a company space you can use with all your team. It can have any number of members, who can all access the resources within its space. The access level and specific permissions can be customized by the *Space Admin* (see [Invite members into your space section](#invite-members-into-your-space) to learn more).
 
@@ -231,7 +231,7 @@ The Arduino Cloud for Business allows for device management with Over-The-Air up
 
 The Arduino Cloud for Business is compatible with multiple Arduino boards or devices based on the ESP32 / ESP8266 microcontrollers. The Arduino Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRa-based networks (via The Things Network), and cellular connectivity.
 
-To check the full list of compatible Hardware, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/guides/overview).
+To check the full list of compatible Hardware, have a look at [this tutorial](/arduino-cloud/reference/supported-boards-capabilities).
 
 ### Device Provisioning
 
@@ -269,7 +269,7 @@ Select a board name to be able to correctly identify your device and click on **
 
 Define the connection type you want to use with your board and click on **NEXT**. The agent will start securely provisioning your device by leveraging the secure element embedded in your board. This way, your security keys will be stored in the secure element and full data encryption will be guaranteed during data exchanges between Arduino devices and the Cloud.
 
-***If you want to learn more about security in Arduino Cloud, please check the [dedicated documentation](https://docs.arduino.cc/arduino-cloud/features/security-considerations).***
+***If you want to learn more about security in Arduino Cloud, please check the [dedicated documentation](/arduino-cloud/security-privacy/security-considerations).***
 
 If the onboarding proceeds as expected, the following page will appear confirming that your device has been successfully provisioned in Arduino Cloud.
 
@@ -295,9 +295,9 @@ To create a Thing, click on **CREATE THING** found within **Things** page access
 
 ![Create a new Thing](assets/create-thing.png "Create a new Thing")
 
-***If you want to understand how to work with your Things, check the dedicated documentation available [here](https://docs.arduino.cc/arduino-cloud/guides/overview#3-creating-a-thing).***
+***If you want to understand how to work with your Things, check the dedicated documentation available [here](/arduino-cloud/things-data/things).***
 
-***Do you want to learn more about the different types of Variables and their features? Have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).***
+***Do you want to learn more about the different types of Variables and their features? Have a look at [this tutorial](/arduino-cloud/things-data/cloud-variables).***
 
 ### Device Programming
 
@@ -317,17 +317,17 @@ Otherwise, to open the Cloud Editor to retrieve your sketches directly, go to Ar
 
 It can also be accessed directly by navigating to **Sketches** within the Shared Space sidebar. It will list all the available developed sketches. Clicking on one of the sketches will directly take you to the [Cloud Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor).
 
-***To get started with the Cloud Editor, check the dedicated tutorial at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor). However, if you have already developed your sketch and you would like to import it into the Cloud Editor, see the corresponding documentation [here](https://docs.arduino.cc/arduino-cloud/tutorials/import-your-sketchbook-and-libraries-to-the-web-editor)***
+***To get started with the Cloud Editor, check the dedicated tutorial at [this link](/arduino-cloud/sketches-editor/cloud-editor-overview). However, if you have already developed your sketch and you would like to import it into the Cloud Editor, see the corresponding documentation [here](/arduino-cloud/sketches-editor/import-sketchbook-libraries)***
 
-All the created sketches are individual and owned by the user that created them. Other members of the Shared Space can access your sketch in their Cloud Editor only if you share it with them. If you would like to do so, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/share-your-sketches) on how to do it.
+All the created sketches are individual and owned by the user that created them. Other members of the Shared Space can access your sketch in their Cloud Editor only if you share it with them. If you would like to do so, have a look at [this tutorial](/arduino-cloud/sketches-editor/share-embed-sketches) on how to do it.
 
-Keep in mind that your sketch may contain some sensitive data that you do not want to share with other members, like Wi-Fi® credentials or API keys. If this is the case, check [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/store-your-sensitive-data-safely-when-sharing) to learn how to share sketches without sharing sensitive data.
+Keep in mind that your sketch may contain some sensitive data that you do not want to share with other members, like Wi-Fi® credentials or API keys. If this is the case, check [this tutorial](/arduino-cloud/sketches-editor/keep-secrets-out) to learn how to share sketches without sharing sensitive data.
 
 ### OTA Updates
 
 Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. This feature allows you to upload sketches wirelessly to your Arduino boards. This way, as soon as you have a compatible board connected to a Wi-Fi®/Ethernet network and configured to work with OTA, you will not need to physically connect the board to your computer to upload new sketches to it; instead, everything will work Over-The-Air, even from remote.
 
-***Are you interested in learning how to perform an OTA update? Check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/ota-getting-started#how-does-it-work). If you prefer to use the Arduino Cloud CLI instead, go to [this link](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#ota-over-the-air).***
+***Are you interested in learning how to perform an OTA update? Check [this tutorial](/arduino-cloud/sketches-editor/upload-over-the-air). If you prefer to use the Arduino Cloud CLI instead, go to [this link](/arduino-cloud/apis-cli/cli-ota-mass-upload).***
 
 ## Collaborative Coding
 
@@ -378,7 +378,7 @@ To start creating your dashboard, go to the **Dashboards** tab in [Arduino Cloud
 
 ![Dashboard example](assets/dashboard-example.png "Dashboard example")
 
-***If you want to learn more on how to customize your dashboard and leverage the wide widget portfolio, check the dedicated documentation available at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets).***
+***If you want to learn more on how to customize your dashboard and leverage the wide widget portfolio, check the dedicated documentation available at [this link](/arduino-cloud/reference/widget-catalog).***
 
 ### Sharing Dashboards
 
@@ -386,7 +386,7 @@ Whether it is your teammate, your customer, or your system integrator; you can f
 
 ![Share your dashboard](assets/dashboard-sharing.png "Share your dashboard")
 
-***Ready to share your dashboard? Have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/features/sharing-dashboards).***
+***Ready to share your dashboard? Have a look at [this tutorial](/arduino-cloud/dashboards/share-dashboards).***
 
 ### Data Export
 
@@ -422,7 +422,7 @@ Leveraging the APIs, you can interact with any element of the Cloud: data, devic
 
 To use the APIs, you need to create an API Key Token in the API Keys section of your Space.
 
-***If you want to start creating your own API Keys Token, take a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).***
+***If you want to start creating your own API Keys Token, take a look at [this tutorial](/arduino-cloud/apis-cli/rest-api-sdks) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).***
 
 ## IoT Remote App
 
@@ -430,7 +430,7 @@ Monitor your dashboards anywhere, anytime, and use your dashboards on the go wit
 
 To start exploring it, you will need to download it from either [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) or the [Apple App Store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) depending on your device.
 
-***Do you want to get started with IoT Remote App? Read [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/iot-remote-phone-sensors#phone-setup).***
+***Do you want to get started with IoT Remote App? Read [this tutorial](/arduino-cloud/iot-remote-app/use-phone-as-device).***
 
 ## Arduino Cloud CLI
 
@@ -440,13 +440,13 @@ The Arduino Cloud CLI is a great option if you are familiar with command-line in
 
 Here are the main features of the Arduino Cloud CLI:
 
-* [Mass provisioning](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#device), i.e., the ability to provision multiple devices simultaneously.
-* [Mass OTA updates](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#ota-over-the-air), i.e., performing Over-The-Air updates for multiple devices at the same time.
-* Advanced fleet management, including multiple devices [tagging](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#list-devices).
-* Things monitoring and management, such as Things [tagging](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#tag-a-thing), [listing](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#list-things), [cloning](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#clone-things) and [template creation](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#extract-thing-template).
-* Dashboard [creation](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#create-dashboard)/[cancellation](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#delete-dashboards), maintenance and dashboard [template extraction](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#extract-dashboard-template).
+* [Mass provisioning](/arduino-cloud/apis-cli/cli-devices), i.e., the ability to provision multiple devices simultaneously.
+* [Mass OTA updates](/arduino-cloud/apis-cli/cli-ota-mass-upload), i.e., performing Over-The-Air updates for multiple devices at the same time.
+* Advanced fleet management, including multiple devices [tagging](/arduino-cloud/apis-cli/cli-devices).
+* Things monitoring and management, such as Things [tagging](/arduino-cloud/apis-cli/cli-things), [listing](/arduino-cloud/apis-cli/cli-things), [cloning](/arduino-cloud/apis-cli/cli-things) and [template creation](/arduino-cloud/apis-cli/cli-things).
+* Dashboard [creation](/arduino-cloud/apis-cli/cli-dashboards)/[cancellation](/arduino-cloud/apis-cli/cli-dashboards), maintenance and dashboard [template extraction](/arduino-cloud/apis-cli/cli-dashboards).
 
-***To learn more about the Arduino Cloud CLI and get started, you can check the official documentation [here](https://docs.arduino.cc/arduino-cloud/arduino-cloud-cli/getting-started/).***
+***To learn more about the Arduino Cloud CLI and get started, you can check the official documentation [here](/arduino-cloud/apis-cli/cli-install-credentials).***
 
 ## Optional Add-Ons
 

@@ -43,7 +43,7 @@ Access tokens expire after 300 seconds — re-fetch rather than caching long-ter
 | Property types | v1 | Enumerates allowed property types |
 | Dashboards | v2 and v3 (current) | List/Create/Delete/Show/Patch/Clone/Share/Template |
 | Templates | — | Thing + Dashboard bundles |
-| Triggers | v1 | Condition → action (email/push/webhook) |
+| Triggers | v1 | Condition → action (email/push) |
 | Series | v2 | Raw + sampled + batch history queries, last-value |
 | Lora devices | v1 | LoRaWAN® device management |
 | Lora frequency plans | v1 | Supported frequency plans |
@@ -119,6 +119,44 @@ async function getToken() {
 })();
 ```
 
+```go
+// Go (iot-client-go)
+package main
+
+import (
+	"context"
+	"log"
+	"net/url"
+
+	iot "github.com/arduino/iot-client-go/v3"
+	cc "golang.org/x/oauth2/clientcredentials"
+)
+
+func main() {
+	params := url.Values{}
+	params.Add("audience", "https://api2.arduino.cc/iot")
+	config := cc.Config{
+		ClientID:       "YOUR_CLIENT_ID",
+		ClientSecret:   "YOUR_CLIENT_SECRET",
+		TokenURL:       "https://api2.arduino.cc/iot/v1/clients/token",
+		EndpointParams: params,
+	}
+
+	// The client fetches and refreshes the access token from this source
+	ctx := context.WithValue(context.Background(), iot.ContextOAuth2, config.TokenSource(context.Background()))
+	client := iot.NewAPIClient(iot.NewConfiguration())
+	devices, _, err := client.DevicesV2API.DevicesV2List(ctx).Execute()
+	if err != nil {
+		log.Fatal(err)
+	}
+	for _, d := range devices {
+		log.Println(d.Name)
+	}
+}
+```
+
+See the full Go example on [GitHub](https://github.com/arduino/iot-client-go/tree/master/example).
+
 ## Finding Resource IDs
 
 Every Device, Thing, and Variable has an `id` used to target it in API calls. Listing endpoints return every resource's ID and full details:
@@ -130,6 +168,22 @@ GET https://api2.arduino.cc/iot/v2/dashboards
 ```
 
 For organization-scoped calls, pass `X-Organization: <org_id>` as a header — all three SDKs support this per-call or at client-config level.
+
+## Testing the API With Postman
+
+To try endpoints without writing code, create a new HTTP request in [Postman](https://www.postman.com/) and configure its **Authorization** tab:
+
+1. Set **Auth Type** to **OAuth 2.0** (add auth data to the request header, header prefix **Bearer**).
+2. Under **Configure New Token**, set **Grant Type** to **Client Credentials**, **Access Token URL** to `https://api2.arduino.cc/iot/v1/clients/token`, enter your Client ID and Client Secret, and set **Client Authentication** to **Send client credentials in body**.
+3. Under **Advanced**, add `audience` = `https://api2.arduino.cc/iot`, sent in the **Request Body**.
+4. Click **Get New Access Token**, then **Use Token**.
+5. Send a request, for example **GET** `https://api2.arduino.cc/iot/v2/dashboards`.
+
+<Alert type="info">
+
+The token expires after 300 seconds — click **Get New Access Token** again to refresh it.
+
+</Alert>
 
 ## Next Steps
 

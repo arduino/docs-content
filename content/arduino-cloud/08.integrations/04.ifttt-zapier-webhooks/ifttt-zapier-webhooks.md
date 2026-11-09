@@ -9,13 +9,13 @@ Any automation platform that accepts an incoming HTTP request can receive Arduin
 
 <Alert type="info">
 
-This page assumes you have webhook forwarding set up on a Thing. See [Webhooks](/arduino-cloud/automations/webhooks) for how data forwarding and Trigger webhooks work and what the JSON payload looks like.
+This page assumes you have webhook forwarding set up on a Thing. See [Webhooks](/arduino-cloud/automations/webhooks) for how data forwarding works and what the JSON payload looks like.
 
 </Alert>
 
 ## How It Fits Together
 
-Each platform exposes an **incoming webhook URL**. You paste that URL into the Thing's **Data Forwarding (Webhook)** field (or a Trigger's webhook action), and from then on every matching update is POSTed to the platform, which maps the payload onto an action.
+Each platform exposes an **incoming webhook URL**. You paste that URL into the Thing's **Data Forwarding (Webhook)** field, and from then on every matching update is POSTed to the platform, which maps the payload onto an action.
 
 | Platform | Incoming URL comes from | Typical action |
 |---|---|---|
@@ -25,17 +25,40 @@ Each platform exposes an **incoming webhook URL**. You paste that URL into the T
 
 ## Example: Logging Messages to Google Sheets via IFTTT
 
-[IFTTT](https://maker.ifttt.com) can connect an Arduino Cloud webhook to a **Google Sheets** action, turning Cloud Variable updates into spreadsheet rows. An IFTTT Applet pairs a **Webhooks** trigger ("Receive a web request", named e.g. `message`) with a **Google Sheets** action ("Add row to spreadsheet"):
+[IFTTT](https://maker.ifttt.com) can connect an Arduino Cloud webhook to a **Google Sheets** action, turning Cloud Variable updates into spreadsheet rows. In this example, String values sent from a **Messenger** widget are saved into a Google Sheet.
 
-![Creating an IFTTT Applet linking a Webhooks trigger to a Google Sheets action.](assets/creating-an-applet.gif)
+### Requirements
 
-IFTTT then exposes a webhook URL (under **My Services → Webhooks → Documentation**) to paste into the Thing's Data Forwarding field. From that point on, any Cloud Variable update on that Thing appends a row to the linked spreadsheet — pairing this with a [Messenger widget](/arduino-cloud/dashboards/add-link-widgets) turns every message sent from a dashboard into a logged, timestamped row:
+- An [Arduino Cloud](https://app.arduino.cc/) account and a [Cloud-compatible board](/arduino-cloud/reference/supported-boards-capabilities).
+- [Arduino Create Agent](https://github.com/arduino/arduino-create-agent).
+- An [IFTTT](https://maker.ifttt.com) account and a Google account.
 
-![The Messenger widget's settings, where you link the String variable used to generate webhook events on demand.](assets/webhooks-04.png)
+### Steps
+
+1. In IFTTT, click **Create** > **If This**, select **Webhooks** > **Receive a web request**, set the **Event Name** to `message`, and click **Create trigger**.
+2. Click **Then That**, select **Google Sheets** > **Add row to spreadsheet**, keep the defaults, and click **Create action**, then **Continue** and **Finish**.
+
+    ![Creating an IFTTT Applet linking a Webhooks trigger to a Google Sheets action.](assets/creating-an-applet.gif)
+
+3. Copy the webhook URL from **profile picture > My Services > Webhooks > Documentation**.
+4. In Arduino Cloud, create a Thing with a `message` variable of type **Character String**, and attach and configure your device.
+5. Under **Data Forwarding (Webhook)**, click **Configure** and paste the IFTTT URL. Upload the generated sketch from the **Sketch** tab.
+6. On a dashboard, add a [Messenger widget](/arduino-cloud/dashboards/add-link-widgets) and link it to the `message` variable.
+
+    ![The Messenger widget's settings, where you link the String variable used to generate webhook events on demand.](assets/webhooks-04.png)
+
+7. Send a few messages from the widget. Each update is forwarded to IFTTT, which adds a timestamped row to the **IFTTT_Maker_Webhooks_Events** file in [Google Sheets](https://docs.google.com/spreadsheets).
+
+Any Cloud Variable update on the Thing is forwarded, not just `message`. For the payload format, see [Webhooks](/arduino-cloud/automations/webhooks).
 
 ## Zapier and Google Services
 
-The same pattern works with [Zapier](https://zapier.com/): create a **Webhooks by Zapier → Catch Hook** trigger, copy the generated URL into the Thing's forwarding field, and wire the "Zap" to any of Zapier's supported app actions. For fully custom processing, [Google Apps Script](https://developers.google.com/apps-script) can receive the same JSON payload at a deployed Web App URL and act on it directly.
+The same pattern works with [Zapier](https://zapier.com/), which also offers a visual builder with real-time data preview: create a **Webhooks by Zapier > Catch Hook** trigger, copy the generated URL into the Thing's forwarding field, and connect the "Zap" to any of Zapier's supported app actions.
+
+Google services can also receive webhook data:
+
+- [**Google Cloud APIs**](https://cloud.google.com/apis/docs/overview): communicate with services such as Gmail, Translate, or Google Maps.
+- [**Google Apps Script**](https://developers.google.com/apps-script): receive the JSON payload at a deployed Web App URL and act on Google Workspace files such as Sheets and Docs.
 
 ## Next Steps
 

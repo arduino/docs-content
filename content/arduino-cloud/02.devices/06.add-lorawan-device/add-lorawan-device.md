@@ -3,6 +3,9 @@ title: Add a LoRaWAN Device
 description: Provision an Arduino LoRaWAN board in Arduino Cloud through The Things Stack, including frequency plans and credentials.
 tags: [Arduino Cloud, LoRa, LoRaWAN, Devices]
 author: Karl Söderby & Arduino Team
+hardware:
+  - hardware/01.mkr/01.boards/mkr-wan-1300
+  - hardware/01.mkr/01.boards/mkr-wan-1310
 ---
 
 **LoRa®** connectivity is for long-range, low-power devices that communicate over a LoRaWAN® network through a gateway. When you provision a LoRaWAN® board in Arduino Cloud, it is automatically registered on [The Things Stack](https://www.thethingsindustries.com/stack/) (TTS), giving your device access to the network's thousands of public gateways. End devices can be placed in remote locations without an internet connection; they send data to a nearby gateway, which forwards it to Arduino Cloud through TTS. Data can also be sent in the opposite direction, from Arduino Cloud to the device.

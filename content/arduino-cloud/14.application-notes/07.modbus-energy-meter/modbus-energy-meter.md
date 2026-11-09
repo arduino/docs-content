@@ -15,9 +15,13 @@ In this project you'll connect a Modbus RS-485 energy meter to Arduino Cloud usi
 
 ## Step 1 — Wire the Meter to the RS-485 Bus
 
-> **Warning:** Mains wiring can be lethal. Switch off the supply at the breaker and verify zero voltage with a multimeter before touching the meter. If you're unsure, call an electrician.
+<Alert type="warning">
 
-Install the meter on the DIN rail and connect live/neutral through it (input on top, load on the bottom). Then run a twisted single-pair shielded cable from the meter's RS-485 terminals to the MKR 485 Shield.
+Mains wiring can be lethal. Check your country regulations about working on your house electrical system. Switch off the supply ahead of the meter and verify with a multimeter that there is no voltage between the terminals. If you don't know how, call an electrician.
+
+</Alert>
+
+Install the meter on the DIN rail in your electrical cabinet and connect live and neutral from the main breaker to the meter's input (top); the output (bottom) feeds the rest of the system. Use the standard color convention (in the EU: blue for neutral, brown/black/grey for live). Then run a twisted single-pair shielded cable from the meter's RS-485 terminals to the MKR 485 Shield.
 
 The RS-485 terminals are **A**, **B** and **COM**. The common convention maps **B = D+** and **A = D-**. On the meter, connect the **red cable to D+**, the **white cable to D-**, and the **brown cable to COM**.
 

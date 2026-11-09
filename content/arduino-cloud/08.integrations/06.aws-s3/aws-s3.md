@@ -23,6 +23,8 @@ A Lambda function written in Go runs on an **AWS EventBridge** schedule. Each ru
 
 ## Deployment Outline
 
+This outline summarizes the setup. For the full step-by-step tutorial with screenshots of every AWS console step, see [Getting Started with Arduino AWS S3 CSV Exporter](/arduino-cloud/business/aws-s3-exporter).
+
 Setup is driven by a CloudFormation template from the project's [releases](https://github.com/arduino/aws-s3-integration/releases):
 
 1. Create two S3 buckets — a **temporary bucket** for the Lambda binaries and template, and a **CSV destination bucket** (in the region you'll deploy to).

@@ -52,7 +52,7 @@ Create [Dashboards](/arduino-cloud/dashboards/dashboards) to visualize and contr
 
 Stream historical data to your own storage for analytics and long-term retention. Export on demand, or pipe it continuously to object storage.
 
-→ [Historical Data Export](/arduino-cloud/things-data/historical-data-export) · [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3)
+→ [Historical Data Export](/arduino-cloud/things-data/historical-data-export) · [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3) · [AWS S3 Exporter step-by-step setup](/arduino-cloud/business/aws-s3-exporter)
 
 ### 6. Apply Custom Branding
 
@@ -64,7 +64,7 @@ Personalize the environment with your logo, brand colors for buttons and links (
 
 Arduino Cloud uses hardware-backed device identity, encrypted data exchange, and is certified to **ISO/IEC 27001**. Review your organization's security posture before going to production.
 
-→ [Security Overview](/arduino-cloud/security-privacy/security-overview) · [ISO 27001](/arduino-cloud/security-privacy/iso-27001)
+→ [Security Considerations](/arduino-cloud/security-privacy/security-considerations) · [ISO 27001](/arduino-cloud/security-privacy/iso27001)
 
 ## Purchasing and Add-Ons
 
@@ -81,7 +81,7 @@ Each Business subscription includes one Shared Space and one private space. Addi
 - [Spaces](/arduino-cloud/spaces-plans-account/spaces)
 - [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles)
 - [Manage Devices at Scale](/arduino-cloud/devices/manage-devices-at-scale)
-- [Security Overview](/arduino-cloud/security-privacy/security-overview)
+- [Security Considerations](/arduino-cloud/security-privacy/security-considerations)
 
 ## Trademark Acknowledgments
 

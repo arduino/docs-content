@@ -14,7 +14,14 @@ In this project you'll automate an LED (or any relay-driven light) so it turns o
 
 ## Step 1 — Add the Schedule Variable
 
-In your Thing's [Cloud Variables](/arduino-cloud/things-data/cloud-variables), add a variable of type **CloudSchedule** (found under the **Time** category) — for example `schedule_test`. Optionally add a `CloudTime` variable (`time_read`) to display the device's local time, and a Boolean `light` for dashboard feedback.
+In your Thing, create these [Cloud Variables](/arduino-cloud/things-data/cloud-variables). **CloudSchedule** and **CloudTime** are under the **Time** category:
+
+| Variable Name | Variable Type | Permission   | Purpose |
+| ------------- | ------------- | ------------ | ------- |
+| schedule_test | CloudSchedule | Read & Write | The schedule set from the dashboard |
+| time_read     | CloudTime     | Read Only    | The device's local time |
+| light         | bool          | Read Only    | Dashboard feedback while the job is active |
+| counter       | int           | Read Only    | How many times the job has fired |
 
 <Alert type="note">
 
@@ -24,19 +31,25 @@ The schedule is interpreted in the Thing's timezone. Set the Thing's timezone co
 
 ## Step 2 — Write the Sketch
 
-Your sketch only checks whether the schedule is active; the cloud decides when that happens:
+Your sketch only checks whether the schedule is active; the cloud decides when that happens. While `schedule_test.isActive()` is true, the LED on pin 6 and `light` are on; the `toggle` flag makes `counter` increase only once per activation:
 
 ```arduino
 #include "thingProperties.h"
 
+bool toggle;
 int LED = 6;
 
 void setup() {
   Serial.begin(9600);
   delay(1500);
+
   initProperties();
+
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
   pinMode(LED, OUTPUT);
+  counter = 0;
   light = false;
 }
 
@@ -46,9 +59,15 @@ void loop() {
   if (schedule_test.isActive()) {
     light = true;
     digitalWrite(LED, HIGH);
+
+    if (toggle) {
+      counter++;
+      toggle = false;
+    }
   } else {
     light = false;
     digitalWrite(LED, LOW);
+    toggle = true;
   }
 
   if (ArduinoCloud.connected()) {
@@ -57,9 +76,11 @@ void loop() {
 }
 
 void onScheduleTestChange() {
-  // Reacts to a schedule state change, if needed — can be left empty.
+  // Can be left empty — loop() polls the schedule.
 }
 ```
+
+Open the Serial Monitor after uploading to confirm the board connects; connection errors are printed there.
 
 ## Step 3 — Add the Scheduler Widget
 
@@ -80,7 +101,16 @@ Configure, for example, **start: today, end: never, duration: 10 seconds, repeat
 
 ## Step 4 — Watch It Run
 
-Add an **LED** widget linked to `light` and a **Value** widget linked to `time_read` to see the automation drive your board live:
+Add the remaining widgets so the dashboard has four in total:
+
+| Widget      | Variable      |
+| ----------- | ------------- |
+| Scheduler   | schedule_test |
+| Time Picker | time_read     |
+| Value       | counter       |
+| LED         | light         |
+
+With the Step 3 schedule, the **LED** widget turns on for 10 seconds each minute and `counter` increases by 1 every time:
 
 ![The scheduler in action, driving an LED widget.](assets/scheduler-action.gif)
 

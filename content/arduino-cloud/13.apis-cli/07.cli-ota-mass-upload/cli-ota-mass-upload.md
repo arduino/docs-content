@@ -64,9 +64,9 @@ arduino-cloud-cli ota mass-upload --fqbn <deviceFQBN> --device-tags <key0>=<valu
 
 Tagging devices (see [CLI: Devices](/arduino-cloud/apis-cli/cli-devices#tags)) makes it easy to target a fleet subset for a rollout.
 
-## Cancel, Encode, Decode
+## Cancel, Header Encode, Header Decode
 
-`ota cancel`, `ota encode`, and `ota decode` round out the group: `cancel` stops a scheduled OTA upload, `encode` adds the OTA header to a binary file, and `decode` reads the header of an OTA file. Run `arduino-cloud-cli ota <command> --help` to list the flags of each command.
+`ota cancel`, `ota header-encode`, and `ota header-decode` round out the group: `cancel` stops a scheduled OTA upload, `header-encode` adds the OTA header to a binary file, and `header-decode` reads the header of an OTA file. Run `arduino-cloud-cli ota <command> --help` to list the flags of each command.
 
 ## Next Steps
 

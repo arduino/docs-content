@@ -22,13 +22,7 @@ You create Smart Folders from the list pages under **IoT Builder** in the left n
 | **Things** | **Asset name includes**, **Device Status**, **Device Type**, **Timezone**, and one rule per tag key used on your Things (for example **project**) |
 | **Devices** | **Asset name includes**, **Device Status**, **Device Type**, **Connection Type** |
 | **Dashboards** | **Asset name includes**, **Last Modified**, **Shared With**, **Created By** |
-| **Triggers** | Smart Folders are also available on the **Triggers** page, which requires a paid plan |
-
-<Alert type="note">
-
-The rules for the **Triggers** page weren't verified for this article, because Triggers aren't available on the Free plan used for testing.
-
-</Alert>
+| **Triggers** | Smart Folders are also available on the **Triggers** page, which requires a Maker plan or higher |
 
 ## Creating a Smart Folder
 

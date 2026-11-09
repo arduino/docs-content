@@ -3,6 +3,9 @@ title: Add a Cellular Board
 description: Connect an Arduino board to Arduino Cloud over GSM or LTE-M (Cat-M1) and NB-IoT cellular networks.
 tags: [Arduino Cloud, Cellular, GSM, LTE-M, NB-IoT, Devices]
 author: Karl Söderby & Arduino Team
+hardware:
+  - hardware/01.mkr/01.boards/mkr-gsm-1400
+  - hardware/01.mkr/01.boards/mkr-nb-1500
 ---
 
 Cellular connectivity lets a board reach Arduino Cloud over a mobile network instead of Wi-Fi® or Ethernet. Consider it for remote areas without Wi-Fi®, or for mobile projects such as cargo tracking.

@@ -16,7 +16,7 @@ Confirm the [Cloud Agent](/arduino-cloud/devices/cloud-agent) is installed and r
 Check that its network credentials are correct, that it's within Wi-Fi® range on a 2.4 GHz network (see [Supported Wi-Fi Frequencies](/arduino-cloud/reference/supported-wifi-frequencies)), and that the sketch calls `ArduinoCloud.update()` every loop.
 
 **Where do I find my Device ID and Secret Key?**
-The Device ID is on the device's page; the Secret Key is shown only once at creation and can only be regenerated, not retrieved. See [Device Identity & Secrets](/arduino-cloud/security-privacy/device-identity-secrets).
+The Device ID is on the device's page; the Secret Key is shown only once at creation and can't be retrieved or regenerated. If you lose it, delete the device and add it again. See [Device Identity & Secrets](/arduino-cloud/security-privacy/device-identity-secrets).
 
 ## Sketches & Upload
 

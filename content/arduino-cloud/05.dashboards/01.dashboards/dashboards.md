@@ -34,6 +34,8 @@ A dashboard can be split into multiple pages, each with its own widgets, name, a
 
 In edit mode, drag a widget by its body to reposition it and drag a corner to resize it. Widgets snap to a grid, so neighboring widgets stay aligned. Build the layout that reads best for your project — for example, grouping controls on one side and readouts on the other.
 
+In both edit and view mode, click the **Mobile Layout** icon to preview how the widgets appear in the IoT Remote app.
+
 <Alert type="info">
 
 The layout you build in the browser is the same one the [IoT Remote app](/arduino-cloud/iot-remote-app/use-dashboards-on-phone) renders on a phone, where it reflows to fit a smaller screen.

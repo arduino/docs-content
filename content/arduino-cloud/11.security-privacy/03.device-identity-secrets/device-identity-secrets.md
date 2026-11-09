@@ -12,7 +12,7 @@ Every device in Arduino Cloud has a cryptographic identity used to authenticate 
 When a device is registered, Arduino Cloud generates two credentials:
 
 - **Device ID** — the device's unique identifier, safe to reference in code and dashboards.
-- **Secret Key** — a private key shown only once, at creation. Store it safely; it can't be retrieved later, only regenerated.
+- **Secret Key** — a private key shown only once, at creation. Store it safely: it can't be retrieved or regenerated. If you lose it, delete the device and add it again to get a new Device ID and Secret Key.
 
 Boards without a secure element (such as the UNO R4 Wi-Fi®, Nano ESP32, and ESP32/ESP8266) and manual clients authenticate with this ID + secret key pair.
 
@@ -42,5 +42,5 @@ For the full workflow, see [Keep Secrets Out of Your Sketch](/arduino-cloud/sket
 ## Next Steps
 
 - [Keep Secrets Out of Your Sketch](/arduino-cloud/sketches-editor/keep-secrets-out)
-- [Security Overview](/arduino-cloud/security-privacy/security-overview)
+- [Security Considerations](/arduino-cloud/security-privacy/security-considerations)
 - [Devices Overview](/arduino-cloud/devices/devices-overview)
