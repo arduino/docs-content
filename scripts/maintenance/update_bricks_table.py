@@ -13,6 +13,12 @@ DEFAULT_BRICKS_PATHS = [
 
 GITHUB_BASE_URL = "https://github.com/arduino/app-bricks-py/tree/main/src/arduino/app_bricks/"
 
+# Display names for the board identifiers used in supported_boards
+BOARD_MAPPING = {
+    'unoq': 'UNO Q',
+    'ventunoq': 'VENTUNO Q',
+}
+
 # The HTML comments to look for in your Markdown files
 START_MARKER = "<!-- app-bricks-py table start -->"
 END_MARKER = "<!-- app-bricks-py table end -->"
@@ -68,9 +74,18 @@ def build_markdown_table():
                 
                 # Construct GitHub link
                 source_link = f"[GitHub]({GITHUB_BASE_URL}{folder_name})"
-                
+
+                brick_id = config.get('id', '')
+                raw_boards = config.get('supported_boards') or []
+                for b in raw_boards:
+                    if b not in BOARD_MAPPING:
+                        raise ValueError(f"Unknown board identifier '{b}' on brick '{brick_id}'. Please update BOARD_MAPPING.")
+                boards = ", ".join(BOARD_MAPPING[b] for b in raw_boards) if raw_boards else "All"
+
                 bricks_data.append({
                     'name': name,
+                    'id': brick_id,
+                    'boards': boards,
                     'category': category,
                     'description': description,
                     'source': source_link
@@ -88,13 +103,13 @@ def build_markdown_table():
 
     # Initialize table headers
     rows = [
-        "| Brick | Description | Source |",
-        "| --- | --- | --- |"
+        "| Brick | Boards | Description | Source |",
+        "| --- | --- | --- | --- |"
     ]
-    
+
     # Generate rows
     for brick in bricks_data:
-        rows.append(f"| {brick['name']} | {brick['description']} | {brick['source']} |")
+        rows.append(f"| {brick['name']} | {brick['boards']} | {brick['description']} | {brick['source']} |")
 
     return "\n".join(rows) + "\n"
 

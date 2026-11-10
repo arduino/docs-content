@@ -53,6 +53,7 @@ Reads inspirational example applications (`app.yaml`) from `app-bricks-examples`
 Reads model definitions from `models-list.yaml` in `app-bricks-py` and updates the Models tables grouped by family (Vision, Audio & speech, Language, Sensor).
 
 - **Source Repository:** [`arduino/app-bricks-py`](https://github.com/arduino/app-bricks-py) (`models/models-list.yaml`)
+- **Environment Variable Override:** `MODELS_YAML` (path to the file) or `BRICKS_DIR`
 - **Target Markers:** `<!-- app-lab-models table start -->` and `<!-- app-lab-models table end -->`
 - **Usage:**
   ```bash

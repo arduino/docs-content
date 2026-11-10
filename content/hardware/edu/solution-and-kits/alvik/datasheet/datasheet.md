@@ -6,6 +6,8 @@ author: Paolo Cavagnolo, Jose Garcia, Julián Caro Linares
 ---
 ![](assets/perspective_front.png)
 
+# English
+
 # Description
 Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education.
 
@@ -13,6 +15,12 @@ Powered by the [Arduino® Nano ESP32](https://docs.arduino.cc/hardware/nano-esp3
 
 # Target areas:
 Maker, Education, MicroPython, Robotics
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 # Contents
 
@@ -363,6 +371,7 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
 ## Laser Safety Information
+
 This product contains a laser emitter and corresponding drive circuitry. The laser output is designed to meet **Class 1 laser safety limits** under all reasonably foreseeable conditions including single faults, in compliance with **IEC 60825-1:2014**.
 Do not increase the laser output power by any means. Do not use any optics to focus the laser beam.
 **Caution:**  
@@ -392,7 +401,8 @@ Use of controls or adjustments, or performance of procedures other than those sp
 
 | Date       | **Revision** |             **Changes**             |
 |------------|:------------:|:-----------------------------------:|
-| 07/07/2025 |      4       |       Correct LED information       |
-| 20/12/2024 |      3       |         Add Certifications          |
-| 13/05/2024 |      2       | Robot's Expandability section added |
 | 24/04/2024 |      1       |            First Release            |
+| 13/05/2024 |      2       | Robot's Expandability section added |
+| 20/12/2024 |      3       |         Add Certifications          |
+| 07/07/2025 |      4       |       Correct LED information       |
+| 20/10/2026 |      5       |        Added note for Intended Use  |

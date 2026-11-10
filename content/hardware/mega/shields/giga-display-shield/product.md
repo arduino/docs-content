@@ -5,7 +5,7 @@ url_guide: /tutorials/giga-display-shield/getting-started
 primary_button_url: /tutorials/giga-display-shield/getting-started
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/giga-display-shield/191'
-sku: [ASX00039]
+sku: [ASX00039, AKX0075]
 useCases: [prototyping]
 releaseDate: 2023-08-16
 ---

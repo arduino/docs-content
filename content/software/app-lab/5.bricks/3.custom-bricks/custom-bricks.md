@@ -26,11 +26,16 @@ my-app/
 ├── python/main.py
 └── bricks/
     └── my_custom_brick/            # The Brick ID and folder name
-        ├── __init__.py             # Python logic (optional)
         ├── brick_config.yaml       # Brick metadata and variables (required)
+        ├── __init__.py             # Python logic (optional)
         ├── brick_compose.yaml      # Docker Compose configuration (optional)
-        └── requirements.txt        # Python dependencies (optional)
+        ├── requirements.txt        # Python dependencies (optional)
+        ├── README.md               # Documentation shown in App Lab (optional)
+        ├── docs/API.md             # API documentation shown in App Lab (optional)
+        └── examples/               # Usage examples shown in App Lab (optional)
 ```
+
+Only `brick_config.yaml` is required, and it must contain an `id`. App Lab shows the `README.md`, `docs/API.md`, and `examples/` content in the Brick's **Overview**, **API documentation**, and **Usage examples** tabs, just like for Arduino Bricks.
 
 <Alert type="info">
 
@@ -44,10 +49,10 @@ You can generate the foundational structure for a Custom Brick directly from the
 
 1. [Open an App](../../apps/manage-apps/#open-an-app).
 2. Click the **Add Brick** button at the top of the **Editor sidebar**.
-   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the left sidebar.](../../assets/app-lab-editor-hl-bricks.png)
-3. At the bottom of the Bricks catalog, select **Create Custom Brick**.
-4. Enter a name for your Brick.
-5. App Lab will generate the folder structure and basic files for your Custom Brick inside the `bricks/` directory.
+   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Add Brick button at the top of the Editor sidebar.](../../assets/playwright/editor/add-brick-button.png)
+3. At the bottom of the Bricks catalog, select **Create custom Brick**.
+4. Enter a name for your Brick and select **Create Brick**.
+5. App Lab generates a folder for your Custom Brick inside the `bricks/` directory, with a `brick_config.yaml`, a `README.md`, an empty `brick_compose.yaml`, and an `__init__.py` file containing a sample managed Brick class (`Greeter`) that you can replace with your own code.
 
 ### Configuration (`brick_config.yaml`)
 
@@ -107,8 +112,8 @@ If your Custom Brick requires external services (such as databases or companion 
 services:
   my_service:
     image: some_registry/some_image:latest
-ports:
-  - "8080:8080"
+    ports:
+      - 8080
 ```
 
 <Alert type="warning">
@@ -129,7 +134,7 @@ Once you create a Custom Brick, using it is identical to using a built-in Brick.
 
 ### Registration (`app.yaml`)
 
-The App Lab UI manages `app.yaml` automatically when you create a Custom Brick.
+The App Lab UI adds the Custom Brick to `app.yaml` when you add it to your App, and stores the variable values you set in the Brick configuration.
 
 ```yaml
 # app.yaml
@@ -259,31 +264,30 @@ App.run()
 
 ## AI Models in Custom Bricks
 
-In the App Lab ecosystem, there is a strict separation between **AI Bricks** (the Python interface and Docker Runner) and **AI Models** (the data blobs/weights).
+In the App Lab ecosystem, there is a strict separation between **AI Bricks** (the Python interface and the container that runs inference) and **AI Models** (the model files and weights). Models are stored on the board and managed by the system, not by the Brick: they come from the board's model catalog, or from custom models you train on Edge Impulse through App Lab. See [AI Models](../../integrations/models/).
 
-If your Custom Brick relies on Edge Impulse models, you declare them in a `models-list.yaml` file. The orchestrator uses this file to download the `.eim` models to the board so the runner can load them.
+A Custom Brick can use a model from the board by referring to its model ID:
+
+- **Model per App**: Set `model` on the Brick entry in `app.yaml`. This is the model the App's containers receive when the App starts. App Lab doesn't show an **AI Models** tab for Custom Bricks, so edit `app.yaml` directly.
+- **Default model**: Set `model_name` in `brick_config.yaml` to the ID of the model the Brick is designed for. In Custom Bricks, this default isn't passed to the containers, so also set `model` in `app.yaml`.
 
 ```yaml
-# bricks/my_custom_brick/models-list.yaml
-models:
-  - my-model:
-      runner: brick
-      name: "Custom Model"
-      bricks:
-        - id: "my_custom_brick"
-      metadata:
-        ei-project-id: 12345
-        ei-model-url: "https://studio.edgeimpulse.com/public/12345/live"
+# bricks/my_custom_brick/brick_config.yaml
+id: my_custom_brick
+name: My Custom Brick
+model_name: yolox-object-detection
 ```
 
-The manifest includes the following parameters:
+```yaml
+# app.yaml
+bricks:
+  - my_custom_brick:
+      model: yolox-object-detection
+```
 
-- **`runner`**: Specifies the execution method for the model. A value of `brick` indicates that the brick's companion container handles the model execution.
-- **`name`**: The display name for the model shown inside the visual App Lab UI.
-- **`bricks`**: A list of brick IDs that are compatible with and will load this model.
-- **`metadata`**: Contains Edge Impulse-specific details:
-  - `ei-project-id`: The unique project identifier inside the Edge Impulse Studio.
-  - `ei-model-url`: The direct download link to retrieve the pre-compiled `.eim` model file.
+When the App starts, the App's containers, including the Brick's, receive the configuration variables that the board's model catalog defines for the selected model, such as `EI_OBJ_DETECTION_MODEL=/models/ootb/ei/yolo-x-nano.eim`. They don't receive the model ID itself.
+
+The model of a Custom Brick isn't downloaded automatically, neither when the App starts nor when you install an [App release](../../apps/manage-apps/#create-an-app-release) of the App. Install it on each board first with `arduino-app-cli model install <model_id>`. If the model isn't installed, the App still starts, but the files the variables point to don't exist. Use `arduino-app-cli model list` to see the IDs of the models for your board, including models that aren't installed yet.
 
 <Alert type="info">
 

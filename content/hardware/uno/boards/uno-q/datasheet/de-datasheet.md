@@ -20,6 +20,12 @@ type: maker
 
 Prototypenentwicklung, Edge-KI & ML, Bildverarbeitung, Ausbildung, Smart Devices, Robotik, Haus- und Gebäudeautomation, Gaming
 
+**Verwendungszweck des Produkts**
+
+Arduino-Hardwareprodukte sind in erster Linie für die Entwicklung und den Prototypenbau gedacht, können aber auch in Produktionslösungen zum Einsatz kommen. Entwickler müssen Sicherheitsmaßnahmen frühzeitig und unter Berücksichtigung der vorgesehenen Einsatzumgebung entwerfen und überprüfen. Die Sicherheit liegt in der gemeinsamen Verantwortung von Arduino und dem Lösungsentwickler, der die verfügbaren Sicherheitsfunktionen der Hardware bewerten und gegebenenfalls zusätzliche Schutzmaßnahmen einbauen muss.
+
+Unter [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) findest du das vollständige Dokument „Arduino-Hardwareprodukte: Verwendungszweck und Sicherheitsmodell“.
+
 <div style="page-break-after: always;"></div>
 
 # INHALT
@@ -1037,6 +1043,7 @@ Este equipamento não tem direito à proteção contra interferência prejudicia
 
 |  **Date**  | **Revision** | **Changes**                                                  |
 | :--------: | :----------: | ------------------------------------------------------------ |
+| 30/10/2026 |      16      | Added note about intended use                                |
 | 26/08/2026 |      15      | Update 5 V power pin (5V_SYS) input option on JANALOG, JMISC, JSPI |
 | 26/06/2026 |      14      | Add German language                                          |
 | 17/06/2026 |      13      | Display output clarification (USB-C and JMEDIA)              |

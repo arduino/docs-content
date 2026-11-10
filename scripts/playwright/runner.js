@@ -104,7 +104,9 @@ async function run() {
     };
 
     try {
-        await page.goto(CONFIG.baseUrl, { timeout: 30000 });
+        if (!flowModule.skipBaseUrl) {
+            await page.goto(CONFIG.baseUrl, { timeout: 30000 });
+        }
         if (typeof flowModule === 'function') {
             await flowModule(page, outDir, options);
         } else if (flowModule && typeof flowModule.run === 'function') {
@@ -124,7 +126,10 @@ async function run() {
             fs.writeFileSync(dumpPath, htmlContent, 'utf8');
             const logData = `Timestamp: ${new Date().toISOString()}\nURL: ${currentUrl}\nStep: ${stepName}\nError:\n${err.stack || err.message}\n`;
             fs.writeFileSync(logPath, logData, 'utf8');
+            const shotPath = path.join(debugDir, 'failure-screenshot.png');
+            await page.screenshot({ path: shotPath }).catch(() => {});
             console.log(`🔍 Wrote DOM failure dump to: ${dumpPath}`);
+            console.log(`🔍 Wrote failure screenshot to: ${shotPath}`);
             console.log(`🔍 Wrote failure details to: ${logPath}`);
         } catch (dumpErr) {
             console.error(`Could not write failure dump: ${dumpErr.message}`);

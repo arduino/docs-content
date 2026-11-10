@@ -3,7 +3,9 @@ import yaml
 import re
 
 # --- Configuration ---
-MODELS_YAML = "../app-bricks-py/models/models-list.yaml"
+# MODELS_YAML or BRICKS_DIR (an app-bricks-py checkout) override the default sibling checkout
+MODELS_YAML = os.environ.get("MODELS_YAML") or os.path.join(
+    os.environ.get("BRICKS_DIR") or "../app-bricks-py", "models", "models-list.yaml")
 
 # The HTML comments to look for in your Markdown files
 START_MARKER = "<!-- app-lab-models table start -->"
@@ -115,7 +117,12 @@ def build_markdown_table():
             else:
                 source_name = '—'
             
-            src_url = meta.get('source-model-url') or meta.get('ei-model-url')
+            # Link the label to the matching page: an Edge Impulse model links to its
+            # Studio project, even when source-model-url names the upstream model.
+            if raw_source == 'edgeimpulse':
+                src_url = meta.get('ei-model-url') or meta.get('source-model-url')
+            else:
+                src_url = meta.get('source-model-url') or meta.get('ei-model-url')
             if src_url and source_name != '—':
                 source_linked = f"[{source_name}]({src_url})"
             else:

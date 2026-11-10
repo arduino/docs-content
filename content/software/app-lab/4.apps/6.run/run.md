@@ -5,7 +5,7 @@ overwriteSidebar: Run & Monitor
 tags: [UNO Q, App Lab, Startup, Default App, Headless]
 ---
 
-Arduino App Lab provides a seamless interface for testing, deploying, and managing applications on your board. Execute essential workflows including running examples, monitoring logs, and configuring startup apps.
+Run Apps on your board, monitor their logs, and choose which App starts automatically when the board powers on.
 
 ## Run an App
 
@@ -14,14 +14,14 @@ When you have finished writing or modifying your code in the App Lab, you can ex
 1. [Open an App](../manage-apps/#open-an-app).
 2. Click the **Run (▶)** button in the top navigation bar.
 3. The **Console** panel opens automatically at the bottom of the editor as Arduino App Lab compiles your project, transfers it to the board's active memory, and launches it. Start-up logs appear in the **App launch** tab.
-   ![Screenshot of Arduino App Lab. An App is being launched, and the text "Running..." is displayed next to the Run button.](../../assets/app-lab-console/launching/launching.png)
+   ![Screenshot of Arduino App Lab while an App starts: the text "Running..." is displayed next to the Stop button, and the Console shows only the App launch tab.](../../assets/playwright/editor/console/app-launch-starting.png)
    <Alert type="info">
 
    **Note:** While the App is starting, only the **App launch** tab is available, and the system displays the text _"Running…"_ next to the **Stop** button.
 
    </Alert>
-4. When the App launch completes, the text in the **App launch** tab turns green, and the **Serial Monitor** and **Python** tabs become available.
-   ![Screenshot of Arduino App Lab, displaying the App launch tab in the Console with green color text.](../../assets/app-lab-console/running/running.png)
+4. When the App has started, the **Python** and **Serial Monitor** tabs become available, and the **Python** tab is selected automatically.
+   ![Screenshot of the Console in Arduino App Lab after the App has started, with the App launch, Python, and Serial Monitor tabs.](../../assets/playwright/editor/console/console-header-hl.png)
 
 ## Run at Startup
 
@@ -29,9 +29,11 @@ If you want your application to launch automatically whenever your board receive
 
 1. [Open an App](../manage-apps/#open-an-app).
 1. Select the arrow (**▼**) next to the App name near the top left corner.
-1. Enable **Run at Startup**.
+1. Enable **Run at startup**.
 
-Once configured, your board will automatically start the App on boot.
+You can also enable **Run at startup** from the menu of an App in the **Apps** list.
+
+Once configured, your board automatically starts the App every time you plug it into any power source, even without a computer. To set the startup App from the board's terminal, run `arduino-app-cli properties set default <app>`.
 
 <Alert type="note">
 
@@ -53,5 +55,12 @@ You can **stop** a running App in two ways:
 When an App is running, you can monitor its execution through the **Console** panel at the bottom of the editor. Select the tabs at the top of the panel to switch between views:
 
 - **App launch:** Displays logs related to code compilation, file transfer, and the deployment process. Check this tab if your App fails to launch.
-- **Serial Monitor:** Displays logs from your microcontroller's sketch. Standard `Serial.print()` commands are automatically routed here.
 - **Python:** Displays standard output from your Python script, such as `print()` statements. This is where you monitor the high-level logic and any errors on the Linux side.
+- **Serial Monitor:** Displays logs from your microcontroller's sketch. Standard `Serial.print()` commands are automatically routed here.
+- **Brick logs:** Each Brick container gets a separate tab, labeled with the Brick ID and the container name, such as `arduino:object_detection [ei-obj-detection-runner]`. A Brick that runs several containers gets one tab for each. Bricks that run inside your Python script, and containers that don't belong to a Brick, log to the **Python** tab instead. Check these tabs to troubleshoot a Brick.
+
+Use the buttons in the console toolbar to turn autoscroll on or off, show or hide timestamps, clear the log, and maximize or minimize the panel.
+
+### Send Input to the Sketch
+
+In the **Serial Monitor** tab, type a message in the field at the bottom of the console and press **Enter** to send it to the sketch. Read it in your sketch with `Monitor.read()` or `Serial.read()`. See the [Monitor API](../../bridge/bridge-api/#monitor-api).

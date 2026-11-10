@@ -21,18 +21,24 @@ You can either add a pre-built Brick from the Bricks catalog, or create a Custom
 
 1. [Open an App](../../apps/manage-apps/#open-an-app).
 2. Click the **Add Brick** button at the top of the **Editor sidebar** to open the Bricks catalog.
-   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the Editor sidebar.](../../assets/app-lab-editor-hl-bricks.png)
-3. Select a Brick from the list.
+   ![Screenshot of the App Editor in Arduino App Lab, highlighting the Bricks section in the Editor sidebar.](../../assets/playwright/editor/add-brick-button.png)
+3. Select a Brick from the list and select **Add**.
 4. Follow the prompts to configure any required settings (e.g., credentials or thresholds).
-5. App Lab automatically adds the Brick to your `app.yaml` file.
+5. App Lab adds the Brick to your `app.yaml` file and suggests the next steps: check the Brick's **Usage examples**, and copy the code you need into `main.py`.
+
+Bricks that are not available for your board are not listed. See the **Boards** column in the [list of Bricks](../about-bricks/#list-of-bricks).
 
 ### Configure Brick Variables
 
 Many Bricks (both Arduino and Custom) accept configuration variables, such as API keys or threshold values.
 
-1. Click on the Brick's name in the left sidebar to open the Brick's detail page.
-2. Configure any required settings.
-3. App Lab automatically saves these settings to your `app.yaml` file, and passes them to the Brick as environment variables when the App runs.
+1. Click on the Brick's name in the **Bricks** section of the Editor sidebar to open the Brick's detail page.
+2. Select **Brick configuration** and set the variables. For AI Bricks, select the model in the **AI Models** tab (see [AI Models](../../integrations/models/)).
+3. App Lab saves these settings to your `app.yaml` file, and passes them to the Brick as environment variables when the App runs.
+
+If a required variable is missing when you select **Run**, App Lab asks you to configure the Brick first, then starts the App. Secret variables, such as API keys, are masked in the interface.
+
+To remove a Brick from your App, open its menu in the **Bricks** section and select **Remove**.
 
 <Alert type="note">
 
@@ -95,8 +101,11 @@ value = read_value()
 
 Each Brick includes its own specific API and usage examples.
 
-- When you add a Brick, its documentation opens automatically in a new tab.
-- To view the documentation for an existing Brick, click on the Brick's name in the left sidebar.
+- To view the documentation for a Brick, click on the Brick's name in the **Bricks** section of the Editor sidebar. The Brick opens in a new tab, with these sections:
+  - **Overview**: What the Brick does and how it works.
+  - **Usage examples**: Code snippets you can copy into your App.
+  - **API documentation**: The classes and functions of the Brick's Python API.
+  - **AI Models**: For AI Bricks, the models you can use. See [AI Models](../../integrations/models/).
 
 <Alert type="success">
 

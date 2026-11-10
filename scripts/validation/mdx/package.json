@@ -1,0 +1,13 @@
+{
+  "name": "mdx-check",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Compiles the content with the MDX version that builds docs.arduino.cc",
+  "main": "mdx-check.js",
+  "type": "commonjs",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/parser": "7.27.0",
+    "@mdx-js/mdx": "1.6.22"
+  }
+}

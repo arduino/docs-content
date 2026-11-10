@@ -1,0 +1,38 @@
+Camera:
+  Name: Arduino® USB Camera
+  SKU: TPX00246
+General:
+  Type: USB camera (UVC)
+  Image Sensor: Sony IMX376 (1/2.8")
+  Effective Resolution: 3840 (H) × 2160 (V) (8 MP)
+  Pixel Size: 1.0 µm (native)/2.0 µm (4-in-1 binning)
+  Lens: Fixed, non-interchangeable
+  Aperture: F/2.0
+  Field of View: Diagonal 80°, Horizontal 63°, Vertical 50°
+  Focus: Autofocus (20 cm to infinity)
+  Shutter Type: Electronic rolling shutter
+  Integrated Lighting: LED ring light, 4000 lux, warm white (3000 - 3500 K) and cool white (6000 - 6500 K)
+  Microphone: Single analog microphone (USB Audio Class, UAC)
+  Dimensions: 70 × 40 × 90 mm
+  Weight: 105 g
+Interface:
+  Connection: USB 2.0 High Speed
+  Connector: USB-A
+  OTG: USB 2.0 OTG supported
+Video:
+  Output Formats: MJPEG, YUY2 (YUYV)
+  Maximum Resolution: 3840 × 2160 (UHD 4K) at 30 fps (MJPEG)
+  Image Processing: Automatic exposure (AEC), white balance (AWB), and gain control (AGC)
+Power:
+  Power Source: USB bus-powered
+  Supply Voltage: 5 VDC ±0.2 V
+  Operating Current (LED off): 0.25 A (typical)/0.29 A (maximum)
+  Operating Current (LED on): 0.41 A (typical)/0.45 A (maximum)
+Compatibility:
+  Boards: Arduino UNO Q, Arduino VENTUNO Q
+  Connection: Direct to VENTUNO Q onboard USB Type-A; USB hub or adapter may be required on UNO Q
+  Driver Support: UVC (driver-free)
+  Operating Systems: Linux, Windows, macOS, Android (UVC-compatible hosts)
+Operating Conditions:
+  Operating Temperature: 0 - 70 °C
+  Storage Temperature: -20 - 75 °C

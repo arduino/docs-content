@@ -67,6 +67,10 @@
         ],
         "use-cases": [
           "ai-coding-agents"
+        ],
+        "robotics": [
+          "ros2-setup",
+          "ros2-first-setup"
         ]
       }
     },

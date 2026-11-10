@@ -4,6 +4,7 @@ Anatel
 Appiani
 Arducam
 AREF
+arduino
 autovideosink
 Bughopper
 CENW

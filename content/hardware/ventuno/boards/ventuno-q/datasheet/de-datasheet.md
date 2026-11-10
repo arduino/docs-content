@@ -20,6 +20,12 @@ Mit VENTUNO Q bleiben Sie vernetzt und einsatzbereit. Es verfügt über integrie
 
 Edge AI, lokale LLM/VLM, intelligente Smart Home-Systeme, Robotik, Bewegungssteuerung, intelligente Smart City, industrielle Bildverarbeitung, Bildung und Forschung
 
+**Verwendungszweck des Produkts**
+
+Arduino-Hardwareprodukte sind in erster Linie für die Entwicklung und den Prototypenbau gedacht, können aber auch in Produktionslösungen zum Einsatz kommen. Entwickler müssen Sicherheitsmaßnahmen frühzeitig und unter Berücksichtigung der vorgesehenen Einsatzumgebung entwerfen und überprüfen. Die Sicherheit liegt in der gemeinsamen Verantwortung von Arduino und dem Lösungsentwickler, der die verfügbaren Sicherheitsfunktionen der Hardware bewerten und gegebenenfalls zusätzliche Schutzmaßnahmen einbauen muss.
+
+Unter [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) findest du das vollständige Dokument „Arduino-Hardwareprodukte: Verwendungszweck und Sicherheitsmodell“.
+
 <div style="page-break-after: always;"></div>
 
 # INHALT
@@ -1254,6 +1260,10 @@ For Low power indoor (LPI use): Operations in the 5955 - 6415MHz are restricted 
 
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
+>[!NOTE]
+>A copy of the CE and UKCA Declaration of Conformity is available at: [https://docs.arduino.cc/certifications](https://docs.arduino.cc/certifications)
+
+
 ### Radio Equipment Information (RED Compliance)
 
 This radio equipment operates in the following frequency bands and with the maximum radio-frequency power indicated below:
@@ -1391,6 +1401,7 @@ The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and 
 |  3  | Projekt Hub             | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                           |
 |  4  | Bibliotheksreferenz     | [https://docs.arduino.cc/libraries/](https://docs.arduino.cc/libraries/)                   |
 |  5  | Arduino Shop            | [https://store.arduino.cc/](https://store.arduino.cc/)                                     |
+|  6  | Compliance Documents    | [https://docs.arduino.cc/certifications/](https://docs.arduino.cc/certifications/)         |
 
 # Versionshistorie des Dokuments
 
@@ -1400,3 +1411,4 @@ The terms HDMI, HDMI High-Definition Multimedia Interface, HDMI trade dress and 
 | 28/08/2026 |      2       | Updated Certifications |
 | 31/08/2026 |      3       | Adding 6 GHz to Safety Information |
 | 29/09/2026 |      4       | Updating values for inputs |
+| 30/10/2026 |       5      | Added link to Compliance Page, and a note about Intended Use |
