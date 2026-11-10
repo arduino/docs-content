@@ -1,0 +1,42 @@
+Carrier:
+  Name: "Arduino® Nano XL Link Connector Carrier"
+  SKU: "ASX00090"
+
+Interfaces:
+  Qwiic Connector: 
+    Included: Yes
+    Protocol: I2C (I2C3 bus, 3.3 V, 5.1 kΩ pull-ups on board)
+    Connector: JST SH 4-pin (1.0 mm pitch)
+  Ethernet: 
+    Included: Yes
+    Speed: 10/100 Mbit/s
+    Connector: RJ45 with integrated magnetics and activity LED
+  WiFi Expansion:
+    Connector: 2x4 female header (2.54 mm pitch)
+    Compatibility: ESP8266 (ESP-01) form factor
+    Interface: UART1 (TX/RX routing selectable via 0 Ω jumpers R9–R12) + 4x GPIO (D2, D4, D6, D7)
+  Industrial Communication:
+    CAN FD: Yes, via screw terminals (CANH, CANL)
+    RS485: Yes, via screw terminals (A, B)
+    Note: Transceivers and bus termination provided by the Nano XL Link
+  Debugging:
+    Included: Yes
+    Protocol: SWD (SWDIO, SWCLK, nRESET)
+    Connector: 2x5 1.27 mm header
+
+Headers:
+  Host Headers: "Dual 30-pin female headers (Inner: Standard Nano, Outer: Nano XL format)"
+  Breakout Headers: "Dual 2x20 female headers (Exposes relevant pins)"
+  Terminal Block: "2x 4-position Screw Terminals (Power IN, CAN, RS485)"
+
+Power and Operating Conditions:
+  IO Voltage: 3.3 V (defined by the Nano XL Link; no regulator on the carrier)
+  VIN Range: 7 V to 24 V
+  Input Protection: Reverse polarity protection diode (D1, S2M, 2A) and TVS diode (D2, SMBJ24CA) on the power-in screw terminal
+  Operating Temperature: -40 °C to +85 °C
+
+Physical Specifications:
+  Dimensions:
+    Width: "66 mm"
+    Length: "71.8 mm"
+  Form Factor: Compatible with standard 4U DIN-rail open enclosures
