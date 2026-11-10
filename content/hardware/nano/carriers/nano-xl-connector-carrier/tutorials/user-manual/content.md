@@ -340,7 +340,6 @@ The Nano XL Link includes a built-in 120-ohm termination resistor for the RS-485
 
 - **When to leave it closed (Default):** If your carrier board is located at either the absolute beginning or the absolute end of the physical bus line, leave the SJ2 jumper untouched.
 - **When to cut it (Disable Termination):** If the carrier acts as a middle node (tapped into the bus between two already-terminated end nodes), you must cut the small trace inside the SJ2 solder jumper to disable the onboard termination.
-- 
 #### Leveraging RS-485
 
 To control the RS-485 interface, you will use the official `ArduinoRS485` library. You can easily install it via the Arduino IDE Library Manager by searching for **"ArduinoRS485"**. 
@@ -907,15 +906,15 @@ If you encounter any issues or have questions while working with the Arduino® N
 
 ### Help Center
 
-Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nano XL Link Connector Carrier. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nano family boards. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
 - [Nano Family Help Center page](https://support.arduino.cc/hc/en-us/sections/360004605400-Nano-Family)
 
 ### Forum
 
-Join our community forum to connect with other Nano XL Link Connector Carrier users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the carrier.
+Join our community forum to connect with other Nano family board users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nano XL Link Connector Carrier.
 
-- [Nano XL Link Connector Carrier category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/nano-family/nano-xl-connector-carrier)
+- [Nano category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/nano-family/87)
 
 ### Contact Us
 

@@ -1,6 +1,6 @@
 ---
 identifier: ASX00090
-title: Nano XL Link Connector Carrier
+title: Arduino® Nano XL Link Connector Carrier
 type: maker
 author: Christopher Méndez
 ---
@@ -115,8 +115,8 @@ The Nano XL Link Connector Carrier exposes all the host board connections and co
 
 ### Related Products
 
-- Nano XL Link (ABX00182)
-- Modulino® nodes
+- Arduino® Nano XL Link (ABX00182)
+- Arduino® Modulino™ nodes
 
 ## Power and Ratings
 ### Recommended Operating Conditions
@@ -431,4 +431,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
-| 09/11/2026 | 1            | First Release |
+| 10/11/2026 | 1            | First Release |
