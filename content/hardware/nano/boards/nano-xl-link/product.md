@@ -1,6 +1,6 @@
 ---
 title: Nano XL Link
-url_shop: https://store.arduino.cc/products/nano-xl-link
+url_shop: https://store.arduino.cc/pages/nano-xl-link
 primary_button_url: /tutorials/nano-xl-link/user-manual
 primary_button_title: User Manual
 forumCategorySlug: '/official-hardware/nano-family/87'
