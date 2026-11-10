@@ -2,7 +2,6 @@
 identifier: ASX00090
 title: Nano XL Link Connector Carrier
 type: maker
-variant: 'Datasheet'
 author: Christopher Méndez
 ---
 
@@ -10,15 +9,21 @@ author: Christopher Méndez
 
 # Description
 
-The Nano XL Link Connector Carrier is a practical solution for expanding the capabilities of the Nano XL Link development board.
+The Nano XL Link Connector Carrier is a practical way to expand the Nano XL Link development board's capabilities.
 
 Whether you are working on complex communication networks, developing control applications, or building robust solutions, this carrier exposes all extended connections of the Nano XL form factor via pin headers and screw terminals.
 
-The hardware integrates an RJ45 Ethernet port, along with dedicated connections for RS485 and CAN bus, unlocking new possibilities for automation, data acquisition, and real-time industrial communication needs.
+The hardware integrates an RJ45 Ethernet port, plus dedicated RS485 and CAN bus connections, enabling new possibilities for automation, data acquisition, and real-time industrial communication.
 
 # Target Areas:
 
 Industrial Automation, Production-Ready Solutions, Industrial Communication, Research and Development
+
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
 
 <div style="page-break-after: always;"></div>
 
@@ -27,24 +32,28 @@ Industrial Automation, Production-Ready Solutions, Industrial Communication, Res
 ## Application Examples
 
 **Industrial Automation & Production-Ready Solutions:** 
-- **Heavy Machinery Control:** Use the integrated CAN bus to establish reliable communication with engine control units and industrial PLCs. In addition, the onboard screw terminals ensure that field wiring withstands high-vibration environments, allowing your system to transition from a testing environment to a final deployment without needing custom hardware.
-- **Distributed Sensor Networks:** Create robust data acquisition systems using the RS485 communication interface. This topology is ideal for transmitting telemetry over long distances across a production floor, offering high electrical noise immunity for the secure monitoring of assembly lines.
+
+- **Heavy Machinery Control:** Use the integrated CAN bus to establish reliable communication with engine control units and industrial PLCs. In addition, the onboard screw terminals ensure field wiring withstands high-vibration environments, letting you move from testing to final deployment without custom hardware.
+- **Distributed Sensor Networks:** Create robust data acquisition systems using the RS485 communication interface. This topology is ideal for transmitting telemetry over long distances across a production floor, offering strong electrical-noise immunity for secure assembly-line monitoring.
 
 **Industrial Communication:**
+
 - **Wired IoT Gateway:** Transform the Nano XL Link into a powerful data bridge using the RJ45 Ethernet port. The *carrier* can collect local real-time data from modules connected via the Qwiic or CAN bus connector and transmit it securely over a local wired network, facilitating integration with SCADA systems or cloud analytics servers without relying on wireless connections.
-- **Wireless Hub:** Communicate wirelessly using a WiFi module connected to the *carrier* and expand your sensor network in hard-to-reach areas. By leveraging the dedicated 2x4-pin female header for modules like the ESP8266 (ESP-01), you can build an IoT control hub that collects local data and transmits it to the cloud or SCADA systems, all without the need to install additional wiring infrastructure.
+- **Wireless Hub:** Communicate wirelessly using a WiFi module connected to the *carrier* and expand your sensor network in hard-to-reach areas. By using the dedicated 2x4-pin female header for modules like the ESP8266 (ESP-01), you can build an IoT control hub that collects local data and transmits it to the cloud or SCADA systems, without installing additional wiring infrastructure.
 
 **Research and Development:**
-- **Advanced Rapid Prototyping:** Accelerate design and validation cycles in the lab. The *carrier* not only exposes all board connections through standard headers, but also includes a JTAG connector. This provides hardware and software engineers with deep access for low-level debugging and programming of new technological concepts prior to mass production.
+
+- **Advanced Rapid Prototyping:** Accelerate design and validation cycles in the lab. The *carrier* not only exposes all board connections through standard headers, but also includes a debugging SWD connector. This gives hardware and software engineers deep access for low-level debugging and programming of new technological concepts before mass production.
 
 ## Features
+
 ### General Specifications Overview
 
 The main features of the Nano XL Link Connector Carrier are detailed in the table shown below.
 
 | **Feature**            | **Description**                                                                                                                                                                                    |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Interfaces             | 1x Qwiic I2C Connector<br></br>1x Ethernet RJ45 Connector<br></br>1x WiFi Module ESP-01 Connector<br></br>1x SWD/JTAG 2x5 1.27mm Connector<br></br>1x Screw Terminals block (RS485, CAN, Power IN) |
+| Interfaces             | 1x Qwiic I2C Connector<br></br>1x Ethernet RJ45 Connector<br></br>1x WiFi Module ESP-01 Connector<br></br>1x SWD 2x5 1.27mm Connector<br></br>1x Screw Terminals block (RS485, CAN, Power IN)      |
 | IO Voltage             | 3.3 VDC                                                                                                                                                                                            |
 | Dimensions             | 66 mm x 71.8 mm                                                                                                                                                                                    |
 | Operating Temperatures | -40 °C to +85 °C                                                                                                                                                                                   |
@@ -52,23 +61,23 @@ The main features of the Nano XL Link Connector Carrier are detailed in the tabl
 
 ### Qwiic I2C Connector
 
-The Qwiic I2C connector (J7) is connected to the standard I2C bus on the board. It is powered via the +3.3 V output line, following the standard Qwiic ecosystem to allow seamless plug-and-play integration with a wide variety of external I2C sensors and modules.
+The Qwiic I2C connector (J7) connects to the board's standard I2C bus. It is powered via the +3.3 V output line, following the standard Qwiic ecosystem to allow seamless plug-and-play integration with a wide variety of external I2C sensors and modules.
 
 ![Carrier Qwiic Connector](assets/qwiic.png)
 
 ### Breakout Headers
 
-The carrier features a 2x20 female Breakout Header (J1) that expose the extended pinout of the host Nano XL Link board. These headers provide access to all relevant GPIOs, SPI, I2C, I2S, and UART interfaces, allowing for highly flexible prototyping.
+The carrier features a 2x20 female Breakout Header (J1) that expose the host Nano XL Link board's extended pinout. These headers provide access to all standard and extended GPIOs, SPI, I2C, I2S, and UART interfaces, allowing for highly flexible prototyping.
 
 ![Carrier Breakout Headers](assets/breakout.png)
 
 <div style="page-break-after: always;"></div>
 
-### SWD/JTAG Connector
+### SWD Connector
 
-For advanced development, the board includes an SWD/JTAG 2x5 1.27mm Connector (J6). This provides a direct interface for low-level debugging and programming of the microcontroller, and is powered by the board's +3.3 V line.
+For advanced development, the board includes an SWD 2x5 1.27mm connector (J6). This provides a direct interface for low-level debugging and programming of the microcontroller, and is powered by the board's +3.3 V line.
 
-![Nano XL Link Connector Carrier JTAG Connector](assets/jtag.png)
+![Nano XL Link Connector Carrier SWD Connector](assets/jtag.png)
 
 ### Screw Terminals
 
@@ -76,13 +85,13 @@ The Screw Terminals block (J8) is designed for robust, industrial-grade connecti
 
 ![Nano XL Link Connector Carrier Screw Terminals](assets/screw_terminals.png)
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The VIN power input is protected by a rectifier diode and a TVS diode before feeding the Nano XL Link Header.
-</div>
+> [!NOTE]
+> **Note:** The VEXT power input is protected by a rectifier diode and a TVS diode before feeding the Nano XL Link Header.
+
 
 ### WiFi Module Connector
 
-The carrier includes a dedicated 2x4 female header (J5) designed to host an ESP8266 ESP-01 WiFi module. This connector is powered by the +3.3 V line and interfaces directly with the host board via UART1 and standard GPIOs, offering an immediate path to add wireless capabilities to your setup.
+The carrier includes a dedicated 2x4 female header (J5) for an ESP8266 ESP-01 WiFi module. This connector is powered by the +3.3 V line and connects directly to the host board via UART1 and standard GPIOs, giving you an immediate way to add wireless capabilities to your setup.
 
 ![Nano XL Link Connector Carrier WiFi Connector](assets/wifi.png)
 
@@ -117,9 +126,8 @@ The Nano XL Link Connector Carrier exposes all the host board connections and co
 | VIN            | Input voltage         | 7.0 | -   | 24  | V    |
 | T<sub>OP</sub> | Operating Temperature | -40 | 25  | 85  | °C   |
 
-<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The Nano XL Link Connector Carrier is powered by the host board's regulated power nets. The carrier has no regulator.
-</div>
+> [!NOTE]
+> **Note:** The Nano XL Link Connector Carrier draws power from the host board's regulated power nets. The carrier has no regulator.
 
 ### Power Tree
 
@@ -129,13 +137,13 @@ The following diagram illustrates the Nano XL Link Connector Carrier's main syst
 
 ## Functional Overview
 
-The Nano XL Link Connector Carrier expands the connectivity of the Nano XL Link board, featuring a variety of communication interfaces including CAN, RS485, and Ethernet. It also includes a Qwiic I2C connector, an ESP-01 WiFi module header, and robust screw terminals for industrial environments.
+The Nano XL Link Connector Carrier expands the Nano XL Link board's connectivity with a variety of communication interfaces, including CAN, RS485, and Ethernet. It also includes a Qwiic I2C connector, an ESP-01 WiFi module header, and robust screw terminals for industrial environments.
 
 ***CAN, RS485 and Ethernet PHYs are included in the Nano XL Link.***
 
 ### Pinout
 
-The Nano XL Link Connector Carrier pinout is shown in the following figure.
+The following figure shows the Nano XL Link Connector Carrier pinout.
 
 ![Pinout for Nano XL Link Connector Carrier](assets/Simple-pinout-ASX00090.png)
 
@@ -219,7 +227,7 @@ This 2x4 header provides connections to an ESP-01 WiFi module via UART1 and GPIO
 | 5   | D7       | 6   | D2       |
 | 7   | +3V3     | 8   | UART1_TX |
 
-#### SWD/JTAG 2x5 1.27mm Connector (J6)
+#### SWD 2x5 1.27mm Connector (J6)
 
 Used for low-level debugging and programming of the microcontroller.
 
@@ -261,7 +269,7 @@ The RJ45 connector on the carrier board features an integrated **status LED** dr
 
 ### Block Diagram
 
-An overview of the Nano XL Link Connector Carrier high-level architecture is illustrated in the figure below.
+The figure below illustrates an overview of the Nano XL Link Connector Carrier's high-level architecture.
 
 ![Nano XL Link Connector Carrier Block Diagram](assets/Nano_XL_Link_Connector_Carrier_Block_Diagram.png)
 
@@ -278,7 +286,7 @@ An overview of the Nano XL Link Connector Carrier high-level architecture is ill
 | J2            | Ethernet RJ45 Connector            |
 | J3, J4        | Nano XL Link Headers (2.54 mm)     |
 | J5            | WiFi Module ESP-01 Connector       |
-| J6            | SWD/JTAG 2x5 1.27mm Connector      |
+| J6            | SWD 2x5 1.27mm Connector           |
 | J7            | Qwiic I2C Connector                |
 | J8            | Screw Terminals block (CAN, RS485) |
 | J9            | Screw Terminals block (POWER IN)   |
@@ -288,28 +296,29 @@ An overview of the Nano XL Link Connector Carrier high-level architecture is ill
 
 ### Getting Started - IDE
 
-If you want to program your Nano XL Link board to use the Nano XL Link Connector Carrier while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Nano board to your computer, you will need a USB cable, which can also provide power to the board.
+If you want to program your Nano XL Link board to use the Nano XL Link Connector Carrier while offline, you need to install the Arduino® Desktop IDE **[1]**. To connect the Nano board to your computer, you will need a USB cable, which can also provide power to the board.
 
 ### Online Resources
 
-Now that you have learned the basics of what you can do with the carrier, you can explore its endless possibilities by checking out exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**. Here, you can complement your board with sensors, actuators and more.
+Now that you have learned the basics of what you can do with the carrier, explore its possibilities by checking out exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**. Here, you can complement your board with sensors, actuators, and more.
 
 ## Mechanical Information
 
 The Nano XL Link Connector Carrier is a double-sided 66 mm x 71.8 mm board. It features dual 30-pin female headers in the center to receive the host Nano XL Link board, flanked by two 2x20 breakout headers that expose all the board's pins.
 
-Along the top edge, it includes an 8-position screw terminal block dedicated to power input, CAN bus, and RS485 connections. The board houses a RJ45 Ethernet port in the bottom left corner. Additional peripheral interfaces include a 2x4 female header on the left side for an ESP-01 WiFi module, a small Qwiic I2C connector in the right edge, and a 2x5 SWD/JTAG connector located near the top right corner.
+Along the top edge, it includes an 8-position screw terminal block dedicated to power input, CAN bus, and RS485 connections. The board includes an RJ45 Ethernet port in the bottom left corner. Additional peripheral interfaces include a 2x4 female header on the left side for an ESP-01 WiFi module, a small Qwiic I2C connector on the right edge, and a 2x5 SWD connector located near the top right corner.
 
 To simplify system integration, the Nano XL Link Connector Carrier features a form factor compatible with standard 4U DIN-rail open enclosures. This makes it an ideal, production-ready solution for transitioning directly from prototyping to industrial deployment.
 
 ### Board Dimensions
-The outline and dimensions of the Nano XL Link Connector Carrier can be seen in the following figure; all the dimensions are in mm.
+
+The following figure shows the outline and dimensions of the Nano XL Link Connector Carrier; all dimensions are in mm.
 
 ![Mechanical View of Nano XL Link Connector Carrier](assets/mechanical-2.png)
 
 ### Board Connectors
 
-The Nano XL Link Connector Carrier's connectors are placed on the top side of the board, as shown in the figure below; all the dimensions are in mm.
+The Nano XL Link Connector Carrier's connectors are placed on the top side of the board, as shown in the figure below; all dimensions are in mm.
 
 ![Mechanical View of Nano XL Link Connector Carrier's Connectors](assets/mechanical-3.png)
 
@@ -422,4 +431,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
-| 29/09/2026 | 1            | First Release |
+| 09/11/2026 | 1            | First Release |
