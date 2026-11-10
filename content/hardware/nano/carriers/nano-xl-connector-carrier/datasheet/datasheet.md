@@ -175,16 +175,16 @@ The following figure shows the Nano XL Link Connector Carrier pinout.
 | ------- | ------------------------ | ------- | -------------------------------- |
 | 1       | USB D+                   | 30      | D13                              |
 | 2       | USB D-                   | 29      | +3V3                             |
-| 3       | COPI                     | 28      | AREF                             |
-| 4       | CIPO                     | 27      | A0                               |
-| 5       | SCLK                     | 26      | A1                               |
-| 6       | CS                       | 25      | A2                               |
-| 7       | SDA                      | 24      | A3                               |
-| 8       | SCL                      | 23      | A4                               |
-| 9       | CK                       | 22      | A5                               |
-| 10      | WS                       | 21      | A6                               |
-| 11      | SDI                      | 20      | A7                               |
-| 12      | SDO                      | 19      | VBUS                             |
+| 3       | SPI2_COPI                | 28      | AREF                             |
+| 4       | SPI2_CIPO                | 27      | A0                               |
+| 5       | SPI2_SCLK                | 26      | A1                               |
+| 6       | SPI2_CS                  | 25      | A2                               |
+| 7       | I2C3_SDA                 | 24      | A3                               |
+| 8       | I2C3_SCL                 | 23      | A4                               |
+| 9       | I2S_CK                   | 22      | A5                               |
+| 10      | I2S_WS                   | 21      | A6                               |
+| 11      | I2S_SDI                  | 20      | A7                               |
+| 12      | I2S_SDO                  | 19      | VBUS                             |
 | 13      | SWCLK                    | 18      | SWDIO                            |
 | 14      | UART1_TX                 | 17      | GND                              |
 | 15      | UART1_RX                 | 16      | VIN                              |
@@ -193,28 +193,28 @@ The following figure shows the Nano XL Link Connector Carrier pinout.
 
 The carrier exposes the board's I/O through a 2x20 pin breakout header.
 
-| Pin | Function | Pin | Function |
-| --- | -------- | --- | -------- |
-| 1   | D9       | 2   | VIN      |
-| 3   | D8       | 4   | GND      |
-| 5   | D5       | 6   | VBUS     |
-| 7   | D3       | 8   | USB D+   |
-| 9   | D13      | 10  | USB D-   |
-| 11  | D12      | 12  | COPI     |
-| 13  | D11      | 14  | CIPO     |
-| 15  | D10      | 16  | SCLK     |
-| 17  | GND      | 18  | CS       |
-| 19  | AREF     | 20  | SDA      |
-| 21  | A0       | 22  | SCL      |
-| 23  | A1       | 24  | CK       |
-| 25  | A2       | 26  | WS       |
-| 27  | A3       | 28  | SDI      |
-| 29  | A4       | 30  | SDO      |
-| 31  | A5       | 32  | GND      |
-| 33  | A6       | 34  | UART6_RX |
-| 35  | A7       | 36  | UART6_TX |
-| 37  | GND      | 38  | SWDIO    |
-| 39  | +3V3     | 40  | SWCLK    |
+| Pin | Function | Pin | Function  |
+| --- | -------- | --- | --------- |
+| 1   | D9       | 2   | VIN       |
+| 3   | D8       | 4   | GND       |
+| 5   | D5       | 6   | VBUS      |
+| 7   | D3       | 8   | USB D+    |
+| 9   | D13      | 10  | USB D-    |
+| 11  | D12      | 12  | SPI2_COPI |
+| 13  | D11      | 14  | SPI2_CIPO |
+| 15  | D10      | 16  | SPI2_SCLK |
+| 17  | GND      | 18  | SPI2_CS   |
+| 19  | AREF     | 20  | I2C3_SDA  |
+| 21  | A0       | 22  | I2C3_SCL  |
+| 23  | A1       | 24  | I2S_CK    |
+| 25  | A2       | 26  | I2S_WS    |
+| 27  | A3       | 28  | I2S_SDI   |
+| 29  | A4       | 30  | I2S_SDO   |
+| 31  | A5       | 32  | GND       |
+| 33  | A6       | 34  | UART6_RX  |
+| 35  | A7       | 36  | UART6_TX  |
+| 37  | GND      | 38  | SWDIO     |
+| 39  | +3V3     | 40  | SWCLK     |
 
 #### WiFi Module ESP-01 Connector (J5)
 
