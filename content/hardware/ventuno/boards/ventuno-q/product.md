@@ -10,7 +10,6 @@ sku: [ABX00181]
 useCases: [prototyping, robotics, edge-ai, iot-wireless]
 relevance: 1
 releaseDate: 2026-08-25
-isNew: true
 ---
   
 The Arduino VENTUNO Q is the edge AI computer that redefines what is possible at the edge, serving as the definitive powerhouse for AI and robotics applications. At its core lies a revolutionary Dual-Brain architecture: the robust Qualcomm Dragonwing™ IQ8 delivers up to 40 dense TOPS of AI compute for advanced computer vision and local LLMs, while the dedicated STM32H5 Microcontroller ensures the low-latency precision required for complex motor control and robotics.

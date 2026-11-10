@@ -1,6 +1,6 @@
 ---
 title: Nano XL Link Connector Carrier
-url_shop: https://store.arduino.cc/products/nano-xl-connector-carrier
+url_shop: https://store.arduino.cc/pages/nano-xl-link
 primary_button_url: /tutorials/nano-xl-connector-carrier/user-manual/
 primary_button_title: User Manual
 forumCategorySlug: '/official-hardware/nano-family/87'
