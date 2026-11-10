@@ -1,13 +1,13 @@
 <FeatureDescription>
 
-This product expands the Nano XL Link development board's capabilities by adding robust industrial connectivity via CAN bus, RS485, and Ethernet. Serving as both a DIN-rail-mountable solution and a reference design, the Nano XL Link Connector Carrier is the ultimate tool for a seamless transition from rapid prototyping to production-ready deployments.
+This product expands the Nano XL Link development board's capabilities by adding robust industrial connectivity via CAN bus, RS-485, and Ethernet. Serving as both a DIN-rail-mountable solution and a reference design, the Nano XL Link Connector Carrier is the ultimate tool for a seamless transition from rapid prototyping to production-ready deployments.
 
 </FeatureDescription>
 
 <FeatureList>
 <Feature title="Industrial Communication Interfaces" image="robot-arm">
 
-Equipped with robust screw terminals for RS485 and CAN bus connections, ensuring reliable data acquisition and heavy machinery control even in high-vibration industrial environments.
+Equipped with robust screw terminals for RS-485 and CAN bus connections, ensuring reliable data acquisition and heavy machinery control even in high-vibration industrial environments.
 
 </Feature>
 
