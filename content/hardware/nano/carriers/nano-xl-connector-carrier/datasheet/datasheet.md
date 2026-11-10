@@ -79,6 +79,8 @@ For advanced development, the board includes an SWD 2x5 1.27mm connector (J6). T
 
 ![Nano XL Link Connector Carrier SWD Connector](assets/jtag.png)
 
+<div style="page-break-after: always;"></div>
+
 ### Screw Terminals
 
 The Screw Terminals block (J8) is designed for robust, industrial-grade connections. It securely exposes the **RS485** and **CAN bus** interfaces for reliable communication in high-vibration environments. Additionally, it provides a Power IN terminal (J9) that accepts a +7-24V input (VIN) to power the carrier.
@@ -88,6 +90,7 @@ The Screw Terminals block (J8) is designed for robust, industrial-grade connecti
 > [!NOTE]
 > **Note:** The VEXT power input is protected by a rectifier diode and a TVS diode before feeding the Nano XL Link Header.
 
+<div style="page-break-after: always;"></div>
 
 ### WiFi Module Connector
 
@@ -262,7 +265,6 @@ Key specifications of the PHY subsystem include:
 - **Auto MDI/MDI-X Crossover:** Automatically detects the cable type and swaps the transmit/receive pairs internally if necessary. This completely eliminates the need for specialized crossover cables when connecting directly to another device.
 - **Power Management:** Includes power-down and power-saving modes to reduce energy consumption when the network cable is unplugged.
 
-
 The RJ45 connector on the carrier board features an integrated **status LED** driven directly by the PHY chip, providing immediate visual diagnostics of the network connection.
 
 <div style="page-break-after: always;"></div>
@@ -290,7 +292,6 @@ The figure below illustrates an overview of the Nano XL Link Connector Carrier's
 | J7            | Qwiic I2C Connector                |
 | J8            | Screw Terminals block (CAN, RS485) |
 | J9            | Screw Terminals block (POWER IN)   |
-
 
 ## Device Operation
 
