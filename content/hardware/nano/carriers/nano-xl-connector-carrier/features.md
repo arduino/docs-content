@@ -37,7 +37,7 @@ Dual 2x20 breakout headers fully expose all the standard and extended pins of th
 
 <Feature title="Industrial Power Input" image="power">
 
-The dedicated Power IN screw terminal accepts a wide +7-24V input range (VIN) to power the carrier, protected by onboard Schottky and TVS diodes for electrical safety.
+The dedicated Power IN screw terminal accepts a wide +7-24V input range (VIN) to power the carrier, protected by onboard polarity-reverse and TVS diodes for electrical safety.
 
 </Feature>
 </FeatureList>
