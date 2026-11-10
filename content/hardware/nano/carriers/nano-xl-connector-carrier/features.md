@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-This product expands the capabilities of the Nano XL Link development board by integrating robust industrial connectivity via CAN bus, RS485, and Ethernet. Serving as both a DIN-rail-mountable solution and a reference design, the Nano XL Link Connector Carrier is the ultimate tool for a seamless transition from rapid prototyping to production-ready deployments.
+This product expands the Nano XL Link development board's capabilities by adding robust industrial connectivity via CAN bus, RS485, and Ethernet. Serving as both a DIN-rail-mountable solution and a reference design, the Nano XL Link Connector Carrier is the ultimate tool for a seamless transition from rapid prototyping to production-ready deployments.
 
 </FeatureDescription>
 
@@ -25,13 +25,13 @@ Features a dedicated 2x4 female header specifically designed to host an ESP8266 
 
 <Feature title="Plug-and-Play Ecosystem" image="communication">
 
-Accelerate your prototyping with the onboard Qwiic I2C connector, enabling frictionless integration with a wide variety of external sensors and modules without the need for soldering.
+Accelerate prototyping with the onboard Qwiic I2C connector, enabling frictionless integration with a wide range of external sensors and modules without soldering.
 
 </Feature>
 
 <Feature title="Full Pinout Access & Debugging" image="hw-pin">
 
-Dual 2x20 breakout headers fully expose all the standard and extended pins of the host board. Additionally, a dedicated 2x5 1.27mm SWD/JTAG connector provides deep access for low-level programming and advanced debugging.
+Dual 2x20 breakout headers expose all standard and extended host board pins. Additionally, a dedicated 2x5 1.27mm SWD connector provides deep access for low-level programming and advanced debugging.
 
 </Feature>
 
