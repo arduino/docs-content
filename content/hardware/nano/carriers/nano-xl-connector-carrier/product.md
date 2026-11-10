@@ -10,4 +10,4 @@ releaseDate: 2026-11-10
 isNew: true
 ---
 
-The Nano XL Link Connector Carrier brings robust industrial connectivity with CAN bus, RS-485, Ethernet and more, making the transition from prototyping to industrial deployment easier than ever.
+The Nano XL Link Connector Carrier brings robust industrial connectivity with CAN bus, RS-485, Ethernet, and more, making the transition from prototyping to industrial deployment easier than ever.
