@@ -45,6 +45,7 @@ The main features of the Nano XL Link Connector Carrier are detailed in the tabl
 | **Feature**            | **Description**                                                                                                                                                                                    |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Interfaces             | 1x Qwiic I2C Connector<br></br>1x Ethernet RJ45 Connector<br></br>1x WiFi Module ESP-01 Connector<br></br>1x SWD/JTAG 2x5 1.27mm Connector<br></br>1x Screw Terminals block (RS485, CAN, Power IN) |
+| IO Voltage             | 3.3 VDC                                                                                                                                                                                            |
 | Dimensions             | 66 mm x 71.8 mm                                                                                                                                                                                    |
 | Operating Temperatures | -40 °C to +85 °C                                                                                                                                                                                   |
 
@@ -57,7 +58,7 @@ The Qwiic I2C connector (J7) is connected to the standard I2C bus on the board. 
 
 ### Breakout Headers
 
-The carrier features dual 2x20 female Breakout Headers (J1) that expose the extended pinout of the host Nano XL Link board. These headers provide access to all standard and extended GPIOs, SPI, I2C, I2S, and UART interfaces, allowing for highly flexible prototyping.
+The carrier features a 2x20 female Breakout Header (J1) that expose the extended pinout of the host Nano XL Link board. These headers provide access to all relevant GPIOs, SPI, I2C, I2S, and UART interfaces, allowing for highly flexible prototyping.
 
 ![Carrier Breakout Headers](assets/breakout.png)
 
@@ -76,7 +77,7 @@ The Screw Terminals block (J8) is designed for robust, industrial-grade connecti
 ![Nano XL Link Connector Carrier Screw Terminals](assets/screw_terminals.png)
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The VIN power input is protected by a Schottky diode and a TVS diode before feeding the Nano XL Link Header.
+<strong>Note:</strong> The VIN power input is protected by a rectifier diode and a TVS diode before feeding the Nano XL Link Header.
 </div>
 
 ### WiFi Module Connector
@@ -91,14 +92,17 @@ The carrier includes a dedicated 2x4 female header (J5) designed to host an ESP8
 
 The Nano XL Link Connector Carrier exposes all the host board connections and communication interfaces through its dedicated ports and breakout headers.
 
-| Interfaces    | Connector                                                                       |
-| ------------- | ------------------------------------------------------------------------------- |
-| I2C           | - Breakout Headers <br></br>- Qwiic I2C connector (J7)                          |
-| RS485         | - Breakout Headers <br></br>- Screw Terminals (J8)                              |
-| CAN bus       | - Breakout Headers <br></br>- Screw Terminals (J8)                              |
-| Serial (UART) | - Breakout Headers (UART/USART) <br></br>- WiFi Module ESP-01 Connector (UART1) |
-| WiFi          | - WiFi Module ESP-01 Connector (J5)                                             |
-| Ethernet      | - Ethernet RJ45 Connector (J2)                                                  |
+| Interfaces    | Connector                                                                  |
+| ------------- | -------------------------------------------------------------------------- |
+| I2C           | - Breakout Headers (I2C3)<br></br>- Qwiic I2C connector (I2C3) (J7)                     |
+| SPI           | - Breakout Headers (Two buses)                                             |
+| RS485         | - Screw Terminals (J8)                                                     |
+| CAN bus       | - Screw Terminals (J8)                                                     |
+| Serial (UART) | - Breakout Headers (UART6)<br></br>- WiFi Module ESP-01 Connector (UART1) |
+| WiFi          | - WiFi Module ESP-01 Connector (J5)                                        |
+| Ethernet      | - Ethernet RJ45 Connector (J2)                                             |
+| USB           | - Breakout Headers                                                         |
+| SWD           | - Debugging Connector (J6)                                                 |
 
 ### Related Products
 
@@ -114,7 +118,7 @@ The Nano XL Link Connector Carrier exposes all the host board connections and co
 | T<sub>OP</sub> | Operating Temperature | -40 | 25  | 85  | °C   |
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The Nano XL Link Connector Carrier is powered by the host board's regulated power nets.
+<strong>Note:</strong> The Nano XL Link Connector Carrier is powered by the host board's regulated power nets. The carrier has no regulator.
 </div>
 
 ### Power Tree
@@ -126,6 +130,8 @@ The following diagram illustrates the Nano XL Link Connector Carrier's main syst
 ## Functional Overview
 
 The Nano XL Link Connector Carrier expands the connectivity of the Nano XL Link board, featuring a variety of communication interfaces including CAN, RS485, and Ethernet. It also includes a Qwiic I2C connector, an ESP-01 WiFi module header, and robust screw terminals for industrial environments.
+
+***CAN, RS485 and Ethernet PHYs are included in the Nano XL Link.***
 
 ### Pinout
 
@@ -223,11 +229,11 @@ Used for low-level debugging and programming of the microcontroller.
 | 3   | GND      | 4   | SWCLK    |
 | 5   | GND      | 6   | NC       |
 | 7   | NC       | 8   | NC       |
-| 9   | NC       | 10  | JTAG_RST |
+| 9   | NC       | 10  | RESET    |
 
 #### Qwiic I2C Connector (J7)
 
-Follows the standard Qwiic ecosystem for plug-and-play I2C modules.
+Follows the standard Qwiic ecosystem for plug-and-play I2C modules. It exposes the I2C3 bus of the Nano XL Link.
 
 | Pin | Function  | Description       |
 | --- | --------- | ----------------- |
@@ -235,6 +241,21 @@ Follows the standard Qwiic ecosystem for plug-and-play I2C modules.
 | 2   | +3V3      | +3.3 V Power Rail |
 | 3   | SDA       | I2C Serial Data   |
 | 4   | SCL       | I2C Serial Clock  |
+
+#### RJ45 Ethernet Connector (J2)
+
+The Nano XL Link Connector Carrier provides a robust, industrial-grade RJ45 connector to enable wired IoT and local network connectivity. Architecturally, the hardware is divided: while the physical RJ45 port and isolation magnetics are housed on the Carrier board, the Ethernet Physical Layer Transceiver (PHY) is integrated directly onto the Nano XL Link host board.
+
+The host board utilizes the **Microchip KSZ8081RNAIA-TR**, a highly reliable 10Base-T/100Base-TX Ethernet PHY. It interfaces with the main microcontroller via a high-speed Reduced Media Independent Interface (RMII), ensuring efficient data transfer while minimizing pin usage.
+
+Key specifications of the PHY subsystem include:
+
+- **Auto-Negotiation (10/100 Mbps):** Fully compliant with IEEE 802.3u standards. It automatically negotiates the highest possible speed (10 Mbps or 100 Mbps) and the optimal duplex mode (half or full-duplex) based on the capabilities of the connected switch or router.
+- **Auto MDI/MDI-X Crossover:** Automatically detects the cable type and swaps the transmit/receive pairs internally if necessary. This completely eliminates the need for specialized crossover cables when connecting directly to another device.
+- **Power Management:** Includes power-down and power-saving modes to reduce energy consumption when the network cable is unplugged.
+
+
+The RJ45 connector on the carrier board features an integrated **status LED** driven directly by the PHY chip, providing immediate visual diagnostics of the network connection.
 
 <div style="page-break-after: always;"></div>
 
