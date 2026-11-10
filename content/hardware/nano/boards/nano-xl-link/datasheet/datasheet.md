@@ -14,6 +14,13 @@ The Arduino® Nano XL Link is a compact microcontroller board designed for indus
 # Target Areas:
 
 Industrial automation, building automation, energy monitoring, smart homes
+**Product Intended Use**
+
+Arduino Hardware Products are primarily intended for development and prototyping but may also support production solutions. Developers must design and verify security controls early, based on the intended deployment environment. Security is a shared responsibility between Arduino and the solution builder, who must assess the hardware’s available security features and add any necessary protections.
+
+Visit [docs.arduino.cc/tutorials/security/intended-use-and-security-model/](https://docs.arduino.cc/tutorials/security/intended-use-and-security-model/) for the complete Arduino Hardware Products: Intended use and Security model.
+
+<div style="page-break-after: always;"></div>
 
 # CONTENTS
 
