@@ -649,7 +649,7 @@ Once the code is uploaded, check for the assigned IP address in the Serial Monit
 
 Now you can control the Nano XL Link onboard LED by clicking the Web UI button.
 
-### WiFi Expansion
+### Wi-Fi Expansion
 
 While the Nano XL Link host board does not feature built-in wireless connectivity, the Carrier provides a dedicated 2x4 female header designed specifically to host an **ESP8266 (ESP-01) module**. This lets you easily add Wi-Fi connectivity to your project without external breadboards or complex wiring.
 
