@@ -333,9 +333,10 @@ The Nano XL Link Connector Carrier's connectors are placed on the top side of th
 |        RoHS         |    Yes     |
 |        REACH        |    Yes     |
 |        WEEE         |    Yes     |
-|      FCC (USA)      |    Yes     |
-|     IC (Canada)     |    Yes     |
 |      UKCA (UK)      |    Yes     |
+|      FCC (USA)      |    Yes     |
+|        ISED         |    Yes     |
+
 
 ### Declaration of Conformity CE DoC (EU)
 
@@ -365,6 +366,10 @@ Arduino Boards are fully compliant with the related requirements of European Uni
 ### Conflict Minerals Declaration
 
 As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+
+## UKCA Declaration of Conformity
+
+Arduino S.r.l. hereby declares that this product is in compliance with the essential requirements and other relevant provisions of the applicable UK regulations. A copy of the UK Declaration of Conformity is available at: <https://docs.arduino.cc/certifications>
 
 ### FCC Caution
 
@@ -409,6 +414,45 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 **Important:** The operating temperature of the EUT can’t exceed 85 ℃ and shouldn’t be lower than -40 ℃.
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
+
+## ISED
+
+*English:*
+
+This device complies with Canadian RSS-247.
+This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause interference, and (2) this device must accept any interference, including interference that may cause undesired operation of the device.
+
+*French :* 
+
+Ce dispositif est conforme à la norme CNR-247 d'Industrie Canada applicable aux appareils radio exempts de licence. Son fonctionnement est sujet aux deux conditions suivantes: (1) le dispositif ne doit pas produire de brouillage préjudiciable, et (2) ce dispositif doit accepter tout brouillage reçu, y compris un brouillage susceptible de provoquer un fonctionnement indésirable.
+
+*English:*
+
+Caution:
+
+(i) the device for operation in the band 5150-5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems;
+
+*French :*
+
+Avertissement :
+
+Le guide d’utilisation des dispositifs pour réseaux locaux doit inclure des instructions précises sur les restrictions susmentionnées, notamment :
+
+(i) les dispositifs fonctionnant dans la bande 5 150-5 250 MHz sont réservés uniquement pour une utilisation à l’intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux ;
+
+> [!NOTE]
+> **Note:** For 5GHz and/or when co-located with 5 GHz transmitters, the following statements should be provided in the user information.
+
+**Radiation Exposure Statement**
+
+1. To comply with the Canadian RF exposure compliance requirements, this device and its antenna must not be co-located or operating in conjunction with any other antenna or transmitter.
+2. To comply with RSS 102 RF exposure compliance requirements, this equipment should be installed and operated, keeping the radiator at least 20cm or more away from the person's body.
+
+**Déclaration d'exposition aux rayonnements**
+
+1. Pour se conformer aux exigences de conformité RF canadienne l'exposition, cet appareil et son antenne ne doivent pas être co-localisés ou fonctionnant en conjonction avec une autre antenne ou transmetteur.
+2. Pour se conformer aux exigences de conformité CNR 102 RF exposition, cet équipement doit être installé et utilisé en maintenant le radiateur à au moins 20cm ou plus du corps de la personne.
+
 
 ## Company Information
 
