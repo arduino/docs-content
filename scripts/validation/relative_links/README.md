@@ -28,6 +28,16 @@ Or validate a specific subdirectory or file:
 python3 scripts/validation/relative_links/relative_links.py validate content/software/app-lab
 ```
 
+### Also Check Absolute Links to the Docs
+
+Absolute links to `https://docs.arduino.cc/...` are skipped by default. With `--absolute`, they're checked like root-relative links, against the same route map (offline: nothing is fetched):
+
+```bash
+python3 scripts/validation/relative_links/relative_links.py validate content --absolute
+```
+
+Every run ends with a `Scope:` line that counts each link by what was done with it: relative and absolute docs links checked, absolute docs links not checked (no `--absolute`), links to other hosts (never fetched), links into sections other systems serve, and assets.
+
 ### Auto-Fix Improper Links
 
 Autocorrect improperly formatted links (such as removing trailing `.md` extensions or fixing path formats):
@@ -41,7 +51,11 @@ python3 scripts/validation/relative_links/relative_links.py fix content/software
 1. The script crawls the `content` directory to build a route map of valid production URLs to their respective source file paths (including unmigrated or ignored folders).
 2. It resolves any relative link inside a Markdown file against that file's mapped production URL.
 3. It verifies that the resolved target URL exists in the global route map.
-4. If an anchor (`#heading-slug`) is present, it parses the target file for Markdown headings and HTML ID tags, caches them, and verifies that the anchor slug exists.
+   Symlinked folders are followed: a tutorial shared between products (for example `hardware/.../nano-33-ble/tutorials/getting-started-omv`, a symlink to the generic Nano one) is published under each product's URL, so each of those URLs is a valid route.
+4. Links into sections and pages this repo's Markdown doesn't serve (listed in `external-sections.txt`: the library and language references, the Arduino CLI and Cloud API docs, and pages from the site's own code such as `/software/ide` and `/certifications`) aren't checked; they're counted in the scope line. An entry is a section prefix, or a single page with a trailing `$`.
+   Downloadable files under `/resources/` follow the site's rules: a file in a product's `downloads/` folder is published as `/resources/pinouts/`, `/resources/schematics/` or `/resources/models/` plus its name (by its ending: `full-pinout.pdf`, `schematics.pdf`, `step.zip`), and datasheets as `/resources/datasheets/<identifier>[-<lang>]-datasheet.pdf` from their `[lang-]datasheet.md` pages. Links into those three folders are checked against the files here. Other files under `/resources/` (chip datasheets, CAD files, firmware) are uploaded to the site apart from this repo, so a link to one counts as fine when this repo publishes it and is otherwise not checked.
+5. Links are read as CommonMark reads them (https://spec.commonmark.org/0.31.2/#link-destination): spaces around the destination are ignored (`[text]( https://example.com )`), an angle-bracket destination is one link (`[text](<https://en.wikipedia.org/wiki/Servo_(radio_control)>)`), balanced parentheses belong to the path (`assets/wiring%20(1).jpg`), and there are no links in fenced code blocks or inline code. Something that looks like a link but isn't one (`[text]((https://...)`) is reported as an improper format: readers see it as plain text.
+6. If an anchor (`#heading-slug`) is present, it parses the target file for Markdown headings and HTML ID tags, caches them, and verifies that the anchor slug exists.
 
 ## Ignore Configuration
 
