@@ -30,7 +30,7 @@ This user manual will guide you through a practical journey covering the most in
 - [Arduino Nano XL Link](https://store.arduino.cc/products/nano-xl-link) (x1)
 - [Arduino Nano XL Link Connector Carrier](https://store.arduino.cc/products/nano-xl-connector-carrier) (x1)
 - [Arduino Modulino Thermo](https://store.arduino.cc/products/modulino-thermo) (x1) with its Qwiic cable.
-- WiFi Module ESP-01 (ESP8266) (x1)
+- Wi-Fi Module ESP-01 (ESP8266) (x1)
 - Ethernet Cable (x1)
 - Twisted pair wires
 - USB-C® cable (x1)
@@ -55,7 +55,7 @@ Here is an overview of the carrier's main components:
 - **Nano Breakout Headers (J1)**: Dual 2x20 female headers (2.54 mm pitch) that fully expose both the standard Nano footprint and the extended XL signal sets in an accessible layout suitable for prototyping, jumper wires, and measurement equipment.
 - **Nano XL Link Headers (J3, J4)**: Two 30-pin dual-row female headers that provide the direct physical and electrical pass-through for the host Nano XL Link board.
 - **Industrial Screw Terminals (J8, J9)**: Two 4-position terminal blocks designed for robust, field-ready connections, exposing the RS485 and CAN bus interfaces, as well as the external power input.
-- **Network & Wireless Connectivity**: Features a built-in RJ45 Ethernet port (J2) for wired networking and a dedicated 2x4 female header (J5) for seamless integration of an ESP8266 (ESP-01) WiFi module.
+- **Network & Wireless Connectivity**: Features a built-in RJ45 Ethernet port (J2) for wired networking and a dedicated 2x4 female header (J5) for seamless integration of an ESP8266 (ESP-01) Wi-Fi module.
 - **Power Management**: The carrier can be powered via the external VIN input (+7–24 VDC) on the screw terminal block. This input is protected by onboard reverse-polarity and TVS diodes before it powers the host Nano XL Link board. 
 - **Expansion & Debugging**: Includes a Qwiic I2C connector (J7) for plug-and-play Modulino nodes integration, and a 2x5 1.27mm SWD header (J6) for low-level debugging and programming.
 
@@ -83,7 +83,7 @@ The complete schematics are available for download as a PDF from the link below:
 
 The complete STEP files are available for download at the link below:
 
-- [Nano XL Link Connector Carrier STEP files](../../downloads/ASX00090-step.zip)
+- [Nano XL Link Connector Carrier STEP files](https://docs.arduino.cc/resources/models/ASX00090-step.zip)
 
 ### Form Factor
 
@@ -119,11 +119,13 @@ Once the Nano XL Link is mounted, the carrier can be powered by the following me
 
 ## Communication
 
-This section details the communication interfaces unlocked by the Nano XL Link Connector Carrier. By expanding the host board's connectivity, the carrier provides direct access to industrial CAN FD and RS485 networks, plug-and-play I2C via the Qwiic ecosystem, wired Ethernet, and integrated WiFi.
+This section details the communication interfaces unlocked by the Nano XL Link Connector Carrier. By expanding the host board's connectivity, the carrier provides direct access to industrial CAN FD and RS485 networks, plug-and-play I2C via the Qwiic ecosystem, wired Ethernet, and integrated Wi-Fi.
 
 ### CAN Bus
 
 The carrier exposes the host board's CAN FD interface through the onboard screw terminals, enabling reliable, high-speed communication with automotive systems, motor controllers, and distributed industrial PLCs. The Nano XL Link utilizes the **Texas Instruments TCAN3414** transceiver, a high-performance 3.3V CAN FD IC. 
+
+![CAN Bus Screw Terminal](assets/can-conn.png)
 
 Key features of the TCAN3414 include:
 
@@ -304,6 +306,8 @@ When a message is sent to the board it is shown as follows in the Serial Monitor
 
 Designed for high electrical noise immunity and long-distance data transmission across the factory floor, the RS485 interface is accessible via the onboard screw terminals, making it ideal for bridging legacy equipment and modern automation systems. 
 
+![RS-485 Screw Terminal](assets/rs485-conn.png)
+
 The Nano XL Link utilizes the **Texas Instruments THVD2410** transceiver, a highly robust, fault-protected 3.3V RS-485 IC designed specifically for harsh industrial environments.
 
 Key features of the THVD2410 include:
@@ -438,7 +442,9 @@ RS485.begin(9600, 50, 2000);
 
 A dedicated Qwiic connector provides a seamless, plug-and-play interface for the standard I2C bus, letting you quickly expand your system with a wide range of sensors and actuators, such as Modulino nodes.
 
-***Hardware Details (I2C3 vs I2C4)***
+![I2C Qwiic Connector](assets/I2C-conn.png)
+
+**Hardware Details (I2C3 vs I2C4)**
 
 The Qwiic connector on the Nano XL Link Connector Carrier routes to the host microcontroller's **I2C3** bus. This is physically and logically independent of the Qwiic connector mounted directly on the Nano XL Link board, which utilizes the **I2C4** bus.
 
@@ -504,6 +510,8 @@ When the code is running, the sensor readings will be displayed as follows in th
 ### Ethernet
 
 The integrated RJ45 port turns the carrier into a reliable wired IoT gateway, providing a stable, high-bandwidth connection to integrate your edge devices with local networks, SCADA systems, or cloud analytics servers.
+
+![RJ45 Ethernet Connector](assets/ethernet-conn.png)
 
 To drive this connection, the board features a **Microchip KSZ8081RNAIA-TR** Ethernet physical layer transceiver (PHY). 
 
@@ -653,6 +661,8 @@ Now you can control the Nano XL Link onboard LED by clicking the Web UI button.
 
 While the Nano XL Link host board does not feature built-in wireless connectivity, the Carrier provides a dedicated 2x4 female header designed specifically to host an **ESP8266 (ESP-01) module**. This lets you easily add Wi-Fi connectivity to your project without external breadboards or complex wiring.
 
+![Wi-Fi Module Connector](assets/wifi-conn.png)
+
 The header directly interfaces the ESP-01 module with the microcontroller's `UART1` bus. The Zephyr core natively includes a `WiFi` library tailored to communicate with this module seamlessly, translating standard Arduino networking commands into the AT commands required by the ESP8266.
 
 **Hardware Prerequisites:**
@@ -661,7 +671,7 @@ To ensure stable communication, the ESP-01 module plugged into the carrier **mus
 
 ![ESP-01 Installation](assets/wifi-module.png)
 
-The header **J5** provides connections to an ESP-01 WiFi module via UART1 and GPIOs.
+The header **J5** provides connections to an ESP-01 Wi-Fi module via UART1 and GPIOs.
 
 | Pin | Function | Pin | Function |
 | --- | -------- | --- | -------- |
@@ -808,14 +818,14 @@ void loop() {
 
 Once the code is uploaded, check for the assigned IP address on the Serial Monitor and open it in your browser:
 
-![WiFi LED Control Webserver](assets/wifi-webserver-example.png)
+![Wi-Fi LED Control Webserver](assets/wifi-webserver-example.png)
 
 Now you can control the Nano XL Link onboard LED by clicking on the Web UI button.
 
 
 ## Headers and Connectors
 
-The Nano XL Link Connector Carrier exposes all host signals through its dual 2x20 breakout headers (J1), making them easy to access with standard test equipment and jumper wires. For dedicated peripherals and industrial integration, it also features two 4-position screw terminal blocks (J8, J9) for RS-485, CAN, and Power IN, an RJ45 Ethernet port (J2), a Qwiic I2C connector (J7), and specific headers for an ESP-01 WiFi module (J5) and SWD/JTAG debugging (J6).
+The Nano XL Link Connector Carrier exposes all host signals through its dual 2x20 breakout headers (J1), making them easy to access with standard test equipment and jumper wires. For dedicated peripherals and industrial integration, it also features two 4-position screw terminal blocks (J8, J9) for RS-485, CAN, and Power IN, an RJ45 Ethernet port (J2), a Qwiic I2C connector (J7), and specific headers for an ESP-01 Wi-Fi module (J5) and SWD/JTAG debugging (J6).
 
 ### Nano XL Header (J4)
 
