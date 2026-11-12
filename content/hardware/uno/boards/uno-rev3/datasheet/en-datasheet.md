@@ -87,11 +87,14 @@ The UNO board is the flagship product of Arduino. Regardless if you are new to t
 
 ### Power Consumption
 
-| Symbol  | Description                              | Min  | Typ  | Max  | Unit |
-| ------- | ---------------------------------------- | ---- | ---- | ---- | ---- |
-| VINMax  | Maximum input voltage from VIN pad       | 6    | -    | 20   | V    |
-| VUSBMax | Maximum input voltage from USB connector |      | -    | 5.5  | V    |
-| PMax    | Maximum Power Consumption                | -    | -    | xx   | mA   |
+| Symbol | Description                  | Min | Typ | Max | Unit |
+| ------ | ---------------------------- | --- | --- | --- | ---- |
+| VIN    | DC Barrel Jack Voltage Range | 7   | -   | 12  | V    |
+| VUSB   | USB connector Voltage        |     | -   | 5.5 | V    |
+| PMax   | Maximum Power Consumption    | -   | -   | xx  | mA   |
+
+> [!WARNING]
+> **NOTE:** The VIN input voltage can get up to 20V, but this is its absolute maximum rating, and we do not recommend to work up to that value.
 
 ## Functional Overview
 
@@ -296,11 +299,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**                      |
-| ---------- | ------------ | -------------------------------- |
-| 06/2021    | 1            | Datasheet release                |
-| 26/07/2023 | 2            | General Update                   |
-| 25/04/2024 | 3            | Updated link to new Cloud Editor |
-| 20/10/2026 |       4      | Added note for Intended Use, and divided language |
-
+| Date       | **Revision** | **Changes**                                       |
+| ---------- | ------------ | ------------------------------------------------- |
+| 06/2021    | 1            | Datasheet release                                 |
+| 26/07/2023 | 2            | General Update                                    |
+| 25/04/2024 | 3            | Updated link to new Cloud Editor                  |
+| 20/10/2026 | 4            | Added note for Intended Use, and divided language |
+| 12/11/2026 | 5            | Input voltage range updated                       |
 
