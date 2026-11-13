@@ -24,7 +24,7 @@ Most important, all the data is stored on the SD, in a .CSV file (comma separate
 
 This project heavily relies on the **AP_SimpleWebServer** example of the WiFiNINA Library written by Tom Igoe: 
 
-**File>Examples>WifiNINA>AP_SimpleWebServer.ino**
+**File>Examples>WiFiNINA>AP_SimpleWebServer**
 
 I strongly advice you to run that example in order to test a simpler sketch. Before we start we need to know that the SSID and Password names are to be longer than eight letters, don't use short names if you don't want to run into strange behaviors. Another very important rule of thumb is to be sure the WiFiNINA Library is up-to-date (1.4.0 as we speak). While the code checks for the firmware version on line 46. 
 

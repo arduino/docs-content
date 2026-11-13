@@ -1054,7 +1054,7 @@ void loop() { }
 
 It will require the **ArduinoGraphics** library installed to compile the code without any issues. 
 
-The example can be found within the Arduino IDE, and it is located under **File -> Examples -> Portenta_H7_Video**. The name of the example is **ArduinoLogo**.
+The example can be found within the Arduino IDE, and it is located under **File -> Examples -> Arduino_H7_Video**. The name of the example is **ArduinoLogo**.
 
 Once the example has been compiled and uploaded to the Portenta H7, you will be able to see the Arduino logo drawn on the GIGA Display Shield.
 

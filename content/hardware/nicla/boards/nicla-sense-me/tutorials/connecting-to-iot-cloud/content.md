@@ -60,7 +60,7 @@ For further tips on how to operate the Nicla module check the [cheat sheet](http
 
 The **Nicla Sense ME** will be listening to the Host board to send back the required data, this is all automated via the libraries **Arduino_BHY2** and **Arduino_BHY2Host**
 
-The code is available inside the examples provided with the **Arduino_BHY2** Library. Open it by going to **Examples > Arduino_BHY2 > App.ino**
+The code is available inside the examples provided with the **Arduino_BHY2** Library. Open it by going to **Examples > Arduino_BHY2 > App**.
 
 This is the code, which initialize the sensors, and maintain the communication:
 
