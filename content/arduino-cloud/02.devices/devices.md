@@ -1,0 +1,4 @@
+---
+title: Devices
+icon: IconChip
+---
