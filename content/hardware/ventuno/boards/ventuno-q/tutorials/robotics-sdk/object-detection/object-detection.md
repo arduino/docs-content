@@ -9,7 +9,7 @@ tags:
   - Object Detection
 author: 'Hang Shen'
 hardware:
-  - hardware/14.ventuno/boards/ventuno-q
+  - hardware/ventuno/boards/ventuno-q
 ---
 
 ## Overview

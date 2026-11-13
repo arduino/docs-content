@@ -9,7 +9,7 @@ tags:
   - Image Segmentation
 author: 'Hang Shen'
 hardware:
-  - hardware/14.ventuno/boards/ventuno-q
+  - hardware/ventuno/boards/ventuno-q
 ---
 
 ## Overview
@@ -374,7 +374,7 @@ When finished, close the viewer and press `Ctrl+C` in the segmentation terminal,
 
 ## Troubleshooting
 
-### When the processing stage does not start
+### When the Processing Stage Does Not Start
 
 First check that camera images are arriving, then inspect the segmentation terminal for a model-loading error. Keep the file paths from Step 3 and domain 87 in every terminal; the screenshot's example paths and domain are not settings to copy.
 
@@ -382,7 +382,7 @@ First check that camera images are arriving, then inspect the segmentation termi
 
 *The image input is available, but the segmentation stage does not become ready. The bounded inspector is terminated with exit code 137. Check the model, runtime and node startup before retrying; this is different from a normal ten-second no-result timeout.*
 
-### When the inspector receives no result
+### When the Inspector Receives No Result
 
 Use domain 87 and the script path from Step 5 when checking your pipeline. A terminal on another domain cannot receive its results.
 

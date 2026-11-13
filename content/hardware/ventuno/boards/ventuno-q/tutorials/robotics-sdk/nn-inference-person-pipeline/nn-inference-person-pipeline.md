@@ -611,7 +611,7 @@ When finished, stop any optional face container, then segmentation (Terminal 5),
 
 ## Troubleshooting
 
-### No person crop arrives
+### No Person Crop Arrives
 
 In another terminal with the pipeline environment loaded, check the nodes and publishers:
 
@@ -628,13 +628,13 @@ Expect `/person_gate`, `/mask_to_face_roi`, and input publishers. Reliable subsc
 
 *The adapter is running, but the detector has no publisher. Start the detector from Step 3, then check /person_roi again.*
 
-### Crops arrive, but the masked image is missing
+### Crops Arrive, But the Masked Image is Missing
 
 Check that the square ROI includes the person and some surrounding context. A tight, narrow crop can distort the person when resized to the model input. Use the square crop and pre-scaling steps together, and inspect the prepared image before changing the score threshold.
 
 Inspect `/person_roi_model` (640×640 `rgb8`), `/person_seg/resized_image`, and the instance hypotheses. An empty result is a valid ROS message but cannot supply a person mask.
 
-### Startup and shutdown problems
+### Startup and Shutdown Problems
 
 | Symptom | Action |
 |---|---|

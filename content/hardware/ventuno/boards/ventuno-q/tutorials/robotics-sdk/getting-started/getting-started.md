@@ -1,5 +1,5 @@
 ---
-title: 'Install and Understand the Robotics SDK on Arduino® VENTUNO™ Q'
+title: 'Install and Understand the Robotics SDK on VENTUNO™ Q'
 overwriteSidebar: Robotics SDK Setup
 difficulty: intermediate
 description: 'Install the ROS 2 vision components of the Robotics SDK on Arduino® VENTUNO™ Q, check the QNN runtime, and prepare a shared environment for the vision tutorials.'
@@ -9,7 +9,7 @@ tags:
   - Computer Vision
 author: 'Hang Shen'
 hardware:
-  - hardware/14.ventuno/boards/ventuno-q
+  - hardware/ventuno/boards/ventuno-q
 ---
 
 ## Overview
