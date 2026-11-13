@@ -41,7 +41,13 @@ Initializes the Bridge and its serial transport. Call this method in `setup()` b
 
 #### Parameters
 
-None.
+- `baud` `unsigned long` (optional): The baud rate of the serial link to the router. Defaults to `115200`.
+
+<Alert type="info">
+
+**Note:** Leave `baud` at its default. The `arduino-router` service opens `/dev/ttyHS1` at 115200 bps, and the Bridge stops responding if the sketch uses a different rate.
+
+</Alert>
 
 #### Returns
 
