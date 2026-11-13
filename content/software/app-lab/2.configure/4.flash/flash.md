@@ -46,6 +46,12 @@ If flashing fails, select **Show logs** to see the details, then select **Retry*
 
 If you encounter errors that prevent the board from appearing in Arduino App Lab, or prefer using a command-line tool, use the **Arduino Flasher CLI**.
 
+<Alert type="note">
+
+You can download the Arduino Flasher CLI here: [https://www.arduino.cc/en/software/#app-lab](https://www.arduino.cc/en/software/#app-lab)
+
+</Alert>
+
 ### Step 1: Set your board to EDL mode
 
 To use the CLI tool, put the board into **Emergency Download Mode (EDL)**.
