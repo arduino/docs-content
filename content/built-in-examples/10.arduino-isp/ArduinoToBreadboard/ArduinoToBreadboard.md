@@ -28,7 +28,7 @@ To burn the bootloader, follow these steps:
 
 2. Wire up the Arduino board and microcontroller as shown in the diagram to the right.
 
-3. Select "Arduino Duemilanove or Nano w/ ATmega328" from the Tools > Board menu.  (Or "ATmega328 on a breadboard (8 MHz internal clock)" if using the minimal configuration described below.)
+3. Select "Arduino UNO" from the Tools > Board menu.  (Or "ATmega328 on a breadboard (8 MHz internal clock)" if using the minimal configuration described below.)
 
 4. Select  "Arduino as ISP" from Tools > Programmer
 
@@ -42,7 +42,7 @@ You should only need to burn the bootloader once.  After you've done so, you can
 
 ### Uploading Using an Arduino Board
 
-Once your ATmega328P has the Arduino bootloader on it, you can upload programs to it using the USB-to-serial converter (FTDI chip) on an Arduino board.  To do, you remove the microcontroller from the Arduino board so the FTDI chip can talk to the microcontroller on the breadboard instead.  The diagram at right shows how to connect the RX and TX lines from the Arduino board to the ATmega on the breadboard.  To program the microcontroller, select "Arduino Duemilanove or Nano w/ ATmega328" from the the Tools > Board menu (or "ATmega328 on a breadboard (8 MHz internal clock)" if you're using the minimal configuration described below).  Then upload as usual.
+Once your ATmega328P has the Arduino bootloader on it, you can upload programs to it using the USB-to-serial converter (FTDI chip) on an Arduino board.  To do, you remove the microcontroller from the Arduino board so the FTDI chip can talk to the microcontroller on the breadboard instead.  The diagram at right shows how to connect the RX and TX lines from the Arduino board to the ATmega on the breadboard.  To program the microcontroller, select "Arduino UNO" from the the Tools > Board menu (or "ATmega328 on a breadboard (8 MHz internal clock)" if you're using the minimal configuration described below).  Then upload as usual.
 
 ![](assets/ArduinoUSBSerial.png)
 
