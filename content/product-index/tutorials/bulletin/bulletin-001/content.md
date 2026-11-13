@@ -4,10 +4,8 @@ description: Informational article describing the products that will go end of l
 author: Arduino Team
 ---
 
-## Overview
-
 **Document Type:** End of Sales - End of Life  
-**Date Issued:** 2026-11-10  
+**Date Issued:** 2026-11-16
 
 This bulletin informs customers and partners about the planned **End‑of‑Life (EOL)** for selected products. These products will be phased out of active sales and support due to components unavailability or changes in regulations that prevent Arduino from producing or maintaining them. As part of our portfolio strategy, Arduino will continue evolving its products to implement the latest technologies and comply with current standards.
 
@@ -38,6 +36,7 @@ We strongly recommend transitioning to the suggested replacement products to ens
 | Arduino Nano 33 BLE Sense Rev2 (with headers) | ABX00070 | Arduino Nano ESP32    | December 15, 2026 | December 15, 2028          |
 | Arduino Nano 33 IoT                           | ABX00027 | Arduino Nano ESP32    | December 15, 2026 | December 15, 2028          |
 | Arduino Nano 33 IoT (with headers)            | ABX00032 | Arduino Nano ESP32    | December 15, 2026 | December 15, 2028          |
+| Arduino Nano Motor Carrier                    | ABX00041 |                       | December 15, 2026 | December 15, 2028          |
 | Arduino Oplà IoT Kit                          | AKX00026 |                       | December 15, 2026 | December 15, 2028          |
 | Arduino Portenta Cat. M1/NB IoT GNSS Shield   | ASX00027 |                       | December 15, 2026 | December 15, 2028          |
 | Arduino Portenta Max Carrier                  | ABX00043 |                       | December 15, 2026 | December 15, 2028          |
@@ -49,7 +48,6 @@ We strongly recommend transitioning to the suggested replacement products to ens
 | Arduino Zero                                  | ABX00003 | Arduino UNO R4 WiFi   | December 15, 2026 | December 15, 2028          |
 | Edge AI/ML: Vision and Speech Kit             | AKX00058 |                       | December 15, 2026 | December 15, 2028          |
 | Industrial Automation and Lighting Kit        | AKX00056 |                       | December 15, 2026 | December 15, 2028          |
-| Nano Motor Carrier                            | ABX00041 |                       | December 15, 2026 | December 15, 2028          |
 | Smart Industry OEM Condition Monitoring Kit   | AKX00057 |                       | December 15, 2026 | December 15, 2028          |
 | Smart Industry Predictive Maintenance Kit     | AKX00059 |                       | December 15, 2026 | December 15, 2028          |
 | Smart Industry Prototyping Kit                | AKX00060 |                       | December 15, 2026 | December 15, 2028          |
