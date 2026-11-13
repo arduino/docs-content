@@ -487,7 +487,6 @@ Compare the person in the crop with the foreground image. The mask should keep t
 
 To check continuous camera operation, keep a person in view and use another prepared terminal. Observe each topic for at least 60 seconds, one at a time:
 
-
 ```bash
 ros2 topic hz /camera/color/image_raw
 ros2 topic hz /person_roi
