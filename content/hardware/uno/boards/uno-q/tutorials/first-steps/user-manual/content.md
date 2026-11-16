@@ -1112,6 +1112,64 @@ Now you can control the PWM signal duty-cycle by turning the potentiometer.
 
 ***PWM frequency is fixed to 500 Hz.***
 
+#### Servo Motors
+
+To control servo motors with the UNO Q, use the [Arduino_HardwareServo](https://github.com/arduino-libraries/Arduino_HardwareServo) library instead of the generic `Servo` library. Unlike the generic library, which generates the pulses in software, Arduino_HardwareServo uses the hardware PWM timers of the STM32 microcontroller, so the 50 Hz servo signal is stable and does not use processing time. It offers the same functions as the `Servo` library, such as `attach()`, `write()` and `writeMicroseconds()`.
+
+To add the library to your App, click **Add sketch library** in the Arduino App Lab Editor sidebar, search for `Arduino_HardwareServo` and click **Install**. For more details, see [Add Sketch Libraries](https://docs.arduino.cc/software/app-lab/apps/develop-apps/#add-sketch-libraries).
+
+PWM pins that share the same hardware timer also share its configuration, such as the PWM frequency. The PWM pins are grouped by timer as follows. For the complete timer mapping, see the [UNO Q full pinout](https://docs.arduino.cc/resources/pinouts/ABX00162-full-pinout.pdf).
+
+| Timer | Arduino Pins |
+| :---: | :----------: |
+| TIM1  |   D5, D11    |
+| TIM3  |    D3, D6    |
+| TIM4  |   D9, D10    |
+
+Attaching a servo sets its timer to 50 Hz, while `analogWrite()` sets it to 500 Hz, so **use each timer either for servos or for other PWM outputs, not both**. For example, servos on `D9` and `D10` work together, but a servo on `D9` stops working correctly if you use `analogWrite()` on `D10`. Move the other PWM output to a pin on a different timer, such as `D3`.
+
+The following example sweeps a servo motor connected to `D9` from 0° to 180° and back. Connect the servo signal wire (orange) to `D9`, the power wire (red) to `5V` and the ground wire (brown) to `GND`:
+
+![Servo motor wiring with the UNO Q](assets/servo-motor.png)
+
+***The servo draws its current from the board power supply through the `5V` pin, so use a 5 V / 3 A USB-C power supply. Power several or larger servos from an external supply and connect its ground to the UNO Q `GND`. For more details, see the [UNO Q power specification](https://docs.arduino.cc/tutorials/uno-q/power-specification/).***
+
+1. Create a new App in the Arduino App Lab.
+![Create a new app](assets/create-app.png)
+
+2. Add the `Arduino_HardwareServo` library to your App as described above.
+
+3. Copy and paste the example below in the "sketch" part of your new App found in `sketch\sketch.ino`.
+
+   ```cpp
+   #include <Arduino_HardwareServo.h>
+
+   HardwareServo myservo;  // create the servo object
+
+   int pos = 0;  // servo position in degrees
+
+   void setup() {
+     myservo.attach(D9);  // attach the servo on pin D9 (TIM4)
+   }
+
+   void loop() {
+     // sweep from 0 to 180 degrees in steps of 1 degree
+     for (pos = 0; pos <= 180; pos += 1) {
+       myservo.write(pos);
+       delay(15);  // wait for the servo to move
+     }
+     // sweep back from 180 to 0 degrees
+     for (pos = 180; pos >= 0; pos -= 1) {
+       myservo.write(pos);
+       delay(15);
+     }
+   }
+   ```
+
+4. Click the **Run** button in the top right corner of the Arduino App Lab. Once the App is running, the servo sweeps from 0° to 180° and back.
+
+***By default, `write()` maps 0° to 180° to pulses of 500 µs to 2500 µs. If your servo uses a different range, set it in `attach()`, for example `myservo.attach(D9, 1000, 2000);`. Calling `detach()` does not stop the pulses, so the servo holds its last position.***
+
 ## Communication
 
 This section of the user manual covers the different communication protocols that are supported by the Arduino UNO Q.
