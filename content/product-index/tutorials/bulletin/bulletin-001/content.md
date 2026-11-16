@@ -30,9 +30,9 @@ We strongly recommend transitioning to the suggested replacement products to ens
 | Arduino MKR WAN 1310 + Antenna                | ABX00039 |                       | December 15, 2026 | December 15, 2028          |
 | Arduino MKR WiFi 1010                         | ABX00023 |                       | December 15, 2026 | December 15, 2028          |
 | Arduino MKR Zero                              | ABX00012 |                       | December 15, 2026 | December 15, 2028          |
-| Arduino Nano 33 BLE Rev2                      | ABX00071 | Arduino Nano ESP32    | December 15, 2026 | December 15, 2028          |
-| Arduino Nano 33 BLE Rev2 (with headers)       | ABX00072 | Arduino Nano ESP32    | December 15, 2026 | December 15, 2028          |
-| Arduino Nano 33 BLE Sense Rev2                | ABX00069 | Arduino Nano ESP32    | December 15, 2026 | December 15, 2028          |
+| Arduino Nano 33 BLE Rev2                      | ABX00071 | Arduino Nano ESP32 or Nano Matter    | December 15, 2026 | December 15, 2028          |
+| Arduino Nano 33 BLE Rev2 (with headers)       | ABX00072 | Arduino Nano ESP32 or Nano Matter    | December 15, 2026 | December 15, 2028          |
+| Arduino Nano 33 BLE Sense Rev2                | ABX00069 | Arduino Nano ESP32 or Nano Matter    | December 15, 2026 | December 15, 2028          |
 | Arduino Nano 33 BLE Sense Rev2 (with headers) | ABX00070 | Arduino Nano ESP32    | December 15, 2026 | December 15, 2028          |
 | Arduino Nano 33 IoT                           | ABX00027 | Arduino Nano ESP32    | December 15, 2026 | December 15, 2028          |
 | Arduino Nano 33 IoT (with headers)            | ABX00032 | Arduino Nano ESP32    | December 15, 2026 | December 15, 2028          |
