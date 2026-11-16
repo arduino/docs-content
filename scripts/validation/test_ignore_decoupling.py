@@ -309,5 +309,105 @@ class TestRelativeLinksIgnoreDecoupling(unittest.TestCase):
         self.assertEqual(issues, [])
 
 
+@unittest.skipUnless(hasattr(os, 'symlink'), 'needs symlinks')
+class TestRelativeLinksSharedPages(unittest.TestCase):
+    """A tutorial shared through a symlink is published at each product's URL: its links are checked from every one,
+    and reported once, under the file to edit."""
+
+    def setUp(self):
+        REL_IGNORE_CACHE.clear()
+        self.test_dir = tempfile.mkdtemp()
+        self.content_dir = os.path.join(self.test_dir, 'content')
+        self.boards = os.path.join(self.content_dir, 'hardware', 'family', 'boards')
+        # board-a has the original tutorial and a sibling; board-b gets the tutorial only, through a symlink
+        self.shared = self.write('board-a/tutorials/shared/content.md', '# Shared\n\n## Setup\n')
+        self.write('board-a/tutorials/only-a/content.md', '# Only on board A\n')
+        os.makedirs(os.path.join(self.boards, 'board-b', 'tutorials'))
+        self.copy = os.path.join(self.boards, 'board-b', 'tutorials', 'shared')
+        os.symlink(os.path.join('..', '..', 'board-a', 'tutorials', 'shared'), self.copy)
+
+    def tearDown(self):
+        shutil.rmtree(self.test_dir, ignore_errors=True)
+        REL_IGNORE_CACHE.clear()
+
+    def write(self, rel, text):
+        path = os.path.join(self.boards, rel)
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(text)
+        return path
+
+    def validate(self, *args):
+        stdout = io.StringIO()
+        with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(io.StringIO()):
+            try:
+                relative_links_main(['validate', *args])
+                code = 0
+            except SystemExit as e:
+                code = e.code
+        return code, stdout.getvalue()
+
+    def test_link_broken_only_on_the_copy_is_reported_under_the_original(self):
+        with open(self.shared, 'a', encoding='utf-8') as f:
+            f.write('\nSee [the other tutorial](../only-a/).\n')
+        code, out = self.validate(self.content_dir)
+        self.assertEqual(code, 1)
+        self.assertIn(os.path.relpath(self.shared) + ':', out)
+        self.assertNotIn(os.path.join('board-b', 'tutorials', 'shared', 'content.md'), out)
+        self.assertIn("Broken link: '../only-a/' on 1 of 2 URLs (works on /tutorials/board-a/shared/):", out)
+        self.assertIn(f"/tutorials/board-b/shared/ (symlink {os.path.relpath(self.copy)}): resolves to '/tutorials/board-b/only-a/'", out)
+        self.assertIn('\n1 link issue to fix in 1 file.\n', out)
+
+    def test_same_problem_on_every_url_is_listed_once(self):
+        with open(self.shared, 'a', encoding='utf-8') as f:
+            f.write('\n[Missing](/does/not/exist/) and [same page](#no-such-heading) and [ok](#setup).\n')
+        code, out = self.validate(self.content_dir)
+        self.assertEqual(code, 1)
+        self.assertEqual(out.count("Broken link: '/does/not/exist/' resolves to '/does/not/exist/'"), 1)
+        self.assertEqual(out.count("Broken anchor: '#no-such-heading' does not exist in "
+                                   + os.path.join('hardware', 'family', 'boards', 'board-a', 'tutorials', 'shared', 'content.md')), 1)
+        self.assertIn('Shared page, published at 2 URLs', out)
+        self.assertIn('2 link issues to fix in 1 file (4 counting each URL a shared page is published at).', out)
+
+    def test_a_copy_in_an_ignored_folder_is_not_checked(self):
+        with open(self.shared, 'a', encoding='utf-8') as f:
+            f.write('\nSee [the other tutorial](../only-a/).\n')
+        with open(os.path.join(self.content_dir, '.lintignore'), 'w') as f:
+            f.write('hardware/family/boards/board-b\n')
+        code, out = self.validate(self.content_dir)
+        self.assertEqual(code, 0, out)
+
+    def test_a_copy_outside_an_ignored_original_is_checked(self):
+        with open(self.shared, 'a', encoding='utf-8') as f:
+            f.write('\nSee [the other tutorial](../only-a/).\n')
+        with open(os.path.join(self.content_dir, '.lintignore'), 'w') as f:
+            f.write('hardware/family/boards/board-a\n')
+        code, out = self.validate(self.content_dir)
+        self.assertEqual(code, 1)
+        self.assertIn(os.path.relpath(self.shared) + ':', out)
+        self.assertIn('each link is checked from the 1 outside ignored folders.', out)
+        self.assertIn("Broken link: '../only-a/' on 1 URL:", out)
+        self.assertIn(f"/tutorials/board-b/shared/ (symlink {os.path.relpath(self.copy)}): resolves to '/tutorials/board-b/only-a/'", out)
+
+    def test_validating_one_file_checks_its_copies(self):
+        with open(self.shared, 'a', encoding='utf-8') as f:
+            f.write('\nSee [the other tutorial](../only-a/).\n')
+        code, out = self.validate(self.shared)
+        self.assertEqual(code, 1)
+        self.assertIn('/tutorials/board-b/shared/', out)
+
+    def test_symlink_cycle_is_not_followed(self):
+        # a/loop -> b and b/loop -> a: each link only leads back into a folder the walk is already inside
+        for here, there in (('a', 'b'), ('b', 'a')):
+            os.makedirs(os.path.join(self.content_dir, 'cycle', here), exist_ok=True)
+            with open(os.path.join(self.content_dir, 'cycle', here, 'page.md'), 'w', encoding='utf-8') as f:
+                f.write(f'# {here}\n')
+        for here, there in (('a', 'b'), ('b', 'a')):
+            os.symlink(os.path.join('..', there), os.path.join(self.content_dir, 'cycle', here, 'loop'))
+        routes = build_route_map(self.content_dir)
+        cycle = sorted(u for u in routes if u.startswith('/cycle/'))
+        self.assertEqual(cycle, ['/cycle/a/', '/cycle/a/loop/', '/cycle/b/', '/cycle/b/loop/'])
+
+
 if __name__ == '__main__':
     unittest.main()
