@@ -10,7 +10,7 @@ This directory contains the automated validation tools for `arduino/docs-content
 | :--- | :--- | :--- | :--- |
 | **Markdown Lint** | `scripts/validation/markdownlint/markdownlint.py` | `Markdown Check` | Enforces Markdown formatting standards with hierarchical config inheritance. |
 | **Alert Blocks** | `scripts/validation/alert_tags/alert_tags.py` | `Alert Check` | Enforces and formats empty-line spacing and indentation for MDX `<Alert>` blocks. |
-| **Relative Links** | `scripts/validation/relative_links/relative_links.py` | `Link Check` | Checks inline root-relative and URL-relative article links and anchors against the route index. |
+| **Relative Links** | `scripts/validation/relative_links/relative_links.py` | `Link Check` | Checks internal article links, heading anchors, shared symlinked pages, and `/resources/` downloads against the route index. |
 | **Image & Assets** | `scripts/validation/image_links/image_links.py` | `Image Check` | Flags broken image references and identifies orphaned files in `assets/` folders. |
 | **MDX Compile** | `scripts/validation/mdx/mdx-check.js` | `MDX Check` | Compiles every page with the MDX version that builds the site, so unclosed or mismatched HTML tags fail before the deploy. |
 | **Content Linter (Legacy)** | `scripts/validation/content-lint.sh` | `Content Linter` | Checks selected hardware tutorial and datasheet metadata and content using its own configuration. |
@@ -53,11 +53,14 @@ Place a `.lintignore` file in `content/` or any subdirectory to exclude unmigrat
 
 ```gitignore
 # Exclude legacy hardware directories from the Python checks
-hardware/01.mkr/
-hardware/08.legacy/
+hardware/mkr
+hardware/nano
 ```
 
-The MDX Check is the exception: the build compiles every page, ignored or not, so it checks them all.
+Two behaviors apply across ignored paths:
+
+- **MDX Check exception:** The site build compiles every Markdown page in `content/`, ignored or not, so `mdx-check.js` checks all files regardless of `.lintignore`.
+- **Link route discovery:** Ignored files are skipped when checking outbound links, but they remain indexed in `relative_links.py`'s route map so maintained pages can link to them without false positives.
 
 ### 2. Tool-Specific Ignores & Retention
 
