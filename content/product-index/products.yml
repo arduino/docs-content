@@ -449,7 +449,7 @@ mkr-proto-shield:
   Bulletin: bulletin-001
 
 mkr-relay-proto-shield:
-  Name: Arduino MKR Relay Proto Shield
+  Name: Arduino MKR Relay Shield
   SKU: TSX00003
   Status: End of Life
   Release Date: 2021-01-04
