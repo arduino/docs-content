@@ -44,10 +44,9 @@ The **R7FA4M1AB3CFM#AA0**, often referred to as RA4M1 in this datasheet, is the 
   * Up to 12-bit DAC
   * Operational Amplifier (OPAMP)
 * **Power**
+  * Recommended power via USB-C® at 5 V
   * Operating voltage for RA4M1 is 5 V
-  * Recommended input voltage (VIN) is 6-24 V
   * Barrel jack connected to VIN pin (6-24 V)
-  * Power via USB-C® at 5 V
 * **Communication**
   * 1x UART (pin D0, D1)
   * 1x SPI (pin D10-D13, ICSP header)
@@ -100,11 +99,11 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 
 ## Recommended Operating Conditions
 
-| Symbol          | Description                          | Min | Typ | Max | Unit |
-| --------------- | ------------------------------------ | --- | --- | --- | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad / DC Jack | 6   | 7.0 | 24  | V    |
-| V<sub>USB</sub> | Input voltage from USB connector     | 4.8 | 5.0 | 5.5 | V    |
-| T<sub>OP</sub>  | Operating Temperature                | -40 | 25  | 85  | °C   |
+| Symbol          | Description                                    | Min | Typ | Max | Unit |
+| --------------- | ---------------------------------------------- | --- | --- | --- | ---- |
+| V<sub>USB</sub> | Input voltage from USB connector (recommended) | 4.8 | 5.0 | 5.5 | V    |
+| V<sub>IN</sub>  | Input voltage from VIN pad / DC Jack           | 6   | 7.0 | 24  | V    |
+| T<sub>OP</sub>  | Operating Temperature                          | -40 | 25  | 85  | °C   |
 
 **Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
 
