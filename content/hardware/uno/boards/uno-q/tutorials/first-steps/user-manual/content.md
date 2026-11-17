@@ -599,23 +599,23 @@ LEDs #1 and #2 are controlled by the MPU.
 There is a dedicated LED interface in our Linux OS for controlling these LEDs, they can be controlled via `/sys/class/leds` from the **Command Line**, using **SSH**, an **ADB** connection from your PC terminal or by using the Linux built-in terminal application when used in single-board computer mode:
 
 ```bash
-echo 1    | tee /sys/class/leds/red:user/brightness   # set HIGH/ON
-echo 0    | tee /sys/class/leds/red:user/brightness   # set LOW/OFF
+echo 1    | tee /sys/class/leds/unoq:user-red1/brightness   # set HIGH/ON
+echo 0    | tee /sys/class/leds/unoq:user-red1/brightness   # set LOW/OFF
 ```
 
-![Linux LED control](assets/linux-led-control.gif)
+![Linux LED control](assets/linux-led.gif)
 
 The LED color segments are defined as follows:
 
 **LED 1:**
-- **Red:** `red:user`
-- **Green:** `green:user`
-- **Blue:** `blue:user`
+- **Red:** `unoq:user-red1`
+- **Green:** `unoq:user-green1`
+- **Blue:** `unoq:user-blue1`
 
 **LED 2:**
-- **Red:** `red:panic`
-- **Green:** `green:wlan`
-- **Blue:** `blue:bt`
+- **Red:** `unoq:panic-red2`
+- **Green:** `unoq:wlan-green2`
+- **Blue:** `unoq:bt-blue2`
 
 ***LED 2 is used to show system status: `PANIC`, `WLAN` and `BT`. But it can be controlled by the user.***
 
@@ -626,13 +626,13 @@ import time
 
 from arduino.app_utils import App
 
-LED1_R = "/sys/class/leds/red:user/brightness"
-LED1_G = "/sys/class/leds/green:user/brightness"
-LED1_B = "/sys/class/leds/blue:user/brightness"
+LED1_R = "/sys/class/leds/unoq:user-red1/brightness"
+LED1_G = "/sys/class/leds/unoq:user-green1/brightness"
+LED1_B = "/sys/class/leds/unoq:user-blue1/brightness"
 
-LED2_R = "/sys/class/leds/red:panic/brightness"
-LED2_G = "/sys/class/leds/green:wlan/brightness"
-LED2_B = "/sys/class/leds/blue:bt/brightness"
+LED2_R = "/sys/class/leds/unoq:panic-red2/brightness"
+LED2_G = "/sys/class/leds/unoq:wlan-green2/brightness"
+LED2_B = "/sys/class/leds/unoq:bt-blue2/brightness"
 
 def set_led_brightness(led_file, value):
     try:
