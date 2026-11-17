@@ -1,6 +1,6 @@
 # Arduino App Lab
 
-This directory contains the documentation for **Arduino App Lab**.
+This directory contains the documentation for **Arduino App Lab**. Follow the repository-wide conventions in [CONTRIBUTING.md](../../../CONTRIBUTING.md) and [`docs/`](../../../docs/content-structure.md), together with the App Lab-specific rules below.
 
 ## Structure & User Journey
 
@@ -31,7 +31,7 @@ Unlike other sections of the documentation, App Lab uses a **shared `assets/` fo
 
 ### Bricks, Examples & Models Tables
 
-The tables in the documentation that list available Bricks, Examples, and Models are **auto-generated**. Do not edit them manually, as they will be overwritten.
+The tables in the documentation that list available Bricks, Examples, and Models are **auto-generated**. Do not edit them manually, as they will be overwritten. See [`scripts/maintenance/README.md`](../../../scripts/maintenance/README.md) for prerequisites and environment variable overrides.
 
 * **Setup**: These scripts expect the source repositories (`app-bricks-py` and `app-bricks-examples`) to be **cloned at the same directory level** as `docs-content`.
 * **Update Bricks**: Run `python3 scripts/maintenance/update_bricks_table.py`. It looks for `<!-- app-bricks-py table start -->` markers.
