@@ -300,4 +300,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 25/04/2024 | 3            | Updated link to new Cloud Editor                  |
 | 20/10/2026 | 4            | Added note for Intended Use, and divided language |
 | 12/11/2026 | 5            | Input voltage range updated                       |
+| 17/11/2026 | 6            | Recommended Power table updated                   |
 
