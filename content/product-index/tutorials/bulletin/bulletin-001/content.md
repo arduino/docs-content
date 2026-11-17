@@ -24,7 +24,7 @@ We strongly recommend transitioning to the suggested replacement products to ens
 | Arduino MKR IoT Carrier Rev2                  | ABX00073 |                       | December 15, 2026 | December 15, 2028          |
 | Arduino MKR NB 1500                           | ABX00019 |                       | December 15, 2026 | December 15, 2028          |
 | Arduino MKR Proto Shield                      | TSX00001 |                       | December 15, 2026 | December 15, 2028          |
-| Arduino MKR Relay Proto Shield                | TSX00003 |                       | December 15, 2026 | December 15, 2028          |
+| Arduino MKR Relay Shield                      | TSX00003 |                       | December 15, 2026 | December 15, 2028          |
 | Arduino MKR WAN 1300                          | ABX00017 |                       | December 15, 2026 | December 15, 2028          |
 | Arduino MKR WAN 1310                          | ABX00029 |                       | December 15, 2026 | December 15, 2028          |
 | Arduino MKR WAN 1310 + Antenna                | ABX00039 |                       | December 15, 2026 | December 15, 2028          |
