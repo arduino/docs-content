@@ -590,7 +590,7 @@ Execute the App by clicking on the **Run** button in the Arduino App Lab and you
 ### RGB LEDs
 The UNO Q features 4x RGB LEDs. Two of them connected and controlled by the Qualcomm microprocessor, and the other two by the STM32 microcontroller.
 
-![UNO Q RGB LEDs](assets/rgb-led.png)
+![UNO Q RGB LEDs](assets/rgb-led-new.png)
 
 #### MPU Controlled LEDs
 
