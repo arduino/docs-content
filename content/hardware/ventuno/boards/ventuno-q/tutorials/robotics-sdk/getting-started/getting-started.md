@@ -387,4 +387,26 @@ You have prepared the SDK vision components, checked how ROS 2 discovers them, a
 
 ## Acknowledgments
 
-ROS is a trademark of Open Source Robotics Foundation. Model and dataset assets retain their respective upstream licenses.
+ROS is a trademark of Open Source Robotics Foundation. This tutorial is provided for educational purposes to help users learn ROS 2 on Arduino hardware. This content does not imply endorsement, partnership, or affiliation between Arduino and Open Source Robotics Foundation. Model and dataset assets retain their respective upstream licenses.
+
+## Support
+
+If you encounter any issues or have questions while working with the VENTUNO Q, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our Help Center, which offers a comprehensive collection of articles and guides for the VENTUNO Q. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Arduino Help Center](https://support.arduino.cc/hc)
+
+### Forum
+
+Join our community forum to connect with other users, share your experiences, and ask questions.
+
+- [VENTUNO Q category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/ventuno-q/227)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described above.
+
+- [Contact us page](https://www.arduino.cc/pro/contact-us)
