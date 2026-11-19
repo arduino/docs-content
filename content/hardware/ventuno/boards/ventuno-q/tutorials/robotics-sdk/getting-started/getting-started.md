@@ -107,15 +107,37 @@ The [multi-model tutorial](https://docs.arduino.cc/tutorials/ventuno-q/nn-infere
 
 On the VENTUNO Q, add the two package sources used by this workflow:
 
+Refresh the package index before installing the repository management tools:
+
 ```bash
-sudo apt update
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:ubuntu-qcom-iot/qcom-ppa
-sudo add-apt-repository ppa:ubuntu-qcom-iot/qirp
 sudo apt update
 ```
 
-The first source provides Qualcomm platform and runtime packages. The second provides Robotics SDK packages. If these sources are already configured, check that `apt update` completes successfully.
+Install `software-properties-common`, which provides the `add-apt-repository` command:
+
+```bash
+sudo apt install software-properties-common
+```
+
+Add the source for Qualcomm platform and runtime packages:
+
+```bash
+sudo add-apt-repository ppa:ubuntu-qcom-iot/qcom-ppa
+```
+
+Add the source for Robotics SDK packages:
+
+```bash
+sudo add-apt-repository ppa:ubuntu-qcom-iot/qirp
+```
+
+Refresh the package index again to include packages from both sources:
+
+```bash
+sudo apt update
+```
+
+If these sources are already configured, check that `apt update` completes successfully.
 
 Before installing, check that your package sources offer the inference component and runtime:
 
