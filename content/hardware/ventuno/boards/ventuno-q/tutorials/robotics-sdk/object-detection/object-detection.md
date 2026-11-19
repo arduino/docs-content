@@ -38,7 +38,7 @@ The example images show results from a test photograph. Check model loading, obj
 - Host computer with AI Hub access and the model tools prepared below.
 - A graphical desktop on the board for the image viewer. Topic inspection also works over SSH.
 
-Complete [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/) first, including the [host tools](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#5-prepare-the-host-model-tools) and [shared labels](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#6-prepare-the-shared-labels-and-board-workspace). This page uses the same `~/person-pipeline/models` directory as the multi-model tutorial.
+Complete [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/) first, including the [host tools](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#4-prepare-the-host-model-tools) and [shared labels](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#5-prepare-the-shared-labels-and-board-workspace). This page uses the same `~/person-pipeline/models` directory as the multi-model tutorial.
 
 ## Instructions
 
@@ -125,7 +125,7 @@ scp ./exported-detection/yolov8_det.bin arduino@ventunoq.local:person-pipeline/m
 scp ./exported-detection/metadata.json arduino@ventunoq.local:person-pipeline/models/detection.metadata.json
 ```
 
-The [shared setup](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#6-prepare-the-shared-labels-and-board-workspace) supplies `coco.yaml`. **VENTUNO Q:** check all required files:
+The [shared setup](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#5-prepare-the-shared-labels-and-board-workspace) supplies `coco.yaml`. **VENTUNO Q:** check all required files:
 
 ```bash
 missing=0

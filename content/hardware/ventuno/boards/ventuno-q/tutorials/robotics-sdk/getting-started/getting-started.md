@@ -20,6 +20,33 @@ In this tutorial, you will install the vision components and check that ROS 2 ca
 
 The SDK runs on the board's main processor on Ubuntu. Your host computer exports and copies the models. The board receives the camera images and runs the ROS 2 nodes. Follow [Getting Started with ROS 2 on VENTUNO Q](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-ros2/) for basic system preparation. This page covers the additional SDK layer and its interfaces.
 
+## How the Vision Pipeline Works
+
+The vision tutorials use this sequence:
+
+```text
+camera image -> preprocessing -> inference -> postprocessing -> objects or masks
+```
+
+A **tensor** is a numeric array with a defined shape and data type. Inference receives and publishes tensors. Postprocessing turns the model outputs into application messages.
+
+The model's input format specifies its image size, color order, layout, and value range. Its output format determines which postprocessor can interpret it.
+
+| SDK package                        | Responsibility                                               | Interface used in this series                                       |
+|------------------------------------|--------------------------------------------------------------|---------------------------------------------------------------------|
+| `qrb_ros_cv_tensor_common_process` | Resize and normalize images, then arrange the numeric input  | `input_image` → `encoded_image`, also publishes `resized_image`     |
+| `qrb_ros_nn_inference`             | Load and execute the model                                   | `qrb_inference_input_tensor` → `qrb_inference_output_tensor`        |
+| `qrb_ros_yolo_process`             | Interpret supported YOLO outputs and optionally draw results | Detection or segmentation tensor topics → result and overlay topics |
+| `qrb_ros_transport_image_type`     | Adapt supported images for QRB transport paths               | Follow the image/encoding contracts of the connected nodes          |
+
+Inference input and output use `qrb_ros_tensor_list_msgs/msg/TensorList`. Camera and overlay images use `sensor_msgs/msg/Image`. Postprocessing converts raw tensors to application messages: `vision_msgs/msg/Detection2DArray` for detection, or `qrb_ros_vision_msgs/msg/Detection2DWithMaskArray` for instance segmentation.
+
+A launch file connects these components with **remappings**, which change the topic names a node uses. A **namespace** adds a shared prefix so two model stages can coexist without consuming each other's tensors. Each inference component has its own `model_path`. In these tutorials, `backend_option` is `/usr/lib/libQnnHtp.so`, selecting the Qualcomm Neural Network (QNN) SDK's Hexagon Tensor Processor backend for NPU execution.
+
+The preprocessing configuration used in this series resizes directly to 640×640 and uses RGB float values from 0 to 1 in NHWC order: batch, height, width, channels. Detection coordinates refer to that resized image.
+
+Preserve timestamps across stages and map coordinates back before cropping a differently sized camera frame. Color images use `rgb8`, and segmentation masks use `mono8`.
+
 ## Goals
 
 - Configure the Qualcomm® package sources and install the common SDK vision packages.
@@ -211,7 +238,7 @@ Look for `CvTensorCommonProcessNode`, `QrbRosInferenceNode`, and the YOLO detect
 
 *Each package resolves to `/opt/ros/jazzy`. The component lists include the inference, preprocessing, and YOLO classes needed by the tutorials.*
 
-Next, check that the NPU backend library and device interface are present. The Qualcomm Neural Network (QNN) SDK uses the Hexagon Tensor Processor (HTP) backend to run a model on the NPU.
+Next, check that the NPU backend library and device interface are present. The QNN SDK uses the Hexagon Tensor Processor (HTP) backend to run a model on the NPU.
 
 List the HTP backend library and FastRPC device interface:
 
@@ -235,34 +262,7 @@ These checks confirm that the required files are installed. You will check model
 
 *Check that the system reports arm64, ROS reports jazzy, and the HTP library and FastRPC device are present. Keep the package versions with your model information.*
 
-### 4. Understand the Shared Data Flow
-
-The vision tutorials use this sequence:
-
-```text
-camera image -> preprocessing -> inference -> postprocessing -> objects or masks
-```
-
-A **tensor** is a numeric array with a defined shape and data type. Inference receives and publishes tensors. Postprocessing turns the model outputs into application messages.
-
-The model's input format specifies its image size, color order, layout, and value range. Its output format determines which postprocessor can interpret it.
-
-| SDK package                        | Responsibility                                               | Interface used in this series                                       |
-|------------------------------------|--------------------------------------------------------------|---------------------------------------------------------------------|
-| `qrb_ros_cv_tensor_common_process` | Resize and normalize images, then arrange the numeric input  | `input_image` → `encoded_image`, also publishes `resized_image`     |
-| `qrb_ros_nn_inference`             | Load and execute the model                                   | `qrb_inference_input_tensor` → `qrb_inference_output_tensor`        |
-| `qrb_ros_yolo_process`             | Interpret supported YOLO outputs and optionally draw results | Detection or segmentation tensor topics → result and overlay topics |
-| `qrb_ros_transport_image_type`     | Adapt supported images for QRB transport paths               | Follow the image/encoding contracts of the connected nodes          |
-
-Inference input and output use `qrb_ros_tensor_list_msgs/msg/TensorList`. Camera and overlay images use `sensor_msgs/msg/Image`. Postprocessing converts raw tensors to application messages: `vision_msgs/msg/Detection2DArray` for detection, or `qrb_ros_vision_msgs/msg/Detection2DWithMaskArray` for instance segmentation.
-
-A launch file connects these components with **remappings**, which change the topic names a node uses. A **namespace** adds a shared prefix so two model stages can coexist without consuming each other's tensors. Each inference component has its own `model_path`. In these tutorials, `backend_option` is `/usr/lib/libQnnHtp.so`, selecting the QNN Hexagon Tensor Processor backend for NPU execution.
-
-The preprocessing configuration used in this series resizes directly to 640×640 and uses RGB float values from 0 to 1 in NHWC order: batch, height, width, channels. Detection coordinates refer to that resized image.
-
-Preserve timestamps across stages and map coordinates back before cropping a differently sized camera frame. Color images use `rgb8`, and segmentation masks use `mono8`.
-
-### 5. Prepare the Host Model Tools
+### 4. Prepare the Host Model Tools
 
 On your host computer, create an isolated Python environment. These Bash commands assume Python 3.12 is already installed:
 
@@ -281,9 +281,9 @@ The task pages use the `qai-hub-models export` command from [version 0.64.0](htt
 
 Each task page asks you to save the installed package versions after adding its model dependencies. Keep that record with the exported model so you can identify the tools used if a later export behaves differently.
 
-### 6. Prepare the Shared Labels and Board Workspace
+### 5. Prepare the Shared Labels and Board Workspace
 
-On your host computer, activate the environment from Step 5 if you have opened a new terminal. The detection and segmentation models both use the COCO object labels:
+On your host computer, activate the environment from Step 4 if you have opened a new terminal. The detection and segmentation models both use the COCO object labels:
 
 ```bash
 source ~/ventuno-model-tools/bin/activate
@@ -311,7 +311,7 @@ print('COCO labels ready: 80 classes, class 0 is person')
 PY
 ```
 
-Expect `COCO labels ready: 80 classes, class 0 is person`. If the assertion fails, download the file again from the versioned URL. If Python cannot import `yaml`, activate the model-tools environment and complete its installation in Step 5.
+Expect `COCO labels ready: 80 classes, class 0 is person`. If the assertion fails, download the file again from the versioned URL. If Python cannot import `yaml`, activate the model-tools environment and complete its installation in Step 4.
 
 Keep the label file's license notice and the model's license with your downloaded assets.
 
@@ -331,7 +331,7 @@ If `scp` cannot connect, check the hostname and SSH access from the User Manual.
 
 The task tutorials will put `detection.bin` and `segmentation.bin` in the same directory. Model export paths vary, so copy the binary reported by your exporter and retain its `metadata.json` alongside it with a task-specific filename.
 
-### 7. Choose Your Next Tutorial
+### 6. Choose Your Next Tutorial
 
 - [Object Detection](https://docs.arduino.cc/tutorials/ventuno-q/object-detection/): run the camera and detector, inspect boxes and confidence scores, and consume detections in your own ROS node.
 - [Image Segmentation](https://docs.arduino.cc/tutorials/ventuno-q/image-segmentation/): run a model that produces an instance mask, then view it alongside the source image.

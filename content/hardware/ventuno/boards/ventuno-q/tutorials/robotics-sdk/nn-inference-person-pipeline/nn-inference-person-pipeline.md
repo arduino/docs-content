@@ -94,7 +94,7 @@ An unused domain should return no application nodes. Expect `Adapter dependencie
 
 ### 2. Prepare and Deploy the Models
 
-**Host computer:** follow the [host tools and labels setup](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#5-prepare-the-host-model-tools), [detection export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/object-detection/#2-export-the-detection-model), and [segmentation export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/image-segmentation/#2-export-the-segmentation-model). Finish copying the models and labels before returning here. Start the camera in Step 3 so that only one pipeline opens it.
+**Host computer:** follow the [host tools and labels setup](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#4-prepare-the-host-model-tools), [detection export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/object-detection/#2-export-the-detection-model), and [segmentation export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/image-segmentation/#2-export-the-segmentation-model). Finish copying the models and labels before returning here. Start the camera in Step 3 so that only one pipeline opens it.
 
 Both models take RGB float32 NHWC input, shape `1×640×640×3`, values 0–1. Detection outputs `boxes`, `scores`, and uint8 `class_idx`; segmentation additionally outputs `mask_coeffs` and `mask_protos`, with float32 class indices. Preserve the full contracts from the task pages. The two binaries cannot be interchanged.
 
