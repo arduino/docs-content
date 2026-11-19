@@ -372,7 +372,7 @@ Start with one task. Stop its running nodes with `Ctrl+C` before starting anothe
 | The HTP library or device is missing                 | Check the board image, installed runtime version, and required paths using Step 3. Avoid manually replacing system libraries.                                                 |
 | Nodes cannot see each other                          | Use identical domain and discovery settings. Local-only discovery means a viewer on another computer will not join this graph.                                                |
 | A model loads but postprocessing rejects its tensors | Compare output names, shapes, and types against what the task tutorial expects. Model loading and message decoding are separate checks.                                       |
-| Export instructions report a missing module          | Activate the host virtual environment and use the pinned release's CLI rather than the removed module-based exporter.                                                         |
+| Export instructions use the old module-based command | In `qai-hub-models` v0.64.0, `python -m qai_hub_models.models.yolov8_det.export` and `python -m qai_hub_models.models.yolov8_seg.export` are no longer supported. Activate the host environment from Step 4 and use `qai-hub-models export yolov8_det` or `qai-hub-models export yolov8_seg`, with the arguments shown in the corresponding tutorial. |
 
 ## Conclusion
 
