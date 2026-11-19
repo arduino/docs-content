@@ -169,7 +169,7 @@ Each `ros2 pkg prefix` command tells you where ROS found that package. For this 
 
 *Each package resolves to `/opt/ros/jazzy`. The component lists include the inference, preprocessing, and YOLO classes needed by the tutorials.*
 
-Next, check that the NPU backend library and device interface are present. QNN uses the Hexagon Tensor Processor (HTP) backend to run a model on the NPU:
+Next, check that the NPU backend library and device interface are present. The Qualcomm Neural Network (QNN) SDK uses the Hexagon Tensor Processor (HTP) backend to run a model on the NPU:
 
 ```bash
 ls -l /usr/lib/libQnnHtp.so /dev/fastrpc-cdsp
