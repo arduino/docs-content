@@ -1,86 +1,28 @@
 # Arduino App Lab
 
-This directory contains the documentation for **Arduino App Lab**. 
+This directory contains the documentation for **Arduino App Lab**. Follow the repository-wide conventions in [CONTRIBUTING.md](../../../CONTRIBUTING.md) and [`docs/`](../../../docs/content-structure.md), together with the App Lab-specific rules below.
 
 ## Structure & User Journey
 
 The documentation is organized following the user journey and logical categorization of the platform:
 
-1.  **Setup**: Installation and initial configuration.
-2.  **Configure**: Detailed system and environment settings.
-3.  **Getting Started**: First steps and quickstart guides.
-4.  **Apps**: Creating and managing applications.
-5.  **Bricks**: Using and developing reusable components (Bricks).
-6.  **Bridge**: Connectivity and communication between components.
-7.  **CLI**: Command-line interface reference and usage.
-8.  **Integrations**: Connecting App Lab with external services.
-9.  **Release Notes**: Historical and current version changes.
+1. **Setup**: Installation and initial configuration.
+2. **Configure**: Detailed system and environment settings.
+3. **Getting Started**: First steps and quickstart guides.
+4. **Apps**: Creating and managing applications.
+5. **Bricks**: Using and developing reusable components (Bricks).
+6. **Bridge**: Connectivity and communication between components.
+7. **CLI**: Command-line interface reference and usage.
+8. **Integrations**: Connecting App Lab with external services.
+9. **Release Notes**: Historical and current version changes.
 
-### Folder Naming Conventions
+### Board Agnosticism
 
-*   **Category Folders**: Use sequential numbering and **hyphens** for multi-word names (e.g., `3.getting-started`).
-*   **Article Folders**: Use sequential numbering and **hyphens** for multi-word names (e.g., `1.setup-guide`).
-*   **Sequential Numbering**: All main folders and subdirectories must start with a number prefix (e.g., `1.`, `2.`). Use leading zeros (e.g., `01.`, `02.`) if the total number of items is 10 or more.
-
-## Content Guidelines
-
-### Voice & Tone
-
-*   **Active Voice**: Always use active voice (e.g., "Connect the board" instead of "The board should be connected").
-*   **No Filler Words**: Avoid using "simply", "just", "easy", "obviously", or "leverage".
-*   **Board Agnosticism**: Use generic terms like "your board". Use "Arduino UNO Q" only for specific examples.
-
-### Style
-
-*   **Formatting**:
-*   **Bold** UI elements (e.g., **Run** button).
-    *   `Inline code` for filenames, variables, and code-level references.
-
-### MDX Alert Format
-
-Use the following syntax for callouts and alerts. Each alert should start with a bold label as shown:
-
-```markdown
-<Alert type="info">**Note:** Markdown text</Alert>
-<Alert type="success">**Tip:** Markdown text</Alert>
-<Alert type="note">**Important:** Markdown text</Alert>
-<Alert type="warning">**Warning:** Markdown text</Alert>
-<Alert type="danger">**Danger:** Markdown text</Alert>
-```
-
-## Linking Articles & Assets
+When writing App Lab documentation, use generic terms like "your board" or "the board". Use "Arduino UNO Q" only for specific examples. Refer to "VENTUNO Q" *only* in the context of the list of compatible boards in the Setup Overview; avoid suggesting a broader set of compatible boards (do not use phrases like "For example, the UNO Q" or "UNO Q or other compatible board").
 
 ### Shared Asset Folder
 
 Unlike other sections of the documentation, App Lab uses a **shared `assets/` folder** located at the root of the `app-lab` directory. All images and static files should be placed here to maintain a clean structure.
-
-### Relative Linking
-
-Links must follow these rules when linking to other Docs articles in the repo:
-
-* **No Prefix**: Do not include the sequential number prefixes or the `.md` extension in the path.
-    *   *Correct*: `[Setup](../../setup/overview/)`
-* **Relative**: Validation expects links to be relative to the article folder, not project root.
-
-## Validation
-
-### Markdownlint
-
-App Lab uses a local configuration file with specific overrides (e.g., allowing `<Alert>` tags and duplicate headings in API docs).
-
-Configuration file path: `content/software/app-lab/.markdownlint.yaml`
-
-### Link Validation Script
-
-Always validate your changes before committing:
-```bash
-python3 scripts/validation/relative_links/relative_links.py validate content/software/app-lab
-```
-You can also use the `fix` command to automatically correct link formatting:
-
-```bash
-python3 scripts/validation/relative_links/relative_links.py fix content/software/app-lab
-```
 
 ## Maintenance and Automation
 
@@ -89,12 +31,12 @@ python3 scripts/validation/relative_links/relative_links.py fix content/software
 
 ### Bricks, Examples & Models Tables
 
-The tables in the documentation that list available Bricks, Examples, and Models are **auto-generated**. Do not edit them manually, as they will be overwritten.
+The tables in the documentation that list available Bricks, Examples, and Models are **auto-generated**. Do not edit them manually, as they will be overwritten. See [`scripts/maintenance/README.md`](../../../scripts/maintenance/README.md) for prerequisites and environment variable overrides.
 
-*   **Setup**: These scripts expect the source repositories (`app-bricks-py` and `app-bricks-examples`) to be **cloned at the same directory level** as `docs-content`.
-*   **Update Bricks**: Run `python3 scripts/maintenance/update_bricks_table.py`. It looks for `<!-- app-bricks-py table start -->` markers.
-*   **Update Examples**: Run `python3 scripts/maintenance/update_examples_table.py`. It looks for `<!-- app-bricks-examples table start -->` markers.
-*   **Update Models**: Run `python3 scripts/maintenance/update_models_table.py`. It looks for `<!-- app-lab-models table start -->` markers.
+* **Setup**: These scripts expect the source repositories (`app-bricks-py` and `app-bricks-examples`) to be **cloned at the same directory level** as `docs-content`.
+* **Update Bricks**: Run `python3 scripts/maintenance/update_bricks_table.py`. It looks for `<!-- app-bricks-py table start -->` markers.
+* **Update Examples**: Run `python3 scripts/maintenance/update_examples_table.py`. It looks for `<!-- app-bricks-examples table start -->` markers.
+* **Update Models**: Run `python3 scripts/maintenance/update_models_table.py`. It looks for `<!-- app-lab-models table start -->` markers.
 
 ### CLI Command Reference
 
