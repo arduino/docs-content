@@ -51,17 +51,43 @@ Use Ubuntu 24.04 and ROS 2 Jazzy on the VENTUNO Q. These examples use inference 
 
 ### 1. Check Your Board Environment
 
-On the VENTUNO Q, open a Bash terminal. First, check the operating system and processor architecture so you can select packages for this board:
+On the VENTUNO Q, open a Bash terminal. Check the operating system, processor architecture, and ROS distribution before installing SDK packages.
+
+Load the operating system version information into the current shell:
 
 ```bash
 source /etc/os-release
+```
+
+Print the operating system name and version:
+
+```bash
 printf '%s\n' "$PRETTY_NAME"
+```
+
+Expect an Ubuntu 24.04 release, such as `Ubuntu 24.04.1 LTS`.
+
+Check the processor architecture used by the package manager:
+
+```bash
 dpkg --print-architecture
+```
+
+Expect `arm64`.
+
+Load the ROS 2 Jazzy environment in the same terminal:
+
+```bash
 source /opt/ros/jazzy/setup.bash
+```
+
+Print the active ROS distribution:
+
+```bash
 printf '%s\n' "$ROS_DISTRO"
 ```
 
-`source /etc/os-release` loads the system version information. Expect `Ubuntu 24.04` for the operating system, `arm64` for the processor architecture, and `jazzy` after ROS is loaded. If any value differs, or the ROS setup file is missing, complete the linked Arduino ROS 2 setup before installing SDK packages.
+Expect `jazzy`. If the operating system, architecture, or ROS distribution does not match these requirements, or the ROS setup file is missing, complete the linked Arduino ROS 2 setup before installing SDK packages.
 
 On every board terminal used in this series, run:
 
