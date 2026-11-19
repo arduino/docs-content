@@ -3,7 +3,7 @@ title: VENTUNO Q
 url_shop: https://store.arduino.cc/products/ventuno-q
 primary_button_url: /tutorials/ventuno-q/user-manual
 primary_button_title: User Manual
-secondary_button_url: /software/app-lab/tutorials/01.getting-started/apps-lab-ide
+secondary_button_url: /software/app-lab
 secondary_button_title: Arduino App Lab
 forumCategorySlug: '/official-hardware/ventuno-q/227'
 sku: [ABX00181]
