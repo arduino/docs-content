@@ -4,7 +4,7 @@ url_shop: https://store.arduino.cc/products/starter-kit-r4
 primary_button_url: https://courses.arduino.cc/starter-kit-r4/
 primary_button_title: Go To Course
 sku: [K000007_R4, K000007_R4-6P]
-productCode: ['228', "245"]
+productCode: ['228', '245', '229']
 useCases: [kits, education]
 releaseDate: 2025-10-22
 ---
