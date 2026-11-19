@@ -333,7 +333,9 @@ PY
 
 Expect `COCO labels ready: 80 classes, class 0 is person`. If the assertion fails, download the file again from the versioned URL. If Python cannot import `yaml`, activate the model-tools environment and complete its installation in Step 4.
 
-Keep the label file's license notice and the model's license with your downloaded assets.
+The label file saved as `coco.yaml` comes from Ultralytics v8.3.0 and is licensed under the [GNU Affero General Public License v3.0 (AGPL-3.0)](https://github.com/ultralytics/ultralytics/blob/v8.3.0/LICENSE).
+
+The YOLOv8 detection and segmentation models used in this series originate from Ultralytics. See the license sections of the [detection model](https://github.com/qualcomm/ai-hub-models/blob/v0.64.0/src/qai_hub_models/models/yolov8_det/README.md#license) and [segmentation model](https://github.com/qualcomm/ai-hub-models/blob/v0.64.0/src/qai_hub_models/models/yolov8_seg/README.md#license) for their upstream licensing terms. Keep the applicable license notices with the downloaded labels and model assets.
 
 On the VENTUNO Q, create the shared directory used by this series:
 
