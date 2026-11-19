@@ -192,7 +192,9 @@ To identify your board image build, run:
 cat /etc/buildinfo
 ```
 
-The board used for the package-source and installation-preview checks reported `BUILD_ID=20260414-97`, Ubuntu 24.04.4 LTS, ROS 2 Jazzy, inference package 1.1.1, and QAI Runtime 2.46.0. This identifies the checked environment; a minimum supported image build has not been established. Installed packages can change after flashing, so compare their versions as well as the image build. The checks used an existing installation and do not establish that a fresh image includes these package versions.
+The demos in this series were successfully run on the `monza-20260729-248.tar.zst` board image, identified by `BUILD_ID=20260729-248` in `/etc/buildinfo`, with Ubuntu 24.04.4 LTS. Use this as a tested image reference when comparing your setup. A minimum supported image version has not been established.
+
+Complete the SDK installation below and the additional package installation steps in your chosen task tutorial. Installed packages can change after flashing, so compare the inference and runtime versions as well as the image build; the image identifier alone does not establish the installed package versions.
 
 Install the common vision components:
 
