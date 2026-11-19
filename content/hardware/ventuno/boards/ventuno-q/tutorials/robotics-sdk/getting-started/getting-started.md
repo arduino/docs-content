@@ -157,7 +157,15 @@ apt --simulate install \
   ros-jazzy-qrb-ros-vision-msgs
 ```
 
-`--simulate` lists the proposed changes without installing anything. Read the list for package removals or runtime upgrades. If APT reports unmet dependencies, check the package sources and supported board image before proceeding. If it would change the runtime, plan to check your models again with that version.
+`--simulate` lists the proposed changes without installing anything. Read the list for package removals or runtime upgrades. If APT reports unmet dependencies, check the package sources, board image build, and installed runtime before proceeding. If it would change the runtime, check your models again with that version.
+
+To identify your board image build, run:
+
+```bash
+cat /etc/buildinfo
+```
+
+The board used for the package-source and installation-preview checks reported `BUILD_ID=20260414-97`, Ubuntu 24.04.4 LTS, ROS 2 Jazzy, inference package 1.1.1, and QAI Runtime 2.46.0. This identifies the checked environment; a minimum supported image build has not been established. Installed packages can change after flashing, so compare their versions as well as the image build. The checks used an existing installation and do not establish that a fresh image includes these package versions.
 
 Install the common vision components:
 
