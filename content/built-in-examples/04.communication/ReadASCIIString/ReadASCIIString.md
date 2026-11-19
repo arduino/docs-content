@@ -10,7 +10,7 @@ tags:
   - ASCII
 ---
 
-This sketch uses the [Serial.parseInt](https://www.arduino.cc/en/Reference/ParseInt)() function to locate values separated by a non-alphanumeric character. Often people use a comma to indicate different pieces of information (this format is commonly referred to as **comma-separated-values** or **CSV**), but other characters like a space or a period will work too. The values are parsed into integers and used to determine the color of a RGB LED. You'll use the Arduino Software (IDE) serial monitor to send strings like "5,220,70" to the board to change the light color.
+This sketch uses the [Serial.parseInt](https://docs.arduino.cc/language-reference/en/functions/communication/serial/parseInt)() function to locate values separated by a non-alphanumeric character. Often people use a comma to indicate different pieces of information (this format is commonly referred to as **comma-separated-values** or **CSV**), but other characters like a space or a period will work too. The values are parsed into integers and used to determine the color of a RGB LED. You'll use the Arduino Software (IDE) serial monitor to send strings like "5,220,70" to the board to change the light color.
 
 ### Hardware Required
 
