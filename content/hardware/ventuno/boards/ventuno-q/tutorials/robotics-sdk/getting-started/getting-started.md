@@ -268,8 +268,23 @@ On your host computer, create an isolated Python environment. These Bash command
 
 ```bash
 python3.12 -m venv ~/ventuno-model-tools
+```
+
+Activate the environment in the same host terminal so subsequent Python commands use it:
+
+```bash
 source ~/ventuno-model-tools/bin/activate
+```
+
+Upgrade pip inside the virtual environment:
+
+```bash
 python -m pip install --upgrade pip
+```
+
+Install the model tools version used by the task tutorials:
+
+```bash
 python -m pip install 'qai-hub-models==0.64.0'
 ```
 
