@@ -84,10 +84,15 @@ Expect `sensor_msgs/msg/Image`, width 640, height 480, and `encoding: rgb8`. If 
 
 ### 2. Export the Segmentation Model
 
-On your host computer, activate the v0.64.0 tools environment from the setup page and install the model recipe:
+On your host computer, activate the v0.64.0 tools environment from the setup page:
 
 ```bash
 source ~/ventuno-model-tools/bin/activate
+```
+
+In the same terminal, install the YOLOv8 segmentation model recipe:
+
+```bash
 qai-hub-models install yolov8_seg
 ```
 
