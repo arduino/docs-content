@@ -211,16 +211,25 @@ Look for `CvTensorCommonProcessNode`, `QrbRosInferenceNode`, and the YOLO detect
 
 *Each package resolves to `/opt/ros/jazzy`. The component lists include the inference, preprocessing, and YOLO classes needed by the tutorials.*
 
-Next, check that the NPU backend library and device interface are present. The Qualcomm Neural Network (QNN) SDK uses the Hexagon Tensor Processor (HTP) backend to run a model on the NPU:
+Next, check that the NPU backend library and device interface are present. The Qualcomm Neural Network (QNN) SDK uses the Hexagon Tensor Processor (HTP) backend to run a model on the NPU.
+
+List the HTP backend library and FastRPC device interface:
 
 ```bash
 ls -l /usr/lib/libQnnHtp.so /dev/fastrpc-cdsp
+```
+
+Expect both paths to be listed without a "No such file" error. If the library is missing, revisit Step 2. If `/dev/fastrpc-cdsp` is missing, follow [Understanding and Using the NPU on VENTUNO Q](https://docs.arduino.cc/tutorials/ventuno-q/npu-guide/).
+
+Check the installed inference and QAI Runtime package versions:
+
+```bash
 dpkg-query -W ros-jazzy-qrb-ros-nn-inference qairt-libs
 ```
 
-`ls` should list both paths without a "No such file" error. `dpkg-query` should print the installed inference and runtime package versions. Compare these with the reference versions above. If the library or package is missing, revisit Step 2.
+Expect each package name followed by its installed version. Compare these with the reference versions above. If a package is missing, revisit Step 2.
 
-If `/dev/fastrpc-cdsp` is missing, follow [Understanding and Using the NPU on VENTUNO Q](https://docs.arduino.cc/tutorials/ventuno-q/npu-guide/). These checks confirm that the required files are installed. You will check model loading and inference output in the task tutorial.
+These checks confirm that the required files are installed. You will check model loading and inference output in the task tutorial.
 
 ![Ubuntu, ROS and QNN runtime checks.](assets/sdk-versions.png)
 
