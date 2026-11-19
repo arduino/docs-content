@@ -304,10 +304,15 @@ On your host computer, activate the environment from Step 4 if you have opened a
 source ~/ventuno-model-tools/bin/activate
 ```
 
-Download the versioned label file to your model-assets directory:
+On your host computer, create a directory for the model assets:
 
 ```bash
 mkdir -p ~/ventuno-model-assets
+```
+
+Download the versioned label file and save it as `coco.yaml`:
+
+```bash
 curl --fail --location \
   https://raw.githubusercontent.com/ultralytics/ultralytics/v8.3.0/ultralytics/cfg/datasets/coco8.yaml \
   --output ~/ventuno-model-assets/coco.yaml
