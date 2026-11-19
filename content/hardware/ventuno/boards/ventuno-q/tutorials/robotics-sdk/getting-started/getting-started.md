@@ -181,19 +181,31 @@ APT resolves their message, transport, and runtime dependencies. This installs t
 
 ### 3. Verify the Installation
 
-On the VENTUNO Q, source ROS again and confirm that the packages are discoverable:
+On the VENTUNO Q, load the ROS environment in your terminal:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
+```
+
+Check where ROS finds the inference, preprocessing, and YOLO packages:
+
+```bash
 ros2 pkg prefix qrb_ros_nn_inference
 ros2 pkg prefix qrb_ros_cv_tensor_common_process
 ros2 pkg prefix qrb_ros_yolo_process
+```
+
+Each command prints the installation prefix for that package. Expect `/opt/ros/jazzy` for all three. If a package is missing, check that its installation completed. If a prefix points to a development workspace, open a fresh terminal and load only the environment from Step 1 before checking again.
+
+List the components registered by the preprocessing, inference, and YOLO packages:
+
+```bash
 ros2 component types qrb_ros_cv_tensor_common_process
 ros2 component types qrb_ros_nn_inference
 ros2 component types qrb_ros_yolo_process
 ```
 
-Each `ros2 pkg prefix` command tells you where ROS found that package. For this installation, expect `/opt/ros/jazzy`. `ros2 component types <package_name>` lists the components registered by that package; look for `QrbRosInferenceNode`, `CvTensorCommonProcessNode`, and the YOLO detection and segmentation nodes. If a package is missing, check that its installation completed. If a prefix points to a development workspace, open a fresh terminal and load only the environment from Step 1 before checking again.
+Look for `CvTensorCommonProcessNode`, `QrbRosInferenceNode`, and the YOLO detection and segmentation nodes in the corresponding component lists.
 
 ![ROS package paths and registered vision components.](assets/sdk-components.png)
 
