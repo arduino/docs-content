@@ -232,7 +232,7 @@ ros2 component types qrb_ros_nn_inference
 ros2 component types qrb_ros_yolo_process
 ```
 
-Look for `CvTensorCommonProcessNode`, `QrbRosInferenceNode`, and the YOLO detection and segmentation nodes in the corresponding component lists.
+Look for `CvTensorCommonProcessNode`, `QrbRosInferenceNode`, `YoloDetPostProcessNode`, and `YoloSegPostProcessNode` in the corresponding component lists. The YOLO package also provides `YoloDetOverlayNode` and `YoloSegOverlayNode` for visualization.
 
 ![ROS package paths and registered vision components.](assets/sdk-components.png)
 
