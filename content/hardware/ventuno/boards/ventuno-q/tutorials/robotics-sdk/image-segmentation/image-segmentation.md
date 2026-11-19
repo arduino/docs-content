@@ -248,14 +248,21 @@ ros2 launch ~/person-pipeline/segmentation/segmentation_from_image.launch.py \
 
 Look for successful HTP library initialization and QNN graph loading. If either fails, stop this stage and use the QNN troubleshooting row below. Leave Terminal 2 running.
 
-In Terminal 3, load the same ROS environment and check the message type and whether results are arriving:
+In Terminal 3, load the same ROS environment, then check the segmentation result topic's message type:
 
 ```bash
 ros2 topic type /segmentation/yolo_segment_result
+```
+
+Expect `qrb_ros_vision_msgs/msg/Detection2DWithMaskArray`.
+
+Read one result message to check whether results are arriving. Use `--no-arr` to summarize arrays without printing the mask pixel buffers:
+
+```bash
 ros2 topic echo /segmentation/yolo_segment_result --once --no-arr
 ```
 
-The type must be `qrb_ros_vision_msgs/msg/Detection2DWithMaskArray`. Each element of its `array` contains a `detection` and an `instance_mask`.
+Each element of the message's `array` contains a `detection` and an `instance_mask`.
 
 This postprocessor publishes the mask as `mono8`, width 160, height 160. It is a separate mask for that instance across the model's image area, not an RGB overlay.
 
