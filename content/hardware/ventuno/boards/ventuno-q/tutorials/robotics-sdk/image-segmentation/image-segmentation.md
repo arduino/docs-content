@@ -421,17 +421,17 @@ The inspector distinguishes receiving nothing from receiving only empty arrays. 
 
 No result arrived within ten seconds. Check the result publisher and make sure your inspection terminal uses the same ROS domain as the segmentation nodes.
 
-| Symptom | Action |
-|---|---|
-| Camera image is absent | Verify USB connection, topic name and exclusive access to the camera before running inference. |
-| Transport rejects a color image | Use `rgb8`, including a real channel conversion when starting from OpenCV BGR data. |
-| QNN initialization fails | Check file paths, QCS8275 export target, runtime version, HTP library and device node. |
-| Postprocessing expects five tensors but gets another count | Compare the export outputs with Step 2; do not use the detection model or an incompatible segmentation wrapper. |
-| Tensor type or shape errors | Check float segmentation class indices, NHWC input and channel-last mask prototypes in the exported metadata. |
-| Results exist but the overlay is absent | Check `/segmentation/resized_image` and source timestamps. The overlay needs an image and result with matching timestamps. |
-| The wrong pixels are selected | Inspect the mask and original dimensions; preserve aspect-transform assumptions when resizing back to a source image. |
-| Results are empty | Check the actual camera scene, matching labels, and score threshold. First check that messages arrive, then point the camera at a recognizable object. |
-| A second tutorial cannot open the camera | Stop this tutorial's camera node before starting another standalone camera launch. |
+| Symptom                                                    | Action                                                                                                                                                 |
+|------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Camera image is absent                                     | Verify USB connection, topic name and exclusive access to the camera before running inference.                                                         |
+| Transport rejects a color image                            | Use `rgb8`, including a real channel conversion when starting from OpenCV BGR data.                                                                    |
+| QNN initialization fails                                   | Check file paths, QCS8275 export target, runtime version, HTP library and device node.                                                                 |
+| Postprocessing expects five tensors but gets another count | Compare the export outputs with Step 2. Do not use the detection model or an incompatible segmentation wrapper.                                        |
+| Tensor type or shape errors                                | Check float segmentation class indices, NHWC input and channel-last mask prototypes in the exported metadata.                                          |
+| Results exist but the overlay is absent                    | Check `/segmentation/resized_image` and source timestamps. The overlay needs an image and result with matching timestamps.                             |
+| The wrong pixels are selected                              | Inspect the mask and original image dimensions. This pipeline resizes directly without letterboxing. Resize each mask to the original image width and height using nearest-neighbor interpolation.               |
+| Results are empty                                          | Check the actual camera scene, matching labels, and score threshold. First check that messages arrive, then point the camera at a recognizable object. |
+| A second tutorial cannot open the camera                   | Stop this tutorial's camera node before starting another standalone camera launch.                                                                     |
 
 ## Conclusion
 
