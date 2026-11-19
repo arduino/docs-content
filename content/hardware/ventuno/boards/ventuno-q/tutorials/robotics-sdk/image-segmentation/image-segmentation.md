@@ -20,23 +20,30 @@ You will compose the Robotics SDK preprocessing, inference, postprocessing, and 
 
 <Alert type="info">
 
-The example image shows masks from a test photograph. Check model loading and mask alignment on your board; if startup stalls, use Troubleshooting before continuing.
+The example image shows masks from a test photograph. Check model loading and mask alignment on your board. If startup stalls, see [Troubleshooting](#troubleshooting) before continuing.
 
 </Alert>
 
 ## Goals
 
-- Prepare a segmentation model with the tensor contract required by the QRB postprocessor.
+- Prepare a segmentation model in the tensor format required by the QRB post-processor.
 - Connect an existing RGB image topic to a QNN/HTP inference stage.
 - Inspect instance masks and visualize the segmentation overlay.
 - Understand how to reuse the same stage on a cropped input image.
 
 ## Hardware and Software Requirements
 
-- [Arduino® VENTUNO™ Q](https://store.arduino.cc/products/ventuno-q), running Ubuntu 24.04 and ROS 2 Jazzy.
-- Orbbec Gemini 335L USB camera.
-- Host computer with AI Hub access and the tools from the [SDK setup tutorial](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/).
-- Board desktop for visualization, or SSH for message inspection.
+### Hardware Requirements
+
+- [Arduino® VENTUNO™ Q](https://store.arduino.cc/products/ventuno-q) (x1)
+- Orbbec Gemini 335L USB camera (x1)
+- Host computer (x1)
+
+### Software Requirements
+
+- Ubuntu 24.04 and ROS 2 Jazzy on the VENTUNO Q
+- AI Hub access and the host tools from the [SDK setup tutorial](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/)
+- Board desktop for visualization, or SSH for message inspection
 
 Complete [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/), including its host tools and COCO labels. The model and labels will use the shared `~/person-pipeline/models` directory. You can follow this page without running the Object Detection sample first.
 
@@ -44,13 +51,13 @@ Complete [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutor
 
 ### 1. Prepare the Camera and Tools
 
-**VENTUNO Q:** install the camera driver, viewer, and Python® ROS 2 client for the result inspector. The shared setup supplies the inference and processing components used by this custom launch:
+On the VENTUNO Q, install the camera driver, viewer, and Python® ROS 2 client for the result inspector. The shared setup supplies the inference and processing components used by this custom launch:
 
 ```bash
 sudo apt install ros-jazzy-orbbec-camera ros-jazzy-rqt-image-view ros-jazzy-rclpy
 ```
 
-In **every board terminal**, use the same environment:
+In every board terminal, use the same environment:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
@@ -58,7 +65,7 @@ export ROS_DOMAIN_ID=87
 export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
 ```
 
-Stop a standalone detection sample or another application using the camera before continuing. In **Terminal 1**, start only the color camera:
+Stop a standalone detection sample or another application using the camera before continuing. In Terminal 1, start only the color camera:
 
 ```bash
 ros2 launch orbbec_camera gemini_330_series.launch.py \
@@ -67,7 +74,7 @@ ros2 launch orbbec_camera gemini_330_series.launch.py \
   enable_depth:=false enable_point_cloud:=false depth_registration:=false
 ```
 
-Leave Terminal 1 running. In **Terminal 2**, run the environment commands above, then check the first image message. `--no-arr` hides its pixel buffer while keeping the header and image properties:
+Leave Terminal 1 running. In Terminal 2, run the environment commands above, then check the first image message. `--no-arr` hides its pixel buffer while keeping the header and image properties:
 
 ```bash
 ros2 topic echo /camera/color/image_raw --once --no-arr
@@ -77,7 +84,7 @@ Expect `sensor_msgs/msg/Image`, width 640, height 480, and `encoding: rgb8`. If 
 
 ### 2. Export the Segmentation Model
 
-**Host computer:** activate the v0.64.0 tools environment from the setup page and install the model recipe:
+On your host computer, activate the v0.64.0 tools environment from the setup page and install the model recipe:
 
 ```bash
 source ~/ventuno-model-tools/bin/activate
@@ -93,20 +100,22 @@ qai-hub-models export yolov8_seg \
   --precision float
 ```
 
-Wait for the AI Hub export jobs to complete and download the model. If a job fails, or QCS8275 is unavailable, resolve that error before continuing. The [versioned model recipe](https://github.com/qualcomm/ai-hub-models/blob/v0.64.0/src/qai_hub_models/models/yolov8_seg/README.md) provides the public export entry point; the [segmentation implementation](https://github.com/qualcomm/ai-hub-models/blob/v0.64.0/src/qai_hub_models/models/templates/ultralytics/segmentation_model.py) converts `class_idx` to `float32` for floating-point precision. That choice matters because the installed QRB segmentation postprocessor expects that type.
+Wait for the AI Hub export jobs to complete and download the model. If a job fails or QCS8275 is unavailable, resolve that error before continuing. The [versioned model recipe](https://github.com/qualcomm/ai-hub-models/blob/v0.64.0/src/qai_hub_models/models/yolov8_seg/README.md) provides the public export entry point.
 
-Keep the `.bin` file, export log, and `metadata.json`. Check the **exported** tensor layout, including any runtime channel reordering, against this contract:
+The [segmentation implementation](https://github.com/qualcomm/ai-hub-models/blob/v0.64.0/src/qai_hub_models/models/templates/ultralytics/segmentation_model.py) converts `class_idx` to `float32` for floating-point precision. That choice matters because the installed QRB segmentation postprocessor expects that type.
 
-| Tensor | Required shape | Type |
-|---|---|---|
-| Input image | `1×640×640×3`, RGB values 0–1, NHWC | `float32` |
-| `boxes` | `1×8400×4` | `float32` |
-| `scores` | `1×8400` | `float32` |
-| `mask_coeffs` | `1×8400×32` | `float32` |
-| `class_idx` | `1×8400` | `float32` |
-| `mask_protos` | `1×160×160×32` | `float32` |
+Keep the `.bin` file, export log, and `metadata.json`. Check the exported tensor layout, including any runtime channel reordering, against this table:
 
-The model's coefficients and prototypes let postprocessing reconstruct a mask for each detected object. They are raw tensors; an image consumer cannot use them directly as a `sensor_msgs/Image`.
+| Tensor        | Required shape                         | Type      |
+|---------------|----------------------------------------|-----------|
+| Input image   | `1×640×640×3`, RGB values 0 to 1, NHWC | `float32` |
+| `boxes`       | `1×8400×4`                             | `float32` |
+| `scores`      | `1×8400`                               | `float32` |
+| `mask_coeffs` | `1×8400×32`                            | `float32` |
+| `class_idx`   | `1×8400`                               | `float32` |
+| `mask_protos` | `1×160×160×32`                         | `float32` |
+
+The model's coefficients and prototypes let postprocessing reconstruct a mask for each detected object. They are raw tensors, so they cannot be used directly as a `sensor_msgs/Image`.
 
 Confirm QCS8275 as the compiled target and a runtime compatible with the board. If names, shapes, or types differ, stop before launching: adapt the export or postprocessor and verify the result. Do not relabel an integer output as floating point in metadata. The detection postprocessor expects a different class-index type, so keep the detection and segmentation models separate.
 
@@ -120,20 +129,20 @@ Keep the model license and source version with these files. Before using a new e
 
 ### 3. Deploy the Model
 
-**VENTUNO Q:** prepare directories:
+On the VENTUNO Q, prepare the directories:
 
 ```bash
 mkdir -p ~/person-pipeline/models ~/person-pipeline/segmentation
 ```
 
-**Host computer:** replace the example export paths and board hostname:
+On your host computer, copy the files to the board. Replace the example export paths and the board hostname:
 
 ```bash
 scp ./exported-segmentation/yolov8_seg.bin arduino@ventunoq.local:person-pipeline/models/segmentation.bin
 scp ./exported-segmentation/metadata.json arduino@ventunoq.local:person-pipeline/models/segmentation.metadata.json
 ```
 
-The shared setup supplies `coco.yaml`. **VENTUNO Q:** confirm the files exist:
+The shared setup supplies `coco.yaml`. On the VENTUNO Q, confirm that the files exist:
 
 ```bash
 missing=0
@@ -151,7 +160,7 @@ done
 test "$missing" -eq 0
 ```
 
-Expect one `Ready:` line for each file. A `Missing or empty:` line names the file to copy again. Do not start the model until every file is ready. This check catches missing transfers; the model target and tensor layout must still match Step 2.
+Expect one `Ready:` line for each file. A `Missing or empty:` line names the file to copy again. Do not start the model until every file is ready. This check catches missing transfers. The model target and tensor layout must still match Step 2.
 
 ### 4. Connect the Processing Nodes
 
@@ -223,7 +232,7 @@ You should see required `model` and `label_file` arguments and an `image_topic` 
 
 ### 5. Run and Inspect Segmentation
 
-**VENTUNO Q, Terminal 2:** launch the processing stage:
+On the VENTUNO Q, launch the processing stage in Terminal 2:
 
 ```bash
 ros2 launch ~/person-pipeline/segmentation/segmentation_from_image.launch.py \
@@ -232,14 +241,18 @@ ros2 launch ~/person-pipeline/segmentation/segmentation_from_image.launch.py \
   image_topic:=/camera/color/image_raw
 ```
 
-Look for successful HTP library initialization and QNN graph loading. If either fails, stop this stage and use the QNN troubleshooting row below. Leave Terminal 2 running. In **Terminal 3**, load the same ROS environment and check the message type and whether results are arriving:
+Look for successful HTP library initialization and QNN graph loading. If either fails, stop this stage and use the QNN troubleshooting row below. Leave Terminal 2 running.
+
+In Terminal 3, load the same ROS environment and check the message type and whether results are arriving:
 
 ```bash
 ros2 topic type /segmentation/yolo_segment_result
 ros2 topic echo /segmentation/yolo_segment_result --once --no-arr
 ```
 
-The type must be `qrb_ros_vision_msgs/msg/Detection2DWithMaskArray`. Each element of its `array` contains a `detection` and an `instance_mask`. This postprocessor publishes the mask as `mono8`, width 160, height 160. It is a separate mask for that instance across the model's image area, not an RGB overlay and not a cropped face image.
+The type must be `qrb_ros_vision_msgs/msg/Detection2DWithMaskArray`. Each element of its `array` contains a `detection` and an `instance_mask`.
+
+This postprocessor publishes the mask as `mono8`, width 160, height 160. It is a separate mask for that instance across the model's image area, not an RGB overlay.
 
 The `--no-arr` option summarizes arrays, including the instance list, so this first check only tells you whether a message arrives and whether the list is empty. To inspect the instances' labels, confidence scores, and mask properties without printing the mask's pixel buffer, use the result inspector below. Save it as `~/person-pipeline/inspect_segmentation.py`:
 
@@ -318,7 +331,7 @@ if __name__ == "__main__":
     raise SystemExit(main())
 ```
 
-Run it in Terminal 3 while the camera points at a recognizable object:
+Run it in Terminal 3 while the camera points at a person or another common object:
 
 ```bash
 python3 ~/person-pipeline/inspect_segmentation.py /segmentation/yolo_segment_result
@@ -335,40 +348,44 @@ Instances: 3
 3. person: 0.829; box center=(586.3, 373.9), size=106.5x287.1; mask=160x160 mono8
 ```
 
-Your labels, scores and boxes will depend on the image. Check that the mask encoding is `mono8` and its dimensions match the model output.
+Your labels, scores, and boxes will depend on the image. Check that the mask encoding is `mono8` and its dimensions match the model output.
 
-| Topic | Producer | Message type |
-|---|---|---|
-| `/camera/color/image_raw` | Camera driver | `sensor_msgs/msg/Image` |
-| `/segmentation/qrb_inference_input_tensor` | Preprocessor | `qrb_ros_tensor_list_msgs/msg/TensorList` |
-| `/segmentation/yolo_segment_tensor_output` | Inference | `qrb_ros_tensor_list_msgs/msg/TensorList` |
-| `/segmentation/yolo_segment_result` | Segmentation postprocessor | `qrb_ros_vision_msgs/msg/Detection2DWithMaskArray` |
-| `/segmentation/resized_image` | Preprocessor | `sensor_msgs/msg/Image` |
-| `/segmentation/yolo_segment_overlay` | Overlay component | `sensor_msgs/msg/Image` |
+| Topic                                      | Producer                   | Message type                                       |
+|--------------------------------------------|----------------------------|----------------------------------------------------|
+| `/camera/color/image_raw`                  | Camera driver              | `sensor_msgs/msg/Image`                            |
+| `/segmentation/qrb_inference_input_tensor` | Preprocessor               | `qrb_ros_tensor_list_msgs/msg/TensorList`          |
+| `/segmentation/yolo_segment_tensor_output` | Inference                  | `qrb_ros_tensor_list_msgs/msg/TensorList`          |
+| `/segmentation/yolo_segment_result`        | Segmentation postprocessor | `qrb_ros_vision_msgs/msg/Detection2DWithMaskArray` |
+| `/segmentation/resized_image`              | Preprocessor               | `sensor_msgs/msg/Image`                            |
+| `/segmentation/yolo_segment_overlay`       | Overlay component          | `sensor_msgs/msg/Image`                            |
 
 ### 6. View the Masks and Reuse the Stage
 
-**VENTUNO Q desktop, Terminal 3:** open the viewer:
+From the VENTUNO Q desktop, open the viewer in Terminal 3:
 
 ```bash
 ros2 run rqt_image_view rqt_image_view
 ```
 
-Select `/segmentation/yolo_segment_overlay`, then compare it with `/segmentation/resized_image`. Verify that the highlighted pixels align with the object. The overlay combines detected masks for display; use the individual `instance_mask` entries when your application needs separate objects. The display image is 640×640, so a non-square camera image appears stretched by direct resizing.
+Select `/segmentation/yolo_segment_overlay`, then compare it with `/segmentation/resized_image`. Verify that the highlighted pixels align with the object. The overlay combines detected masks for display.
+
+Use the individual `instance_mask` entries when your application needs separate objects. The display image is 640×640, so a non-square camera image appears stretched by direct resizing.
 
 ![Three person masks displayed over a test photograph in rqt.](assets/segmentation-viewer.png)
 
-*Each person has a separate mask on /segmentation/yolo_segment_overlay. Compare each mask edge with the person it covers.*
+Each person has a separate mask in `/segmentation/yolo_segment_overlay`. Compare each mask edge with the person it covers.
 
-For a message-rate observation:
+To check how often results are published, run:
 
 ```bash
 ros2 topic hz /segmentation/yolo_segment_result
 ```
 
-Use another prepared terminal if the viewer occupies Terminal 3. Stop the observation with `Ctrl+C`; its rate is not a direct measure of NPU latency.
+Use another prepared terminal if the viewer occupies Terminal 3. Stop the observation with `Ctrl+C`. Its rate is not a direct measure of NPU latency.
 
-A consumer can select one mask, resize it to the source image with nearest-neighbor interpolation, and keep only its foreground pixels. It must match the image and result timestamps. The [NN Inference Pipeline](https://docs.arduino.cc/tutorials/ventuno-q/nn-inference-person-pipeline/) includes the complete adapter and connects a square detector ROI through `/person_roi_model` to a separate segmentation stage. That tutorial explains the pre-scaling step and the communication settings needed to connect both models. Use that composition when adding detection; do not start two camera pipelines independently.
+An application can select one mask, resize it to the source image with nearest-neighbor interpolation, and keep only its foreground pixels. It must match the image and result timestamps. The [NN Inference Pipeline](https://docs.arduino.cc/tutorials/ventuno-q/nn-inference-person-pipeline/) includes the complete adapter.
+
+It connects a square detector region of interest (ROI) through `/person_roi_model` to a separate segmentation stage. That tutorial explains the pre-scaling step and the communication settings needed to connect both models. Use that composition when adding detection, instead of starting two camera pipelines independently.
 
 When finished, close the viewer and press `Ctrl+C` in the segmentation terminal, then the camera terminal. Stop any rate observations as well.
 
@@ -390,7 +407,7 @@ The inspector distinguishes receiving nothing from receiving only empty arrays. 
 
 ![The inspector waits ten seconds without receiving a segmentation result.](assets/segmentation-timeouts.png)
 
-*No result arrived within ten seconds. Check the result publisher and make sure your inspection terminal uses the same ROS domain as the segmentation nodes.*
+No result arrived within ten seconds. Check the result publisher and make sure your inspection terminal uses the same ROS domain as the segmentation nodes.
 
 | Symptom | Action |
 |---|---|
