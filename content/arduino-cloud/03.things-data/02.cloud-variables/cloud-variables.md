@@ -5,9 +5,23 @@ tags: [Arduino Cloud, Variables]
 author: Karl Söderby & Arduino Team
 ---
 
-**Cloud Variables** are the data points a [Thing](/arduino-cloud/things-data/things) exchanges between a device and Arduino Cloud. Each variable keeps a synced value on both sides: the device updates it (a sensor reading, a status flag) and/or the cloud updates it (a dashboard control), depending on how it's configured.
+**Cloud Variables** are the data points a [Thing](/arduino-cloud/things-data/things) exchanges between a device and Arduino® Cloud. Each variable keeps a synced value on both sides: the device updates it (a sensor reading, a status flag) and/or the cloud updates it (a dashboard control), depending on how it's configured.
 
 Manage a Thing's variables from its **Data** tab.
+
+<Alert type="info">
+
+For the full list of variable types, their C++ declarations and the methods of complex types, see the [Cloud Variable Types](/arduino-cloud/reference/cloud-variable-types) reference.
+
+</Alert>
+
+## Variable Types
+
+Every Cloud Variable has a type. Many types share the same underlying data type:
+
+- **Basic types** map directly to a C++ data type: `bool` (Boolean), `String` (Character String), `float` (Floating Point Number) and `int` (Integer Number).
+- **Specialized types** wrap one of these basic data types but describe what the value means. For example, `CloudTemperature` and `CloudRelativeHumidity` are both a `float`, and `CloudSwitch` is a `bool`. You use them exactly like the basic type, but dashboards and smart home integrations know how to display and use them.
+- **Complex types** hold several values of different data types at once. For example, `CloudColoredLight` combines a switch (`bool`) with hue, saturation and brightness values (`float`), and `CloudLocation` holds a latitude and a longitude. You read and set their values with methods, such as `getSwitch()` and `setBrightness()`.
 
 ## Creating a Variable
 
@@ -15,7 +29,7 @@ Select **+ Variable** and pick a type from the picker:
 
 ![The variable type picker.](assets/variable-type-picker.png)
 
-Variables come in **basic types** (Boolean, Character String, Floating Point Number, Integer Number) and **specialized types** grouped by category (Energy, Light and Color, Size and Motion, Smart Home, Time) that carry structured data instead of a single primitive. For the full list, see [Cloud Variable Types](/arduino-cloud/reference/cloud-variable-types).
+The picker lists the basic types first, followed by the specialized and complex types grouped by category (Energy, Light and Color, Size and Motion, Smart Home, Time).
 
 After picking a type, name the variable and set its **Permission** and **Update Policy** before creating it. The name can't contain spaces or special characters, except underscores. It is also the declaration name you use in your sketch.
 
@@ -61,11 +75,11 @@ void onButtonSwitchChange() {
 }
 ```
 
-See [Arduino C++ Library](/arduino-cloud/device-libraries/arduino-cpp) for more on callbacks. For examples using basic, Colored Light, and Television variables, see [Cloud Variable Types](/arduino-cloud/reference/cloud-variable-types#examples).
+See [Arduino C++ Library](/arduino-cloud/device-libraries/arduino-cpp) for more on callbacks.
 
 <Alert type="note">
 
-For Things linked to a [manual device](/arduino-cloud/devices/add-manual-device) (Python, MicroPython, JavaScript), there is no generated sketch — you read and write variables directly through the client library instead.
+For Things linked to a [manual device](/arduino-cloud/devices/add-manual-device) (Python®, MicroPython, JavaScript), there is no generated sketch — you read and write variables directly through the client library instead.
 
 </Alert>
 
@@ -111,7 +125,7 @@ To run code when the connection state changes, use the connection events describ
 
 Variables of the same type can be linked so multiple devices or Things share one live value. That's a topic of its own — see [Sync Variables Between Things](/arduino-cloud/things-data/sync-variables).
 
-## Next Steps
+## Related Articles
 
 - [Cloud Variable Types](/arduino-cloud/reference/cloud-variable-types)
 - [Sync Variables Between Things](/arduino-cloud/things-data/sync-variables)

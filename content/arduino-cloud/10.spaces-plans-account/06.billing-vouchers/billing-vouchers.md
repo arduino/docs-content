@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Billing, Account]
 author: Karl Söderby & Arduino Team
 ---
 
-Paid Arduino Cloud plans are managed from the **My Plans** page, where you can review your plans, update your payment method and billing information, redeem a voucher, and change or cancel a subscription.
+Paid Arduino® Cloud plans are managed from the **My Plans** page, where you can review your plans, update your payment method and billing information, redeem a voucher, and change or cancel a subscription.
 
 ## Open the My Plans Page
 
@@ -55,7 +55,7 @@ If you have a voucher code, for example for an Arduino Cloud for Business trial,
 
 For a full walkthrough, see [Redeem Arduino Cloud for Business Voucher](/tutorials/generic/cloud-business-voucher-redeem).
 
-## Next Steps
+## Related Articles
 
 - [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas)
-- [Plans & Feature Matrix](/arduino-cloud/reference/plans-feature-matrix)
+- [Arduino Cloud Plans](https://cloud.arduino.cc/plans)

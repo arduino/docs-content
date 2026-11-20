@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Synchronization, Tutorial]
 author: Karl Söderby & Arduino Team
 ---
 
-In this project you'll connect two separate boards through Arduino Cloud so that pressing a button on one board toggles an LED on the other, and vice versa. There's no direct radio link between the boards: Arduino Cloud is the communication layer, keeping shared [Cloud Variables](/arduino-cloud/things-data/cloud-variables) in sync across both.
+In this project you'll connect two separate boards through Arduino® Cloud so that pressing a button on one board toggles an LED on the other, and vice versa. There's no direct radio link between the boards: Arduino Cloud is the communication layer, keeping shared [Cloud Variables](/arduino-cloud/things-data/cloud-variables) in sync across both.
 
 ## Goal
 
@@ -17,7 +17,7 @@ By the end of this tutorial:
 
 ![How the two boards control each other through Arduino Cloud.](assets/device-to-device-img-10.png)
 
-## What You Need
+## Hardware & Software Needed
 
 - Two Arduino Cloud-compatible Wi-Fi® boards, for example MKR WiFi 1010, MKR 1000 WiFi, Nano 33 IoT or Nano RP2040 Connect. The two boards don't need to be the same model; any [supported Wi-Fi® board](/arduino-cloud/devices/add-wifi-board#supported-boards) works.
 - Two USB cables that support data transfer.
@@ -39,7 +39,7 @@ The circuit shows an MKR WiFi 1000/1010. The pinout differs on Nano boards; if y
 
 ## Step 1 — Add Both Boards
 
-Add each board as its own [device](/arduino-cloud/devices/devices-overview) from the **Devices** page, see [Add a Wi-Fi Board](/arduino-cloud/devices/add-wifi-board). Name them **Device_1** and **Device_2**, so you can tell them apart when you associate them with Things and upload sketches.
+Add each board as its own [device](/arduino-cloud/devices/devices-overview) from the **Devices** page, see [Add a Wi-Fi® Board](/arduino-cloud/devices/add-wifi-board). Name them **Device_1** and **Device_2**, so you can tell them apart when you associate them with Things and upload sketches.
 
 <Alert type="info">
 
@@ -189,7 +189,7 @@ Build a [Dashboard](/arduino-cloud/dashboards/dashboards) with a **Switch** widg
 - **The boards don't react to each other**: check that the variables on **Remote Light Two** were added with **Sync with other Things**. A variable created independently with the same name on each Thing will not sync.
 - **Still not working**: it can be hard to keep track of which board is which. Associate the devices again and upload the sketches again.
 
-## Next Steps
+## Related Articles
 
 - [Sync Variables Between Things](/arduino-cloud/things-data/sync-variables)
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)

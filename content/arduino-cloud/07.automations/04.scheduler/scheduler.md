@@ -1,5 +1,5 @@
 ---
-title: Scheduler
+title: Schedule jobs with the Scheduler
 description: Automate a variable's value on a recurring time schedule with the CloudSchedule variable type and the Scheduler widget.
 tags: [Arduino Cloud, Scheduler, Automation]
 author: Karl Söderby & Arduino Team
@@ -44,16 +44,22 @@ For an end-to-end build (Thing, device, dashboard, and the full sketch), see [Sm
 
 ## Configuring a Recurring Schedule
 
-Add a **Scheduler** widget to a dashboard, link it to the `CloudSchedule` variable, and open its configuration:
+1. Open a [Dashboard](/arduino-cloud/dashboards/dashboards) in edit mode and add a **Scheduler** widget.
+2. Click **Link Variable** and select the `CloudSchedule` variable of your Thing.
+3. Optionally, set how the widget displays the start time (**Date and Time** or **Time only**), the **Date Formats** and the **Time Formats**. Click **Done**.
+
+   ![The Scheduler widget settings, with Link Variable and the start time, date and time display options.](assets/scheduler-widget.png)
+
+4. Set the schedule in the widget. The widget also shows the timezone the schedule uses.
 
 | Parameter | Description |
 |---|---|
-| **Start** | Date and time of the first occurrence. |
-| **End** | Date/time after which the schedule stops firing, or "never." |
+| **Starting on** | Date and time of the first occurrence. |
 | **Duration** | How long the "active" state lasts once triggered. |
 | **Repeat every** | How often it recurs: minute, hour, day, week, month, or year. |
+| **End recurrence** | Date and time after which the schedule stops firing, or never. |
 
-A job set to **start: today, end: never, duration: 10 seconds, repeat every: minute** activates the variable for 10 seconds every minute, indefinitely:
+A job set to **Starting on: today, Duration: 10 seconds, Repeat every: minute, End recurrence: never** activates the variable for 10 seconds every minute, indefinitely:
 
 ![The Scheduler in action, driving an LED widget and a counter.](assets/scheduler-action.gif)
 
@@ -69,7 +75,7 @@ The Scheduler widget only accepts `CloudSchedule` variables, and variable names 
 
 </Alert>
 
-## Next Steps
+## Related Articles
 
 - [Choose an Automation](/arduino-cloud/automations/choose-an-automation)
 - [Add & Link Widgets](/arduino-cloud/dashboards/add-link-widgets)

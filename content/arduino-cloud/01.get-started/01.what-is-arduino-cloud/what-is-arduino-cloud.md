@@ -7,7 +7,7 @@ author: Karl Söderby & Arduino Team
 
 [Arduino Cloud](https://app.arduino.cc/) is a platform for developing IoT projects and connecting them to the world. It handles the parts that are usually hardest to build yourself — secure device connectivity, data storage, and a real-time link between your hardware and a user interface — so you can focus on your project's actual logic.
 
-It works with official Arduino boards over Wi-Fi®, LoRa®, Ethernet, and Cellular, and with non-Arduino clients written in Python, MicroPython, and JavaScript.
+It works with official Arduino boards over Wi-Fi®, LoRa®, Ethernet, and Cellular, and with non-Arduino clients written in Python®, MicroPython, and JavaScript.
 
 ![The Arduino Cloud home page, with the main sections in the left navigation.](assets/home.png)
 
@@ -40,7 +40,7 @@ Everything is reachable from the left navigation bar:
 
 ## Compatible Boards
 
-In these docs, a *board* is your hardware (or virtual Python/JavaScript client) and a *device* is its configuration in the Cloud. The Cloud Editor can program **any** official Arduino board and many third-party boards; IoT features need a board with a radio module (Wi-Fi®, LoRa®, Cellular) or Ethernet, including ESP32-based boards. You can also create a [manual device](/arduino-cloud/devices/add-manual-device) that runs on your computer with JavaScript, Python, or MicroPython.
+In these docs, a *board* is your hardware (or virtual Python/JavaScript client) and a *device* is its configuration in the Cloud. The Cloud Editor can program **any** official Arduino board and many third-party boards; IoT features need a board with a radio module (Wi-Fi®, LoRa, Cellular) or Ethernet, including ESP32-based boards. You can also create a [manual device](/arduino-cloud/devices/add-manual-device) that runs on your computer with JavaScript, Python, or MicroPython.
 
 See [Wi-Fi®](/arduino-cloud/devices/add-wifi-board), [LoRa®](/arduino-cloud/devices/add-lorawan-device), [Ethernet](/arduino-cloud/devices/add-ethernet-board), and [Cellular](/arduino-cloud/devices/add-cellular-board) boards, or the full [Supported Boards and Capabilities](/arduino-cloud/reference/supported-boards-capabilities) list.
 
@@ -48,7 +48,7 @@ See [Wi-Fi®](/arduino-cloud/devices/add-wifi-board), [LoRa®](/arduino-cloud/de
 
 - **Makers and hobbyists** who want to connect a board to the internet without writing networking code or hosting a server.
 - **Educators and students** using shared spaces to run classroom projects.
-- **Professional and business users** managing fleets of devices, with role based access, custom branding, and data export — see [Arduino Cloud for Business](/arduino-cloud/business).
+- **Professional and business users** managing fleets of devices, with role based access, custom branding, and data export — see [Arduino Cloud for Business](/arduino-cloud/business/arduino-cloud-for-business).
 
 ## Handled For You
 
@@ -56,11 +56,11 @@ Networking, authentication, and data synchronization are managed by the platform
 
 <Alert type="info">
 
-The free plan is enough to build a complete project. Some features — such as [Triggers](/arduino-cloud/automations/triggers-and-alerts) and a few advanced dashboard widgets — require a paid plan. See the [Plans and Feature Matrix](/arduino-cloud/reference/plans-feature-matrix).
+The free plan is enough to build a complete project. Some features — such as [Triggers](/arduino-cloud/automations/triggers-and-alerts) and a few advanced dashboard widgets — require a paid plan. See the [Arduino Cloud Plans](https://cloud.arduino.cc/plans).
 
 </Alert>
 
-## Next Steps
+## Related Articles
 
 - [How Arduino Cloud Works](/arduino-cloud/get-started/how-arduino-cloud-works)
 - [Quickstart: Your First IoT Project](/arduino-cloud/get-started/quickstart-first-project)

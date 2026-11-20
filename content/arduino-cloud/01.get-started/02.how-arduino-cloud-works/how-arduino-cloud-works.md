@@ -5,13 +5,13 @@ tags: [Arduino Cloud, Getting Started, Concepts]
 author: Karl Söderby & Arduino Team
 ---
 
-Before building anything, it helps to know the handful of concepts every Arduino Cloud project is made of, and how a value travels from a sensor on your board to a widget on your screen.
+Before building anything, it helps to know the handful of concepts every Arduino® Cloud project is made of, and how a value travels from a sensor on your board to a widget on your screen.
 
 ## The Core Concepts
 
 | Concept | What it is |
 |---|---|
-| **Device** | A board (or a Python/JavaScript client) registered in Arduino Cloud and identified by a unique **Device ID**. Boards with a secure element authenticate with a certificate; other devices use a **Secret Key**. See [Devices](/arduino-cloud/devices/devices-overview). |
+| **Device** | A board (or a Python®/JavaScript client) registered in Arduino Cloud and identified by a unique **Device ID**. Boards with a secure element authenticate with a certificate; other devices use a **Secret Key**. See [Devices](/arduino-cloud/devices/devices-overview). |
 | **Thing** | The logical model of one project: a named container that holds your variables and links to a device. See [Things](/arduino-cloud/things-data/things). |
 | **Cloud Variable** | A single value (temperature, an on/off state, a location) that stays in sync between the device and the cloud. See [Cloud Variables](/arduino-cloud/things-data/cloud-variables). |
 | **Sketch** | The program running on the board. For Arduino/C++ devices it's generated from your Thing's variables. See [Sketchbook and Sketches](/arduino-cloud/sketches-editor/sketchbook-and-sketches). |
@@ -58,7 +58,7 @@ The device's connection status (online/offline and the reason for the last state
 
 </Alert>
 
-## Next Steps
+## Related Articles
 
 - [Quickstart: Your First IoT Project](/arduino-cloud/get-started/quickstart-first-project)
 - [Choose Your Setup Path](/arduino-cloud/get-started/choose-your-setup-path)

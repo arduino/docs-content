@@ -5,9 +5,9 @@ tags: [Arduino Cloud, Relays, Actuation, Tutorial]
 author: Karl Söderby & Arduino Team
 ---
 
-In this project you'll control the relays on an [MKR Relay Shield](https://store.arduino.cc/arduino-mkr-relay-proto-shield) (mounted on an [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010)) from an Arduino Cloud dashboard — and optionally from the [IoT Remote app](/arduino-cloud/iot-remote-app) on your phone. Each relay is driven by a single Boolean Cloud Variable, so switching a real-world load becomes as simple as toggling a widget.
+In this project you'll control the relays on an [MKR Relay Shield](https://store.arduino.cc/arduino-mkr-relay-proto-shield) (mounted on an [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010)) from an Arduino® Cloud dashboard — and optionally from the [IoT Remote app](/arduino-cloud/iot-remote-app/iot-remote-app-overview) on your phone. Each relay is driven by a single Boolean Cloud Variable, so switching a real-world load becomes as simple as toggling a widget.
 
-**What you need:**
+## Hardware & Software Needed
 
 - [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) (any Wi-Fi®-capable board works).
 - [MKR Relay Shield](https://store.arduino.cc/arduino-mkr-relay-proto-shield).
@@ -80,7 +80,7 @@ On a [Dashboard](/arduino-cloud/dashboards/dashboards), add a **Switch** widget 
 
 ![The dashboard with a Switch widget per relay.](assets/dashboard.png)
 
-You can control the same dashboard from the [IoT Remote app](/arduino-cloud/iot-remote-app).
+You can control the same dashboard from the [IoT Remote app](/arduino-cloud/iot-remote-app/iot-remote-app-overview).
 
 ## Connecting a Load to the High-Power Pins
 
@@ -103,8 +103,8 @@ digitalWrite(relay_1, HIGH);  // de-activate
 
 > **Note:** Keep both the supply and the load at or below **24 V** — the relays are not rated for higher voltages. Relays like these are ideal for switching LED strips, fans, pumps, and low-power heating elements, including 12/24 V systems in cars, boats, and off-grid setups.
 
-## Next Steps
+## Related Articles
 
-- [Add a Wi-Fi Board](/arduino-cloud/devices/add-wifi-board)
-- [IoT Remote App](/arduino-cloud/iot-remote-app)
+- [Add a Wi-Fi® Board](/arduino-cloud/devices/add-wifi-board)
+- [IoT Remote App](/arduino-cloud/iot-remote-app/iot-remote-app-overview)
 - [Dashboards](/arduino-cloud/dashboards/dashboards)

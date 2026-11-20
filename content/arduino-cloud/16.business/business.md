@@ -3,7 +3,7 @@ title: Arduino Cloud for Business
 icon: IconBusiness
 ---
 
-**Arduino Cloud for Business** is the plan tier built for companies and industrial deployments — adding shared workspaces, Role-Based Access Control (RBAC), fleet-scale device management, data export, custom branding, and enterprise security on top of everything in the standard Arduino Cloud. This page is a setup checklist for getting a team and a device fleet onto the platform, with each step linking to its detailed guide.
+**Arduino® Cloud for Business** refers to the Team and Enterprise plans built for companies and industrial deployments — adding shared workspaces, Role-Based Access Control (RBAC), fleet-scale device management, data export, custom branding, and enterprise security on top of everything in the standard Arduino Cloud. This page is a setup checklist for getting a team and a device fleet onto the platform, with each step linking to its detailed guide. For an overview of all the capabilities and their applications, see [Getting started with Arduino Cloud for Business](/arduino-cloud/business/arduino-cloud-for-business).
 
 If you're new to Arduino Cloud, start with the [Quickstart](/arduino-cloud/get-started/quickstart-first-project) to learn the core concepts — Devices, Things, Cloud Variables, and Dashboards — then return here to roll them out across an organization.
 
@@ -19,14 +19,7 @@ A Business plan comes with a private **My Cloud** space and a **Shared Space** f
 
 ### 2. Invite Members and Assign Roles
 
-From **Space Settings → Manage Members**, invite your team by email and assign each a role. RBAC gives the admin precise control over what each member can do:
-
-| Role | Can Do |
-|---|---|
-| **Admin** | Full access to resources, member management, space settings, and plan management. |
-| **Editor** | Full editing access to shared resources; can view members and roles, but cannot manage members, custom branding, or payments. |
-| **Service** | Operational access: selected device, dashboard, Trigger, Template, Sketch, and recovery operations, with limited editing permissions. |
-| **Viewer** | Read-only access, plus non-destructive interactions such as using dashboard widgets, downloading historical data, and opening the Serial Monitor. |
+From **Space Settings → Manage Members**, invite your team by email and assign each a role: **Admin**, **Editor**, **Service**, or **Viewer**. RBAC gives the admin precise control over what each member can do.
 
 <Alert type="note">
 
@@ -38,7 +31,7 @@ New invitations default to **Viewer**, the role with the least permissions. Revi
 
 ### 3. Provision and Tag a Device Fleet
 
-Add devices through the Cloud UI for a handful of boards, or the [Arduino Cloud CLI](/arduino-cloud/apis-cli/cli-devices) to provision many at once. Boards with a secure element are provisioned using their hardware-backed keys, so credentials never leave the device. Tag devices to organize and filter large fleets.
+Add devices through the Cloud UI for a handful of boards, or the [Arduino Cloud CLI](/arduino-cloud/apis-cli/cli-commands#devices) to provision many at once. Boards with a secure element are provisioned using their hardware-backed keys, so credentials never leave the device. Tag devices to organize and filter large fleets.
 
 ![The devices list for a fleet.](assets/devices-list.png)
 
@@ -52,7 +45,7 @@ Create [Dashboards](/arduino-cloud/dashboards/dashboards) to visualize and contr
 
 Stream historical data to your own storage for analytics and long-term retention. Export on demand, or pipe it continuously to object storage.
 
-→ [Historical Data Export](/arduino-cloud/things-data/historical-data-export) · [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3) · [AWS S3 Exporter step-by-step setup](/arduino-cloud/business/aws-s3-exporter)
+→ [Historical Data Export](/arduino-cloud/things-data/historical-data-export) · [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3)
 
 ### 6. Apply Custom Branding
 
@@ -66,24 +59,14 @@ Arduino Cloud uses hardware-backed device identity, encrypted data exchange, and
 
 → [Security Considerations](/arduino-cloud/security-privacy/security-considerations) · [ISO 27001](/arduino-cloud/security-privacy/iso27001)
 
-## Purchasing and Add-Ons
+## Plans
 
-The Business plan is sold as an **Enterprise Base Plan** (devices in multiples of 50) with optional **add-ons** for additional needs. For a tailored deployment, [contact the Arduino team](https://www.arduino.cc/pro/contact-us).
+For the features and limits included in the Team and Enterprise plans, see [Arduino Cloud Plans](https://cloud.arduino.cc/plans) and [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas). For a tailored deployment, [contact the Arduino team](https://www.arduino.cc/pro/contact-us).
 
-<Alert type="info">
+## Related Articles
 
-Each Business subscription includes one Shared Space and one private space. Additional spaces require purchasing another plan. See [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas).
-
-</Alert>
-
-## Next Steps
-
+- [Getting started with Arduino Cloud for Business](/arduino-cloud/business/arduino-cloud-for-business)
 - [Spaces](/arduino-cloud/spaces-plans-account/spaces)
 - [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles)
 - [Manage Devices at Scale](/arduino-cloud/devices/manage-devices-at-scale)
 - [Security Considerations](/arduino-cloud/security-privacy/security-considerations)
-
-## Trademark Acknowledgments
-
-- **Wi-Fi®** is a registered trademark of Wi-Fi Alliance.
-- **LoRa®** is a registered trademark of Semtech Corporation.

@@ -6,13 +6,13 @@ author: Karl Söderby & Arduino Team
 featuredImage: 'cloud'
 ---
 
-Arduino Cloud integrates with Amazon Alexa through the official **Arduino** Alexa skill, exposing compatible Cloud Variables as smart home devices that can be controlled by voice or from the Alexa app — for example, changing the color of an RGB matrix connected to an Arduino board just by asking Alexa.
+Arduino® Cloud integrates with Amazon Alexa through the official **Arduino** Alexa skill, exposing compatible Cloud Variables as smart home devices that can be controlled by voice or from the Alexa app — for example, changing the color of an RGB matrix connected to an Arduino board just by asking Alexa.
 
 ![Controlling an RGB matrix's color via the Alexa app.](assets/alexa-mkr-rgb-shield-img-08.png)
 
 This example focuses on the [MKR RGB Shield](https://store.arduino.cc/products/arduino-mkr-rgb-shield), but can be adapted to any other RGB pixels or matrices. All variable types that can be synchronized between Arduino Cloud and Alexa are listed in [Cloud Variables](/arduino-cloud/things-data/cloud-variables).
 
-## Requirements
+## Hardware & Software Needed
 
 - An [Arduino Cloud](https://app.arduino.cc/) account.
 - The [Arduino Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H) and the Amazon Alexa app ([App Store](https://apps.apple.com/us/app/amazon-alexa/id944011620), [Google Play](https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en)).
@@ -73,7 +73,7 @@ If voice commands don't seem to reach the board, check the Serial Monitor first 
 
 </Alert>
 
-## Next Steps
+## Related Articles
 
 - [Google Home](/arduino-cloud/integrations/google-home)
 - [Things & Data](/arduino-cloud/things-data/things)

@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Troubleshooting, FAQ, Reference]
 author: Karl Söderby & Arduino Team
 ---
 
-Quick answers to the most common Arduino Cloud questions and issues. For the full device connection walkthrough, see [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections).
+Quick answers to the most common Arduino® Cloud questions and issues. For the full device connection walkthrough, see [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections).
 
 ## Devices
 
@@ -13,7 +13,7 @@ Quick answers to the most common Arduino Cloud questions and issues. For the ful
 Confirm the [Cloud Agent](/arduino-cloud/devices/cloud-agent) is installed and running, try a different USB cable/port, and make sure no other app (e.g. the Serial Monitor) is holding the port.
 
 **My device shows as offline.**
-Check that its network credentials are correct, that it's within Wi-Fi® range on a 2.4 GHz network (see [Supported Wi-Fi Frequencies](/arduino-cloud/reference/supported-wifi-frequencies)), and that the sketch calls `ArduinoCloud.update()` every loop.
+Check that its network credentials are correct, that it's within Wi-Fi® range on a 2.4 GHz network (see [Add a Wi-Fi® Board](/arduino-cloud/devices/add-wifi-board)), and that the sketch calls `ArduinoCloud.update()` every loop.
 
 **Where do I find my Device ID and Secret Key?**
 The Device ID is on the device's page; the Secret Key is shown only once at creation and can't be retrieved or regenerated. If you lose it, delete the device and add it again. See [Device Identity & Secrets](/arduino-cloud/security-privacy/device-identity-secrets).
@@ -40,7 +40,7 @@ It's one of the plan-gated widgets (Advanced Map, Advanced Chart, Image Map). Se
 ## Data
 
 **My data history looks truncated.**
-Historical retention depends on your plan — see the [Plans Feature Matrix](/arduino-cloud/reference/plans-feature-matrix).
+Historical retention depends on your plan — see the [Arduino Cloud Plans](https://cloud.arduino.cc/plans).
 
 **How do I get my data out?**
 Use [Historical Data Export](/arduino-cloud/things-data/historical-data-export) or the [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3).
@@ -53,12 +53,8 @@ Many features (OTA, Triggers, advanced widgets, Node-RED) require a paid plan. S
 **How do I share with a team?**
 Use a shared [Space](/arduino-cloud/spaces-plans-account/spaces) and invite [Members](/arduino-cloud/spaces-plans-account/members-roles).
 
-## Next Steps
+## Related Articles
 
 - [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections)
 - [Glossary](/arduino-cloud/reference/glossary)
-- [What's New](/arduino-cloud/reference/whats-new)
-
-## Trademark Acknowledgments
-
-- **Wi-Fi®** is a registered trademark of Wi-Fi Alliance.
+- [What's New](/arduino-cloud/whats-new/changelog)

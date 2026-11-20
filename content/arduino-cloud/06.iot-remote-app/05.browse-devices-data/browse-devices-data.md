@@ -1,28 +1,48 @@
 ---
 title: Browse Devices & Data
-description: View your Arduino Cloud devices and their latest and historical Cloud Variable data from the IoT Remote mobile app.
+description: Check your Arduino Cloud devices and their status in the IoT Remote app, and add a new board or your phone as a device.
 tags: [Arduino Cloud, Remote App, Devices, Data]
 author: Karl Söderby & Arduino Team
 ---
 
-Beyond [Dashboards](/arduino-cloud/iot-remote-app/use-dashboards-on-phone), the IoT Remote app lets you check in on your [devices](/arduino-cloud/devices/devices-overview) and the data their [Cloud Variables](/arduino-cloud/things-data/cloud-variables) are producing — a quick way to confirm a device is online and see its latest readings without opening a browser.
+The **Devices** tab of the IoT Remote app lists your Arduino® Cloud [devices](/arduino-cloud/devices/devices-overview). Use it to check that a device is online without opening a browser, and to add a new device from your phone.
 
-## Checking a Device's Status
+## Hardware & Software Needed
 
-Each of your devices shows a status indicator reflecting whether it's currently connected to Arduino Cloud, the same **Online**/**Offline** state shown in the browser's Devices list. Use it to confirm a device is reachable before expecting fresh data from it. For what drives this state, see [Device Status & Lifecycle](/arduino-cloud/devices/device-status-lifecycle).
+- The [IoT Remote app](/arduino-cloud/iot-remote-app/iot-remote-app-overview), installed and logged in with your Arduino account.
 
-## Viewing Latest and Historical Values
+## Checking Your Devices
 
-Because the app reads from the same Cloud Variables as the browser, each variable shows its **latest value** live, and widgets backed by time-series data (such as a Chart) let you look back over a selected time range — the same [historical data](/arduino-cloud/things-data/historical-data-export) stored behind every variable.
+1. Open the **Devices** tab. Your devices are listed with their status: **Online** when the device is connected to Arduino Cloud, **Offline** when it is not. This is the same status shown in **Devices** in the browser.
+2. Tap a device to open it and see its details and settings.
+
+![The Devices tab in the IoT Remote app.](assets/iot-remote-device-list.png)
+
+Check that a device is online before you expect new data from it. To learn what affects the device status, see [Device Status & Lifecycle](/arduino-cloud/devices/device-status-lifecycle).
+
+## Adding a Device
+
+1. In the **Devices** tab, add a new device.
+2. In **Setup a new Device**, select one of the options:
+   - **Arduino Board**: sets up a compatible Arduino board over Bluetooth® Low Energy. See [Set Up a Device Over Bluetooth](/arduino-cloud/devices/bluetooth-device-setup).
+   - **Phone as Device**: sets up your phone as a device and streams its sensors to Arduino Cloud. See [Use Your Phone as a Device](/arduino-cloud/iot-remote-app/use-phone-as-device).
+   - **Stream phone data to UNO Q or VENTUNO Q**: streams your phone's sensors and camera to an Arduino App Lab App over your local network, without using Arduino Cloud. See [Use Your Phone with Arduino App Lab](/arduino-cloud/iot-remote-app/arduino-app-lab).
+
+![The Setup a new Device screen.](assets/iot-remote-setup-device.png)
+
+## Viewing Device Data
+
+The app shows a device's data through [dashboards](/arduino-cloud/iot-remote-app/use-dashboards-on-phone). Each widget shows the latest value of its linked [Cloud Variable](/arduino-cloud/things-data/cloud-variables), and widgets such as a Chart let you look back at [historical data](/arduino-cloud/things-data/historical-data-export) over a selected time range.
 
 <Alert type="info">
 
-The most reliable way to browse a device's data in the app is through a [Dashboard](/arduino-cloud/dashboards/dashboards) whose widgets are linked to that device's variables. Build the dashboard once in the browser and it's available on the phone immediately.
+To browse a device's data on your phone, build a dashboard in the browser with widgets linked to the device's variables. The dashboard is available in the app right away.
 
 </Alert>
 
-## Next Steps
+## Related Articles
 
 - [Use Dashboards on Your Phone](/arduino-cloud/iot-remote-app/use-dashboards-on-phone)
+- [Set Up a Device Over Bluetooth](/arduino-cloud/devices/bluetooth-device-setup)
+- [Use Your Phone as a Device](/arduino-cloud/iot-remote-app/use-phone-as-device)
 - [Device Status & Lifecycle](/arduino-cloud/devices/device-status-lifecycle)
-- [Historical Data & Export](/arduino-cloud/things-data/historical-data-export)

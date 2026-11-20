@@ -16,7 +16,7 @@ The available roles depend on the type of shared space:
 | **Business** (Team and Enterprise) | Admin, Editor, Service, Viewer |
 | **Education** | Admin, Teacher, Student |
 
-Permissions are enforced in the same way across all supported clients, including the Arduino Cloud web app, the [IoT Remote app](/arduino-cloud/iot-remote-app/use-dashboards-on-phone), the [Arduino Cloud CLI](/arduino-cloud/apis-cli/cli-devices), and the [REST API](/arduino-cloud/apis-cli/rest-api-sdks).
+Permissions are enforced in the same way across all supported clients, including the Arduino® Cloud web app, the [IoT Remote app](/arduino-cloud/iot-remote-app/use-dashboards-on-phone), the [Arduino Cloud CLI](/arduino-cloud/apis-cli/cli-commands#devices), and the [REST API](/arduino-cloud/apis-cli/rest-api-sdks).
 
 <Alert type="info">
 
@@ -31,7 +31,7 @@ Team and Enterprise spaces support the following roles:
 | Role | Access Level |
 |---|---|
 | **Admin** | Full access to resources, member management, space settings, and plan management. |
-| **Editor** | Full editing access to shared resources. Editors can view the members list and the roles and permissions, but cannot manage members, custom branding, or payments. |
+| **Editor** | Full editing access to shared resources. Editors can view the members list and the roles and permissions, and can manage Service and Viewer members, but cannot manage custom branding or payments. |
 | **Service** | Operational access with limited editing permissions. Service members can perform selected device, dashboard, Trigger, Template, Sketch, and recovery operations, but cannot manage members, custom branding, or payments. |
 | **Viewer** | Read-only access, plus selected non-destructive interactions: interacting with dashboard widgets, downloading historical data, opening the LoRa® console, downloading Sketches, and opening the Serial Monitor. |
 
@@ -82,12 +82,14 @@ A check mark (✓) means that the role can perform the action.
 | Space Settings | View custom branding | ✓ | | | |
 | Space Settings | Edit custom branding | ✓ | | | |
 | Space Settings | View members list | ✓ | ✓ | | |
-| Space Settings | Add members to the organization | ✓ | | | |
-| Space Settings | Assign members' roles | ✓ | | | |
-| Space Settings | Remove members | ✓ | | | |
+| Space Settings | Add members to the organization | ✓ | ✓\* | | |
+| Space Settings | Assign members' roles | ✓ | ✓\* | | |
+| Space Settings | Remove members | ✓ | ✓\* | | |
 | Space Settings | View roles and permissions | ✓ | ✓ | ✓ | ✓ |
 | Space Settings | View plan usage information | ✓ | ✓ | ✓ | ✓ |
 | Plan Management | Payment | ✓ | | | |
+
+\* Editors can only add **Service** and **Viewer** members, and change a member's role between Service and Viewer.
 
 ## Education Space Roles
 
@@ -96,8 +98,8 @@ Education spaces support the following roles:
 | Role | Access Level |
 |---|---|
 | **Admin** | Full access to resources, member management, space settings, and plan management. |
-| **Teacher** | Create, edit, and delete shared resources. Teachers can also view the members list, add members, assign roles, remove members, and view roles and permissions. |
-| **Student** | Create, edit, and delete shared project resources. Students cannot manage members, custom branding, integration requests, or payments. |
+| **Teacher** | Create, edit, and delete shared resources. Teachers can also view the members list and the roles and permissions, and can add and remove Student members. |
+| **Student** | Create, edit, and delete shared project resources. Students cannot manage members, integration requests, or payments. |
 
 ### Education Space Permissions
 
@@ -138,20 +140,20 @@ A check mark (✓) means that the role can perform the action.
 | Sketches | Download a Sketch | ✓ | ✓ | ✓ |
 | Sketches | Open Serial Monitor | ✓ | ✓ | ✓ |
 | Integrations | View integration list | ✓ | ✓ | ✓ |
-| Integrations | Contact Arduino to add an integration | ✓ | ✓ | |
+| Integrations | Contact Arduino to add an integration | ✓ | | |
 | Resources | View and open Resources | ✓ | ✓ | ✓ |
 | Recently Deleted Items | View recently deleted items | ✓ | ✓ | ✓ |
 | Recently Deleted Items | Restore deleted items | ✓ | ✓ | ✓ |
 | Space Settings | View general information | ✓ | ✓ | ✓ |
-| Space Settings | View custom branding | ✓ | | |
-| Space Settings | Edit custom branding | ✓ | | |
 | Space Settings | View members list | ✓ | ✓ | |
-| Space Settings | Add members to the organization | ✓ | ✓ | |
-| Space Settings | Assign members' roles | ✓ | ✓ | |
-| Space Settings | Remove members | ✓ | ✓ | |
+| Space Settings | Add members to the organization | ✓ | ✓\* | |
+| Space Settings | Assign members' roles | ✓ | ✓\* | |
+| Space Settings | Remove members | ✓ | ✓\* | |
 | Space Settings | View roles and permissions | ✓ | ✓ | |
 | Space Settings | View plan usage information | ✓ | ✓ | ✓ |
 | Plan Management | Payment | ✓ | | |
+
+\* Teachers can only add and remove **Student** members, and assign the Student role.
 
 ## Managing Members
 
@@ -180,6 +182,30 @@ Review the selected role before sending the invitation. Defaulting to the role w
 
 Invitees receive an email with a link to join the space. Once they accept, they appear in the members list and can start working according to their assigned role.
 
+### Inviting Members to an Education Space
+
+In Education spaces, Admins and Teachers have two more ways to bring students into the space, in addition to email invitations. Both are available from the **ADD MEMBERS** dialog.
+
+#### Sharing an Invite Link With Students
+
+If you can't email your students, share an invite link with the whole class instead:
+
+1. Select **ADD MEMBERS**.
+2. Select **Invite via Link**.
+3. Copy the link and share it with your students, for example through your learning platform or class chat.
+
+Students who open the link and sign in with their Arduino account join the space and appear in the members list.
+
+#### Sharing an Invite Code With Minors
+
+Students under the age limit for a standard Arduino account join a space with a **space code** instead of a link or email. Before you start, make sure each student has an [Arduino account for juniors](https://support.arduino.cc/hc/en-us/articles/360022234360-Create-an-Arduino-account-for-juniors).
+
+1. Select **ADD MEMBERS** and copy the space code shown for junior accounts.
+2. Share the code with your students.
+3. Ask the students to sign in with their junior account, select **Join Space**, enter the code, and select **Join**.
+
+Once they join, the students are added to the space and appear in the members list.
+
 ## Reviewing Roles and Permissions in Arduino Cloud
 
 Members with the **View roles and permissions** permission (every role in Business spaces, and Admins and Teachers in Education spaces) can review the roles available in a shared space directly in Arduino Cloud:
@@ -193,13 +219,9 @@ The page shows the roles available for the selected space and the actions assign
 
 ![The Roles & Permissions page in Space Settings, listing the actions available to each role.](assets/roles-permissions-page.png)
 
-## Next Steps
+## Related Articles
 
 - [Spaces](/arduino-cloud/spaces-plans-account/spaces)
 - [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas)
-- [Arduino Cloud for Business](/arduino-cloud/business)
-- [Shared Spaces for Education](/arduino-cloud/education/shared-spaces)
-
-## Trademark Acknowledgments
-
-- **LoRa®** is a registered trademark of Semtech Corporation.
+- [Arduino Cloud for Business](/arduino-cloud/business/arduino-cloud-for-business)
+- [Arduino Cloud for Education](/arduino-cloud/education/arduino-cloud-for-education)

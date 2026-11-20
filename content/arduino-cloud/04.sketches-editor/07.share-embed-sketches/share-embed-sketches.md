@@ -70,7 +70,7 @@ To share code instead of embedding it, open the same **Share** dialog and copy t
 
 ![Share Code](./assets/Share_1.png)
 
-## Next Steps
+## Related Articles
 
 - [Keep Secrets Out](/arduino-cloud/sketches-editor/keep-secrets-out)
 - [Collaborative Coding](/arduino-cloud/sketches-editor/collaborative-coding)

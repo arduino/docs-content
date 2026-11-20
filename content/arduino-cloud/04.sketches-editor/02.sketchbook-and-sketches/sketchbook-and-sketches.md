@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Sketch, Sketchbook]
 author: Karl Söderby & Arduino Team
 ---
 
-A **sketch** is a file where you write a program to run on an Arduino board, with a `.ino` extension and the Arduino language (a variant of C++). Your sketches live in a cloud **sketchbook** reachable from **Sketches** (`/sketches`) in the left navigation — available from any machine and backed up automatically.
+A **sketch** is a file where you write a program to run on an Arduino® board, with a `.ino` extension and the Arduino language (a variant of C++). Your sketches live in a cloud **sketchbook** reachable from **Sketches** in the left navigation — available from any machine and backed up automatically.
 
 ## Accessing Your Sketchbook
 
@@ -54,7 +54,7 @@ If no device is associated yet, `thingProperties.h` can't build a real connectio
 
 </Alert>
 
-## Next Steps
+## Related Articles
 
 - [Cloud Editor Overview](/arduino-cloud/sketches-editor/cloud-editor-overview)
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)

@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Cloud Editor, Import]
 author: Karl Söderby & Arduino Team
 ---
 
-If your sketches and libraries currently live only on your computer (in the offline Arduino IDE), the Cloud Editor's import tool moves them online in one flow. After that they're available from any machine and backed up in your cloud [sketchbook](/arduino-cloud/sketches-editor/sketchbook-and-sketches).
+If your sketches and libraries currently live only on your computer (in the offline Arduino® IDE), the Cloud Editor's import tool moves them online in one flow. After that they're available from any machine and backed up in your cloud [sketchbook](/arduino-cloud/sketches-editor/sketchbook-and-sketches).
 
 ## What Can Be Imported
 
@@ -15,7 +15,7 @@ If your sketches and libraries currently live only on your computer (in the offl
 
 ## Importing
 
-1. Find your local sketchbook folder (named `Arduino` unless you renamed it) — typically `Documents/Arduino` on Windows and macOS, `$HOME/Arduino` on Linux.
+1. Find your local sketchbook folder (named `Arduino` unless you renamed it) — typically `Documents/Arduino` on Windows and macOS, `$HOME/Arduino` on Linux®.
 2. Compress it to a `.zip` (not another archive format); you should get an `Arduino.zip`.
 3. In the Cloud Editor, click the **Create** button in the top-right corner, select **Import local file**, and follow the instructions to upload your zip (or a single sketch).
 
@@ -25,7 +25,13 @@ A maximum of 100 MB is allowed per upload. Files in a `hardware` folder are igno
 
 To import your own library, open any sketch, select **Libraries** in the left panel, click **Custom**, and press the upload button, then choose your zipped library. To import several at once, zip them all into a single file (with each library in its own folder) and upload that.
 
-## Next Steps
+<Alert type="warning">
+
+If you import a custom library with the same name as a library that already exists in your account, you are prompted to overwrite the existing library. Overwriting replaces it, so proceed with caution.
+
+</Alert>
+
+## Related Articles
 
 - [Sketchbook & Sketches](/arduino-cloud/sketches-editor/sketchbook-and-sketches)
 - [Cloud Editor Overview](/arduino-cloud/sketches-editor/cloud-editor-overview)

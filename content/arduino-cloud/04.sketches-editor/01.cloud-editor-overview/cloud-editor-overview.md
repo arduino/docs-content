@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Cloud Editor]
 author: Karl Söderby & Arduino Team
 ---
 
-The **Cloud Editor** is the browser-based code editor embedded in a Thing's [Sketch tab](/arduino-cloud/sketches-editor/sketchbook-and-sketches), and also reachable standalone from **Sketches** (`/sketches`) in the left navigation. It compiles and uploads sketches to your board without any local installation — you only need the [Cloud Agent](/arduino-cloud/devices/cloud-agent) for USB uploads.
+The **Cloud Editor** is the browser-based code editor embedded in a Thing's [Sketch tab](/arduino-cloud/sketches-editor/sketchbook-and-sketches), and also reachable standalone from **Sketches** in the left navigation. It compiles and uploads sketches to your board without any local installation — you only need the [Cloud Agent](/arduino-cloud/devices/cloud-agent) for USB uploads.
 
 ![A sketch open in the Cloud Editor.](assets/sketch-editor.png)
 
@@ -16,7 +16,7 @@ The editor has a left-hand icon rail covering the whole coding workflow:
 | Panel | What it's for |
 |---|---|
 | **Files** | Lists the sketch's files (`.ino`, `ReadMe.adoc`, `thingProperties.h`) and lets you add new ones. |
-| **Examples** | Built-in Arduino examples plus examples bundled with any library you include. |
+| **Examples** | Built-in Arduino® examples plus examples bundled with any library you include. |
 | **Libraries** | Search and include libraries directly into the sketch. |
 | **Reference** | In-editor Arduino language reference. |
 | **Arduino AI Assistant** | Chat-based coding assistant scoped to your sketch. |
@@ -43,7 +43,7 @@ The Serial Monitor reads the serial data your sketch prints (e.g. `Serial.printl
 
 You can also develop with the offline Arduino IDE using the same libraries — see [Work Offline with the IDE](/arduino-cloud/sketches-editor/work-offline-ide). Offline changes don't sync back into the Thing's configuration automatically.
 
-## Next Steps
+## Related Articles
 
 - [Sketchbook & Sketches](/arduino-cloud/sketches-editor/sketchbook-and-sketches)
 - [Upload Over USB](/arduino-cloud/sketches-editor/upload-sketch-usb)

@@ -9,7 +9,7 @@ author: Karl Söderby & Arduino Team
 
 <Alert type="info">
 
-Collaborative coding is a shared-space feature — it requires a plan with shared spaces. See [Arduino Cloud for Business](/arduino-cloud/business).
+Collaborative coding is a shared-space feature — it requires a plan with shared spaces. See [Spaces](/arduino-cloud/spaces-plans-account/spaces).
 
 </Alert>
 
@@ -29,8 +29,8 @@ While someone is editing a region, that area is framed in orange and a warning b
 - Split work across different files or functions where possible, so two people rarely touch the same lines at once.
 - Keep [secrets out](/arduino-cloud/sketches-editor/keep-secrets-out) of a shared sketch so credentials aren't exposed to collaborators.
 
-## Next Steps
+## Related Articles
 
 - [Keep Secrets Out](/arduino-cloud/sketches-editor/keep-secrets-out)
 - [Share & Embed Sketches](/arduino-cloud/sketches-editor/share-embed-sketches)
-- [Arduino Cloud for Business](/arduino-cloud/business)
+- [Spaces](/arduino-cloud/spaces-plans-account/spaces)

@@ -5,7 +5,7 @@ tags: [Node-RED, Arduino Cloud, Automation]
 author: Liam Aljundi
 ---
 
-[Node-RED](https://nodered.org/) is a browser-based visual flow editor for wiring together hardware, APIs, and online services by connecting nodes on a canvas. Pairing it with Arduino Cloud lets a flow read and react to Cloud Variables — bridging a Thing's data to email/SMS notifications, home automation platforms, or custom JavaScript logic — without writing a standalone client application.
+[Node-RED](https://nodered.org/) is a browser-based visual flow editor for wiring together hardware, APIs, and online services by connecting nodes on a canvas. Pairing it with Arduino® Cloud lets a flow read and react to Cloud Variables — bridging a Thing's data to email/SMS notifications, home automation platforms, or custom JavaScript logic — without writing a standalone client application.
 
 <Alert type="note">
 
@@ -13,20 +13,29 @@ Node-RED integration requires a paid Arduino Cloud plan.
 
 </Alert>
 
-## Requirements
+## Hardware & Software Needed
 
 - An [Arduino Cloud](https://app.arduino.cc/) account and a [Cloud-compatible board](/arduino-cloud/reference/supported-boards-capabilities).
-- [Arduino Create Agent](https://github.com/arduino/arduino-create-agent).
+- The [Cloud Agent](/arduino-cloud/devices/cloud-agent).
 - [Node.js](https://nodejs.org/en/) (check with `node --version`) and [Node-RED](https://nodered.org/).
 
 ## The Node-RED Editor
 
-Node-RED runs locally. Install and start it from a terminal (omit `sudo` on Windows), then open `http://localhost:1880`. See the [Node-RED installation page](https://nodered.org/docs/getting-started/local) for details.
+Node-RED runs locally. Install it as a global npm package, following the [Node-RED installation page](https://nodered.org/docs/getting-started/local):
 
-```shell
-sudo npm install -g --unsafe-perm node-red
-node-red
-```
+- **macOS and Linux®**:
+
+  ```shell
+  sudo npm install -g node-red
+  ```
+
+- **Windows** (do not use `sudo`):
+
+  ```shell
+  npm install -g node-red
+  ```
+
+Then start Node-RED with the `node-red` command and open `http://localhost:1880` in your browser. On a Raspberry Pi® or another Debian-based system, you can also use the install script described on the Node-RED installation page.
 
 The editor has a header with the **Deploy** button and main menu, a **palette** of nodes on the left, the **workspace** in the middle where flows are wired together, and a **sidebar** on the right for node configuration and debugging.
 
@@ -96,8 +105,8 @@ Wired between the **property out** node and a debug/email/notification node, thi
 
 To email the filtered values, install `node-red-node-email` via **Manage palette** and replace the debug node with an **email** node configured with the recipient and sender details. For a complete walkthrough, see [Send Email Alerts With Node-RED](/arduino-cloud/application-notes/send-email-node-red).
 
-## Next Steps
+## Related Articles
 
 - [Send Email Alerts With Node-RED](/arduino-cloud/application-notes/send-email-node-red)
 - [IFTTT, Zapier & Webhooks](/arduino-cloud/integrations/ifttt-zapier-webhooks)
-- [APIs & CLI](/arduino-cloud/apis-cli/developer-overview)
+- [Cloud Management APIs & CLI](/arduino-cloud/apis-cli/developer-overview)

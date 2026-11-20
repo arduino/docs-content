@@ -5,12 +5,12 @@ tags: [Arduino Cloud, OTA]
 author: Jose Garcia
 ---
 
-**OTA (over-the-air)** lets you upload a new sketch to a board already connected to Arduino Cloud, without a USB cable — ideal for boards that are hard to reach once deployed, or for updating many boards at once.
+**OTA (over-the-air)** lets you upload a new sketch to a board already connected to Arduino® Cloud, without a USB cable — ideal for boards that are hard to reach once deployed, or for updating many boards at once.
 
-## Requirements
+## Hardware & Software Needed
 
-- An OTA-supported board: UNO R4 WiFi, MKR WiFi 1010, Nano 33 IoT, Nano RP2040 Connect, Nano ESP32, Portenta H7, Portenta H7 Lite Connected, Portenta Machine Control, Nicla Vision, Opta WiFi or GIGA R1 WiFi. See [Supported Boards & Capabilities](/arduino-cloud/reference/supported-boards-capabilities).
-- **One initial upload over USB** — this installs the OTA-capable partition layout later wireless uploads rely on. See [Upload Over USB](/arduino-cloud/sketches-editor/upload-sketch-usb).
+- An OTA-supported board: UNO R4 WiFi, MKR WiFi 1010, Nano 33 IoT, Nano RP2040 Connect, Nano ESP32, Portenta H7, Portenta H7 Lite Connected, Portenta Machine Control, Nicla Vision, Opta® WiFi or GIGA R1 WiFi. See [Supported Boards & Capabilities](/arduino-cloud/reference/supported-boards-capabilities).
+- **One initial upload over USB**. Upload the sketch over USB at least once before you switch to over-the-air uploads. See [Upload Over USB](/arduino-cloud/sketches-editor/upload-sketch-usb).
 - The board online in Arduino Cloud over Wi-Fi® (or Ethernet/Cellular, where supported).
 
 ### Verified ESP32 Boards
@@ -23,13 +23,9 @@ Once a device has completed its first USB upload, the Sketch tab shows a connect
 
 ![Selecting Over-the-Air as the upload connection.](assets/device_OtA.png)
 
-<Alert type="note">
-
-If the board is still plugged in over USB, only that option may appear. Disconnect the cable and power the board separately (e.g. a phone charger) to force the Over-the-Air path:
+If the board is still plugged in over USB, only the USB option may appear. Disconnect the cable and power the board separately (for example, with a phone charger) to use the Over-the-Air path:
 
 ![Only the Over-the-Air option once USB is disconnected.](assets/OtA_board_selection.png)
-
-</Alert>
 
 Uploading over the air takes noticeably longer than USB, since compiling and transferring the binary happens over the network.
 
@@ -42,7 +38,7 @@ Uploading over the air takes noticeably longer than USB, since compiling and tra
 5. The downloaded file's length and CRC are verified on the device.
 6. The verified sketch is flashed, and the board restarts running it.
 
-## Next Steps
+## Related Articles
 
 - [Upload Over USB](/arduino-cloud/sketches-editor/upload-sketch-usb)
 - [Manage Devices at Scale](/arduino-cloud/devices/manage-devices-at-scale) — mass OTA from the CLI

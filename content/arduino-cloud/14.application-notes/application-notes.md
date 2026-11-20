@@ -1,4 +1,4 @@
 ---
-title: Application Notes
+title: Tutorials & Projects
 icon: IconProject
 ---

@@ -7,10 +7,10 @@ author: Karl Söderby & Arduino Team
 
 In this project you'll automate an LED (or any relay-driven light) so it turns on and off on a recurring schedule — defined entirely from a dashboard, with no timing logic in your sketch. It's built around the `CloudSchedule` variable type and the **Scheduler** widget, which together let you say "on for 10 seconds every minute" or "on for 8 hours every day" without writing a single timer.
 
-**What you need:**
+## Hardware & Software Needed
 
 - A Wi-Fi®-capable board with an LED on a digital pin.
-- An Arduino Cloud [Thing](/arduino-cloud/things-data/things) with an associated device.
+- An Arduino® Cloud [Thing](/arduino-cloud/things-data/things) with an associated device.
 
 ## Step 1 — Add the Schedule Variable
 
@@ -120,8 +120,8 @@ The Scheduler widget only accepts `CloudSchedule` variables, and variable names 
 
 </Alert>
 
-## Next Steps
+## Related Articles
 
-- [Scheduler Automation](/arduino-cloud/automations/scheduler)
+- [Schedule jobs with the Scheduler](/arduino-cloud/automations/scheduler)
 - [Dashboards](/arduino-cloud/dashboards/dashboards)
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)

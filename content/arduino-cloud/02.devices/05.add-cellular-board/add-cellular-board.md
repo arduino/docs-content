@@ -3,12 +3,17 @@ title: Add a Cellular Board
 description: Connect an Arduino board to Arduino Cloud over GSM or LTE-M (Cat-M1) and NB-IoT cellular networks.
 tags: [Arduino Cloud, Cellular, GSM, LTE-M, NB-IoT, Devices]
 author: Karl Söderby & Arduino Team
-hardware:
-  - hardware/01.mkr/01.boards/mkr-gsm-1400
-  - hardware/01.mkr/01.boards/mkr-nb-1500
 ---
 
-Cellular connectivity lets a board reach Arduino Cloud over a mobile network instead of Wi-Fi® or Ethernet. Consider it for remote areas without Wi-Fi®, or for mobile projects such as cargo tracking.
+Cellular connectivity lets a board reach Arduino® Cloud over a mobile network instead of Wi-Fi® or Ethernet. Consider it for remote areas without Wi-Fi®, or for mobile projects such as cargo tracking.
+
+## Hardware & Software Needed
+
+- An [Arduino account](https://login.arduino.cc/login).
+- A supported board (see below) with its antenna.
+- A SIM card with an active data plan that supports the board's network technology.
+- The SIM's **PIN** (if set) and the provider's **APN**, plus a user name and password if your provider requires them.
+- A USB cable that supports data transfer and the [Cloud Agent](/arduino-cloud/devices/cloud-agent) installed.
 
 ## Supported Boards
 
@@ -25,13 +30,7 @@ A secured connection uses a lot of memory, which leaves little memory for your a
 
 </Alert>
 
-## Requirements
-
-- A SIM card with an active data plan that supports the board's network technology.
-- The SIM's **PIN** (if set) and the provider's **APN**, plus a user name and password if your provider requires them.
-- A USB cable that supports data transfer and the [Cloud Agent](/arduino-cloud/devices/cloud-agent) installed.
-
-## Provisioning the Board
+## Add the Device
 
 1. Insert the SIM card and connect the antenna, then connect the board to your computer over USB.
 2. Go to **Devices**, select **+ Device**, and choose **Arduino boards** under **Automatic Setup**.
@@ -62,8 +61,8 @@ void loop() {
 
 `ArduinoIoTPreferredConnection` becomes a `GSMConnectionHandler` or `NBConnectionHandler` depending on the board, generated automatically once the network credentials are set.
 
-## Next Steps
+## Related Articles
 
-- [Add a Wi-Fi Board](/arduino-cloud/devices/add-wifi-board)
+- [Add a Wi-Fi® Board](/arduino-cloud/devices/add-wifi-board)
 - [Provisioning & Network Configuration](/arduino-cloud/devices/network-configuration)
 - [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections)

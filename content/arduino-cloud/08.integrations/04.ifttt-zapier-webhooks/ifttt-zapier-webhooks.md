@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Webhooks, IFTTT, Zapier]
 author: Liam Aljundi
 ---
 
-Any automation platform that accepts an incoming HTTP request can receive Arduino Cloud data through a [webhook](/arduino-cloud/automations/webhooks). This page covers connecting specific platforms — IFTTT, Zapier, and Google services — to turn Cloud Variable updates into actions like appending a spreadsheet row or sending a notification, without writing any backend code.
+Any automation platform that accepts an incoming HTTP request can receive Arduino® Cloud data through a [webhook](/arduino-cloud/automations/webhooks). This page covers connecting specific platforms — IFTTT, Zapier, and Google services — to turn Cloud Variable updates into actions like appending a spreadsheet row or sending a notification, without writing any backend code.
 
 <Alert type="info">
 
@@ -27,10 +27,10 @@ Each platform exposes an **incoming webhook URL**. You paste that URL into the T
 
 [IFTTT](https://maker.ifttt.com) can connect an Arduino Cloud webhook to a **Google Sheets** action, turning Cloud Variable updates into spreadsheet rows. In this example, String values sent from a **Messenger** widget are saved into a Google Sheet.
 
-### Requirements
+### Hardware & Software Needed
 
 - An [Arduino Cloud](https://app.arduino.cc/) account and a [Cloud-compatible board](/arduino-cloud/reference/supported-boards-capabilities).
-- [Arduino Create Agent](https://github.com/arduino/arduino-create-agent).
+- The [Cloud Agent](/arduino-cloud/devices/cloud-agent).
 - An [IFTTT](https://maker.ifttt.com) account and a Google account.
 
 ### Steps
@@ -60,7 +60,7 @@ Google services can also receive webhook data:
 - [**Google Cloud APIs**](https://cloud.google.com/apis/docs/overview): communicate with services such as Gmail, Translate, or Google Maps.
 - [**Google Apps Script**](https://developers.google.com/apps-script): receive the JSON payload at a deployed Web App URL and act on Google Workspace files such as Sheets and Docs.
 
-## Next Steps
+## Related Articles
 
 - [Webhooks](/arduino-cloud/automations/webhooks)
 - [Triggers & Alerts](/arduino-cloud/automations/triggers-and-alerts)

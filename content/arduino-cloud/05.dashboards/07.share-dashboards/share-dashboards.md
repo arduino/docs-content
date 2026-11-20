@@ -5,7 +5,13 @@ tags: [Arduino Cloud, Dashboards, Sharing]
 author: Karl Söderby & Arduino Team
 ---
 
-A [Dashboard](/arduino-cloud/dashboards/dashboards) can be **shared** with other Arduino Cloud accounts — recipients get a link that lets them view, and depending on the widgets interact with, it without ever needing your login credentials or access to your other Things.
+A [Dashboard](/arduino-cloud/dashboards/dashboards) can be **shared** with other Arduino® Cloud accounts — recipients get a link that lets them view, and depending on the widgets interact with, it without ever needing your login credentials or access to your other Things.
+
+<Alert type="note">
+
+Sharing dashboards requires a paid plan. On the Free plan, the share option is locked. See [Arduino Cloud plans](https://cloud.arduino.cc/plans).
+
+</Alert>
 
 ## Sharing a Dashboard
 
@@ -41,7 +47,7 @@ In a shared space, sharing a dashboard depends on your role: in Business spaces,
 
 </Alert>
 
-## Next Steps
+## Related Articles
 
 - [Working With Dashboards](/arduino-cloud/dashboards/dashboards)
 - [Shared Spaces](/arduino-cloud/spaces-plans-account/spaces)

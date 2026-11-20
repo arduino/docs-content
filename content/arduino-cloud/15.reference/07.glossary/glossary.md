@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Glossary, Reference]
 author: Karl Söderby & Arduino Team
 ---
 
-Short definitions of the core Arduino Cloud concepts, each linking to its main documentation page.
+Short definitions of the core Arduino® Cloud concepts, each linking to its main documentation page.
 
 ## A–C
 
@@ -22,7 +22,7 @@ Short definitions of the core Arduino Cloud concepts, each linking to its main d
 ## O–P
 
 - **OTA (Over-the-Air)** — Uploading a new sketch to a device wirelessly, after its first USB upload. See [Upload Over the Air](/arduino-cloud/sketches-editor/upload-over-the-air).
-- **Provisioning** — The one-time process of registering a device with the Cloud and configuring its secure credentials. See [Add a Wi-Fi Board](/arduino-cloud/devices/add-wifi-board).
+- **Provisioning** — The one-time process of registering a device with the Cloud and configuring its secure credentials. See [Add a Wi-Fi® Board](/arduino-cloud/devices/add-wifi-board).
 
 ## S
 
@@ -33,11 +33,15 @@ Short definitions of the core Arduino Cloud concepts, each linking to its main d
 ## T–U
 
 - **Thing** — The container for a project — its device association, Cloud Variables, and data history. See [Things](/arduino-cloud/things-data/things).
-- **Template** — A pre-built Thing/dashboard/sketch bundle that sets up a project in a few steps. See [Integrations](/arduino-cloud/integrations/integrations-overview).
+- **Template** — A pre-built bundle of Things, variables, dashboards and Triggers that sets up a complete project in one step. See [Use Templates](/arduino-cloud/templates/use-templates).
 - **Trigger** — An automation that sends an email or push notification when a condition on a Boolean or String variable is met. See [Triggers & Alerts](/arduino-cloud/automations/triggers-and-alerts).
 - **Update Policy** — Whether a variable publishes **On change** or **Periodically**. See [Cloud Variables](/arduino-cloud/things-data/cloud-variables).
 
-## Next Steps
+## V–W
+
+- **Widget** — A dashboard element that displays or controls a Cloud Variable, such as a switch, gauge, chart or map. See [Working With Dashboards](/arduino-cloud/dashboards/dashboards) and the [Widget Catalog](/arduino-cloud/reference/widget-catalog).
+
+## Related Articles
 
 - [Troubleshooting & FAQ](/arduino-cloud/reference/troubleshooting-faq)
 - [Cloud Variable Types](/arduino-cloud/reference/cloud-variable-types)

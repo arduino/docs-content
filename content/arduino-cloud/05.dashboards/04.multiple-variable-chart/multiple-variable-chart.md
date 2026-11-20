@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Dashboards, Advanced Chart]
 author: Karl Söderby & Arduino Team
 ---
 
-The **Advanced Chart** widget plots several [Cloud Variables](/arduino-cloud/things-data/cloud-variables) at once on a single chart — including variables from different [Things](/arduino-cloud/things-data/things) — with per-series styling and either a live view or a selectable historical time range. Reach for it whenever a single [Chart](/arduino-cloud/reference/widget-catalog) isn't enough to compare related readings, such as a weather station's temperature, humidity, pressure, and light together.
+The **Advanced Chart** widget can be used to plot the data of multiple [Cloud Variables](/arduino-cloud/things-data/cloud-variables) on a single chart, such as the X, Y and Z values of an accelerometer. The variables can come from different [Things](/arduino-cloud/things-data/things), each line can have its own style, and you can show live data or a historical time range.
 
 <Alert type="note">
 
@@ -35,7 +35,7 @@ Only numeric-based types can be charted: **Float**, **Int**, and any Specialized
 
 No special device-side API is needed: the widget reads whatever values your Thing's variables already carry.
 
-## Next Steps
+## Related Articles
 
 - [Track Location on a Map](/arduino-cloud/dashboards/track-location-map)
 - [Widget Catalog](/arduino-cloud/reference/widget-catalog)

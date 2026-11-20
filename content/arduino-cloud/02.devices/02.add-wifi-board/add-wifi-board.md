@@ -5,14 +5,20 @@ tags: [Arduino Cloud, Wi-Fi, Devices]
 author: Karl Söderby & Arduino Team
 ---
 
-Wi-Fi® is the most common way to connect an official Arduino board to Arduino Cloud. It suits short-range projects, where the board connects through your home, work or school router. Provisioning registers the board, stores its credentials securely, and generates a sketch that connects it to the platform.
+Wi-Fi® is the most common way to connect an official Arduino® board to Arduino Cloud. It suits short-range projects, where the board connects through your home, work or school router. Provisioning registers the board, stores its credentials securely, and generates a sketch that connects it to the platform.
 
-## Before You Start
+## Hardware & Software Needed
 
 - An [Arduino account](https://login.arduino.cc/login).
 - A supported board (see below) and a USB cable that supports data transfer.
 - The [Cloud Agent](/arduino-cloud/devices/cloud-agent) installed on your computer.
-- The name (SSID) and password of a 2.4 GHz Wi-Fi® network. Official Arduino boards only support the 2.4 GHz band; see [Supported Wi-Fi Frequencies](/arduino-cloud/reference/supported-wifi-frequencies).
+- The name (SSID) and password of a 2.4 GHz Wi-Fi® network.
+
+<Alert type="note">
+
+All official Arduino boards only support the **2.4 GHz** Wi-Fi® band; 5 GHz networks are not supported. Make sure the network you connect to broadcasts on 2.4 GHz. If your router only uses 5 GHz, you can [create a 2.4 GHz hotspot on your phone](https://support.arduino.cc/hc/en-us/articles/14144656051740-Supported-Wi-Fi-bands#create-hotspot).
+
+</Alert>
 
 ## Supported Boards
 
@@ -28,7 +34,7 @@ Per [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=r
 - Portenta H7 and Portenta H7 Lite Connected
 - Portenta Machine Control
 - Portenta C33
-- Opta WiFi
+- Opta® WiFi
 - UNO R4 WiFi
 
 Third-party ESP32/ESP8266 boards use a different setup path; see [Add an ESP32/ESP8266](/arduino-cloud/devices/add-esp32-esp8266). For connectivity, OTA and provisioning support per board, see [Supported Boards & Capabilities](/arduino-cloud/reference/supported-boards-capabilities).
@@ -42,7 +48,7 @@ The method depends on whether the board has a secure element. In both cases the 
 | **Certificate + private key** | MKR 1000 WiFi, MKR WiFi 1010, Nano 33 IoT, Portenta H7, Portenta Machine Control, Nano RP2040 Connect, Nicla Vision, Opta WiFi, GIGA R1 WiFi, Portenta C33 | Hardware secure element (provisioned once) |
 | **Device ID + secret key** | UNO R4 WiFi, Nano ESP32 | Configured automatically by the wizard; you don't need to copy the key |
 
-## Provisioning the Board
+## Add the Device
 
 1. Connect the board to your computer over USB. The first time, install the [Cloud Agent](/arduino-cloud/devices/cloud-agent) so the browser can reach the board.
 2. Go to **Devices**, select **+ Device**, and choose **Arduino boards** under **Automatic Setup**.
@@ -52,7 +58,11 @@ The method depends on whether the board has a secure element. In both cases the 
 
 ![Selecting a connected board over USB.](assets/connect-with-usb.png)
 
-The equivalent from the terminal is `arduino-cloud-cli device create --fqbn <board-fqbn> --connection wifi` — see [Managing Devices from the CLI](/arduino-cloud/apis-cli/cli-devices).
+<Alert type="info">
+
+You can also add a device from the terminal with `arduino-cloud-cli device create --fqbn <board-fqbn> --connection wifi`. See [CLI Commands](/arduino-cloud/apis-cli/cli-commands#devices).
+
+</Alert>
 
 ## Sketch Pattern
 
@@ -74,7 +84,7 @@ void loop() {
 
 `ArduinoIoTPreferredConnection` is a `WiFiConnectionHandler` configured with your network SSID and password, generated into `thingProperties.h`.
 
-## Next Steps
+## Related Articles
 
 - [Provisioning & Network Configuration](/arduino-cloud/devices/network-configuration)
 - [Arduino C++ Library](/arduino-cloud/device-libraries/arduino-cpp)

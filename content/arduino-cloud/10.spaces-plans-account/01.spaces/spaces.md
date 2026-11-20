@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Spaces, Account]
 author: Karl Söderby & Arduino Team
 ---
 
-A **space** is a self-contained workspace in Arduino Cloud holding its own Things, Dashboards, devices, and members. Every account has a private personal space; team plans add **shared spaces** that any number of members can work in together, with access governed by [roles](/arduino-cloud/spaces-plans-account/members-roles).
+A **space** is a self-contained workspace in Arduino® Cloud holding its own Things, Dashboards, devices, and members. Every account has a private personal space; team plans add **shared spaces** that any number of members can work in together, with access governed by [roles](/arduino-cloud/spaces-plans-account/members-roles).
 
 ## Personal vs Shared Spaces
 
@@ -48,7 +48,7 @@ Open **Space Settings** from the sidebar to configure a shared space:
 | **Roles & Permissions** | [Review the actions available to each role](/arduino-cloud/spaces-plans-account/members-roles#reviewing-roles-and-permissions-in-arduino-cloud) |
 | **Plan Usage** | View feature and resource usage |
 
-## Next Steps
+## Related Articles
 
 - [Space Statistics](/arduino-cloud/spaces-plans-account/space-statistics)
 - [Spaces Overview](/arduino-cloud/spaces-plans-account/spaces-overview)

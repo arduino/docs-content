@@ -17,6 +17,8 @@ The Spaces Overview is available only if you belong to **more than one space**, 
 
 The Spaces Overview is a context of its own, just like a space. You open it the same way you switch between spaces: click the account button in the top-left corner, and pick **Spaces Overview** from the list of spaces you can access. While it's open, the top-left corner of the sidebar shows **Spaces Overview** in place of a space name.
 
+![Opening the Spaces Overview from the account button in the top-left corner.](assets/space-overview-access.png)
+
 The left sidebar shows the Spaces Overview navigation, which has three sections:
 
 | Section | Shows | Use It To |
@@ -66,7 +68,7 @@ To decide where you need to upgrade or move resources:
 3. Check the plan tier badge for that space. A space on a lower tier may need an upgrade, while a space on a higher tier may have room to take over some of the load.
 4. Select **UPGRADE** next to a space that's over its limit, or switch into the space to move resources, such as deleting unused Things or reassigning members.
 
-For what each tier includes, see [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas) and the [Plans & Feature Matrix](/arduino-cloud/reference/plans-feature-matrix).
+For what each tier includes, see [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas) and the [Arduino Cloud Plans](https://cloud.arduino.cc/plans).
 
 ## All Devices Across Your Spaces
 
@@ -77,7 +79,7 @@ Normally a device only appears on the **Devices** page of the space it was regis
 | **Device Name** | The name given to the device when it was added. The table is sorted alphabetically by this column by default. |
 | **Status** | Whether the device is currently **ONLINE** or **OFFLINE** (see [Device Status & Lifecycle](/arduino-cloud/devices/device-status-lifecycle)) |
 | **Space** | A badge with the name of the space the device belongs to, for example **My Cloud** |
-| **Type** | The board or device type, for example **Arduino® UNO™ R4™ WiFi** |
+| **Type** | The board or device type, for example **Arduino UNO R4 WiFi** |
 | **Associated Thing** | The [Thing](/arduino-cloud/things-data/things) the device is linked to, or `-` if it isn't linked to any Thing |
 
 The toolbar above the table has three controls:
@@ -97,7 +99,7 @@ The toolbar above the table has three controls:
 3. Read the **Space** column to see which space the device belongs to.
 4. To configure the device, switch into that space and open the device from its **Devices** page.
 
-## Next Steps
+## Related Articles
 
 - [Space Statistics](/arduino-cloud/spaces-plans-account/space-statistics)
 - [Spaces](/arduino-cloud/spaces-plans-account/spaces)

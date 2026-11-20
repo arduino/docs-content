@@ -5,17 +5,15 @@ tags: [Arduino Cloud, Branding, Business]
 author: Karl Söderby & Arduino Team
 ---
 
-Team plans can **white-label** a shared space, replacing Arduino's branding with your own. Custom branding personalizes the space's logo and interface colors, and advanced options add a custom URL and social sign-in — useful when presenting a cloud environment to customers or students under your own identity.
+Team and Enterprise plans can **white-label** a shared space, replacing Arduino®'s branding with your own. Custom branding personalizes the space's logo and interface colors, and adds a custom URL and social sign-in — useful when presenting a cloud environment to customers or users under your own identity. Custom branding is available only on Arduino Cloud plans that include white-label capabilities, and only Space Admins can configure it.
 
-Open **Space Settings → Custom Branding** from the shared space sidebar:
+Custom branding is applied in the Arduino Cloud web app and in the [IoT Remote app](/arduino-cloud/iot-remote-app/iot-remote-app-overview), so members see your brand both on the desktop and on their phones.
 
-![The Custom Branding page in Space Settings.](assets/custom-branding-1.png)
+To configure it, open **Space Settings → Custom Branding** from the shared space sidebar. All the options described below are on this single page.
 
-## Basic: Logo and Sidebar
+## Logo and Sidebar
 
-The **Basic** tab customizes your logo and the Arduino logo's visibility:
-
-![Basic custom branding options.](assets/custom-branding-2.png)
+The logo options customize your logo and the Arduino logo's visibility:
 
 - **Your Logo** — upload a `JPEG` or `PNG` (max 500 KB). The **Icon Logo** (recommended ratio 1:1) appears on the sidebar; the **Horizontal Logo** (recommended ratio 3:1) appears on the space's Home page.
 - **Arduino Logo** — toggle the visibility of the Arduino logo on the sidebar.
@@ -23,12 +21,6 @@ The **Basic** tab customizes your logo and the Arduino logo's visibility:
 ## Custom Palette: Brand Colors for the Interface
 
 **Custom Palette** recolors the interactive elements of the Arduino Cloud web app, such as buttons, links, and selected menu items, to match your brand. It complements your logo: the logo replaces Arduino's imagery, and the palette replaces Arduino's default accent color, so the space looks like part of your own product rather than a re-skinned Arduino tool.
-
-<Alert type="info">
-
-Custom Palette is available only on Arduino Cloud plans that include white-label capabilities, and only Space Admins can configure it. It is not available on plans without white-label entitlements.
-
-</Alert>
 
 You find it under **Space Settings → Custom Branding**, in the **Custom Palette** card:
 
@@ -74,14 +66,11 @@ To undo a custom palette, select the **DEFAULT** label next to the color swatch.
 
 ### Where the Custom Palette Applies
 
-The custom palette affects the **Arduino Cloud web app interface** only, mainly interactive elements such as buttons and links. It does not apply to:
+The custom palette affects interactive elements of the interface, such as buttons, links, and selected menu items. It does not apply to transactional and system emails sent by Arduino Cloud.
 
-- The [IoT Remote app](/arduino-cloud/iot-remote-app/use-dashboards-on-phone) for mobile devices.
-- Transactional and system emails sent by Arduino Cloud.
+## Custom URL and Social Sign-In
 
-## Advanced: Custom URL and Social Sign-In
-
-The **Advanced** tab enables full white labeling:
+These options enable full white labeling:
 
 - **Custom URL** — set a custom subdomain and a site name shown as the page title. Avoid special characters or spaces in the subdomain; it's validated and previewed on submit.
 - **Social Sign-In** — offer Google, GitHub, or Apple authentication. The **Custom URL** must be configured first, or this option stays unavailable.
@@ -94,7 +83,8 @@ Disabling a Social Sign-In method later removes the user accounts and data assoc
 
 Remember to select **Save** to apply the configuration. The Custom Palette card has its own **APPLY** button.
 
-## Next Steps
+## Related Articles
 
 - [Spaces](/arduino-cloud/spaces-plans-account/spaces)
 - [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles)
+- [IoT Remote App Overview](/arduino-cloud/iot-remote-app/iot-remote-app-overview)

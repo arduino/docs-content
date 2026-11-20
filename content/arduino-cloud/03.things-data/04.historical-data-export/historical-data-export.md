@@ -9,7 +9,7 @@ Every [Cloud Variable](/arduino-cloud/things-data/cloud-variables) update is sto
 
 ## Data Retention
 
-How long historical data is kept depends on your plan. See the [Arduino Cloud plans page](https://cloud.arduino.cc/plans) for the retention period of each plan, [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas) for how plan limits work, and [Plan Usage](https://app.arduino.cc/plan-usage) for your current plan.
+How long historical data is kept depends on your plan. See [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas) for the retention period of each plan, and [Plan Usage](https://app.arduino.cc/plan-usage) for your current plan.
 
 ### Choosing the Right History for Your Project
 
@@ -51,13 +51,13 @@ Deleting a dashboard or a widget doesn't affect how your Thing and device work, 
 
 ## Exporting to Amazon S3
 
-For continuous, long-term retention outside Arduino Cloud, the [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3) streams your variable history into your own S3 bucket on a schedule — useful when you need data beyond the in-platform retention window or want it in your own data lake.
+For continuous, long-term retention outside Arduino® Cloud, the [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3) streams your variable history into your own S3 bucket on a schedule — useful when you need data beyond the in-platform retention window or want it in your own data lake.
 
 ## Querying History Through the API
 
-Every recorded point is queryable through the Series API, which backs the Chart widget. It supports raw queries (every point in a range), sampled queries (downsampled for long ranges), batch queries (multiple variables at once), and last-value queries. Call it from the Go, Python, or JavaScript client libraries — see [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
+Every recorded point is queryable through the Series API, which backs the Chart widget. It supports raw queries (every point in a range), sampled queries (downsampled for long ranges), batch queries (multiple variables at once), and last-value queries. Call it from the Go, Python®, or JavaScript client libraries — see [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
 
-## Next Steps
+## Related Articles
 
 - [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3)
 - [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks)

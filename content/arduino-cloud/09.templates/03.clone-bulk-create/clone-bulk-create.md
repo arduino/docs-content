@@ -5,11 +5,17 @@ tags: [Arduino Cloud, Templates, CLI]
 author: Karl Söderby & Arduino Team
 ---
 
-When you need the same setup on more than one device, the web UI's one-at-a-time flow becomes slow. The [arduino-cloud-cli](/arduino-cloud/apis-cli/cli-things) turns Things, Dashboards, and templates into scriptable building blocks you can clone and replicate in a batch — ideal for provisioning a fleet or a classroom set of identical projects.
+When you need the same setup on more than one device, the web UI's one-at-a-time flow becomes slow. The [arduino-cloud-cli](/arduino-cloud/apis-cli/cli-commands) turns Things, Dashboards, and templates into scriptable building blocks you can clone and replicate in a batch — ideal for provisioning a fleet or a classroom set of identical projects.
 
 <Alert type="info">
 
-All commands below assume the CLI is installed and authenticated. See [arduino-cloud-cli › Things](/arduino-cloud/apis-cli/cli-things) for setup.
+All commands below assume the CLI is installed and authenticated. See [CLI: Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials) for setup.
+
+</Alert>
+
+<Alert type="note">
+
+Triggers are not supported by the CLI yet. If your Custom Template should include Triggers, first create it in the web UI (see [Custom Templates](/arduino-cloud/templates/custom-templates)), then apply it with the CLI.
 
 </Alert>
 
@@ -30,7 +36,7 @@ arduino-cloud-cli thing create --name <thingName> --template thing-template.yaml
 
 ## Replicating a Dashboard
 
-Dashboards can only be created from a template, which makes them easy to replicate. Build one dashboard against a "template" Thing, extract it, then re-create it against each real Thing — `--override` swaps the template's `thing_id` placeholder(s) for real Thing IDs:
+In the CLI, dashboards can only be created from a template (in the web UI you can also create empty dashboards), which makes them easy to replicate. Build one dashboard against a "template" Thing, extract it, then re-create it against each real Thing — `--override` swaps the template's `thing_id` placeholder(s) for real Thing IDs:
 
 ```bash
 arduino-cloud-cli dashboard extract --id <dashboardID> --format yaml > dash.yaml
@@ -55,8 +61,9 @@ done
 
 Each device gets its own generated Thing and Dashboard from the one template — the core pattern for fleet-style rollouts.
 
-## Next Steps
+## Related Articles
 
-- [arduino-cloud-cli › Things](/arduino-cloud/apis-cli/cli-things)
+- [CLI Commands: Things](/arduino-cloud/apis-cli/cli-commands#things)
+- [CLI Commands: Templates](/arduino-cloud/apis-cli/cli-commands#templates)
 - [Custom Templates](/arduino-cloud/templates/custom-templates)
 - [Use Templates](/arduino-cloud/templates/use-templates)

@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Sketch, Reference]
 author: Karl Söderby & Arduino Team
 ---
 
-When you generate a sketch for an Arduino/C++ [Thing](/arduino-cloud/things-data/things), Arduino Cloud creates a small set of files that together connect your board to the Cloud and keep your [Cloud Variables](/arduino-cloud/things-data/cloud-variables) in sync. This page describes what each generated file is for. See [Sketches](/arduino-cloud/sketches-editor/sketchbook-and-sketches) for the editor workflow.
+When you generate a sketch for an Arduino®/C++ [Thing](/arduino-cloud/things-data/things), Arduino Cloud creates a small set of files that together connect your board to the Cloud and keep your [Cloud Variables](/arduino-cloud/things-data/cloud-variables) in sync. This page describes what each generated file is for. See [Sketches](/arduino-cloud/sketches-editor/sketchbook-and-sketches) for the editor workflow.
 
 ## The Sketch File (`.ino`)
 
@@ -79,7 +79,7 @@ Boards registered with Provisioning 2.0 get a `thingProperties.h` with the Netwo
 
 It is built from three parts:
 
-- **Configurator agents** handle the communication between the board and your PC or phone. The library provides `BLEAgent` (Bluetooth® LE) and `SerialAgent` (Serial over USB).
+- **Configurator agents** handle the communication between the board and your PC or phone. The library provides `BLEAgent` (Bluetooth LE) and `SerialAgent` (Serial over USB).
 - **A key-value store** that implements `KVStoreInterface` saves the configuration. Arduino provides the `Arduino_KVStore` library.
 - **A ConnectionHandler** manages the board's Internet connection.
 
@@ -119,7 +119,7 @@ After provisioning, you can remove parts of the NetworkConfigurator to save stor
 
 | Remove | Lines to Comment Out or Delete | Saves | Trade-Off |
 |---|---|---|---|
-| `BLEAgent` | The `BLEAgent.h` include, `BLEAgentClass BLEAgent;`, and `addAgent(BLEAgent)` | ~30 kB storage, ~2 kB memory | Credentials can no longer be changed over Bluetooth® LE. |
+| `BLEAgent` | The `BLEAgent.h` include, `BLEAgentClass BLEAgent;`, and `addAgent(BLEAgent)` | ~30 kB storage, ~2 kB memory | Credentials can no longer be changed over Bluetooth LE. |
 | `SerialAgent` | The `SerialAgent.h` include, `SerialAgentClass SerialAgent;`, and `addAgent(SerialAgent)` | ~1 kB | Credentials can no longer be changed over USB. |
 | NetworkConfigurator | All the lines shown in [Default Setup](#default-setup) | ~40 kB storage, ~2.9 kB memory | Credentials come from `arduino_secrets.h` again, and can only be changed by reflashing — not from the Arduino Cloud web page or the mobile app. |
 
@@ -131,11 +131,11 @@ WiFiConnectionHandler ArduinoIoTPreferredConnection(SECRET_SSID, SECRET_OPTIONAL
 
 ### Reconfiguration Pin
 
-When Provisioning 2.0 ends, the Bluetooth® LE interface is turned off. To restart it and update the network settings, the [Arduino_NetworkConfigurator](https://github.com/arduino-libraries/Arduino_NetworkConfigurator) library provides a reconfiguration procedure based on shorting two pins of the board. The default pin for each board is listed in [Resetting the Board Configuration](/arduino-cloud/devices/network-configuration#resetting-the-board-configuration).
+When Provisioning 2.0 ends, the Bluetooth LE interface is turned off. To restart it and update the network settings, the [Arduino_NetworkConfigurator](https://github.com/arduino-libraries/Arduino_NetworkConfigurator) library provides a reconfiguration procedure based on shorting two pins of the board. The default pin for each board is listed in [Resetting the Board Configuration](/arduino-cloud/devices/network-configuration#resetting-the-board-configuration).
 
 <Alert type="info">
 
-Internally, the pin designated for the procedure is set as `INPUT_PULLUP` (except for Arduino Opta), and it is attached to an ISR fired on every change of the pin's status.
+Internally, the pin designated for the procedure is set as `INPUT_PULLUP` (except for Arduino Opta®), and it is attached to an ISR fired on every change of the pin's status.
 
 </Alert>
 
@@ -154,12 +154,8 @@ NetworkConfigurator.setReconfigurePin(DISABLE_PIN);
 
 See [attachInterrupt()](https://docs.arduino.cc/language-reference/en/functions/external-interrupts/attachInterrupt/) for the pins usable for interrupts.
 
-## Next Steps
+## Related Articles
 
 - [Sketchbook & Sketches](/arduino-cloud/sketches-editor/sketchbook-and-sketches)
 - [Keep Secrets Out of Your Sketch](/arduino-cloud/sketches-editor/keep-secrets-out)
 - [Cloud Variable Types](/arduino-cloud/reference/cloud-variable-types)
-
-## Trademark Acknowledgments
-
-- **LoRa®** and **LoRaWAN®** are registered trademarks of Semtech Corporation.

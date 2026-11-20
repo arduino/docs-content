@@ -3,42 +3,46 @@ title: Add a LoRaWAN Device
 description: Provision an Arduino LoRaWAN board in Arduino Cloud through The Things Stack, including frequency plans and credentials.
 tags: [Arduino Cloud, LoRa, LoRaWAN, Devices]
 author: Karl Söderby & Arduino Team
-hardware:
-  - hardware/01.mkr/01.boards/mkr-wan-1300
-  - hardware/01.mkr/01.boards/mkr-wan-1310
 ---
 
-**LoRa®** connectivity is for long-range, low-power devices that communicate over a LoRaWAN® network through a gateway. When you provision a LoRaWAN® board in Arduino Cloud, it is automatically registered on [The Things Stack](https://www.thethingsindustries.com/stack/) (TTS), giving your device access to the network's thousands of public gateways. End devices can be placed in remote locations without an internet connection; they send data to a nearby gateway, which forwards it to Arduino Cloud through TTS. Data can also be sent in the opposite direction, from Arduino Cloud to the device.
+**LoRa®** connectivity is for long-range, low-power devices that communicate over a LoRaWAN network through a gateway. When you provision a LoRaWAN® board in Arduino® Cloud, it is automatically registered on [The Things Stack](https://www.thethingsindustries.com/stack/) (TTS), giving your device access to the network's thousands of public gateways. End devices can be placed in remote locations without an internet connection; they send data to a nearby gateway, which forwards it to Arduino Cloud through TTS. Data can also be sent in the opposite direction, from Arduino Cloud to the device.
 
 ## Terminology
 
-- **LoRa®**: short for **Lo**ng **Ra**nge, a modulation technique for sending and receiving data over low-power, wide-area networks (LPWAN).
-- **LoRa® gateway**: a network router that sends and receives LoRa® RF packets and forwards them to the internet.
+- **LoRa**: short for **Lo**ng **Ra**nge, a modulation technique for sending and receiving data over low-power, wide-area networks (LPWAN).
+- **LoRa gateway**: a network router that sends and receives LoRa RF packets and forwards them to the internet.
 - **End device (node)**: a deployed device, such as the MKR WAN 1310, that reads and processes sensor data.
-- **The Things Network (TTN)**: a nonprofit association providing a public LoRa®-based network.
+- **The Things Network (TTN)**: a nonprofit association providing a public LoRa-based network.
 - **The Things Industries (TTI)**: the company that runs The Things Network and offers private network services.
 - **The Things Stack (TTS)**: the network server platform used by TTN and TTI.
 - **The Things Stack Console**: the web console where you can see registered devices and incoming or outgoing data.
 - **Device EUI (DevEUI)**: a code that identifies your device.
 - **App EUI (AppEUI)**: a code that identifies your application.
 - **App Key (AppKey)**: the key used to encrypt and decrypt the payload.
-- **Frequency band**: LoRa® uses license-free frequencies that differ by region, for example 868 MHz in Europe and 915 MHz in North America.
+- **Frequency band**: LoRa uses license-free frequencies that differ by region, for example 868 MHz in Europe and 915 MHz in North America.
 
 Arduino Cloud stores the DevEUI, AppEUI and AppKey for you. You can also view them in The Things Stack Console.
+
+## Hardware & Software Needed
+
+- An [Arduino account](https://login.arduino.cc/login).
+- An MKR WAN 1300 or MKR WAN 1310 board with its antenna.
+- A USB cable that supports data transfer and the [Cloud Agent](/arduino-cloud/devices/cloud-agent) installed on your computer.
+- Coverage from a LoRaWAN gateway connected to The Things Network. Check the [TTN Map](https://www.thethingsnetwork.org/map).
 
 ## Supported Boards
 
 Per [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what): [MKR WAN 1300](https://docs.arduino.cc/hardware/mkr-wan-1300) and [MKR WAN 1310](https://docs.arduino.cc/hardware/mkr-wan-1310). They authenticate with `APP_EUI` + `APP_KEY` (LoRaWAN's own join credentials), defined in `thingProperties.h`.
 
-Third-party LoRaWAN® devices are also supported via **Devices → + Device → Compatible device → LoRaWAN**.
+Third-party LoRaWAN devices are also supported via **Devices → + Device → Compatible device → LoRaWAN**.
 
 <Alert type="note">
 
-LoRaWAN® data rates are limited. Restrict messages from a device to roughly once every several minutes. See [The Things Network limitations](https://www.thethingsnetwork.org/docs/lorawan/limitations/).
+LoRaWAN data rates are limited. Restrict messages from a device to roughly once every several minutes. See [The Things Network limitations](https://www.thethingsnetwork.org/docs/lorawan/limitations/).
 
 </Alert>
 
-LoRaWAN® devices don't report an online/offline device status in Arduino Cloud. Check data flow with the **Last Value / Last Update** of the Thing's variables instead (see [Device Status & Lifecycle](/arduino-cloud/devices/device-status-lifecycle)).
+LoRaWAN devices don't report an online/offline device status in Arduino Cloud. Check data flow with the **Last Value / Last Update** of the Thing's variables instead (see [Device Status & Lifecycle](/arduino-cloud/devices/device-status-lifecycle)).
 
 ## Connect the Antenna
 
@@ -46,7 +50,7 @@ Follow the wiring diagram below to connect the antenna to the MKR WAN 1300/1310 
 
 ![Connecting the antenna to the MKR WAN 1300/1310 board.](assets/lora-antenna.png)
 
-## Provisioning the Device
+## Add the Device
 
 1. Connect the board over USB with the antenna attached and the [Cloud Agent](/arduino-cloud/devices/cloud-agent) installed.
 2. Go to **Devices → + Device** and start the setup for your board. When detected, select **Configure**.
@@ -86,7 +90,7 @@ arduino-cloud-cli device list-frequency-plans
 arduino-cloud-cli device create-lora --name <deviceName> --frequency-plan <freqID> --port <port> --fqbn <deviceFqbn>
 ```
 
-See [Managing Devices from the CLI](/arduino-cloud/apis-cli/cli-devices).
+See [CLI Commands: Devices](/arduino-cloud/apis-cli/cli-commands#devices).
 
 ## The Things Stack Account
 
@@ -149,12 +153,8 @@ Then check that data is arriving:
 - Confirm that you uploaded the sketch to the board.
 - Confirm that you selected the correct frequency band for your region.
 
-## Next Steps
+## Related Articles
 
-- [Managing Devices from the CLI](/arduino-cloud/apis-cli/cli-devices)
+- [CLI Commands: Devices](/arduino-cloud/apis-cli/cli-commands#devices)
 - [Things & Data](/arduino-cloud/things-data/things)
 - [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections)
-
-## Trademark Acknowledgments
-
-- **LoRa®** is a registered trademark of Semtech Corporation.

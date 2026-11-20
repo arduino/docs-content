@@ -5,14 +5,9 @@ tags: [Arduino Cloud, Synchronization]
 author: Karl Söderby & Arduino Team
 ---
 
-Arduino Cloud can keep a [Cloud Variable](/arduino-cloud/things-data/cloud-variables) **synchronized across multiple devices or Things**. Update the value on one side — from a device or a dashboard — and every variable linked to it updates automatically, everywhere. This turns Arduino Cloud itself into the communication layer between boards: no direct radio link, no custom protocol.
+Arduino® Cloud can keep a [Cloud Variable](/arduino-cloud/things-data/cloud-variables) **synchronized across multiple devices or Things**. Update the value on one side — from a device or a dashboard — and every variable linked to it updates automatically, everywhere. This turns Arduino Cloud itself into the communication layer between boards: no direct radio link, no custom protocol.
 
 A typical use: one board's button press turns on an LED on a second, physically separate board. Both boards run the same kind of sketch; the sync does the cross-talk.
-
-## Requirements
-
-- Thing-to-Thing variable synchronization requires an Arduino Cloud **Maker** plan or higher. See [Plans & Feature Matrix](/arduino-cloud/reference/plans-feature-matrix).
-- Two Arduino Cloud compatible devices, each linked to its own Thing.
 
 ## Linking Variables Between Things
 
@@ -66,19 +61,7 @@ If the two sides don't react to each other, check that both devices are online (
 
 </Alert>
 
-## Example: Sync an Analog Value and a Boolean
-
-This example needs no external circuit, only two Arduino Cloud compatible devices (for example a Nano 33 IoT and a MKR WiFi 1010), named **Device_1** and **Device_2** to keep them apart.
-
-1. Create **Thing Number One**, linked to **Device_1**, with two read & write variables: `analog_value` (integer) and `boolean_sync` (boolean).
-2. In its sketch, add `analog_value = analogRead(A1);` inside `loop()`. With nothing connected, A1 floats and produces random values. Upload to **Device_1**.
-3. Create **Thing Number Two**, linked to **Device_2**. Use **Add Variable > Sync with other Things** to add `analog_value_2` synced with `analog_value`, and a second variable synced with `boolean_sync`.
-4. Upload the generated sketch to **Device_2** unchanged.
-5. On a dashboard, add a **Gauge** (Min 0, Max 1000) and a **Switch** for each Thing, linked to that Thing's variables.
-
-Both Gauges show the same value with a short delay, even though only **Device_1** reads it. Turning one Switch **ON** or **OFF** flips the other after a short pause.
-
-## Next Steps
+## Related Articles
 
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)
 - [Dashboards](/arduino-cloud/dashboards/dashboards)

@@ -22,7 +22,13 @@ You create Smart Folders from the list pages under **IoT Builder** in the left n
 | **Things** | **Asset name includes**, **Device Status**, **Device Type**, **Timezone**, and one rule per tag key used on your Things (for example **project**) |
 | **Devices** | **Asset name includes**, **Device Status**, **Device Type**, **Connection Type** |
 | **Dashboards** | **Asset name includes**, **Last Modified**, **Shared With**, **Created By** |
-| **Triggers** | Smart Folders are also available on the **Triggers** page, which requires a Maker plan or higher |
+| **Triggers** | Smart Folders are also available on the **Triggers** page, which requires a paid plan |
+
+<Alert type="note">
+
+The rules for the **Triggers** page weren't verified for this article, because Triggers aren't available on the Free plan used for testing.
+
+</Alert>
 
 ## Creating a Smart Folder
 
@@ -43,11 +49,11 @@ Arduino Cloud opens the new folder right away, with all matching resources in it
 
 ## Opening and Managing a Smart Folder
 
-Your Smart Folders are shown as cards at the top of their list page, with the folder name and the number of filters. Select a card to open the folder. Inside the folder, the breadcrumb shows its name (for example **Things > Greenhouse project**), and the active rules are listed below it.
+Your Smart Folders are shown as cards at the top of their list page, with the folder name and the number of filters. Select a card to open the folder. Inside the folder, the page title shows its name (for example **Things > Greenhouse project**), and the active rules are listed below it.
 
 ![A Smart Folder on the Things page, showing its rule and the matching Thing.](assets/smart-folder-view.png)
 
-To manage a folder, open the **⋮** menu on its card, or the dropdown next to its name in the breadcrumb. The card menu also lists the folder's **Filters**.
+To manage a folder, open the **⋮** menu on its card, or the menu next to the folder name at the top of the page. The card menu also lists the folder's **Filters**.
 
 ![The Smart Folder card menu, with its filter summary and the Duplicate, Edit, and Delete options.](assets/smart-folder-card-menu.png)
 
@@ -128,7 +134,7 @@ Every Thing that carries the same tag ends up in the same folder.
 | **Dashboards** | Dashboards shared with your team | **Shared With** |
 | **Dashboards** | Dashboards created by a specific person | **Created By** |
 
-## Next Steps
+## Related Articles
 
 - [Things](/arduino-cloud/things-data/things)
 - [Custom Templates](/arduino-cloud/templates/custom-templates)

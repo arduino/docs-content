@@ -7,7 +7,7 @@ author: Karl Söderby & Arduino Team
 
 Uploading over **USB** is the standard way to flash a sketch the first time a board is connected to your computer. Because browsers can't access serial ports directly, the [Cloud Agent](/arduino-cloud/devices/cloud-agent) bridges the Cloud Editor to the board.
 
-## Prerequisites
+## Hardware & Software Needed
 
 - The [Cloud Agent](/arduino-cloud/devices/cloud-agent) installed and running. The editor shows a reminder banner if it can't detect it.
 - The board connected over USB with a data-capable cable (some cables are power-only).
@@ -38,7 +38,7 @@ After one successful USB upload, a connected Wi-Fi® or Ethernet board can recei
 
 </Alert>
 
-## Next Steps
+## Related Articles
 
 - [Upload Over the Air](/arduino-cloud/sketches-editor/upload-over-the-air)
 - [Cloud Agent](/arduino-cloud/devices/cloud-agent)

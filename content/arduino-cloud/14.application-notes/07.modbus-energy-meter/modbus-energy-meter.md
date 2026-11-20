@@ -5,9 +5,9 @@ tags: [Arduino Cloud, Modbus, RS-485, Energy Meter, Tutorial]
 author: Officine Innesto, José Bagur
 ---
 
-In this project you'll connect a Modbus RS-485 energy meter to Arduino Cloud using an [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) and an [MKR 485 Shield](https://store.arduino.cc/arduino-mkr-485-shield), and chart live power consumption on a dashboard. Modbus over RS-485 is a common industrial protocol — robust over long cable runs — making this a practical pattern for real energy monitoring.
+In this project you'll connect a Modbus RS-485 energy meter to Arduino® Cloud using an [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) and an [MKR 485 Shield](https://store.arduino.cc/arduino-mkr-485-shield), and chart live power consumption on a dashboard. Modbus over RS-485 is a common industrial protocol — robust over long cable runs — making this a practical pattern for real energy monitoring.
 
-**What you need:**
+## Hardware & Software Needed
 
 - [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) and [MKR 485 Shield](https://store.arduino.cc/arduino-mkr-485-shield).
 - A Modbus-RTU energy meter with a documented register map (originally tested with a Finder Type 7E.64).
@@ -234,8 +234,8 @@ On a [Dashboard](/arduino-cloud/dashboards/dashboards), add a **Value**, **Chart
 
 ![Dashboard widgets charting the meter readings.](assets/dashboardWidgets.png)
 
-## Next Steps
+## Related Articles
 
-- [Add a Wi-Fi Board](/arduino-cloud/devices/add-wifi-board)
+- [Add a Wi-Fi® Board](/arduino-cloud/devices/add-wifi-board)
 - [Dashboards](/arduino-cloud/dashboards/dashboards)
 - [Historical Data Export](/arduino-cloud/things-data/historical-data-export)

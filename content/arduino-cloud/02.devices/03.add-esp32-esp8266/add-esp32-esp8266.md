@@ -5,13 +5,20 @@ tags: [Arduino Cloud, ESP32, ESP8266, Devices]
 author: Karl Söderby & Arduino Team
 ---
 
-Arduino Cloud supports a wide range of ESP32 and ESP8266 based boards. They connect over Wi-Fi® and are programmed in the Arduino language (C++), just like official boards — the difference is the authentication method, which uses a **Device ID** and **Secret Key** together with your Wi-Fi® credentials.
+Arduino® Cloud supports a wide range of ESP32 and ESP8266 based boards. They connect over Wi-Fi® and are programmed in the Arduino language (C++), just like official boards — the difference is the authentication method, which uses a **Device ID** and **Secret Key** together with your Wi-Fi® credentials.
 
 <Alert type="note">
 
 ESP32 and ESP8266 are third-party boards. Arduino Cloud supports both families, but cannot guarantee that every board built on these SoCs works.
 
 </Alert>
+
+## Hardware & Software Needed
+
+- An [Arduino account](https://login.arduino.cc/login).
+- An ESP32 or ESP8266 based board and a USB cable that supports data transfer.
+- The [Cloud Agent](/arduino-cloud/devices/cloud-agent) installed on your computer.
+- The name (SSID) and password of a 2.4 GHz Wi-Fi® network.
 
 ## Add the Device
 
@@ -89,7 +96,7 @@ Over-the-air (OTA) updates let you upload sketches remotely, without a USB conne
 
 Other ESP32 boards may also support OTA, but have not been verified.
 
-## Next Steps
+## Related Articles
 
 - [Add a Manual Device](/arduino-cloud/devices/add-manual-device)
 - [Arduino C++ Library](/arduino-cloud/device-libraries/arduino-cpp)

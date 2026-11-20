@@ -5,9 +5,9 @@ tags: [Arduino Cloud, Getting Started, Templates]
 author: Lenard George, Hannes Siebeneicher
 ---
 
-A **Template** is a pre-configured project. It bundles one or more Things and their variables with matching Dashboards and, where the project needs them, [Triggers](/arduino-cloud/automations/triggers-and-alerts). You can spin up a complete, working project in one step instead of building it by hand. Official templates cover common starter projects, such as "Cloud Blink," a simple remote LED switch, and are the fastest way to see Arduino Cloud end to end.
+A **Template** is a pre-configured project. It bundles one or more [Things](/arduino-cloud/things-data/things) and their [variables](/arduino-cloud/things-data/cloud-variables) with matching [Dashboards](/arduino-cloud/dashboards/dashboards) and, where the project needs them, [Triggers](/arduino-cloud/automations/triggers-and-alerts). You can spin up a complete, working project in one step instead of building it by hand. Official templates cover common starter projects, such as "Cloud Blink," a simple remote LED switch, and are the fastest way to see Arduino® Cloud end to end.
 
-## Before You Start
+## Hardware & Software Needed
 
 - An [Arduino account](https://login.arduino.cc/login).
 - A board that the template supports. Most templates use an Arduino Wi-Fi® board; each template page lists its compatible boards.
@@ -68,7 +68,7 @@ Once applied, the template's resources are regular, fully editable resources:
 - **The board does not connect after the upload**: check the network requirements in [Configure your network for Arduino Cloud](https://support.arduino.cc/hc/en-us/articles/360017279260-Configure-your-network-for-Arduino-Cloud) and the steps in [If your device can't be added or won't connect to Arduino Cloud](https://support.arduino.cc/hc/en-us/articles/360019355679-If-your-device-can-t-be-added-or-won-t-connect-to-Arduino-Cloud).
 - **"We were not able to upload the template sketch"**: follow the steps in the [Help Center article for this error](https://support.arduino.cc/hc/en-us/articles/4408887422994--We-were-not-able-to-upload-the-template-sketch-in-Arduino-Cloud).
 
-## Next Steps
+## Related Articles
 
 - [Quickstart: Your First IoT Project](/arduino-cloud/get-started/quickstart-first-project)
 - [Use Arduino Templates](/arduino-cloud/templates/use-templates) — the full reference, including custom templates

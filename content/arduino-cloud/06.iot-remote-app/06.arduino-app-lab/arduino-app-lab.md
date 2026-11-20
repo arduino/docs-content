@@ -7,7 +7,7 @@ author: Karl Söderby
 
 The IoT Remote app can stream your phone's sensors and camera directly to an [Arduino App Lab](/software/app-lab/) App running on your board. The App hosts a web interface that shows a QR code and a six-digit password: pair your phone with it, and the phone becomes a wireless sensor or camera for the App, for example to visualize motion data or to run object detection on a live video feed.
 
-Note that only Linux based boards are supported (see [Hardware & Software Needed section](#hardware--software-needed))
+Note that only Linux® based boards are supported (see [Hardware & Software Needed section](#hardware--software-needed))
 
 <Alert type="info">
 
@@ -19,8 +19,8 @@ To learn more about using the IoT Remote App with Arduino App Lab, read the [IoT
 ## Hardware & Software Needed
 
 The following boards are supported:
-- [Arduino® UNO™ Q](https://store.arduino.cc/products/uno-q) or
-- [Arduino® VENTUNO™ Q](https://store.arduino.cc/products/ventuno-q)
+- [Arduino® UNO Q](https://store.arduino.cc/products/uno-q) or
+- [Arduino® VENTUNO Q](https://store.arduino.cc/products/ventuno-q)
 
 To run the App, you will also need to download the Arduino App Lab:
 - [Download Arduino App Lab](https://www.arduino.cc/en/software/#app-lab-section)
@@ -59,7 +59,7 @@ This example uses your phone as a remote camera. The video stream is processed o
 
 - [Detect Objects on Smartphone Camera on GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/mobile-video-generic-object-detection)
 
-## Next Steps
+## Related Articles
 
 - [Use Your Phone as a Device](/arduino-cloud/iot-remote-app/use-phone-as-device)
 - [Arduino App Lab - IoT Remote App](/software/app-lab/integrations/companion-app/)

@@ -76,7 +76,7 @@ When a dashboard has more than one page, you switch between them while viewing i
 
 A dashboard with only one page doesn't show the page sidebar in view mode. In a narrow browser window, the web app replaces the sidebar with a page selector at the bottom-left of the dashboard.
 
-## Next Steps
+## Related Articles
 
 - [Add & Link Widgets](/arduino-cloud/dashboards/add-link-widgets)
 - [Working With Dashboards](/arduino-cloud/dashboards/dashboards)

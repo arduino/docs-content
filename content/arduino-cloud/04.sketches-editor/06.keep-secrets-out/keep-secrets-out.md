@@ -24,11 +24,17 @@ An optional-value convention also exists — `SECRET_OPTIONAL_PASS` for values s
 | Action | Result |
 |---|---|
 | **Share via URL** | The Secrets tab's values are blank for anyone else opening the link. |
-| **Download** | An `arduino_secrets.h` file is generated inside the `.zip`, ready to fill in again if you open it in the offline Arduino IDE. |
+| **Download** | An `arduino_secrets.h` file is generated inside the `.zip`, ready to fill in again if you open it in the offline Arduino® IDE. |
 
 This is the same `arduino_secrets.h` pattern used when provisioning boards manually.
 
-## Next Steps
+<Alert type="warning">
+
+The Secrets tab is not an encrypted vault. Secret values are stored as plain text in your sketch. They are hidden from the people you share the sketch with, but they are visible to anyone who is logged in to your account and opens the sketch in your sketchbook.
+
+</Alert>
+
+## Related Articles
 
 - [Share & Embed Sketches](/arduino-cloud/sketches-editor/share-embed-sketches)
 - [Collaborative Coding](/arduino-cloud/sketches-editor/collaborative-coding)

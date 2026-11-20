@@ -59,7 +59,7 @@ void loop() {
 
 With the widget set to **Live**, the device's current location is marked with a pin, and a track is drawn from its previous location to the new one as updates arrive. Selecting a time range instead of Live shows only the locations logged during that window — click the calendar icon to pick a starting and ending date/time for the range to display.
 
-## Next Steps
+## Related Articles
 
 - [Plot Multiple Variables on One Chart](/arduino-cloud/dashboards/multiple-variable-chart)
 - [Widget Catalog](/arduino-cloud/reference/widget-catalog)

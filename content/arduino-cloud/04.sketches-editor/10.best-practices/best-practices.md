@@ -38,7 +38,7 @@ The first version blocks for two seconds between updates, degrading cloud commun
 
 ## The Watchdog Timer
 
-Arduino Cloud sketches enable a **Watchdog Timer (WDT)** by default on boards that support it. The WDT resets the board if it stops responding; it's kept alive by the regular `ArduinoCloud.update()` calls in `loop()`. This is the main reason long blocking code is discouraged — a long `delay()` can let the WDT expire and reset the board mid-operation.
+Arduino® Cloud sketches enable a **Watchdog Timer (WDT)** by default on boards that support it. The WDT resets the board if it stops responding; it's kept alive by the regular `ArduinoCloud.update()` calls in `loop()`. This is the main reason long blocking code is discouraged — a long `delay()` can let the WDT expire and reset the board mid-operation.
 
 To disable the watchdog, pass `false` to `begin()`:
 
@@ -75,7 +75,7 @@ Serial.begin(9600);
 delay(1500);
 ```
 
-## Next Steps
+## Related Articles
 
 - [Arduino C++ Library](/arduino-cloud/device-libraries/arduino-cpp)
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)

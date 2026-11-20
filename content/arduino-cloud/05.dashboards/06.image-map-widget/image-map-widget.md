@@ -9,7 +9,7 @@ The **Image Map** widget places live data on top of an image of your choice. Upl
 
 <Alert type="note">
 
-**Availability:** Image Map is one of the advanced dashboard widgets and requires a paid plan, from Maker upward (see the [Plans Feature Matrix](/arduino-cloud/reference/plans-feature-matrix)). On a Free plan, its card in the widget picker shows "Upgrade to unlock widget" and can't be added.
+**Availability:** Image Map is one of the advanced dashboard widgets and requires a paid plan, from Maker upward (see the [Arduino Cloud Plans](https://cloud.arduino.cc/plans)). On a Free plan, its card in the widget picker shows "Upgrade to unlock widget" and can't be added.
 
 </Alert>
 
@@ -92,9 +92,9 @@ In view mode, the widget shows the image with all of its markers:
 | Machine or production line diagram | Motor speed, status, and error values at each stage, with labels linking to maintenance documents |
 | Classroom map | Sensor readings from each group's project at their table |
 
-## Next Steps
+## Related Articles
 
 - [Add & Link Widgets](/arduino-cloud/dashboards/add-link-widgets)
 - [Widget Catalog](/arduino-cloud/reference/widget-catalog)
-- [Plans Feature Matrix](/arduino-cloud/reference/plans-feature-matrix)
+- [Arduino Cloud Plans](https://cloud.arduino.cc/plans)
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)

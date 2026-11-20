@@ -43,7 +43,7 @@ A read-only variable linked to an interaction widget renders as display-only. Se
 
 In edit mode, select any widget to open its floating toolbar — settings, duplicate, delete, and close. The settings (gear) icon is also where you change or re-link its variable later.
 
-## Next Steps
+## Related Articles
 
 - [Widget Catalog](/arduino-cloud/reference/widget-catalog)
 - [Multiple-Variable Chart](/arduino-cloud/dashboards/multiple-variable-chart)

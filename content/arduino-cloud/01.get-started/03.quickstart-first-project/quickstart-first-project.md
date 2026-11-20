@@ -5,15 +5,15 @@ tags: [Arduino Cloud, Getting Started, Quickstart]
 author: Karl Söderby & Arduino Team
 ---
 
-This quickstart walks an official Arduino board with built-in connectivity (Wi-Fi®, Ethernet, or Cellular) from nothing to a working, controllable Cloud project. It's the shortest complete path through the platform; each step links to the reference page with the full detail.
+This quickstart walks an official Arduino® board with built-in connectivity (Wi-Fi®, Ethernet, or Cellular) from nothing to a working, controllable Cloud project. It's the shortest complete path through the platform; each step links to the reference page with the full detail.
 
 <Alert type="info">
 
-Using an ESP32/ESP8266, a Python/MicroPython/JavaScript client, or a LoRaWAN® device? The concepts are identical, but the setup differs — see [Choose Your Setup Path](/arduino-cloud/get-started/choose-your-setup-path).
+Using an ESP32/ESP8266, a Python®/MicroPython/JavaScript client, or a LoRaWAN® device? The concepts are identical, but the setup differs — see [Choose Your Setup Path](/arduino-cloud/get-started/choose-your-setup-path).
 
 </Alert>
 
-## What You Need
+## Hardware & Software Needed
 
 - An official Arduino board with built-in connectivity, for example a UNO R4 WiFi, Nano ESP32, Nano 33 IoT, or MKR WiFi 1010. See [Supported Boards & Capabilities](/arduino-cloud/reference/supported-boards-capabilities).
 - A USB cable that supports data transfer and fits your board.
@@ -32,7 +32,7 @@ Connect your board to your computer over USB, then open [Devices](/arduino-cloud
 
 <Alert type="info">
 
-A **Secret Key** is only shown for devices you set up manually without a secure element, such as third-party ESP32/ESP8266 boards and Python, MicroPython or JavaScript clients. Official boards without a secure element, such as UNO R4 WiFi and Nano ESP32, also use a Secret Key, but the setup wizard configures it for you. See [Devices Overview](/arduino-cloud/devices/devices-overview#device-identity-and-credentials).
+A **Secret Key** is only generated for devices without a secure element that you set up manually, such as third-party ESP32/ESP8266 boards and Python, MicroPython or JavaScript clients. See [Devices Overview](/arduino-cloud/devices/devices-overview#device-identity-and-credentials).
 
 </Alert>
 
@@ -51,7 +51,7 @@ Your board needs network credentials to reach Arduino Cloud. How you enter them 
 - **Provisioning 2.0** boards (for example, UNO R4 WiFi, Nano 33 IoT, MKR WiFi 1010, GIGA R1 WiFi): the wizard asks for the Wi-Fi® network name (SSID) and password and stores them on the board.
 - **Provisioning 1.0** boards (for example, Nano ESP32): after you associate the device with a Thing in the next step, open the **Network** section on the device page and enter the Wi-Fi® SSID and password. The credentials are saved in the sketch's secrets file.
 
-Arduino Cloud boards only connect to 2.4 GHz Wi-Fi® networks. See [Supported Wi-Fi Frequencies](/arduino-cloud/reference/supported-wifi-frequencies).
+Arduino Cloud boards only connect to 2.4 GHz Wi-Fi® networks. See [Add a Wi-Fi® Board](/arduino-cloud/devices/add-wifi-board).
 
 ## Step 3 — Create a Thing and Add a Variable
 
@@ -140,7 +140,18 @@ Select **Done** to leave edit mode. The Switch is now live on the dashboard:
 
 Install the [Arduino IoT Remote app](/arduino-cloud/iot-remote-app/iot-remote-app-overview) on your phone and sign in with the same Arduino account. Your dashboard appears in the app's dashboard list. Open it and toggle the switch to control the LED from your phone.
 
-## Next Steps
+## Check That Everything Works
+
+Your first project is complete when all of the following are true:
+
+- The device is listed as **Online** in **Devices**.
+- Toggling the **Switch** on the dashboard turns the board's LED on and off.
+- The `led` variable on the Thing shows the latest value and the time it was updated.
+- The same dashboard opens in the IoT Remote app and controls the LED from your phone.
+
+If one of these checks fails, see [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections).
+
+## Related Articles
 
 - [Start From a Template](/arduino-cloud/get-started/start-from-a-template) — set up a complete project in one step
 - [Dashboards](/arduino-cloud/dashboards/dashboards) — add more widgets

@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Integrations]
 author: Karl Söderby & Arduino Team
 ---
 
-Arduino Cloud connects to external services in several different ways, each suited to a different goal — exposing a variable to a voice assistant, pushing every update to an automation platform, pulling data into a flow editor, or exporting long-term history to your own data store. This page compares the options so you can pick the right one before diving into its setup page.
+Arduino® Cloud connects to external services in several different ways, each suited to a different goal — exposing a variable to a voice assistant, pushing every update to an automation platform, pulling data into a flow editor, or exporting long-term history to your own data store. This page compares the options so you can pick the right one before diving into its setup page.
 
 ## Choosing an Integration
 
@@ -17,7 +17,7 @@ Arduino Cloud connects to external services in several different ways, each suit
 | [Node-RED](/arduino-cloud/integrations/node-red) | Cloud ⇄ flow | Custom logic, notifications, bridging to other systems | Paid |
 | [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3) | Cloud → store | Long-term CSV export of time-series data | Paid / Business |
 | [The Things Stack](/arduino-cloud/integrations/the-things-stack) | Network → Cloud | Bringing LoRaWAN® device data into the Cloud | Free |
-| [PLC IDE](/arduino-cloud/integrations/plc-ide) | Device → Cloud | Connecting industrial PLC projects to the Cloud | Varies |
+| [PLC IDE](/arduino-cloud/integrations/plc-ide) | Device ⇄ Cloud | Connecting industrial PLC projects to the Cloud | Varies |
 
 ## Voice Assistants
 
@@ -33,9 +33,9 @@ Arduino Cloud connects to external services in several different ways, each suit
 
 ## Data Export and Networks
 
-The [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3) periodically writes aggregated time-series data to an S3 bucket as CSV, for warehousing and offline analysis. [The Things Stack](/arduino-cloud/integrations/the-things-stack) is the LoRaWAN® network server used when [adding a LoRaWAN® device](/arduino-cloud/devices/add-lorawan-device).
+The [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3) periodically writes aggregated time-series data to an S3 bucket as CSV, for warehousing and offline analysis. [The Things Stack](/arduino-cloud/integrations/the-things-stack) is the LoRaWAN network server used when [adding a LoRaWAN® device](/arduino-cloud/devices/add-lorawan-device).
 
-## Next Steps
+## Related Articles
 
 - [Amazon Alexa](/arduino-cloud/integrations/amazon-alexa)
 - [Webhooks](/arduino-cloud/automations/webhooks)

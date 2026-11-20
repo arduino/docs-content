@@ -6,9 +6,9 @@ author: Karl Söderby & Arduino Team
 featuredImage: 'cloud'
 ---
 
-In this project you'll combine an [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) with an [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield) to record temperature, humidity, pressure, and illuminance, then stream it live to an Arduino Cloud dashboard. It's a compact, self-contained environmental logger you can read from anywhere.
+In this project you'll combine an [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) with an [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield) to record temperature, humidity, pressure, and illuminance, then stream it live to an Arduino® Cloud dashboard. It's a compact, self-contained environmental logger you can read from anywhere.
 
-**What you need:**
+## Hardware & Software Needed
 
 - [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010).
 - [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield), mounted on the board.
@@ -88,8 +88,8 @@ On a [Dashboard](/arduino-cloud/dashboards/dashboards), add a Value, Gauge, or C
 
 ![The environmental dashboard with a widget per reading.](assets/dashboard.png)
 
-## Next Steps
+## Related Articles
 
-- [Add a Wi-Fi Board](/arduino-cloud/devices/add-wifi-board)
+- [Add a Wi-Fi® Board](/arduino-cloud/devices/add-wifi-board)
 - [Dashboards](/arduino-cloud/dashboards/dashboards)
 - [Historical Data Export](/arduino-cloud/things-data/historical-data-export)

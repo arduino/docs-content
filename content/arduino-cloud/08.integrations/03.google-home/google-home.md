@@ -6,7 +6,7 @@ author: Hannes Siebeneicher
 featuredImage: 'cloud'
 ---
 
-Arduino Cloud integrates with Google Home, exposing compatible Cloud Variables as smart home devices controllable through Google Assistant voice commands, the Google Home app, or Google Home routines.
+Arduino® Cloud integrates with Google Home, exposing compatible Cloud Variables as smart home devices controllable through Google Assistant voice commands, the Google Home app, or Google Home routines.
 
 ## Enabling a Variable for Google Home
 
@@ -55,7 +55,7 @@ In the Google Home app: **Devices → Add Device → Works with Google Home**, t
 
 Link your Arduino account if prompted, then add each Google-Home-enabled Cloud Variable as its own device, assigning it to a room. From that point on, it responds to voice commands ("Hey Google, turn on ...") the same way any other Google Home smart device does.
 
-## Next Steps
+## Related Articles
 
 - [Amazon Alexa](/arduino-cloud/integrations/amazon-alexa)
 - [Things & Data](/arduino-cloud/things-data/things)

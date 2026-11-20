@@ -98,7 +98,7 @@ If your daily bars are close to or above the limit line:
 - Send updates less often from those Things. For example, set a [Cloud Variable](/arduino-cloud/things-data/cloud-variables#update-policy)'s **Update Policy** to **Periodically** with a longer interval, or raise the change threshold of an **On change** variable so small fluctuations aren't sent.
 - If your project needs the data volume, consider upgrading the space to a plan with a higher limit (see [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas)).
 
-## Next Steps
+## Related Articles
 
 - [Spaces Overview](/arduino-cloud/spaces-plans-account/spaces-overview)
 - [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas)
