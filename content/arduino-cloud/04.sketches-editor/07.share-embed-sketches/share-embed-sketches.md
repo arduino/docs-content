@@ -23,6 +23,8 @@ Open a sketch and select **Share** (next to the Serial Monitor tool). The dialog
 <iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 ```
 
+<!--the code snippet above gets formatted weirdly, they are all getting a red font color which makes it difficult to read. Can we add a / or similar to make the formatting be ignored?-->
+
 ## Iframe Parameters
 
 Append parameters to the `src` URL to control how the embedded sketch renders.

@@ -17,13 +17,13 @@ info:
     {
       icon: IconCLI,
       title: Choose Your Setup Path,
-      description: Find the right setup for Arduino boards, ESP32/ESP8266, LoRaWAN® devices and software clients.,
+      description: 'Find the right setup for Arduino boards, ESP32/ESP8266, LoRaWAN® devices and software clients.',
       link: /arduino-cloud/get-started/choose-your-setup-path,
     },
     {
       icon: IconBooks,
       title: Start From a Template,
-      description: Create a complete, working project from a ready-made template in one step.,
+      description: 'Create a complete, working project from a ready-made template in one step.',
       link: /arduino-cloud/get-started/start-from-a-template,
     },
   ]

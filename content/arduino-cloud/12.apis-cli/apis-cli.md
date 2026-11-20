@@ -1,4 +1,4 @@
 ---
-title: Cloud Management APIs & CLI
+title: Cloud Management
 icon: IconTerminal
 ---

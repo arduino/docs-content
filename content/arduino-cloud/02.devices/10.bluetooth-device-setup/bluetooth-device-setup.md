@@ -26,7 +26,7 @@ You can run the Bluetooth setup from two places:
 | UNO R4 WiFi | Requires Wi-Fi® firmware 0.6.0 or later |
 | GIGA R1 WiFi | |
 | Opta® | |
-| Portenta H7 | May first need to be [made compatible with Bluetooth® setup](#make-a-board-compatible-with-bluetooth-setup) |
+| Portenta H7 | May first need to be made compatible with Bluetooth® setup |
 | Nicla Vision | May first need to be made compatible with Bluetooth setup |
 | MKR WiFi 1010 | May first need to be made compatible with Bluetooth setup |
 | Nano 33 IoT | May first need to be made compatible with Bluetooth setup |

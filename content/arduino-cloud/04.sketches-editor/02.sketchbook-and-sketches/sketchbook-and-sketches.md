@@ -44,6 +44,8 @@ A sketch is generated when you either select **Generate Sketch**, or associate a
 
 ![A generated sketch open in the editor.](assets/sketch-editor.png)
 
+<!--images like the one above is osmetimes difficult to differentiate, since there is no 'border'. Can we find a solution for this?-->
+
 - **`<thing-name>_<date>.ino`** — your main file, pre-filled with `initProperties()`, `ArduinoCloud.begin(...)`, and `ArduinoCloud.update()`. Add your own logic here.
 - **`thingProperties.h`** — auto-generated and auto-maintained; it declares every Cloud Variable and connection setting. Don't hand-edit it — it's regenerated whenever you change variables, device, or network settings.
 - **`ReadMe.adoc`** — short notes about the sketch.

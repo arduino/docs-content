@@ -226,7 +226,11 @@ double readEnergy() {
 }
 ```
 
-> The register addresses and scaling above are for the Finder Type 7E.64. A different meter model will use a different register map — consult its datasheet and adjust the addresses, word counts, and divisors accordingly.
+<Alert type="note">
+
+The register addresses and scaling above are for the Finder Type 7E.64. A different meter model will use a different register map — consult its datasheet and adjust the addresses, word counts, and divisors accordingly.
+
+</Alert>
 
 ## Step 5 — Chart the Consumption
 

@@ -5,6 +5,8 @@ tags: [Arduino Cloud, Troubleshooting, FAQ, Reference]
 author: Karl Söderby & Arduino Team
 ---
 
+<!--has this been double checked with Help Center articles and Seb?-->
+
 Quick answers to the most common Arduino® Cloud questions and issues. For the full device connection walkthrough, see [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections).
 
 ## Devices
