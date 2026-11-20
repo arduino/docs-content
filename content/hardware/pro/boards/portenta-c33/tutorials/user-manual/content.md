@@ -84,7 +84,7 @@ The complete datasheet is available and downloadable as PDF from the link below:
 
 The complete schematics are available and downloadable as PDF from the link below:
 
-- [Portenta C33 schematics](https://docs.arduino.cc/static/d7e16a6657c086a034a14a6619cffe7b/ABX00074-schematics.pdf)
+- [Portenta C33 schematics](/resources/schematics/ABX00074-schematics.pdf)
 
 ### STEP Files
 
