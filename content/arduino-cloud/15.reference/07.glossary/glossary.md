@@ -7,6 +7,8 @@ author: Karl Söderby & Arduino Team
 
 Short definitions of the core Arduino® Cloud concepts, each linking to its main documentation page.
 
+<!--suggestion is to format similar to App Lab: https://docs.arduino.cc/software/app-lab/getting-started/glossary/. This way people could find the words by using the page tree-->
+
 ## A–C
 
 - **Cloud Agent** — A small local application that lets the browser talk to a board plugged into your computer over USB, for provisioning and uploads. See [Cloud Agent](/arduino-cloud/devices/cloud-agent).

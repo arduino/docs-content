@@ -20,6 +20,7 @@ You don't need dedicated hardware to start streaming data to Arduino® Cloud: yo
 3. In **Setup a new Device**, select **Phone as Device**.
 
    ![The Setup a new Device screen, with the Phone as Device option.](assets/iot-remote-setup-device.png)
+   <!--these images are very long, vertically. Can we edit them so that they are smaller? Right now they are taking up my entire screen.-->
 
 4. Allow the permissions the app asks for, such as access to your location.
 

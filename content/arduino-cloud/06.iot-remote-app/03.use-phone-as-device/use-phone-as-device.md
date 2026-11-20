@@ -31,6 +31,8 @@ Using your phone as a device is available only in your personal account (private
 
    ![The location permission request while the IoT system is created.](assets/iot-remote-location.png)
 
+   <!--update map placement maybe?-->
+
 5. Wait while the app creates the IoT system for your phone: the device, the Thing, its variables, and the dashboard.
 
    ![The app creating the device, Thing, variables, and dashboard.](assets/iot-remote-setup-2.png)

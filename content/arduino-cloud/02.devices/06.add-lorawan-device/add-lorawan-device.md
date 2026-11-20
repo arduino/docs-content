@@ -61,11 +61,11 @@ Follow the wiring diagram below to connect the antenna to the MKR WAN 1300/1310 
 
    ![Selecting a frequency band.](assets/frequency-band.png)
 
-<Alert type="warning">
+  <Alert type="warning">
 
-Select the correct band for your country. Transmitting on the wrong frequency may have legal consequences — it is your responsibility to choose correctly. See [frequencies by country](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/).
+  Select the correct band for your country. Transmitting on the wrong frequency may have legal consequences — it is your responsibility to choose correctly. See [frequencies by country](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/).
 
-</Alert>
+  </Alert>
 
 4. Name the device and finish. Arduino Cloud registers it on The Things Stack automatically.
 

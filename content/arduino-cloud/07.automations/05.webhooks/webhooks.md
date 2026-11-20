@@ -44,6 +44,8 @@ Every update to any variable on that Thing is then sent to that URL as an HTTP P
 }
 ```
 
+<!--this is formatted as purple font color, and doesn't show good. Not sure if that's just the json being weirdly formatted-->
+
 Arduino® Cloud shares five sets of values through the webhook:
 
 - `event_id`: a unique ID for this webhook event.
