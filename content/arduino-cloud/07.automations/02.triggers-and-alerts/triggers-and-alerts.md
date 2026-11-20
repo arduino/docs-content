@@ -42,8 +42,6 @@ To see all your Triggers, select **Triggers** in the left navigation menu. The *
 
 ![The Triggers page, listing a device status Trigger and a variable Trigger with their actions and state.](assets/trigger-overview.png)
 
-<!--you are showing your email here @karl in this image-->
-
 You can also work with the Triggers that belong to a single Thing: open the Thing and select the Triggers tab. The **Associated Triggers** list shows the Thing's Triggers, and **+ Create New** adds a new one that is already associated with the Thing.
 
 ## Creating a Trigger

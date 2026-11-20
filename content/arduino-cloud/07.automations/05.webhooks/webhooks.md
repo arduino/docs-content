@@ -17,7 +17,7 @@ Enter a target URL in the Thing's Metadata panel, under **Data Forwarding (Webho
 
 Every update to any variable on that Thing is then sent to that URL as an HTTP POST request with a JSON body:
 
-```json
+```text
 {
   "event_id": "EVENT_UUID",
   "webhook_id": "WEBHOOK_ID",
@@ -43,8 +43,6 @@ Every update to any variable on that Thing is then sent to that URL as an HTTP P
   ]
 }
 ```
-
-<!--this is formatted as purple font color, and doesn't show good. Not sure if that's just the json being weirdly formatted-->
 
 Arduino® Cloud shares five sets of values through the webhook:
 

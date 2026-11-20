@@ -5,17 +5,15 @@ tags: [Arduino Cloud, Troubleshooting, FAQ, Reference]
 author: Karl Söderby & Arduino Team
 ---
 
-<!--has this been double checked with Help Center articles and Seb?-->
-
 Quick answers to the most common Arduino® Cloud questions and issues. For the full device connection walkthrough, see [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections).
 
 ## Devices
 
 **My device won't provision over USB.**
-Confirm the [Cloud Agent](/arduino-cloud/devices/cloud-agent) is installed and running, try a different USB cable/port, and make sure no other app (e.g. the Serial Monitor) is holding the port.
+Confirm the [Cloud Agent](/arduino-cloud/devices/cloud-agent) is installed and running, try a different USB cable/port, and make sure no other app (e.g. the Serial Monitor) is holding the port. For the full checklist, see [Device Can't Be Added](/arduino-cloud/devices/troubleshoot-device-connections#device-cant-be-added).
 
 **My device shows as offline.**
-Check that its network credentials are correct, that it's within Wi-Fi® range on a 2.4 GHz network (see [Add a Wi-Fi® Board](/arduino-cloud/devices/add-wifi-board)), and that the sketch calls `ArduinoCloud.update()` every loop.
+Check that its network credentials are correct, that it's within Wi-Fi® range on a 2.4 GHz network (see [Add a Wi-Fi® Board](/arduino-cloud/devices/add-wifi-board)), and that the sketch calls `ArduinoCloud.update()` every loop without long blocking delays. For more checks, see [Device Shows Offline](/arduino-cloud/devices/troubleshoot-device-connections#device-shows-offline).
 
 **Where do I find my Device ID and Secret Key?**
 The Device ID is on the device's page; the Secret Key is shown only once at creation and can't be retrieved or regenerated. If you lose it, delete the device and add it again. See [Device Identity & Secrets](/arduino-cloud/security-privacy/device-identity-secrets).

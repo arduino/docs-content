@@ -16,7 +16,7 @@ Arduino® Cloud supports many kinds of hardware and clients, and each has a slig
 | An Arduino Ethernet board or shield | [Add an Ethernet Board](/arduino-cloud/devices/add-ethernet-board) |
 | A cellular board (SIM-based) | [Add a Cellular Board](/arduino-cloud/devices/add-cellular-board) |
 | A LoRaWAN® device | [Add a LoRaWAN Device](/arduino-cloud/devices/add-lorawan-device) |
-| An Arduino UNO Q | [Add an UNO Q or VENTUNO Q](/arduino-cloud/devices/add-uno-q) |
+| An Arduino UNO Q | [Add an UNO Q or VENTUNO Q](/arduino-cloud/devices/add-q-boards) |
 | A board running MicroPython | [Add a Manual Device](/arduino-cloud/devices/add-manual-device), then [MicroPython](/arduino-cloud/device-libraries/micropython) |
 | A computer or single-board computer running Python® | [Add a Manual Device](/arduino-cloud/devices/add-manual-device), then [Python](/arduino-cloud/device-libraries/python) |
 | A JavaScript or Node.js application | [Add a Manual Device](/arduino-cloud/devices/add-manual-device), then [JavaScript / Node.js](/arduino-cloud/device-libraries/javascript-nodejs) |

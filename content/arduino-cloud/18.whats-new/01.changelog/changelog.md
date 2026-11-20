@@ -50,7 +50,7 @@ The IoT Remote app for Android has been migrated to Android 17 and supports the 
 
 UNO Q and VENTUNO Q boards are now connected to Arduino Cloud directly from Arduino App Lab. Select **Connect** in the Cloud section of the device settings, choose a space, and the board is provisioned automatically, with no Device ID or Secret Key to copy.
 
-[Learn more: Add an UNO Q or VENTUNO Q](/arduino-cloud/devices/add-uno-q)
+[Learn more: Add an UNO Q or VENTUNO Q](/arduino-cloud/devices/add-q-boards)
 
 ## June 2026
 

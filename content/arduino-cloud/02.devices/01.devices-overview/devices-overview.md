@@ -35,7 +35,7 @@ If you lose the Secret Key, delete the device and add it again to generate a new
 | Official Arduino (Cellular) | GSM / LTE-M / NB-IoT | [Add a Cellular Board](/arduino-cloud/devices/add-cellular-board) |
 | Official Arduino (LoRaWAN) | LoRaWAN | [Add a LoRaWAN Device](/arduino-cloud/devices/add-lorawan-device) |
 | Third-party (ESP32 / ESP8266) | Wi-Fi® | [Add an ESP32/ESP8266](/arduino-cloud/devices/add-esp32-esp8266) |
-| UNO Q / VENTUNO Q (Linux®) | Wi-Fi® (via Arduino App Lab) | [Add an UNO Q or VENTUNO Q](/arduino-cloud/devices/add-uno-q) |
+| UNO Q / VENTUNO Q (Linux®) | Wi-Fi® (via Arduino App Lab) | [Add an UNO Q or VENTUNO Q](/arduino-cloud/devices/add-q-boards) |
 | Manual / generic | Software client | [Add a Manual Device](/arduino-cloud/devices/add-manual-device) |
 
 ## Adding a Device

@@ -5,17 +5,13 @@ tags: [Arduino Cloud, Troubleshooting, Devices]
 author: Karl Söderby & Arduino Team
 ---
 
-<!--Has this tutorial been double checked with the material we have on Help Center - and created with Sebastian?-->
-
 When a device won't connect, the cause is usually in one of a few places: the USB bridge, the network credentials, the board's stored configuration, or the prerequisites for a specific feature. This page groups the most common problems by symptom.
 
 ## Device Can't Be Added
 
-The browser reaches a board through the [Cloud Agent](/arduino-cloud/devices/cloud-agent). If a connected board doesn't appear in the setup wizard or Cloud Editor, or the setup fails, try these steps in order.
+The browser reaches a board through the [Cloud Agent](/arduino-cloud/devices/cloud-agent). If a connected board doesn't appear in the setup wizard or Cloud Editor, or the setup fails, work through the steps below in order, from the simplest checks to the more advanced fixes. Stop as soon as the board is detected.
 
 ### 1. Quick Checks
-
-<!--Are these headings supposed to be step by step, follow one after the other? If not, remove the numbers from the headings.-->
 
 1. Disconnect and reconnect the board, and allow the connection if prompted.
 2. Check that the board is powered: its power LED should be on. The Arduino® Opta® has no power LED, so it may be powered even if no LEDs are lit.

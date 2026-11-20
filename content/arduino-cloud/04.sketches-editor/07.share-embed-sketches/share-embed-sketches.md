@@ -19,11 +19,9 @@ Open a sketch and select **Share** (next to the Serial Monitor tool). The dialog
 
 ![Embed in HTML code](./assets/Embed_1.png)
 
-```html
+```text
 <iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 ```
-
-<!--the code snippet above gets formatted weirdly, they are all getting a red font color which makes it difficult to read. Can we add a / or similar to make the formatting be ignored?-->
 
 ## Iframe Parameters
 
@@ -40,7 +38,7 @@ Append parameters to the `src` URL to control how the embedded sketch renders.
 
 Combine parameters with `&`, for example:
 
-```html
+```text
 <iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet&scope=L3-L30&hide-numbers" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 ```
 
@@ -48,13 +46,13 @@ Combine parameters with `&`, for example:
 
 The default dimensions are set in the iframe `style` attribute:
 
-```html
+```text
 style="height:510px;width:100%;margin:10px 0"
 ```
 
 Change them to resize the widget, e.g. a smaller, half-width embed:
 
-```html
+```text
 <iframe src="https://app.arduino.cc/sketches/examples?eid=01.Basics%2FBlink&view-mode=snippet" style="height:200px;width:50%;margin:10px 0" frameborder="0"></iframe>
 ```
 
@@ -62,7 +60,7 @@ Change them to resize the widget, e.g. a smaller, half-width embed:
 
 To let sketches resize automatically, include the resizer script once in your HTML and add the `arduino-sketch-iframe` class to the iframe element:
 
-```html
+```text
 <script src="https://content.arduino.cc/assets/arduinoSketchIframeResizer.js"></script>
 ```
 

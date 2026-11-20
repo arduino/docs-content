@@ -27,15 +27,13 @@ Using your phone as a device is available only in your personal account (private
 
    ![The Setup a new Device screen, with the Phone as Device option.](assets/iot-remote-setup-device.png)
 
-4. Allow the permissions the app asks for. For example, allow access to your location so the dashboard can show your phone's position on a map.
-
-   ![The location permission request while the IoT system is created.](assets/iot-remote-location.png)
-
-   <!--update map placement maybe?-->
-
-5. Wait while the app creates the IoT system for your phone: the device, the Thing, its variables, and the dashboard.
+4. Wait while the app creates the IoT system for your phone: the device, the Thing, its variables, and the dashboard.
 
    ![The app creating the device, Thing, variables, and dashboard.](assets/iot-remote-setup-2.png)
+
+5. While the system is created, the app asks for the permissions it needs. Allow access to your location so that the map widget on the phone's dashboard can show where your phone is.
+
+   ![The location permission request while the IoT system is created.](assets/iot-remote-location.png)
 
 6. When the setup is complete, close the wizard.
 

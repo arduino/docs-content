@@ -19,8 +19,6 @@ The Spaces Overview is a context of its own, just like a space. You open it the 
 
 ![Opening the Spaces Overview from the account button in the top-left corner.](assets/space-overview-access.png)
 
-<!--check email-->
-
 The left sidebar shows the Spaces Overview navigation, which has three sections:
 
 | Section | Shows | Use It To |
