@@ -84,7 +84,11 @@ You can control the same dashboard from the [IoT Remote app](/arduino-cloud/iot-
 
 ## Connecting a Load to the High-Power Pins
 
-> **Note:** Working with higher-voltage components demands extreme caution. Don't alter the circuit while it's powered, and never connect high-voltage components directly to the Arduino.
+<Alert type="warning">
+
+Working with higher-voltage components demands extreme caution. Don't alter the circuit while it's powered, and never connect high-voltage components directly to the Arduino.
+
+</Alert>
 
 Each relay exposes three **high-power** terminals — **NO**, **COM**, and **NC** — rated for roughly **5–24 V**:
 
@@ -101,7 +105,11 @@ digitalWrite(relay_1, LOW);   // activate
 digitalWrite(relay_1, HIGH);  // de-activate
 ```
 
-> **Note:** Keep both the supply and the load at or below **24 V** — the relays are not rated for higher voltages. Relays like these are ideal for switching LED strips, fans, pumps, and low-power heating elements, including 12/24 V systems in cars, boats, and off-grid setups.
+<Alert type="warning">
+
+Keep both the supply and the load at or below **24 V** — the relays are not rated for higher voltages. Relays like these are ideal for switching LED strips, fans, pumps, and low-power heating elements, including 12/24 V systems in cars, boats, and off-grid setups.
+
+</Alert>
 
 ## Related Articles
 

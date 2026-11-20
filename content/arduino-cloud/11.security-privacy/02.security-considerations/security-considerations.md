@@ -7,8 +7,11 @@ tags:
 author: 'Arduino Security Team'
 ---
 
-***For any questions regarding security, contact the [Arduino Security Team](mailto:security@arduino.cc).***  
+<Alert type="info">
 
+For any questions regarding security, contact the [Arduino Security Team](mailto:security@arduino.cc).
+
+</Alert>
 ## Arduino Approach to Security
 
 In order to provide secure digital services to customers, we at Arduino are committed to regularly monitor and update our services, applications, and infrastructure. 
@@ -152,7 +155,11 @@ Devices onboarding and communication with the Arduino Cloud is ensured to protec
 
 ![Device Setup & Operation Phases.](assets/device-phases.png)
 
-> **Note**: this communication process is available only on devices equipped with a secure element chip.
+<Alert type="note">
+
+this communication process is available only on devices equipped with a secure element chip.
+
+</Alert>
 
 **Device setup phase**: 
 * The setup phase is initiated by the web browser with a secure connection to the Arduino Cloud over HTTPS requesting to create a new device.
@@ -173,3 +180,9 @@ To establish such secure connections, devices must be able to connect to *.ardui
 ### Secrets Management
 
 In order to provide confidentiality and integrity of secrets stored within Arduino boards, a secure element chip is available on a selection of boards that provides hardware level encryption and tamperproofing protection. Integration with the Arduino Cloud leverages such a secure element to store the board certificate used to perform the mutual authentication with the MQTT server. Customers may also leverage the secure element chip to store sensitive information required by the board to operate based on the specific use cases.
+
+## Related Articles
+
+- [ISO 27001](/arduino-cloud/security-privacy/iso27001)
+- [Device Identity & Secrets](/arduino-cloud/security-privacy/device-identity-secrets)
+- [Cloud Agent](/arduino-cloud/devices/cloud-agent)
