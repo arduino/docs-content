@@ -363,7 +363,7 @@ carrier.display.setCursor(x, y);
 This method is very important, as it indicates where on the printing starts on the display. It is indicated by pixels, so, if **0, 0** are used for example, it will start printing in the top left corner.
 
 ```arduino
-display.print("text");
+carrier.display.print("text");
 ```
 
 This method will print the text inside the string at the current cursor position.
