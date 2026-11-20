@@ -24,7 +24,7 @@ With your board connected, open up the Arduino IDE. This step is the same for bo
 
 ![Arduino IDE board manager](assets/nano33_update_bootloader_ard_core.png)
 
-Then, open: **File>Examples>Nano33_System>Nano33_updateBLandSoftDevice**
+Then, open: **File>Examples>Nano33BLE_System>Nano33_updateBLandSoftDevice**
 
 ![Arduino IDE examples, highlighting the Nano33_updateBootloader sketch](assets/Nano33_ble_Bootloader-Update-Sketch.png)
 

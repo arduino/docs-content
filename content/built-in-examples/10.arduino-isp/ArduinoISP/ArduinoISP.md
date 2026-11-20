@@ -81,7 +81,7 @@ In the above picture you see the wiring between a MKR1000 and a UNO. As describe
 
 ### Load the sketch
 
-The Arduino that you will use as a programmer needs a specific sketch. You find it under Examples > 11. ArduinoISP > ArduinoISP .
+The Arduino that you will use as a programmer needs a specific sketch. You find it under File > Examples > 11. ArduinoISP > ArduinoISP .
 
 ![](assets/LoadSketch.jpg)
 

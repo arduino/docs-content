@@ -128,7 +128,7 @@ Enter the device name, in the screenshot below "MyMKRGSM1400" was used. "ES256" 
 
 ## Connecting the Board to GCP IoT Core
 
-1) Open the GCP IoT Core GSM sketch in the Arduino IDE using **File -> Examples ->Arduino Cloud Provider Examples -> GoogleCloudPlatformIoTCore->GCP_IoT_Core_GSM.**
+1) Open the GCP IoT Core GSM sketch in the Arduino IDE using **File -> Examples -> Arduino Cloud Provider Examples -> Google Cloud Platform IoT Core -> GCP_IoT_Core_GSM**.
 
 2) In the arduino_secrets.h tab, fill in the pin (if required) for the SIM card, as well as the GPRS APN, username and password for the cellular carrier you are using.
 

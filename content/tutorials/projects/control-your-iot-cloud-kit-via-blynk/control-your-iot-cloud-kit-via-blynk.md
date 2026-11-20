@@ -41,7 +41,7 @@ In the Arduino IDE, open the Library Manager, and look for the Blynk library.
 
 ![Search for the Blynk library.](assets/immagine_GGr0svJPeN.png)
 
-Then open `File>Examples>Blynk>Boards_wifi>Arduino_MKR 1010`
+Then open `File>Examples>Blynk>Boards_WiFi>Arduino_MKR1010`
 
 Input your data (ssid, password, and token), then upload the code to the board. 
 

@@ -64,7 +64,7 @@ You will need to install the ArduinoBLE library in the Arduino IDE you are using
 
 ### 3. Create the Bluetooth® Low Energy Sketch
 
-Let's program the Portenta with the following example sketch. If the Bluetooth® Low Energy module has been initialized correctly, you will see the blue LED lighting up for one second after uploading the sketch. If it fails, you will see the red LED lighting up instead. Copy and paste the following code into a new sketch in your IDE or download it from [Arduino_Pro_Tutorials](https://github.com/arduino-libraries/Arduino_Pro_Tutorials) in the Arduino IDE and open it from: **Examples > Arduino_Pro_Tutorials > BLE Connectivity on Portenta H7 > PortentaBLE**
+Let's program the Portenta with the following example sketch. If the Bluetooth® Low Energy module has been initialized correctly, you will see the blue LED lighting up for one second after uploading the sketch. If it fails, you will see the red LED lighting up instead. Copy and paste the following code into a new sketch in your IDE or download it from [Arduino_Pro_Tutorials](https://github.com/arduino-libraries/Arduino_Pro_Tutorials) in the Arduino IDE and open it from: **File > Examples > Arduino_Pro_Tutorials > BLE Connectivity on Portenta H7 > PortentaBLE**
 
 ```cpp
 #include <ArduinoBLE.h>
