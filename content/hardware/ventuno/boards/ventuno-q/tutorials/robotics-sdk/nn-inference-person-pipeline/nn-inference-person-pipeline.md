@@ -10,18 +10,20 @@ tags:
   - Neural Network
 author: 'Hang Shen'
 hardware:
-  - hardware/14.ventuno/boards/ventuno-q
+  - hardware/ventuno/boards/ventuno-q
 ---
 
 ## Overview
 
 In this tutorial, you will connect an Orbbec Gemini 335L camera to two vision models on the Arduino® VENTUNO™ Q. The first model finds a person in the camera image. A Python® adapter selects a square region around that person, and the second model predicts a mask. You will use the mask to keep the person pixels and remove the background.
 
-The Robotics Software Development Kit (SDK) supplies reusable ROS 2 preprocessing, inference and postprocessing components. You will use `qrb_ros_nn_inference` twice, with separate models and namespaces. Both models run through the Qualcomm® Neural Network (QNN) runtime and its Hexagon Tensor Processor (HTP) backend; the adapters run on the CPU.
+The Robotics Software Development Kit (SDK) supplies reusable ROS 2 preprocessing, inference, and post-processing components. You will use `qrb_ros_nn_inference` twice, with separate models and namespaces.
+
+Both models run through the Qualcomm® Neural Network (QNN) runtime and its Hexagon Tensor Processor (HTP) backend. The adapters run on the CPU.
 
 <Alert type="info">
 
-This tutorial uses a live camera; the example image illustrates the result using a test photograph. Use the checks in Step 6 to inspect frame pairing and foreground alignment. Model loading and shutdown also have known issues described in Troubleshooting.
+This tutorial uses a live camera. The example image shows the result using a test photograph. Use the checks in Step 6 to inspect frame pairing and foreground alignment. Model loading and shutdown also have known issues described in Troubleshooting.
 
 </Alert>
 
@@ -30,27 +32,38 @@ This tutorial uses a live camera; the example image illustrates the result using
 - Connect detection and segmentation models through ROS 2 topics.
 - Convert detector coordinates to a square person region with some surrounding context.
 - Prepare that region for segmentation and apply its instance mask.
-- Check timestamps, image dimensions and foreground alignment.
-- Check continuous camera output, frame pairing and mask alignment during motion.
+- Check timestamps, image dimensions, frame pairing, and mask alignment while the camera is running.
 
 ## Hardware and Software Requirements
 
-- Arduino® VENTUNO™ Q with Ubuntu 24.04, ROS 2 Jazzy and the [shared SDK installation](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/).
-- Host computer for exporting and deploying models, with AI Hub access.
-- An Orbbec Gemini 335L USB camera and a suitable cable. Follow the [RGB camera tutorial](https://docs.arduino.cc/tutorials/ventuno-q/ros2-perception-rgb-cam/) for connection guidance.
-- Board desktop for the image viewer, or SSH for message checks. An HDMI® display is optional.
-- Compatible QCS8275 detection and segmentation context binaries, metadata and COCO labels. Follow the linked model preparation steps before starting inference.
+### Hardware Requirements
 
-These instructions use inference 1.1.1, QAI Runtime 2.46.0 and Fast DDS 2.14.6 as reference versions. Keep your installed versions with the model metadata so you can check compatibility when updating either one.
+- Arduino® VENTUNO™ Q (x1)
+- Host computer for exporting and deploying models, with AI Hub access (x1)
+- Orbbec Gemini 335L USB camera and a suitable cable (x1). Follow the [RGB camera tutorial](https://docs.arduino.cc/tutorials/ventuno-q/ros2-perception-rgb-cam/) for connection guidance.
+- HDMI® display (optional)
+
+### Software Requirements
+
+- Ubuntu 24.04, ROS 2 Jazzy, and the [shared SDK installation](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/) on the VENTUNO Q
+- Board desktop for the image viewer, or SSH for message checks
+- Compatible QCS8275 detection and segmentation context binaries, metadata, and COCO labels. Follow the model preparation steps in Step 2 before starting inference.
+
+These instructions use inference 1.1.1, QAI Runtime 2.46.0, and Fast DDS 2.14.6 as reference versions. Keep your installed versions with the model metadata so you can check compatibility when updating either one.
 
 ## Instructions
 
 ### 1. Prepare Your Board Terminals
 
-Commands run on the **VENTUNO Q**, unless marked **Host computer**. Complete the shared SDK installation first, then add the sample and Python dependencies:
+Commands run on the VENTUNO Q unless stated otherwise. Complete the shared SDK installation first, then add the sample and Python® dependencies:
 
 ```bash
 sudo apt install ros-jazzy-orbbec-camera ros-jazzy-sample-object-detection ros-jazzy-rclpy ros-jazzy-cv-bridge ros-jazzy-message-filters ros-jazzy-vision-msgs ros-jazzy-rqt-image-view python3-opencv
+```
+
+Create the directory for the model assets:
+
+```bash
 mkdir -p ~/person-pipeline/models
 ```
 
@@ -77,7 +90,7 @@ export FASTRTPS_DEFAULT_PROFILES_FILE="$HOME/person-pipeline/udp-only.xml"
 export FASTDDS_BUILTIN_TRANSPORTS=UDPv4
 ```
 
-Domain 94 must be unused by other applications. If you choose another value, change it in this file before starting any nodes. In **every board terminal** used below, run:
+Domain 94 must be unused by other applications. If you choose another value, change it in this file before starting any nodes. In every board terminal used below, run:
 
 ```bash
 source ~/person-pipeline/pipeline-env.sh
@@ -87,18 +100,27 @@ This replaces the shared setup page's domain 87 and `LOCALHOST` discovery settin
 
 ```bash
 timeout --signal=INT --kill-after=3 10 ros2 node list --no-daemon
+```
+
+Check that Python can import the adapter dependencies:
+
+```bash
 python3 -c 'import rclpy, cv_bridge, cv2, message_filters; from qrb_ros_vision_msgs.msg import Detection2DWithMaskArray; print("Adapter dependencies ready")'
 ```
 
-An unused domain should return no application nodes. Expect `Adapter dependencies ready` from the import check. If the node query times out, resolve the environment/profile problem before starting inference.
+An unused domain should return no application nodes. Expect `Adapter dependencies ready` from the import check. If the node query times out, resolve the environment or profile problem before starting inference.
 
 ### 2. Prepare and Deploy the Models
 
-**Host computer:** follow the [host tools and labels setup](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#4-prepare-the-host-model-tools), [detection export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/object-detection/#2-export-the-detection-model), and [segmentation export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/image-segmentation/#2-export-the-segmentation-model). Finish copying the models and labels before returning here. Start the camera in Step 3 so that only one pipeline opens it.
+On your host computer, follow the [host tools and labels setup](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#4-prepare-the-host-model-tools), [detection export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/object-detection/#2-export-the-detection-model), and [segmentation export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/image-segmentation/#2-export-the-segmentation-model).
 
-Both models take RGB float32 NHWC input, shape `1×640×640×3`, values 0–1. Detection outputs `boxes`, `scores`, and uint8 `class_idx`; segmentation additionally outputs `mask_coeffs` and `mask_protos`, with float32 class indices. Preserve the full contracts from the task pages. The two binaries cannot be interchanged.
+Finish copying the models and labels before returning here. Start the camera in Step 3 so that only one pipeline opens it.
 
-**VENTUNO Q:** confirm that every asset is present and nonempty:
+Both models take RGB float32 NHWC input, shape `1×640×640×3`, values 0 to 1. Detection outputs `boxes`, `scores`, and uint8 `class_idx`. Segmentation additionally outputs `mask_coeffs` and `mask_protos`, with float32 class indices.
+
+Keep the full tensor formats from the task pages. The two binaries cannot be interchanged.
+
+On the VENTUNO Q, check that every asset is present and nonempty:
 
 ```bash
 for asset in detection.bin detection.metadata.json segmentation.bin segmentation.metadata.json coco.yaml; do
@@ -110,30 +132,50 @@ for asset in detection.bin detection.metadata.json segmentation.bin segmentation
 done
 ```
 
-Do not continue until all five files report `Ready`. Their presence does not establish target or tensor compatibility; compare their metadata with the task pages.
+Do not continue until all five files report `Ready`. Their presence does not establish target or tensor compatibility. Compare their metadata with the task pages.
 
 ### 3. Run and Inspect Object Detection
 
-Start the camera separately so you can check its video stream before adding inference. Stop any previous image replay or other application using this camera. Only one source should publish `/camera/color/image_raw`.
+Start the camera separately so you can check its video stream before adding inference. Stop any other application using this camera. Only one source should publish `/camera/color/image_raw`.
 
-**Terminal 1:** source the pipeline environment and start the Orbbec color stream:
+In Terminal 1, source the pipeline environment and start the Orbbec color stream:
 
 ```bash
 source ~/person-pipeline/pipeline-env.sh
+```
+
+Start the camera color stream:
+
+```bash
 ros2 launch orbbec_camera gemini_330_series.launch.py \
   color_width:=640 color_height:=480 color_fps:=30 \
   color_qos:=default enable_color:=true \
   enable_depth:=false enable_point_cloud:=false depth_registration:=false
 ```
 
-This requests a 640×480 color stream at 30 fps; it is not a promise that both models will process 30 frames per second. `color_qos:=default` selects the driver's default reliable profile to match the adapter. Confirm the actual publisher QoS below.
+This requests a 640×480 color stream at 30 fps. It does not mean that both models will process 30 frames per second. `color_qos:=default` selects the driver's default reliable profile to match the adapter. Check the actual publisher QoS below.
 
-Leave Terminal 1 running. **Terminal 2:** source the same environment and inspect the camera:
+Leave Terminal 1 running. In Terminal 2, source the same environment and inspect the camera:
 
 ```bash
 source ~/person-pipeline/pipeline-env.sh
+```
+
+Inspect one camera image message:
+
+```bash
 ros2 topic echo /camera/color/image_raw --once --no-arr
+```
+
+Check the camera publisher and its QoS:
+
+```bash
 ros2 topic info /camera/color/image_raw --verbose --no-daemon
+```
+
+Observe the camera message rate. Stop with `Ctrl+C` before continuing:
+
+```bash
 ros2 topic hz /camera/color/image_raw
 ```
 
@@ -163,7 +205,7 @@ def generate_launch_description():
 
 The wrapper checks that the installed launch has exactly one included camera launch. If that assertion fails, inspect your sample version before adapting the wrapper.
 
-**Terminal 2:** source the pipeline environment and start detection:
+In Terminal 2, start detection:
 
 ```bash
 ros2 launch ~/person-pipeline/detection_from_image.launch.py \
@@ -174,10 +216,15 @@ ros2 launch ~/person-pipeline/detection_from_image.launch.py \
 
 Leave Terminal 2 running. Look for HTP initialization, QNN graph loading and `Inference init successfully!`. A graph-loading error is a failed run, even if the container process starts.
 
-**Terminal 3:** source the same environment and inspect input and detection:
+In Terminal 3, source the same environment and inspect input and detection:
 
 ```bash
 ros2 topic echo /camera/color/image_raw --once --no-arr
+```
+
+Inspect one detection message:
+
+```bash
 ros2 topic echo /yolo_detect_result --once
 ```
 
@@ -206,7 +253,6 @@ pipeline_qos = QoSProfile(depth=10)
 from sensor_msgs.msg import Image
 from vision_msgs.msg import Detection2DArray
 
-
 def person_result(detection, minimum_score=0.7):
     scores = []
     for result in detection.results:
@@ -214,7 +260,6 @@ def person_result(detection, minimum_score=0.7):
         if hypothesis.class_id in ("person", "0") and hypothesis.score >= minimum_score:
             scores.append(hypothesis.score)
     return max(scores) if scores else None
-
 
 class PersonGate(Node):
     def __init__(self):
@@ -258,7 +303,6 @@ class PersonGate(Node):
         roi.header = image.header
         self.publisher.publish(roi)
 
-
 class MaskToFaceRoi(Node):
     def __init__(self):
         super().__init__("mask_to_face_roi")
@@ -285,7 +329,6 @@ class MaskToFaceRoi(Node):
         foreground.header = roi.header
         self.publisher.publish(foreground)
 
-
 def main():
     rclpy.init()
     executor = rclpy.executors.MultiThreadedExecutor()
@@ -303,7 +346,6 @@ def main():
         if rclpy.ok():
             rclpy.shutdown()
 
-
 if __name__ == "__main__":
     main()
 ```
@@ -312,13 +354,13 @@ The two synchronizers keep ten messages and pair source timestamps within 0.25 s
 
 The adapter uses reliable subscriptions for the configured camera publisher and the SDK result publishers. A best-effort camera publisher is incompatible with a reliable subscription: check endpoint QoS before changing the input source. Reliable transport does not make this workflow a real-time system.
 
-**Terminal 3:** start the adapter:
+In Terminal 3, start the adapter:
 
 ```bash
 python3 ~/person-pipeline/person_pipeline.py
 ```
 
-Leave it running. **Terminal 4:** source the environment and check its crop:
+Leave it running. In Terminal 4, source the environment and check its crop:
 
 ```bash
 ros2 topic echo /person_roi --once --no-arr
@@ -328,7 +370,9 @@ Expect a square `rgb8` crop with the camera source header. Its size and position
 
 ### 5. Add a Second Inference Stage
 
-Prepare the crop as a 640×640 RGB image before it enters the installed SDK preprocessor. The fixed width avoids a problem with arbitrary-width RGB crops in this SDK transport path. Keep `/person_roi` at its original size for applying the final mask.
+Prepare the crop as a 640×640 RGB image before it enters the installed SDK preprocessor. With the reference SDK packages, some RGB crop widths produce corrupted pixels after preprocessing, even though an output image is published. Recorded checks reproduced this at widths such as 160 and 320 pixels, while 640-pixel input matched an OpenCV resize.
+
+Resizing the square crop to 640×640 in Python avoids the observed width-dependent corruption. Inspect `/person_roi_model` and `/person_seg/resized_image` if your own crops produce distorted images or empty segmentation results. Keep `/person_roi` at its original size for applying the final mask.
 
 Save this as `~/person-pipeline/prepare_roi.py`:
 
@@ -374,7 +418,7 @@ if __name__ == "__main__":
     main()
 ```
 
-**Terminal 4:** start it and leave it running:
+In Terminal 4, start it and leave it running:
 
 ```bash
 python3 ~/person-pipeline/prepare_roi.py
@@ -428,7 +472,7 @@ def generate_launch_description():
 
 The `/person_seg` namespace separates the second model's tensors from detection. Preprocessing consumes `/person_roi_model`, normalizes RGB values and supplies NHWC float tensors. Inference uses its own `model_path` and `/usr/lib/libQnnHtp.so`. Postprocessing produces `qrb_ros_vision_msgs/msg/Detection2DWithMaskArray`.
 
-**Terminal 5:** source the environment and start segmentation:
+In Terminal 5, source the environment and start segmentation:
 
 ```bash
 ros2 launch ~/person-pipeline/segmentation_on_roi.launch.py \
@@ -436,10 +480,15 @@ ros2 launch ~/person-pipeline/segmentation_on_roi.launch.py \
   label_file:="$HOME/person-pipeline/models/coco.yaml"
 ```
 
-Check QNN initialization and leave Terminal 5 running. **Terminal 6:** source the same environment and inspect both outputs:
+Check QNN initialization and leave Terminal 5 running. In Terminal 6, source the same environment and inspect both outputs:
 
 ```bash
 ros2 topic echo /person_seg/yolo_segment_result --once --no-arr
+```
+
+Inspect one foreground image message:
+
+```bash
 ros2 topic echo /input_faces --once --no-arr
 ```
 
@@ -449,11 +498,13 @@ ros2 topic echo /input_faces --once --no-arr
 python3 ~/person-pipeline/inspect_segmentation.py /person_seg/yolo_segment_result
 ```
 
-Expect a person instance at or above 0.7 and a 160×160 `mono8` mask. The confidence score depends on the camera view. The mask covers the full square model input. The adapter resizes it to the original square ROI using nearest-neighbor interpolation and preserves the foreground pixels. Expect `/input_faces` to have the same dimensions and header as its corresponding camera ROI, with `rgb8` encoding. This remains a person image, not a detected face.
+Expect a person instance at or above 0.7 and a 160×160 `mono8` mask. The confidence score depends on the camera view. The mask covers the full square model input. The adapter resizes it to the original square ROI using nearest-neighbor interpolation and preserves the foreground pixels.
+
+Expect `/input_faces` to have the same dimensions and header as its corresponding camera ROI, with `rgb8` encoding. This remains a person image, not a detected face.
 
 ### 6. View and Check the Complete Data Path
 
-**Board desktop, Terminal 6:** open the viewer:
+From the board desktop, open the viewer in Terminal 6:
 
 ```bash
 ros2 run rqt_image_view rqt_image_view
@@ -463,7 +514,11 @@ Compare `/yolo_detect_overlay`, `/person_roi`, `/person_roi_model`, and `/input_
 
 ![Captured square person ROI beside its background-removed output.](assets/pipeline-result.png)
 
-*Left: the square region around the highest-scoring person. Right: the segmentation mask removes the bus and ground while retaining the visible person. Compare the foreground boundary with the person in the crop.*
+<Alert type="info">
+
+Left: the square region around the highest-scoring person. Right: the segmentation mask removes the bus and ground while retaining the visible person. Compare the foreground boundary with the person in the crop.
+
+</Alert>
 
 ```text
 camera -> live RGB frames -> detection -> person result
@@ -489,21 +544,39 @@ To check continuous camera operation, keep a person in view and use another prep
 
 ```bash
 ros2 topic hz /camera/color/image_raw
+```
+
+Observe the crop message rate. Stop with `Ctrl+C` before continuing:
+
+```bash
 ros2 topic hz /person_roi
+```
+
+Observe the foreground message rate. Stop with `Ctrl+C` when finished:
+
+```bash
 ros2 topic hz /input_faces
 ```
 
-Stop each observation with `Ctrl+C` before running the next command. Expect repeated output while a qualifying person is visible. The final rate can be lower than the camera rate; subscriber observations are not NPU benchmarks.
+Stop each observation with `Ctrl+C` before running the next command. Expect repeated output while a qualifying person is visible. The final rate can be lower than the camera rate. Subscriber observations are not NPU benchmarks.
 
-While watching the output, move an arm or walk slowly across the view. Check that the detection box, square ROI and foreground follow the current person without persistent lag or an old mask on a new frame. Compare source timestamps for corresponding ROI, segmentation and output messages. The adapter allows a 0.25-second approximate pairing window, so timestamps merely being nearby is not proof of a correct moving-frame match.
+While watching the output, move an arm or walk slowly across the view. Check that the detection box, square ROI and foreground follow the current person without persistent lag or an old mask on a new frame.
 
-Leave and re-enter the scene: no qualifying person means the adapter stops publishing new crops and foregrounds. A viewer may retain its last image, so check that timestamps stop and then resume. Stop and restart the pipeline and inspect component logs. Continue only when the output follows the person consistently and the pipeline can be restarted without leaving processes behind.
+Compare source timestamps for corresponding ROI, segmentation, and output messages. The adapter allows a 0.25-second approximate pairing window, so timestamps merely being nearby is not proof of a correct moving-frame match.
+
+Leave and re-enter the scene: no qualifying person means the adapter stops publishing new crops and foregrounds. A viewer may retain its last image, so check that timestamps stop and then resume. Stop and restart the pipeline and inspect component logs.
+
+Continue only when the output follows the person consistently and the pipeline can be restarted without leaving processes behind.
 
 ### 7. Optional: Connect a Validated Face Recognition Node
 
-Your foreground image is available on `/input_faces`. You can connect it to a face-recognition node if you already have a QCS8275 build and compatible YuNet/SFace models that work on their own. This additional node uses OpenCV face APIs and has not yet been verified on QCS8275; the two QNN models above do not provide its runtime setup.
+Your foreground image is available on `/input_faces`. You can connect it to a face-recognition node if you already have a QCS8275 build and compatible YuNet/SFace models that work on their own.
 
-The [Face Recognition source](https://github.com/qualcomm-qrb-ros/qrb_ros_samples/tree/ad7e91118c16137a2121bacdc46374d149659a33/ai_vision/sample_face_recognition) documents the interfaces used here. The `jazzy-rel` version used by these tutorials does not include this package. Skip this section if you do not already have a working face-recognition workspace; the steps below connect an existing installation to the image topic.
+This additional node uses OpenCV face APIs and has not yet been verified on QCS8275. The two QNN models above do not provide a runtime setup.
+
+The [Face Recognition source](https://github.com/qualcomm-qrb-ros/qrb_ros_samples/tree/ad7e91118c16137a2121bacdc46374d149659a33/ai_vision/sample_face_recognition) documents the interfaces used here.
+
+The `jazzy-rel` version used by these tutorials does not include this package. Skip this section if you do not already have a working face-recognition workspace. The steps below connect an existing installation to the image topic.
 
 <Alert type="warning">
 
@@ -511,16 +584,23 @@ Register and process a person's face only with their consent. Use a local databa
 
 </Alert>
 
-Close the image viewer in Terminal 6 so its shell prompt is available. In Terminals 6 and 7, load the environment from Step 1, then use `source` to load the `install/setup.bash` file from your working face-recognition workspace. Start a dedicated component container in **Terminal 7**:
+Close the image viewer in Terminal 6 so its shell prompt is available. In Terminals 6 and 7, load the environment from Step 1, then use `source` to load the `install/setup.bash` file from your working face-recognition workspace.
+
+Start a dedicated component container in Terminal 7:
 
 ```bash
 ros2 run rclcpp_components component_container --ros-args -r __node:=face_container
 ```
 
-In **Terminal 6**, create a local database and load the component. Place your compatible ONNX models at the two paths shown before running the command:
+In Terminal 6, create a local database and load the component. Place your compatible ONNX models at the two paths shown before running the command:
 
 ```bash
 mkdir -p ~/person-pipeline/face-database
+```
+
+Load the face-recognition component:
+
+```bash
 ros2 component load /face_container \
   sample_face_recognition 'sample_face_recognition::RecognitionNode' \
   -p fd_model:="$HOME/person-pipeline/models/yunet.onnx" \
@@ -530,7 +610,9 @@ ros2 component load /face_container \
   -p overlay:=1
 ```
 
-The load command should return a component ID, and the face node should report that both models loaded. If it fails, resolve the model paths, workspace, or runtime error before registering a subject. Save the following as `~/person-pipeline/register_face.py`. It converts a local image to RGB, waits for the registration subscriber, and sends one image to `/target_face`:
+The load command should return a component ID, and the face node should report that both models loaded. If it fails, resolve the model paths, workspace, or runtime error before registering a subject.
+
+Save the following as `~/person-pipeline/register_face.py`. It converts a local image to RGB, waits for the registration subscriber, and sends one image to `/target_face`:
 
 ```python
 #!/usr/bin/env python3
@@ -596,18 +678,27 @@ Inspect the outputs:
 
 ```bash
 ros2 topic echo /detected_faces --once
+```
+
+Inspect one face overlay image message:
+
+```bash
 ros2 topic echo /detected_faces_overlay --once --no-arr
 ```
 
-The first topic uses `sample_face_customed_msgs/msg/FaceArrayMessage`; the second uses `sensor_msgs/msg/Image`. Confirm a correct registered name and inspect the overlay. If the name is missing or incorrect, check the registration result and face image before connecting another consumer.
+The first topic uses `sample_face_customed_msgs/msg/FaceArrayMessage`. The second uses `sensor_msgs/msg/Image`.
+
+Confirm that the registered name is correct and inspect the overlay. If the name is missing or incorrect, check the registration result and face image before connecting another consumer.
 
 ### 8. Adapt the Pipeline and Stop the Nodes
 
 For another camera, adapt the driver launch, topic name, encoding and QoS while retaining the same downstream image interface. Start from the existing [RGB camera tutorial](https://docs.arduino.cc/tutorials/ventuno-q/ros2-perception-rgb-cam/). Keep only one camera publisher and one detection graph. Recheck the continuous-stream and motion checks in Step 6 after changing the camera, resolution or rate.
 
-To replace a model, check its target/runtime, tensor names, shapes, types, normalization and postprocessor. Changing the detector resolution also requires changing `detection_width` and `detection_height`; letterboxing requires a different inverse coordinate transform.
+To replace a model, check its target and runtime, tensor names, shapes, types, normalization, and postprocessor. Changing the detector resolution also requires changing `detection_width` and `detection_height`. Letterboxing requires a different inverse coordinate transform.
 
-When finished, stop any optional face container, then segmentation (Terminal 5), ROI preparation (Terminal 4), adapter (Terminal 3), detection (Terminal 2), and camera (Terminal 1), using `Ctrl+C`. Close the viewer and rate checks. Check the component logs after stopping. A component exit code of `-11` means it crashed, even if the outer launch returns 0; use the shutdown guidance below.
+When finished, stop any optional face container, then segmentation (Terminal 5), ROI preparation (Terminal 4), adapter (Terminal 3), detection (Terminal 2), and camera (Terminal 1), using `Ctrl+C`. Close the viewer and rate checks. Check the component logs after stopping.
+
+A component exit code of `-11` means it crashed, even if the outer launch returns 0. Use the shutdown guidance below.
 
 ## Troubleshooting
 
@@ -617,8 +708,23 @@ In another terminal with the pipeline environment loaded, check the nodes and pu
 
 ```bash
 ros2 node list --no-daemon
+```
+
+Check whether the adapter publishes crops:
+
+```bash
 ros2 topic info /person_roi --no-daemon
+```
+
+Check whether detection has a publisher:
+
+```bash
 ros2 topic info /yolo_detect_result --no-daemon
+```
+
+Check the camera publisher and its QoS:
+
+```bash
 ros2 topic info /camera/color/image_raw --verbose --no-daemon
 ```
 
@@ -626,9 +732,13 @@ Expect `/person_gate`, `/mask_to_face_roi`, and input publishers. Reliable subsc
 
 ![Historical diagnosis: adapter nodes exist but there is no detection publisher.](assets/pipeline-adapter-check.png)
 
-*The adapter is running, but the detector has no publisher. Start the detector from Step 3, then check /person_roi again.*
+<Alert type="info">
 
-### Crops Arrive, But the Masked Image is Missing
+The adapter is running, but the detector has no publisher. Start the detector from Step 3, then check `/person_roi` again.
+
+</Alert>
+
+### Crops Arrive, But the Masked Image Is Missing
 
 Check that the square ROI includes the person and some surrounding context. A tight, narrow crop can distort the person when resized to the model input. Use the square crop and pre-scaling steps together, and inspect the prepared image before changing the score threshold.
 
@@ -636,15 +746,15 @@ Inspect `/person_roi_model` (640×640 `rgb8`), `/person_seg/resized_image`, and 
 
 ### Startup and Shutdown Problems
 
-| Symptom | Action |
-|---|---|
-| Even `ros2 node list` stalls | Source `pipeline-env.sh` in that terminal and check the XML path. Use the loopback UDP profile from Step 1 to avoid the shared-memory startup issue. |
-| Some pipeline nodes are invisible | Check the common domain, loopback transport and `maxInitialPeersRange` of 64. |
-| Image or crop is absent | Check publishers, reliable QoS compatibility, source timestamps and the camera stream. |
+| Symptom                                              | Action                                                                                                                                                                                                                                                        |
+|------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Even `ros2 node list` stalls                         | Source `pipeline-env.sh` in that terminal and check the XML path. Use the loopback UDP profile from Step 1 to avoid the shared-memory startup issue.                                                                                                          |
+| Some pipeline nodes are invisible                    | Check the common domain, loopback transport and `maxInitialPeersRange` of 64.                                                                                                                                                                                 |
+| Image or crop is absent                              | Check publishers, reliable QoS compatibility, source timestamps and the camera stream.                                                                                                                                                                        |
 | `Failed to find graph`, possibly with a garbled name | Stop the affected launch and preserve its log, model hash and runtime version. This known loading issue can occur even with an unchanged model. Do not continue to inspect outputs until initialization succeeds, and do not edit metadata to hide the error. |
-| Segmentation results are empty | Inspect the square ROI and pre-scaled input. Check that the model expects this input and that a person is visible above the confidence threshold. |
-| Final mask is misaligned | Compare source timestamps and ROI dimensions. If the person is moving, check for an old mask paired with a newer crop. |
-| Component exits with `-11` | This is a runtime crash, not a clean shutdown. Record it separately from successful output. Check for leftover processes before restarting. |
+| Segmentation results are empty                       | Inspect the square ROI and pre-scaled input. Check that the model expects this input and that a person is visible above the confidence threshold.                                                                                                             |
+| Final mask is misaligned                             | Compare source timestamps and ROI dimensions. If the person is moving, check for an old mask paired with a newer crop.                                                                                                                                        |
+| Component exits with `-11`                           | This is a runtime crash, not a clean shutdown. Record it separately from successful output. Check for leftover processes before restarting.                                                                                                                   |
 
 After stopping, inspect the known script and container names:
 
@@ -668,4 +778,26 @@ You have learned how to connect detection and segmentation through ROS 2 topics,
 
 ## Acknowledgments
 
-ROS is a trademark of Open Source Robotics Foundation. Model and photograph assets retain their respective upstream terms.
+ROS is a trademark of Open Source Robotics Foundation. This tutorial is provided for educational purposes to help users learn ROS 2 on Arduino hardware. This content does not imply endorsement, partnership, or affiliation between Arduino and Open Source Robotics Foundation. Model and photograph assets retain their respective upstream terms.
+
+## Support
+
+If you encounter any issues or have questions while working with the VENTUNO Q, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our Help Center, which offers a comprehensive collection of articles and guides for the VENTUNO Q. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Arduino Help Center](https://support.arduino.cc/hc)
+
+### Forum
+
+Join our community forum to connect with other users, share your experiences, and ask questions.
+
+- [VENTUNO Q category in the Arduino Forum](https://forum.arduino.cc/c/official-hardware/ventuno-q/227)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described above.
+
+- [Contact us page](https://www.arduino.cc/pro/contact-us)
