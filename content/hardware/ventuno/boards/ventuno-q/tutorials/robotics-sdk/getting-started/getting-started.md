@@ -128,7 +128,7 @@ The domain identifies the group of nodes that communicate. Use the same value in
 
 The host exports and copies models, and it does not participate in the ROS graph. These commands configure only the current shell and programs started from it, so repeat them in each new board terminal.
 
-The [multi-model tutorial](https://docs.arduino.cc/tutorials/ventuno-q/nn-inference-person-pipeline/) uses its own domain and loopback UDP profile. Follow its environment instructions when switching to that workflow.
+The [multi-model tutorial](https://docs.arduino.cc/tutorials/ventuno-q/nn-inference-person-pipeline/) uses its own domain and Cyclone DDS with a larger socket receive buffer. Follow its environment instructions when switching to that workflow.
 
 ### 2. Install the Robotics SDK
 

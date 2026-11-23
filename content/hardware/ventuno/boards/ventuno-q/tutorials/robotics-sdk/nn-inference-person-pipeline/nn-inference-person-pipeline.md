@@ -49,7 +49,7 @@ This tutorial uses a live camera. The example image shows the result using a tes
 - Board desktop for the image viewer, or SSH for message checks
 - Compatible QCS8275 detection and segmentation context binaries, metadata, and COCO labels. Follow the model preparation steps in Step 2 before starting inference.
 
-These instructions use inference 1.1.1, QAI Runtime 2.46.0, and Fast DDS 2.14.6 as reference versions. Keep your installed versions with the model metadata so you can check compatibility when updating either one.
+These instructions use inference 1.1.1, QAI Runtime 2.46.0, Cyclone DDS 0.10.5, and `rmw_cyclonedds_cpp` 2.2.4 as reference versions. Keep your installed versions with the model metadata so you can check compatibility when updating either one.
 
 ## Instructions
 
@@ -58,7 +58,7 @@ These instructions use inference 1.1.1, QAI Runtime 2.46.0, and Fast DDS 2.14.6 
 Commands run on the VENTUNO Q unless stated otherwise. Complete the shared SDK installation first, then add the sample and Python® dependencies:
 
 ```bash
-sudo apt install ros-jazzy-orbbec-camera ros-jazzy-sample-object-detection ros-jazzy-rclpy ros-jazzy-cv-bridge ros-jazzy-message-filters ros-jazzy-vision-msgs ros-jazzy-rqt-image-view python3-opencv
+sudo apt install ros-jazzy-orbbec-camera ros-jazzy-sample-object-detection ros-jazzy-rclpy ros-jazzy-cv-bridge ros-jazzy-message-filters ros-jazzy-vision-msgs ros-jazzy-rqt-image-view ros-jazzy-rmw-cyclonedds-cpp python3-opencv
 ```
 
 Create the directory for the model assets:
@@ -67,27 +67,32 @@ Create the directory for the model assets:
 mkdir -p ~/person-pipeline/models
 ```
 
-Use the same ROS domain and communication profile in every pipeline terminal. The profile below sends messages through the board's loopback interface and allows the pipeline processes to discover each other. It also avoids the default Fast DDS shared-memory path, which can stall during node creation on this board setup. Step 6 shows you how to check output while the camera is running.
+Use Cyclone DDS for communication between the pipeline nodes. This selects a different ROS middleware implementation and avoids the Fast DDS shared-memory startup path that stalled on the reference setup. Use the same middleware, domain, and discovery settings in every pipeline terminal.
 
-Save this as `~/person-pipeline/udp-only.xml`:
+Large image messages need room in the socket receive buffer. Before starting the pipeline, check the board's current maximum and note it if you want to restore it after testing:
 
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<profiles xmlns="http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles">
-<transport_descriptors><transport_descriptor><transport_id>tutorial_udp</transport_id><type>UDPv4</type><maxInitialPeersRange>64</maxInitialPeersRange><interfaceWhiteList><address>127.0.0.1</address></interfaceWhiteList></transport_descriptor></transport_descriptors>
-<participant profile_name="tutorial_participant" is_default_profile="true"><rtps><builtin><initialPeersList><locator><udpv4><address>127.0.0.1</address></udpv4></locator></initialPeersList></builtin><userTransports><transport_id>tutorial_udp</transport_id></userTransports><useBuiltinTransports>false</useBuiltinTransports></rtps></participant>
-</profiles>
+```bash
+sysctl net.core.rmem_max
 ```
+
+If the value is below 8388608 bytes (8 MiB), raise it to the value used for this pipeline's communication checks:
+
+```bash
+sudo sysctl -w net.core.rmem_max=8388608
+```
+
+This changes the board-wide limit until reboot. Repeat the check after restarting the board. Follow Step 6 to check continuous output and frame pairing while the camera is running.
 
 Save the following as `~/person-pipeline/pipeline-env.sh`:
 
 ```bash
 # Source this file in every board terminal for the camera pipeline.
 source /opt/ros/jazzy/setup.bash
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 export ROS_DOMAIN_ID=94
-export ROS_AUTOMATIC_DISCOVERY_RANGE=SYSTEM_DEFAULT
-export FASTRTPS_DEFAULT_PROFILES_FILE="$HOME/person-pipeline/udp-only.xml"
-export FASTDDS_BUILTIN_TRANSPORTS=UDPv4
+export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+# Use the middleware defaults instead of profiles from another workflow.
+unset CYCLONEDDS_URI FASTRTPS_DEFAULT_PROFILES_FILE FASTDDS_DEFAULT_PROFILES_FILE FASTDDS_BUILTIN_TRANSPORTS
 ```
 
 Domain 94 must be unused by other applications. If you choose another value, change it in this file before starting any nodes. In every board terminal used below, run:
@@ -96,7 +101,7 @@ Domain 94 must be unused by other applications. If you choose another value, cha
 source ~/person-pipeline/pipeline-env.sh
 ```
 
-This replaces the shared setup page's domain 87 and `LOCALHOST` discovery setting for this pipeline only. Keep the XML and environment settings identical across all participating terminals. Check discovery before starting a model:
+This replaces the shared setup page's domain 87 with domain 94 and selects Cyclone DDS for this pipeline. Discovery remains local to the board. Restart any existing pipeline nodes after changing middleware so that all processes use the same environment. Check discovery before starting a model:
 
 ```bash
 timeout --signal=INT --kill-after=3 10 ros2 node list --no-daemon
@@ -108,7 +113,7 @@ Check that Python can import the adapter dependencies:
 python3 -c 'import rclpy, cv_bridge, cv2, message_filters; from qrb_ros_vision_msgs.msg import Detection2DWithMaskArray; print("Adapter dependencies ready")'
 ```
 
-An unused domain should return no application nodes. Expect `Adapter dependencies ready` from the import check. If the node query times out, resolve the environment or profile problem before starting inference.
+An unused domain should return no application nodes. Expect `Adapter dependencies ready` from the import check. If the node query times out, check the Cyclone DDS installation and terminal environment before starting inference.
 
 ### 2. Prepare and Deploy the Models
 
@@ -728,7 +733,7 @@ Check the camera publisher and its QoS:
 ros2 topic info /camera/color/image_raw --verbose --no-daemon
 ```
 
-Expect `/person_gate`, `/mask_to_face_roi`, and input publishers. Reliable subscriptions require reliable publishers. If the graph is incomplete, check that every terminal uses the same domain and the provided XML profile, including its peer search range.
+Expect `/person_gate`, `/mask_to_face_roi`, and input publishers. Reliable subscriptions require reliable publishers. If the graph is incomplete, check that every terminal uses `rmw_cyclonedds_cpp`, the same domain, and `LOCALHOST` discovery. Check `net.core.rmem_max` again if large image topics stall.
 
 ![Historical diagnosis: adapter nodes exist but there is no detection publisher.](assets/pipeline-adapter-check.png)
 
@@ -748,8 +753,8 @@ Inspect `/person_roi_model` (640×640 `rgb8`), `/person_seg/resized_image`, and 
 
 | Symptom                                              | Action                                                                                                                                                                                                                                                        |
 |------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Even `ros2 node list` stalls                         | Source `pipeline-env.sh` in that terminal and check the XML path. Use the loopback UDP profile from Step 1 to avoid the shared-memory startup issue.                                                                                                          |
-| Some pipeline nodes are invisible                    | Check the common domain, loopback transport and `maxInitialPeersRange` of 64.                                                                                                                                                                                 |
+| Even `ros2 node list` stalls                         | Source `pipeline-env.sh` and confirm that `ros-jazzy-rmw-cyclonedds-cpp` is installed. Restart nodes launched with a different middleware environment.                                                                                                          |
+| Some pipeline nodes are invisible                    | Check that all terminals use `rmw_cyclonedds_cpp`, the same domain, and `LOCALHOST` discovery. Use the no-daemon checks from Step 1.                                                                                                                                                                                 |
 | Image or crop is absent                              | Check publishers, reliable QoS compatibility, source timestamps and the camera stream.                                                                                                                                                                        |
 | `Failed to find graph`, possibly with a garbled name | Stop the affected launch and preserve its log, model hash and runtime version. This known loading issue can occur even with an unchanged model. Do not continue to inspect outputs until initialization succeeds, and do not edit metadata to hide the error. |
 | Segmentation results are empty                       | Inspect the square ROI and pre-scaled input. Check that the model expects this input and that a person is visible above the confidence threshold.                                                                                                             |
