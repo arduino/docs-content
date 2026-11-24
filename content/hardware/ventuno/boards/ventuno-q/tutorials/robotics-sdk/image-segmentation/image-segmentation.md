@@ -42,10 +42,10 @@ The example image shows masks from a test photograph. Check model loading and ma
 ### Software Requirements
 
 - Ubuntu 24.04 and ROS 2 Jazzy on the VENTUNO Q
-- AI Hub access and the host tools from the [SDK setup tutorial](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/)
+- AI Hub access and the host tools from the [SDK setup tutorial](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/)
 - Board desktop for visualization, or SSH for message inspection
 
-Complete [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/), including its host tools and COCO labels. The model and labels will use the shared `~/person-pipeline/models` directory. You can follow this page without running the Object Detection sample first.
+Complete [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/), including its host tools and COCO labels. The model and labels will use the shared `~/person-pipeline/models` directory. You can follow this page without running the Object Detection sample first.
 
 ## Instructions
 
@@ -453,7 +453,7 @@ You have learned how the SDK transforms a model's raw segmentation tensors into 
 
 ## Further Reading
 
-- [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/)
+- [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/)
 - [Object Detection](https://docs.arduino.cc/tutorials/ventuno-q/object-detection/)
 - [NN Inference Pipeline](https://docs.arduino.cc/tutorials/ventuno-q/nn-inference-person-pipeline/)
 - [Segmentation sample source on the Jazzy release branch](https://github.com/qualcomm-qrb-ros/qrb_ros_samples/tree/jazzy-rel/ai_vision/sample_object_segmentation)

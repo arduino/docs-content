@@ -45,7 +45,7 @@ This tutorial uses a live camera. The example image shows the result using a tes
 
 ### Software Requirements
 
-- Ubuntu 24.04, ROS 2 Jazzy, and the [shared SDK installation](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/) on the VENTUNO Q
+- Ubuntu 24.04, ROS 2 Jazzy, and the [shared SDK installation](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/) on the VENTUNO Q
 - Board desktop for the image viewer, or SSH for message checks
 - Compatible QCS8275 detection and segmentation context binaries, metadata, and COCO labels. Follow the model preparation steps in Step 2 before starting inference.
 
@@ -117,7 +117,7 @@ An unused domain should return no application nodes. Expect `Adapter dependencie
 
 ### 2. Prepare and Deploy the Models
 
-On your host computer, follow the [host tools and labels setup](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#4-prepare-the-host-model-tools), [detection export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/object-detection/#2-export-the-detection-model), and [segmentation export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/image-segmentation/#2-export-the-segmentation-model).
+On your host computer, follow the [host tools and labels setup](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/#4-prepare-the-host-model-tools), [detection export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/object-detection/#2-export-the-detection-model), and [segmentation export and deployment](https://docs.arduino.cc/tutorials/ventuno-q/image-segmentation/#2-export-the-segmentation-model).
 
 Finish copying the models and labels before returning here. Start the camera in Step 3 so that only one pipeline opens it.
 
@@ -775,7 +775,7 @@ You have learned how to connect detection and segmentation through ROS 2 topics,
 
 ## Further Reading
 
-- [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/)
+- [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/)
 - [Object Detection](https://docs.arduino.cc/tutorials/ventuno-q/object-detection/)
 - [Image Segmentation](https://docs.arduino.cc/tutorials/ventuno-q/image-segmentation/)
 - [Getting Started with ROS 2 on VENTUNO Q](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-ros2/)

@@ -45,7 +45,7 @@ The example images show results from a test photograph. Check model loading, obj
 - AI Hub access and the model tools on the host computer, prepared below
 - A graphical desktop on the board for the image viewer. Topic inspection also works over SSH.
 
-Complete [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/) first, including the [host tools](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#4-prepare-the-host-model-tools) and [shared labels](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#5-prepare-the-shared-labels-and-board-workspace). This page uses the same `~/person-pipeline/models` directory as the multi-model tutorial.
+Complete [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/) first, including the [host tools](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/#4-prepare-the-host-model-tools) and [shared labels](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/#5-prepare-the-shared-labels-and-board-workspace). This page uses the same `~/person-pipeline/models` directory as the multi-model tutorial.
 
 ## Instructions
 
@@ -57,7 +57,7 @@ On the VENTUNO Q, add the camera driver, packaged sample, and viewer:
 sudo apt install ros-jazzy-sample-object-detection ros-jazzy-orbbec-camera ros-jazzy-rqt-image-view
 ```
 
-Use the [shared terminal environment](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#1-check-your-board-environment) in every board terminal:
+Use the [shared terminal environment](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/#1-check-your-board-environment) in every board terminal:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
@@ -157,7 +157,7 @@ scp ./exported-detection/yolov8_det.bin arduino@ventunoq.local:person-pipeline/m
 scp ./exported-detection/metadata.json arduino@ventunoq.local:person-pipeline/models/detection.metadata.json
 ```
 
-The [shared setup](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/#5-prepare-the-shared-labels-and-board-workspace) supplies `coco.yaml`. On the VENTUNO Q, check all required files:
+The [shared setup](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/#5-prepare-the-shared-labels-and-board-workspace) supplies `coco.yaml`. On the VENTUNO Q, check all required files:
 
 ```bash
 missing=0
@@ -293,7 +293,7 @@ You have learned how the SDK turns a camera image into ROS 2 detection messages 
 
 ## Further Reading
 
-- [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started/)
+- [Install and Understand the Robotics SDK](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-sdk/)
 - [Image Segmentation](https://docs.arduino.cc/tutorials/ventuno-q/image-segmentation/)
 - [NN Inference Pipeline](https://docs.arduino.cc/tutorials/ventuno-q/nn-inference-person-pipeline/)
 - [Detection sample source on the Jazzy release branch](https://github.com/qualcomm-qrb-ros/qrb_ros_samples/tree/jazzy-rel/ai_vision/sample_object_detection)
