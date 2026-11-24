@@ -41,7 +41,7 @@ Before opening a pull request, read [CONTRIBUTING.md](CONTRIBUTING.md) for workf
 
 ## Build, Preview, and Deployment
 
-* **CI Site Build:** In GitHub Actions, `npm install` pulls `@arduino/docs-arduino-cc` and runs its `postinstall` bootstrap (`commands.sh bootstrap`) to copy the Gatsby site engine into the workspace, render modified datasheets to PDF ([`_render-datasheets.yml`](.github/workflows/_render-datasheets.yml)), copy hardware downloads into `static/resources/`, and build static HTML (`fetch-depth: 0` with `filter: blob:none` preserves per-page Git update timestamps).
+* **CI Site Build:** In GitHub Actions, `npm install` pulls `@arduino/docs-arduino-cc` and runs its `postinstall` bootstrap (`commands.sh bootstrap`) to copy the Gatsby site engine into the workspace, render modified datasheets to PDF ([`_render-datasheets.yml`](.github/workflows/_render-datasheets.yml)), copy pinouts, schematics, and STEP files into `static/resources/`, and build static HTML (`fetch-depth: 0` with `filter: blob:none` preserves per-page Git update timestamps).
 * **Production (<https://docs.arduino.cc>):** Deployed by [`deploy-production.yml`](.github/workflows/deploy-production.yml) on a daily schedule (`08:00 Europe/Rome`) whenever `main` has undeployed commits, or on demand via `workflow_dispatch`.
 * **Staging (<https://docs.oniudra.cc>):** Deployed manually via [`deploy-staging.yml`](.github/workflows/deploy-staging.yml).
 * **Pull Request Previews:** Adding the `preview` label to an in-repository pull request triggers [`preview.yml`](.github/workflows/preview.yml) and posts a Netlify preview link on the PR. Pushing new commits automatically removes the `preview` label so rebuilds only run when re-labeled.

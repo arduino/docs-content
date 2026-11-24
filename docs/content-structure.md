@@ -39,6 +39,7 @@ content/hardware/<family>/<product-type>/<product>/
   image.svg                 # Product illustration
   certifications/           # Optional regulatory/compliance files
   downloads/                # Pinouts, schematics, CAD, power tree, block diagram
+  interactive/              # <SKU>-altium.zip (Interactive Viewer), <SKU>-pinout.png (simplified pinout)
   datasheet/
     datasheet.md            # Or en-datasheet.md + <lang>-datasheet.md
   tutorials/
@@ -107,7 +108,7 @@ Keep these constraints in mind when editing `content/order.json`:
 
 * **Never sort JSON keys alphabetically.** Key order in `content/order.json` defines the rendered order on the site.
 * **Match folder names without numeric prefixes.** Entries match directory slugs with any `01.` prefix stripped.
-* **Check build warnings.** Non-existent folder paths, duplicate placements, non-string array entries, or entries pointing to a folder that still has a numeric prefix emit `[content order]` build warnings and are ignored.
+* **Check build warnings.** Non-existent folder paths, non-string array entries, or entries pointing to a folder that still has a numeric prefix emit `[content order]` build warnings and are ignored. A folder placed twice also emits a warning, and its last placement wins.
 * **Restart local `gatsby develop` after changes.** The site build caches `content/order.json` and directory listings at startup; restart the dev server after editing `order.json` or adding, renaming, or removing content folders.
 
 ### Numeric Prefixes and Coexistence
