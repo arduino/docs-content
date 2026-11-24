@@ -7,7 +7,7 @@ libraries:
   - name: Arduino IoT Cloud Python
 ---
 
-Python® (CPython) devices — a Raspberry Pi®, a PC, a server — connect to Arduino® Cloud as a [manual (generic) device](/arduino-cloud/devices/add-manual-device), using the same [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) library that also supports [MicroPython](/arduino-cloud/device-libraries/micropython). It syncs Cloud Variables over MQTT; it does not manage account resources — for that, see the [REST API SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
+Python® (CPython) devices — a Raspberry Pi®, a PC, a server — connect to Arduino® Cloud as a [manual (generic) device](/arduino-cloud/devices/add-manual-device), using the same [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) library that also supports [MicroPython](/arduino-cloud/device-libraries/micropython). It syncs Cloud Variables over MQTT; it does not manage account resources — for that, see the [REST API SDKs](/arduino-cloud/developer-tools/rest-api-sdks).
 
 ## Create a Generic Device
 
@@ -105,10 +105,10 @@ Common issues: `command not found: python` usually means the interpreter is `pyt
 
 ## Managing the Cloud Side From Python
 
-This library is for **device connection** only. To create, list, or delete Things/Devices/Dashboards from Python instead, use the separate REST client (`arduino-iot-client`) — see [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
+This library is for **device connection** only. To create, list, or delete Things/Devices/Dashboards from Python instead, use the separate REST client (`arduino-iot-client`) — see [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks).
 
 ## Related Articles
 
 - [MicroPython](/arduino-cloud/device-libraries/micropython)
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)
-- [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks)
+- [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks)

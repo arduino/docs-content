@@ -16,7 +16,7 @@ The available roles depend on the type of shared space:
 | **Business** (Team and Enterprise) | Admin, Editor, Service, Viewer |
 | **Education** | Admin, Teacher, Student |
 
-Permissions are enforced in the same way across all supported clients, including the Arduino® Cloud web app, the [IoT Remote app](/arduino-cloud/iot-remote-app/use-dashboards-on-phone), the [Arduino Cloud CLI](/arduino-cloud/apis-cli/cli-commands#devices), and the [REST API](/arduino-cloud/apis-cli/rest-api-sdks).
+Permissions are enforced in the same way across all supported clients, including the Arduino® Cloud web app, the [IoT Remote app](/arduino-cloud/iot-remote-app/use-dashboards-on-phone), the [Arduino Cloud CLI](/arduino-cloud/developer-tools/cli-commands#devices), and the [REST API](/arduino-cloud/developer-tools/rest-api-sdks).
 
 <Alert type="info">
 

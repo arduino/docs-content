@@ -52,6 +52,7 @@ Open **Space Settings** from the sidebar to configure a shared space:
 
 - [Space Statistics](/arduino-cloud/spaces-plans-account/space-statistics)
 - [Spaces Overview](/arduino-cloud/spaces-plans-account/spaces-overview)
+- [Organize Resources With Smart Folders](/arduino-cloud/spaces-plans-account/smart-folders)
 - [Members, Roles & Permissions](/arduino-cloud/spaces-plans-account/members-roles)
 - [Custom Branding](/arduino-cloud/spaces-plans-account/custom-branding)
 - [Plans, Limits & Quotas](/arduino-cloud/spaces-plans-account/plans-limits-quotas)

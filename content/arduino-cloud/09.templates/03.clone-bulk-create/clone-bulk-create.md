@@ -5,11 +5,11 @@ tags: [Arduino Cloud, Templates, CLI]
 author: Karl Söderby & Arduino Team
 ---
 
-When you need the same setup on more than one device, the web UI's one-at-a-time flow becomes slow. The [arduino-cloud-cli](/arduino-cloud/apis-cli/cli-commands) turns Things, Dashboards, and templates into scriptable building blocks you can clone and replicate in a batch — ideal for provisioning a fleet or a classroom set of identical projects.
+When you need the same setup on more than one device, the web UI's one-at-a-time flow becomes slow. The [arduino-cloud-cli](/arduino-cloud/developer-tools/cli-commands) turns Things, Dashboards, and templates into scriptable building blocks you can clone and replicate in a batch — ideal for provisioning a fleet or a classroom set of identical projects.
 
 <Alert type="info">
 
-All commands below assume the CLI is installed and authenticated. See [CLI: Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials) for setup.
+All commands below assume the CLI is installed and authenticated. See [CLI: Install & Credentials](/arduino-cloud/developer-tools/cli-install-credentials) for setup.
 
 </Alert>
 
@@ -63,7 +63,7 @@ Each device gets its own generated Thing and Dashboard from the one template —
 
 ## Related Articles
 
-- [CLI Commands: Things](/arduino-cloud/apis-cli/cli-commands#things)
-- [CLI Commands: Templates](/arduino-cloud/apis-cli/cli-commands#templates)
+- [CLI Commands: Things](/arduino-cloud/developer-tools/cli-commands#things)
+- [CLI Commands: Templates](/arduino-cloud/developer-tools/cli-commands#templates)
 - [Custom Templates](/arduino-cloud/templates/custom-templates)
 - [Use Templates](/arduino-cloud/templates/use-templates)

@@ -9,11 +9,11 @@ Short definitions of the core Arduino® Cloud concepts, each linking to its main
 
 ## API Key
 
-A Client ID and Client Secret pair used to authenticate with the Arduino Cloud REST API and arduino-cloud-cli. See [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
+A Client ID and Client Secret pair used to authenticate with the Arduino Cloud REST API and arduino-cloud-cli. See [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks).
 
 ## arduino-cloud-cli
 
-The command-line tool for managing Arduino Cloud devices, Things, dashboards, templates and OTA updates from a terminal. See [CLI: Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials) and [CLI Commands](/arduino-cloud/apis-cli/cli-commands).
+The command-line tool for managing Arduino Cloud devices, Things, dashboards, templates and OTA updates from a terminal. See [CLI: Install & Credentials](/arduino-cloud/developer-tools/cli-install-credentials) and [CLI Commands](/arduino-cloud/developer-tools/cli-commands).
 
 ## Cloud Agent
 
@@ -89,7 +89,7 @@ The Arduino/C++ program that runs on a device and connects it to the Cloud. See 
 
 ## Smart Folder
 
-A saved set of search and filter rules that groups Things, devices or dashboards and keeps itself up to date automatically. See [Organize Resources With Smart Folders](/arduino-cloud/things-data/smart-folders).
+A saved set of search and filter rules that groups Things, devices or dashboards and keeps itself up to date automatically. See [Organize Resources With Smart Folders](/arduino-cloud/spaces-plans-account/smart-folders).
 
 ## Space
 

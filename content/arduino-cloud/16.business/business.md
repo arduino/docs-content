@@ -31,7 +31,7 @@ New invitations default to **Viewer**, the role with the least permissions. Revi
 
 ### 3. Provision and Tag a Device Fleet
 
-Add devices through the Cloud UI for a handful of boards, or the [Arduino Cloud CLI](/arduino-cloud/apis-cli/cli-commands#devices) to provision many at once. Boards with a secure element are provisioned using their hardware-backed keys, so credentials never leave the device. Tag devices to organize and filter large fleets.
+Add devices through the Cloud UI for a handful of boards, or the [Arduino Cloud CLI](/arduino-cloud/developer-tools/cli-commands#devices) to provision many at once. Boards with a secure element are provisioned using their hardware-backed keys, so credentials never leave the device. Tag devices to organize and filter large fleets.
 
 ![The devices list for a fleet.](assets/devices-list.png)
 

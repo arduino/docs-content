@@ -22,12 +22,12 @@ The limits below are the ones most likely to influence which plan you need:
 
 | Limit / Feature | Free | Maker | Paid / Business | School |
 |---|---|---|---|---|
-| Number of Things | Lowest | Higher | Highest / tailored | See plans page |
-| Data retention | Shortest | Longer | Longest | See plans page |
-| Over-the-air (OTA) updates | Not included | Included | Included | See plans page |
-| Triggers & alerts | Not included | Included | Included | See plans page |
-| Advanced dashboard widgets | Limited | Included | Included | See plans page |
-| Compile time per day | Lowest | Higher | Highest | See plans page |
+| Number of Things | Lowest | Higher | Highest / tailored | Per member |
+| Data retention | Shortest | Longer | Longest | Longer |
+| Over-the-air (OTA) updates | Not included | Included | Included | Included |
+| Triggers & alerts | Not included | Included | Included | Included (per member) |
+| Advanced dashboard widgets | Limited | Included | Included | Included |
+| Compile time per day | Lowest | Higher | Highest | Highest |
 | Shared spaces & RBAC | Not included | Not included | Included | Included (Admin, Teacher, and Student roles) |
 
 <Alert type="info">

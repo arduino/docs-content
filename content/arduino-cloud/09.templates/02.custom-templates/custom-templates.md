@@ -58,10 +58,10 @@ Triggers are not supported by the CLI yet. To create a custom template that incl
 
 </Alert>
 
-See [Clone & Bulk-Create](/arduino-cloud/templates/clone-bulk-create) and [CLI Commands: Templates](/arduino-cloud/apis-cli/cli-commands#templates) for the full reference.
+See [Clone & Bulk-Create](/arduino-cloud/templates/clone-bulk-create) and [CLI Commands: Templates](/arduino-cloud/developer-tools/cli-commands#templates) for the full reference.
 
 ## Related Articles
 
-- [Organize Resources With Smart Folders](/arduino-cloud/things-data/smart-folders)
+- [Organize Resources With Smart Folders](/arduino-cloud/spaces-plans-account/smart-folders)
 - [Clone & Bulk-Create](/arduino-cloud/templates/clone-bulk-create)
 - [Use Templates](/arduino-cloud/templates/use-templates)

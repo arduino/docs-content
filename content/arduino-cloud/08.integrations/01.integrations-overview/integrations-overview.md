@@ -29,7 +29,7 @@ Arduino® Cloud connects to external services in several different ways, each su
 
 ## Flow Editors and Code
 
-[Node-RED](/arduino-cloud/integrations/node-red) uses a dedicated node package to read and write variables inside a visual flow — the right choice when an integration needs custom logic, filtering, or fan-out to multiple destinations. For full programmatic control, the [APIs and CLI](/arduino-cloud/apis-cli/developer-overview) underpin every integration here.
+[Node-RED](/arduino-cloud/integrations/node-red) uses a dedicated node package to read and write variables inside a visual flow — the right choice when an integration needs custom logic, filtering, or fan-out to multiple destinations. For full programmatic control, the [APIs and CLI](/arduino-cloud/developer-tools/developer-overview) underpin every integration here.
 
 ## Data Export and Networks
 

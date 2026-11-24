@@ -67,16 +67,16 @@ Add `-v` to force logs to print even on success, useful while debugging. Most `l
 | Group | Covers |
 |---|---|
 | `credentials` | `init`, `find` |
-| [`device`](/arduino-cloud/apis-cli/cli-commands#devices) | Provision, list, tag, delete devices |
-| [`thing`](/arduino-cloud/apis-cli/cli-commands#things) | Create, clone, bind, list, tag Things |
-| [`dashboard`](/arduino-cloud/apis-cli/cli-commands#dashboards) | Create, list, extract, delete Dashboards |
-| [`ota`](/arduino-cloud/apis-cli/cli-commands#ota--mass-upload) | Firmware over-the-air updates, single or mass |
-| [`template`](/arduino-cloud/apis-cli/cli-commands#templates) | List, export, import, and apply custom templates |
+| [`device`](/arduino-cloud/developer-tools/cli-commands#devices) | Provision, list, tag, delete devices |
+| [`thing`](/arduino-cloud/developer-tools/cli-commands#things) | Create, clone, bind, list, tag Things |
+| [`dashboard`](/arduino-cloud/developer-tools/cli-commands#dashboards) | Create, list, extract, delete Dashboards |
+| [`ota`](/arduino-cloud/developer-tools/cli-commands#ota--mass-upload) | Firmware over-the-air updates, single or mass |
+| [`template`](/arduino-cloud/developer-tools/cli-commands#templates) | List, export, import, and apply custom templates |
 | `version` | Print the CLI's own version |
 
 Every command supports `--help` for its exact, current flags.
 
 ## Related Articles
 
-- [CLI Commands](/arduino-cloud/apis-cli/cli-commands)
-- [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks)
+- [CLI Commands](/arduino-cloud/developer-tools/cli-commands)
+- [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks)

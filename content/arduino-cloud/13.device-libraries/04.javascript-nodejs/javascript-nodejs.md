@@ -9,7 +9,7 @@ author: Karl Söderby & Arduino Team
 
 <Alert type="warning">
 
-Not to be confused with `@arduino/arduino-iot-client` — that's the REST CRUD client covered in [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks). This page is the real-time MQTT client.
+Not to be confused with `@arduino/arduino-iot-client` — that's the REST CRUD client covered in [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks). This page is the real-time MQTT client.
 
 </Alert>
 
@@ -92,10 +92,10 @@ Common issues: `Error: Cannot find module` means the package isn't installed in 
 
 ## Managing the Cloud Side From JavaScript
 
-This library is for **real-time device connection** only. To script Thing/Device/Dashboard management, use the separate REST client (`@arduino/arduino-iot-client`) — see [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
+This library is for **real-time device connection** only. To script Thing/Device/Dashboard management, use the separate REST client (`@arduino/arduino-iot-client`) — see [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks).
 
 ## Related Articles
 
 - [Add a Manual Device](/arduino-cloud/devices/add-manual-device)
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)
-- [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks)
+- [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks)

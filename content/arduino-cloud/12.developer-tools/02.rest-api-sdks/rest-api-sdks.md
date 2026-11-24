@@ -187,6 +187,6 @@ The token expires after 300 seconds — click **Get New Access Token** again to 
 
 ## Related Articles
 
-- [Developer Overview](/arduino-cloud/apis-cli/developer-overview)
-- [CLI: Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials)
+- [Developer Overview](/arduino-cloud/developer-tools/developer-overview)
+- [CLI: Install & Credentials](/arduino-cloud/developer-tools/cli-install-credentials)
 - [Device & Client Libraries](/arduino-cloud/device-libraries/arduino-cpp)

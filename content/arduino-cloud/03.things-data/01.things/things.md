@@ -90,11 +90,11 @@ Open the **info** icon on the left rail to reach the Metadata panel:
 ![The Thing Metadata panel.](assets/thing-metadata-panel.png)
 
 - **Timezone**: used by time-based features such as the Scheduler widget. Select it from the dropdown menu.
-- **Thing ID**: a UUID, for example `cd628fe4-31d1-42a8-bf33-a627997ce602`, used to reference this Thing from the [REST API](/arduino-cloud/apis-cli/rest-api-sdks) or the [CLI](/arduino-cloud/apis-cli/cli-commands#things).
+- **Thing ID**: a UUID, for example `cd628fe4-31d1-42a8-bf33-a627997ce602`, used to reference this Thing from the [REST API](/arduino-cloud/developer-tools/rest-api-sdks) or the [CLI](/arduino-cloud/developer-tools/cli-commands#things).
 - **Created at / Last modified / Last sync**: timestamps for the Thing record and its last successful sync with a device.
 - **Smart Home Integration**: toggle Google Home and/or Alexa support for compatible variable types.
 - **Data forwarding (Webhook)**: forward variable updates to an external URL.
-- **Tags**: key/value labels used to organize and filter Things, which is useful when you have many devices in different locations. Under **Tags**, select **Create new** and enter a **Key**, for example `location`, and a **Value**, for example `London`. You can add as many tags as you need, then filter the Things list by them. Combine tags with [Smart Folders](/arduino-cloud/things-data/smart-folders) to group tagged Things automatically.
+- **Tags**: key/value labels used to organize and filter Things, which is useful when you have many devices in different locations. Under **Tags**, select **Create new** and enter a **Key**, for example `location`, and a **Value**, for example `London`. You can add as many tags as you need, then filter the Things list by them. Combine tags with [Smart Folders](/arduino-cloud/spaces-plans-account/smart-folders) to group tagged Things automatically.
 
 ## Related Articles
 

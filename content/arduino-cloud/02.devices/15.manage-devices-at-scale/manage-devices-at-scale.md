@@ -17,9 +17,9 @@ Tags are key/value labels that you attach to resources to group and filter them:
 Where you can add tags depends on the resource:
 
 - **Things**: in the web interface, open the Thing, open its **Metadata** panel, and under **Tags** select **Create new**. Enter a key and a value. You can add as many tags as you need to each Thing, then filter the Things list by them. See [Things](/arduino-cloud/things-data/things#metadata-and-tags).
-- **Devices**: device tags are added and removed with [arduino-cloud-cli](/arduino-cloud/apis-cli/cli-commands#device-tags) or the [Devices API](https://docs.arduino.cc/cloud-api/devices-api). Use them to select devices for scripted operations, such as listing, deleting or updating many devices at once.
+- **Devices**: device tags are added and removed with [arduino-cloud-cli](/arduino-cloud/developer-tools/cli-commands#device-tags) or the [Devices API](https://docs.arduino.cc/cloud-api/devices-api). Use them to select devices for scripted operations, such as listing, deleting or updating many devices at once.
 
-Tagging every resource created for a given purpose makes later bulk operations and cleanup straightforward. To keep a filtered view one click away, save your filters as a [Smart Folder](/arduino-cloud/things-data/smart-folders), which updates automatically as resources are added or change.
+Tagging every resource created for a given purpose makes later bulk operations and cleanup straightforward. To keep a filtered view one click away, save your filters as a [Smart Folder](/arduino-cloud/spaces-plans-account/smart-folders), which updates automatically as resources are added or change.
 
 ![Searching and filtering among devices.](assets/search-things.png)
 
@@ -29,7 +29,7 @@ The **Devices** and **Things** lists let you search across boards, filter by sta
 
 ## Bulk Provisioning From the CLI
 
-The [CLI](/arduino-cloud/apis-cli/cli-commands#devices) is the right tool when provisioning many devices at once or automating device management. Tags make scripted create/clean-up flows repeatable:
+The [CLI](/arduino-cloud/developer-tools/cli-commands#devices) is the right tool when provisioning many devices at once or automating device management. Tags make scripted create/clean-up flows repeatable:
 
 ```bash
 # Provision a board
@@ -45,14 +45,14 @@ arduino-cloud-cli device list --tags purpose=fleet-a
 arduino-cloud-cli device delete --tags purpose=fleet-a
 ```
 
-See [CLI Commands: Devices](/arduino-cloud/apis-cli/cli-commands#devices) for the full command reference.
+See [CLI Commands: Devices](/arduino-cloud/developer-tools/cli-commands#devices) for the full command reference.
 
 ## Update Many Devices Over the Air
 
-To send the same firmware to many devices at once, use a mass OTA upload with arduino-cloud-cli. You can select the target devices by ID or by tag. See [CLI Commands: OTA & Mass Upload](/arduino-cloud/apis-cli/cli-commands#ota--mass-upload) and [Upload Over the Air](/arduino-cloud/sketches-editor/upload-over-the-air).
+To send the same firmware to many devices at once, use a mass OTA upload with arduino-cloud-cli. You can select the target devices by ID or by tag. See [CLI Commands: OTA & Mass Upload](/arduino-cloud/developer-tools/cli-commands#ota--mass-upload) and [Upload Over the Air](/arduino-cloud/sketches-editor/upload-over-the-air).
 
 ## Related Articles
 
-- [CLI Commands: Devices](/arduino-cloud/apis-cli/cli-commands#devices)
+- [CLI Commands: Devices](/arduino-cloud/developer-tools/cli-commands#devices)
 - [Spaces](/arduino-cloud/spaces-plans-account/spaces)
 - [Device Status & Lifecycle](/arduino-cloud/devices/device-status-lifecycle)

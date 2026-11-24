@@ -7,7 +7,7 @@ author: Karl Söderby, Paolo Calao
 
 `arduino-cloud-cli` lets you manage your Arduino® Cloud resources from the terminal, which makes it easy to script repeatable operations such as provisioning a fleet of devices or rolling out a firmware update. This page lists the available commands, grouped by resource.
 
-See [CLI: Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials) first to install the CLI and set up your API credentials. Every command supports `--help` for its exact, current flags.
+See [CLI: Install & Credentials](/arduino-cloud/developer-tools/cli-install-credentials) first to install the CLI and set up your API credentials. Every command supports `--help` for its exact, current flags.
 
 - [Devices](#devices)
 - [Things](#things)
@@ -338,7 +338,7 @@ Tagging devices (see [Device Tags](#device-tags)) makes it easy to target a flee
 
 ## Related Articles
 
-- [CLI: Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials)
+- [CLI: Install & Credentials](/arduino-cloud/developer-tools/cli-install-credentials)
 - [Custom Templates](/arduino-cloud/templates/custom-templates)
 - [Clone & Bulk-Create](/arduino-cloud/templates/clone-bulk-create)
-- [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks)
+- [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks)

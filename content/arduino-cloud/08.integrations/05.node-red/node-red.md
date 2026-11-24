@@ -65,7 +65,7 @@ This adds five Arduino Cloud nodes to the palette: **property in**, **property o
 
 A **property out** node reads a Cloud Variable's value into a flow:
 
-1. Create an API key in [API Keys](https://app.arduino.cc/api-keys) and store the Client ID and Client Secret safely. See [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
+1. Create an API key in [API Keys](https://app.arduino.cc/api-keys) and store the Client ID and Client Secret safely. See [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks).
 2. Add a **property out** node, double-click it, and select **Add new Arduino-connection**.
 3. Click the pen icon, enter the Client ID and Client Secret, and click **Add**.
 4. Select the Thing and variable to read, for example a `humidity` variable.
@@ -109,4 +109,4 @@ To email the filtered values, install `node-red-node-email` via **Manage palette
 
 - [Send Email Alerts With Node-RED](/arduino-cloud/application-notes/send-email-node-red)
 - [IFTTT, Zapier & Webhooks](/arduino-cloud/integrations/ifttt-zapier-webhooks)
-- [Cloud Management APIs & CLI](/arduino-cloud/apis-cli/developer-overview)
+- [Developer Overview](/arduino-cloud/developer-tools/developer-overview)

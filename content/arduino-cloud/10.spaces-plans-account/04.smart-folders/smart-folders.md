@@ -136,6 +136,7 @@ Every Thing that carries the same tag ends up in the same folder.
 
 ## Related Articles
 
+- [Spaces](/arduino-cloud/spaces-plans-account/spaces)
 - [Things](/arduino-cloud/things-data/things)
 - [Custom Templates](/arduino-cloud/templates/custom-templates)
 - [Manage Devices at Scale](/arduino-cloud/devices/manage-devices-at-scale)

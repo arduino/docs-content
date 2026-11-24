@@ -49,7 +49,7 @@ Select **+ Device** (or **ADD DEVICE**) to open the **Setup Device** dialog, spl
 | **Automatic Setup** | Arduino boards and compatible ESP32/ESP8266/LoRaWAN boards, provisioned through a guided wizard |
 | **Manual Setup** | Any device — generates credentials for a [generic/virtual device](/arduino-cloud/devices/add-manual-device) with no sketch |
 
-For scriptable, repeatable provisioning, [arduino-cloud-cli](/arduino-cloud/apis-cli/cli-commands#devices) is a fully equivalent alternative to the web wizard.
+For scriptable, repeatable provisioning, [arduino-cloud-cli](/arduino-cloud/developer-tools/cli-commands#devices) is a fully equivalent alternative to the web wizard.
 
 ### Limits by Plan
 

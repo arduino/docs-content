@@ -14,7 +14,7 @@ By default, the stack extracts data every hour, aggregates samples at a five-min
 ## Hardware & Software Needed
 
 - An [Arduino Cloud](https://app.arduino.cc/) account with at least one Thing that collects data.
-- An Arduino Cloud [API key and secret](/arduino-cloud/apis-cli/rest-api-sdks).
+- An Arduino Cloud [API key and secret](/arduino-cloud/developer-tools/rest-api-sdks).
 - An [AWS account](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#sign-up-for-aws) with the IAM permissions listed in [Required IAM Permissions](#required-iam-permissions).
 - The Lambda binaries (`.zip`) and CloudFormation template (`.yaml`) from the exporter's [releases page](https://github.com/arduino/aws-s3-integration/releases).
 - Optionally, the [Go programming language](https://go.dev/) (version 1.22 or higher) if you want to [build the exporter yourself](#building-the-code).
@@ -137,7 +137,7 @@ In the **Specify stack details** step, enter a stack name and the parameters:
 - **Mandatory:** the Arduino API key and secret (`IotApiKey` and `IotApiSecret`), the bucket containing the Lambda `.zip` file (`LambdaCodeS3Bucket`), and the CSV destination bucket (`csvdests3int` in this example).
 - **Optional:** tag filter, organization ID (the Space ID in Arduino Cloud), and data resolution settings.
 
-To create the API key and secret, see [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
+To create the API key and secret, see [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks).
 
 ![Mandatory stack parameters.](assets/cloud_stack_create_5.png)
 
@@ -311,6 +311,6 @@ For more information about the AWS services used by the exporter, see the [AWS L
 
 - [Historical Data Export](/arduino-cloud/things-data/historical-data-export)
 - [Things](/arduino-cloud/things-data/things)
-- [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks)
+- [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks)
 - [Integrations Overview](/arduino-cloud/integrations/integrations-overview)
 - [Arduino Cloud for Business](/arduino-cloud/business/arduino-cloud-for-business)

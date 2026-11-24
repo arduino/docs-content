@@ -88,7 +88,7 @@ The **Lock to this account** setting on the device page keeps a board tied to yo
 
 Smart Folders group Things, devices and dashboards by rules, such as a tag or a device status, and keep each folder up to date automatically as resources are added or change.
 
-[Learn more: Organize Resources With Smart Folders](/arduino-cloud/things-data/smart-folders)
+[Learn more: Organize Resources With Smart Folders](/arduino-cloud/spaces-plans-account/smart-folders)
 
 ### Dashboard Pages
 

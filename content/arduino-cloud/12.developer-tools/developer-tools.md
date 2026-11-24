@@ -1,4 +1,4 @@
 ---
-title: Cloud Management
+title: Developer Tools
 icon: IconTerminal
 ---

@@ -43,7 +43,7 @@ Once a device is connected, you write its logic with the matching library:
 |---|---|
 | Get something working fastest | [Start From a Template](/arduino-cloud/get-started/start-from-a-template) |
 | Provision many devices at once | [Manage Devices at Scale](/arduino-cloud/devices/manage-devices-at-scale) |
-| Automate the whole setup in code | [Developer Overview](/arduino-cloud/apis-cli/developer-overview) |
+| Automate the whole setup in code | [Developer Overview](/arduino-cloud/developer-tools/developer-overview) |
 
 ## Related Articles
 

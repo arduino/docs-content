@@ -21,7 +21,7 @@ Arduino Cloud is really several tools that share one account and one data layer.
 | [IoT tools](/arduino-cloud/things-data/things) | Things, Cloud Variables, and the sync backend that keeps a value identical on the device and in the cloud. |
 | [Dashboards](/arduino-cloud/dashboards/dashboards) | Drag-and-drop widgets to visualize and control your variables from any browser. |
 | [IoT Remote app](/arduino-cloud/iot-remote-app/iot-remote-app-overview) | A mobile app that shows your dashboards and can turn a phone into a sensor-streaming device. |
-| [APIs and CLI](/arduino-cloud/apis-cli/developer-overview) | A REST API, client SDKs, and a command-line tool for automating everything above at scale. |
+| [APIs and CLI](/arduino-cloud/developer-tools/developer-overview) | A REST API, client SDKs, and a command-line tool for automating everything above at scale. |
 
 Dashboards aren't tied to a single Thing or device, so one dashboard can control many boards.
 

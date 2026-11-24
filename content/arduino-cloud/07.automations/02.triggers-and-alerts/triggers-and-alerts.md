@@ -129,7 +129,7 @@ The status comes from the device's connection to Arduino Cloud: MQTT for Arduino
 
 <Alert type="info">
 
-To check device connectivity from your own code instead, use the REST API or the Arduino Cloud CLI. See [CLI Commands: Devices](/arduino-cloud/apis-cli/cli-commands#devices).
+To check device connectivity from your own code instead, use the REST API or the Arduino Cloud CLI. See [CLI Commands: Devices](/arduino-cloud/developer-tools/cli-commands#devices).
 
 </Alert>
 

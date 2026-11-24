@@ -12,7 +12,7 @@ In this project you'll connect Arduino® Cloud to [Node-RED](https://nodered.org
 - A paid Arduino Cloud plan (Node-RED integration isn't available on Free).
 - Node-RED installed locally. Install it with `sudo npm install -g node-red` on macOS and Linux®, or `npm install -g node-red` on Windows, then start it with `node-red` and open `http://localhost:1880`. See the [Node-RED installation page](https://nodered.org/docs/getting-started/local).
 - A Thing exposing a numeric variable (e.g. `humidity`).
-- An API key (Client ID/Secret) from [API Keys](/arduino-cloud/apis-cli/rest-api-sdks).
+- An API key (Client ID/Secret) from [API Keys](/arduino-cloud/developer-tools/rest-api-sdks).
 
 ## Step 1 — Install the Arduino Cloud Nodes
 
@@ -72,5 +72,5 @@ Deploy the flow. Now, whenever `humidity` crosses 60, you get a single email ale
 ## Related Articles
 
 - [Node-RED Integration](/arduino-cloud/integrations/node-red)
-- [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks)
+- [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks)
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)

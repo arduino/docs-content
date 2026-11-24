@@ -55,10 +55,10 @@ For continuous, long-term retention outside Arduino® Cloud, the [AWS S3 Exporte
 
 ## Querying History Through the API
 
-Every recorded point is queryable through the Series API, which backs the Chart widget. It supports raw queries (every point in a range), sampled queries (downsampled for long ranges), batch queries (multiple variables at once), and last-value queries. Call it from the Go, Python®, or JavaScript client libraries — see [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
+Every recorded point is queryable through the Series API, which backs the Chart widget. It supports raw queries (every point in a range), sampled queries (downsampled for long ranges), batch queries (multiple variables at once), and last-value queries. Call it from the Go, Python®, or JavaScript client libraries — see [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks).
 
 ## Related Articles
 
 - [AWS S3 Exporter](/arduino-cloud/integrations/aws-s3)
-- [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks)
+- [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks)
 - [Cloud Variables](/arduino-cloud/things-data/cloud-variables)

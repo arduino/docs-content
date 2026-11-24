@@ -56,14 +56,14 @@ Open the menu next to the dashboard's name at the top of the page to:
 
 ## Managing Dashboards From the CLI
 
-You can also list, extract, create and delete dashboards from the terminal with [arduino-cloud-cli](/arduino-cloud/apis-cli/cli-install-credentials). This is useful to replicate the same dashboard layout for many Things. For example, to extract a dashboard as a template and create a copy of it for another Thing:
+You can also list, extract, create and delete dashboards from the terminal with [arduino-cloud-cli](/arduino-cloud/developer-tools/cli-install-credentials). This is useful to replicate the same dashboard layout for many Things. For example, to extract a dashboard as a template and create a copy of it for another Thing:
 
 ```bash
 arduino-cloud-cli dashboard extract --id <dashboardID> --format yaml > dashboard.yaml
 arduino-cloud-cli dashboard create --name <dashboardName> --template dashboard.yaml --override <thing-0>=<thingID>
 ```
 
-See [CLI Commands](/arduino-cloud/apis-cli/cli-commands#dashboards) for all dashboard commands.
+See [CLI Commands](/arduino-cloud/developer-tools/cli-commands#dashboards) for all dashboard commands.
 
 ## Related Articles
 
@@ -71,4 +71,4 @@ See [CLI Commands](/arduino-cloud/apis-cli/cli-commands#dashboards) for all dash
 - [Add & Link Widgets](/arduino-cloud/dashboards/add-link-widgets)
 - [Share Dashboards](/arduino-cloud/dashboards/share-dashboards)
 - [Widget Catalog](/arduino-cloud/reference/widget-catalog)
-- [Organize Resources With Smart Folders](/arduino-cloud/things-data/smart-folders)
+- [Organize Resources With Smart Folders](/arduino-cloud/spaces-plans-account/smart-folders)

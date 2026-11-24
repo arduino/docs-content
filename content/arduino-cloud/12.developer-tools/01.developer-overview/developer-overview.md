@@ -13,13 +13,13 @@ author: Karl Söderby, Fabrizio Mirabito
 | **Protocol** | HTTPS | MQTT |
 | **Used from** | Servers, scripts, CI, backends | The device itself (or a manual/generic virtual device) |
 | **Auth** | OAuth2 client-credentials (API key) | Device ID + Secret Key, or cert + key |
-| **Covered in** | [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks) | [Device & Client Libraries](/arduino-cloud/device-libraries/arduino-cpp) |
+| **Covered in** | [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks) | [Device & Client Libraries](/arduino-cloud/device-libraries/arduino-cpp) |
 
 ## Which Tool for Which Job
 
-- **Administer the account** (create a Thing, provision a device, read history, bulk-tag devices): use the [REST API](/arduino-cloud/apis-cli/rest-api-sdks), an SDK, or [arduino-cloud-cli](/arduino-cloud/apis-cli/cli-install-credentials).
+- **Administer the account** (create a Thing, provision a device, read history, bulk-tag devices): use the [REST API](/arduino-cloud/developer-tools/rest-api-sdks), an SDK, or [arduino-cloud-cli](/arduino-cloud/developer-tools/cli-install-credentials).
 - **Connect a running device** and exchange live variable values: use the [device library](/arduino-cloud/device-libraries/arduino-cpp) for your language.
-- **Script repeatable terminal operations** (CI/CD, mass OTA): the [CLI](/arduino-cloud/apis-cli/cli-install-credentials) wraps the common REST operations. Anything the CLI doesn't expose yet (e.g. raw history/Series queries) needs a direct REST call.
+- **Script repeatable terminal operations** (CI/CD, mass OTA): the [CLI](/arduino-cloud/developer-tools/cli-install-credentials) wraps the common REST operations. Anything the CLI doesn't expose yet (e.g. raw history/Series queries) needs a direct REST call.
 
 <Alert type="warning">
 
@@ -29,11 +29,11 @@ Naming gotcha: `arduino-iot-js` (MQTT, device-side) and `@arduino/arduino-iot-cl
 
 ## Compatibility Policy
 
-The REST API is versioned per resource group (for example Devices and Things are at v2, Dashboards at v3), and the generated SDKs track the same OpenAPI spec. Versions change over time, so check exact method and field names against the [generated client repos](/arduino-cloud/apis-cli/rest-api-sdks) or the [API reference](https://docs.arduino.cc/cloud-api/) rather than assuming a field hasn't moved. Use the latest version of the official clients to stay aligned with the API.
+The REST API is versioned per resource group (for example Devices and Things are at v2, Dashboards at v3), and the generated SDKs track the same OpenAPI spec. Versions change over time, so check exact method and field names against the [generated client repos](/arduino-cloud/developer-tools/rest-api-sdks) or the [API reference](https://docs.arduino.cc/cloud-api/) rather than assuming a field hasn't moved. Use the latest version of the official clients to stay aligned with the API.
 
 ## Related Articles
 
-- [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks)
+- [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks)
 - [Device & Client Libraries](/arduino-cloud/device-libraries/arduino-cpp)
-- [CLI: Install & Credentials](/arduino-cloud/apis-cli/cli-install-credentials)
-- [CLI Commands](/arduino-cloud/apis-cli/cli-commands)
+- [CLI: Install & Credentials](/arduino-cloud/developer-tools/cli-install-credentials)
+- [CLI Commands](/arduino-cloud/developer-tools/cli-commands)

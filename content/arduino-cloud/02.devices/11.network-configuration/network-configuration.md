@@ -128,4 +128,4 @@ Two ways to clear saved credentials without setting new ones:
 
 - [Cloud Agent](/arduino-cloud/devices/cloud-agent)
 - [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections)
-- [CLI Commands: Devices](/arduino-cloud/apis-cli/cli-commands#devices)
+- [CLI Commands: Devices](/arduino-cloud/developer-tools/cli-commands#devices)

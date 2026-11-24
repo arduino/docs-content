@@ -56,7 +56,7 @@ Learn more in [Spaces](/arduino-cloud/spaces-plans-account/spaces) and [Members,
 
 ### Fleet and Device Management at Scale
 
-Once you move beyond a handful of boards, Arduino Cloud helps you keep a fleet under control: attach **tags** (key/value labels such as `location: rome`) to devices and Things, then search and filter the lists by tag, status, or type. Provision many devices at once from the [Arduino Cloud CLI](/arduino-cloud/apis-cli/cli-commands) instead of using the setup wizard one board at a time.
+Once you move beyond a handful of boards, Arduino Cloud helps you keep a fleet under control: attach **tags** (key/value labels such as `location: rome`) to devices and Things, then search and filter the lists by tag, status, or type. Provision many devices at once from the [Arduino Cloud CLI](/arduino-cloud/developer-tools/cli-commands) instead of using the setup wizard one board at a time.
 
 This is useful when you need to answer questions like "which devices in plant B are offline?" or when you onboard a new batch of devices for a customer.
 
@@ -84,7 +84,7 @@ Learn more in [Working With Dashboards](/arduino-cloud/dashboards/dashboards) an
 
 A **Smart Folder** is a saved set of search and filter rules, such as "all Things tagged `customer: acme`" or "all offline devices". Arduino Cloud keeps the folder up to date automatically as resources are added or change. Use Smart Folders to group resources by project, customer, or location without maintaining folders by hand.
 
-Learn more in [Organize Resources With Smart Folders](/arduino-cloud/things-data/smart-folders).
+Learn more in [Organize Resources With Smart Folders](/arduino-cloud/spaces-plans-account/smart-folders).
 
 ### Space Statistics and Spaces Overview
 
@@ -108,7 +108,7 @@ Learn more in [Historical Data & Export](/arduino-cloud/things-data/historical-d
 
 The **REST API** gives programmatic access to devices, Things, properties, and dashboards, with official SDKs for JavaScript, Python®, and Go. The **Arduino Cloud CLI** brings the same operations to the terminal, which is ideal for scripting provisioning, OTA updates, and template deployment. Use them to integrate Arduino Cloud with your own backend, mobile app, or CI pipeline.
 
-Learn more in [Developer Overview](/arduino-cloud/apis-cli/developer-overview), [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks), and [CLI Commands](/arduino-cloud/apis-cli/cli-commands).
+Learn more in [Developer Overview](/arduino-cloud/developer-tools/developer-overview), [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks), and [CLI Commands](/arduino-cloud/developer-tools/cli-commands).
 
 ### Collaborative Coding
 

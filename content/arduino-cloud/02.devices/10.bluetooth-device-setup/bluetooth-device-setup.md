@@ -75,7 +75,7 @@ If you are preparing a UNO R4 WiFi, update its Wi-Fi® firmware to version 0.6.0
 
 </Alert>
 
-1. Install [arduino-cloud-cli](/arduino-cloud/apis-cli/cli-install-credentials) version 0.5.0 or later and set up its credentials.
+1. Install [arduino-cloud-cli](/arduino-cloud/developer-tools/cli-install-credentials) version 0.5.0 or later and set up its credentials.
 2. Connect the board to your computer over USB.
 3. Run:
 

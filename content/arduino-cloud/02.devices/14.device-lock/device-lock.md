@@ -76,7 +76,7 @@ In a Business space, boards are locked by default, so ownership stays with whoev
 
 ## Lock State From the CLI and API
 
-The lock is also exposed to [arduino-cloud-cli](/arduino-cloud/apis-cli/cli-commands#devices) and the [REST API](/arduino-cloud/apis-cli/rest-api-sdks), for scripted setups:
+The lock is also exposed to [arduino-cloud-cli](/arduino-cloud/developer-tools/cli-commands#devices) and the [REST API](/arduino-cloud/developer-tools/rest-api-sdks), for scripted setups:
 
 - **arduino-cloud-cli 0.8.0 or later**: Set the lock when provisioning a board with `--locked true` or `--locked false`. If you leave the flag out, the board gets the default lock state for its space. `device show` includes a **Locked** column.
 

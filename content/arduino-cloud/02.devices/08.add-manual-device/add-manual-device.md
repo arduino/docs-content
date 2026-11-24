@@ -39,7 +39,7 @@ From the terminal, the equivalent is:
 arduino-cloud-cli device create-generic --name <deviceName>
 ```
 
-See [CLI Commands: Devices](/arduino-cloud/apis-cli/cli-commands#devices). To create and manage devices from your own code, use the [Devices section of the Arduino Cloud API reference](https://docs.arduino.cc/cloud-api/devices-api) and the [REST API & SDKs](/arduino-cloud/apis-cli/rest-api-sdks).
+See [CLI Commands: Devices](/arduino-cloud/developer-tools/cli-commands#devices). To create and manage devices from your own code, use the [Devices section of the Arduino Cloud API reference](https://docs.arduino.cc/cloud-api/devices-api) and the [REST API & SDKs](/arduino-cloud/developer-tools/rest-api-sdks).
 
 ## Connect From Python, MicroPython, or Node.js
 
@@ -73,5 +73,5 @@ Each name passed to `register()` must exactly match a Cloud Variable already cre
 
 - [Python Library](/arduino-cloud/device-libraries/python)
 - [JavaScript Library](/arduino-cloud/device-libraries/javascript-nodejs)
-- [CLI Commands: Devices](/arduino-cloud/apis-cli/cli-commands#devices)
+- [CLI Commands: Devices](/arduino-cloud/developer-tools/cli-commands#devices)
 - [Devices API reference](https://docs.arduino.cc/cloud-api/devices-api)

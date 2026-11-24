@@ -51,10 +51,10 @@ On Arduino hardware, the connection itself is managed by the [Arduino_Connection
 To track status from your own code or scripts, use the Arduino Cloud APIs instead of the Devices list:
 
 - The [Devices section of the Arduino Cloud API reference](https://docs.arduino.cc/cloud-api/devices-api) documents the device resource, including its connection status and the connection status events of a device.
-- The official API clients for [Python, JavaScript and Go](/arduino-cloud/apis-cli/rest-api-sdks) wrap the same endpoints.
-- [arduino-cloud-cli](/arduino-cloud/apis-cli/cli-commands#devices) lists and manages devices from the terminal, for scripted checks.
+- The official API clients for [Python, JavaScript and Go](/arduino-cloud/developer-tools/rest-api-sdks) wrap the same endpoints.
+- [arduino-cloud-cli](/arduino-cloud/developer-tools/cli-commands#devices) lists and manages devices from the terminal, for scripted checks.
 
-See [Cloud Management APIs & CLI](/arduino-cloud/apis-cli/developer-overview) for an overview of all the options and how to authenticate.
+See the [Developer Overview](/arduino-cloud/developer-tools/developer-overview) for all the options and how to authenticate.
 
 ## Related Articles
 

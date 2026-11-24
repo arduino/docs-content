@@ -60,7 +60,7 @@ The method depends on whether the board has a secure element. In both cases the 
 
 <Alert type="info">
 
-You can also add a device from the terminal with `arduino-cloud-cli device create --fqbn <board-fqbn> --connection wifi`. See [CLI Commands](/arduino-cloud/apis-cli/cli-commands#devices).
+You can also add a device from the terminal with `arduino-cloud-cli device create --fqbn <board-fqbn> --connection wifi`. See [CLI Commands](/arduino-cloud/developer-tools/cli-commands#devices).
 
 </Alert>
 

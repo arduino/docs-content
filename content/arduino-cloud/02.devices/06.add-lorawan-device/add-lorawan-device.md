@@ -90,7 +90,7 @@ arduino-cloud-cli device list-frequency-plans
 arduino-cloud-cli device create-lora --name <deviceName> --frequency-plan <freqID> --port <port> --fqbn <deviceFqbn>
 ```
 
-See [CLI Commands: Devices](/arduino-cloud/apis-cli/cli-commands#devices).
+See [CLI Commands: Devices](/arduino-cloud/developer-tools/cli-commands#devices).
 
 ## The Things Stack Account
 
@@ -155,6 +155,6 @@ Then check that data is arriving:
 
 ## Related Articles
 
-- [CLI Commands: Devices](/arduino-cloud/apis-cli/cli-commands#devices)
+- [CLI Commands: Devices](/arduino-cloud/developer-tools/cli-commands#devices)
 - [Things & Data](/arduino-cloud/things-data/things)
 - [Troubleshoot Device Connections](/arduino-cloud/devices/troubleshoot-device-connections)
