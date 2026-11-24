@@ -143,7 +143,7 @@ Do not continue until all five files report `Ready`. Their presence does not est
 
 Start the camera separately so you can check its video stream before adding inference. Stop any other application using this camera. Only one source should publish `/camera/color/image_raw`.
 
-In Terminal 1, source the pipeline environment and start the Orbbec color stream:
+In Terminal 1, source the pipeline environment:
 
 ```bash
 source ~/person-pipeline/pipeline-env.sh
@@ -160,7 +160,7 @@ ros2 launch orbbec_camera gemini_330_series.launch.py \
 
 This requests a 640×480 color stream at 30 fps. It does not mean that both models will process 30 frames per second. `color_qos:=default` selects the driver's default reliable profile to match the adapter. Check the actual publisher QoS below.
 
-Leave Terminal 1 running. In Terminal 2, source the same environment and inspect the camera:
+Leave Terminal 1 running. In Terminal 2, source the same environment:
 
 ```bash
 source ~/person-pipeline/pipeline-env.sh
@@ -375,7 +375,7 @@ Expect a square `rgb8` crop with the camera source header. Its size and position
 
 ### 5. Add a Second Inference Stage
 
-Prepare the crop as a 640×640 RGB image before it enters the installed SDK preprocessor. With the reference SDK packages, some RGB crop widths produce corrupted pixels after preprocessing, even though an output image is published. Recorded checks reproduced this at widths such as 160 and 320 pixels, while 640-pixel input matched an OpenCV resize.
+Prepare the crop as a 640×640 RGB image before it enters the installed SDK preprocessor. With the reference SDK packages, some RGB crop widths produce corrupted pixels after preprocessing, even though an output image is published. This happens at widths such as 160 and 320 pixels, while a 640-pixel input matches an OpenCV resize.
 
 Resizing the square crop to 640×640 in Python avoids the observed width-dependent corruption. Inspect `/person_roi_model` and `/person_seg/resized_image` if your own crops produce distorted images or empty segmentation results. Keep `/person_roi` at its original size for applying the final mask.
 
@@ -573,7 +573,7 @@ Leave and re-enter the scene: no qualifying person means the adapter stops publi
 
 Continue only when the output follows the person consistently and the pipeline can be restarted without leaving processes behind.
 
-### 7. Optional: Connect a Validated Face Recognition Node
+### 7. Optional: Connect an Existing Face Recognition Node
 
 Your foreground image is available on `/input_faces`. You can connect it to a face-recognition node if you already have a QCS8275 build and compatible YuNet/SFace models that work on their own.
 
@@ -597,7 +597,7 @@ Start a dedicated component container in Terminal 7:
 ros2 run rclcpp_components component_container --ros-args -r __node:=face_container
 ```
 
-In Terminal 6, create a local database and load the component. Place your compatible ONNX models at the two paths shown before running the command:
+In Terminal 6, create a local database. Place your compatible ONNX models at the two paths shown in the load command below:
 
 ```bash
 mkdir -p ~/person-pipeline/face-database
@@ -735,7 +735,7 @@ ros2 topic info /camera/color/image_raw --verbose --no-daemon
 
 Expect `/person_gate`, `/mask_to_face_roi`, and input publishers. Reliable subscriptions require reliable publishers. If the graph is incomplete, check that every terminal uses `rmw_cyclonedds_cpp`, the same domain, and `LOCALHOST` discovery. Check `net.core.rmem_max` again if large image topics stall.
 
-![Historical diagnosis: adapter nodes exist but there is no detection publisher.](assets/pipeline-adapter-check.png)
+![Adapter nodes exist but there is no detection publisher.](assets/pipeline-adapter-check.png)
 
 <Alert type="info">
 
@@ -791,7 +791,7 @@ If you encounter any issues or have questions while working with the VENTUNO Q, 
 
 ### Help Center
 
-Explore our Help Center, which offers a comprehensive collection of articles and guides for the VENTUNO Q. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+Explore our Help Center, which offers a comprehensive collection of articles and guides for Arduino products. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
 - [Arduino Help Center](https://support.arduino.cc/hc)
 

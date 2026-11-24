@@ -2,7 +2,7 @@
 title: 'Install and Understand the Robotics SDK on VENTUNO™ Q'
 overwriteSidebar: Robotics SDK Setup
 difficulty: intermediate
-description: 'Install the ROS 2 vision components of the Robotics SDK on Arduino® VENTUNO™ Q, check the QNN runtime, and prepare a shared environment for the vision tutorials.'
+description: 'Install the ROS 2 vision components of the Robotics SDK on Arduino® VENTUNO™ Q, check the Qualcomm Neural Network (QNN) runtime, and prepare a shared environment for the vision tutorials.'
 tags:
   - Robotics
   - ROS 2
@@ -16,36 +16,9 @@ hardware:
 
 The Robotics Software Development Kit (SDK) lets you build ROS 2 applications on the Arduino® VENTUNO™ Q from reusable components. In a vision application, these components take an image from a camera, prepare it for a neural network, run the model, and turn its output into objects or masks that your application can use.
 
-In this tutorial, you will install the vision components and check that ROS 2 can find them. You will also prepare your computer to export models for the board. Once these steps are complete, choose Object Detection to work with boxes, Image Segmentation to work with masks, or the multi-model tutorial to connect both tasks.
+In this tutorial, you will install the vision components and check that ROS 2 can find them. The inference component uses the Qualcomm® Neural Network (QNN) runtime to run neural networks on the board. You will also prepare your computer to export models for the board. Once these steps are complete, choose Object Detection to work with boxes, Image Segmentation to work with masks, or the multi-model tutorial to connect both tasks.
 
 The SDK runs on the board's main processor on Ubuntu. Your host computer exports and copies the models. The board receives the camera images and runs the ROS 2 nodes. Follow [Getting Started with ROS 2 on VENTUNO Q](https://docs.arduino.cc/tutorials/ventuno-q/getting-started-ros2/) for basic system preparation. This page covers the additional SDK layer and its interfaces.
-
-## How the Vision Pipeline Works
-
-The vision tutorials use this sequence:
-
-```text
-camera image -> preprocessing -> inference -> postprocessing -> objects or masks
-```
-
-A **tensor** is a numeric array with a defined shape and data type. Inference receives and publishes tensors. Postprocessing turns the model outputs into application messages.
-
-The model's input format specifies its image size, color order, layout, and value range. Its output format determines which postprocessor can interpret it.
-
-| SDK package                        | Responsibility                                               | Interface used in this series                                       |
-|------------------------------------|--------------------------------------------------------------|---------------------------------------------------------------------|
-| `qrb_ros_cv_tensor_common_process` | Resize and normalize images, then arrange the numeric input  | `input_image` → `encoded_image`, also publishes `resized_image`     |
-| `qrb_ros_nn_inference`             | Load and execute the model                                   | `qrb_inference_input_tensor` → `qrb_inference_output_tensor`        |
-| `qrb_ros_yolo_process`             | Interpret supported YOLO outputs and optionally draw results | Detection or segmentation tensor topics → result and overlay topics |
-| `qrb_ros_transport_image_type`     | Adapt supported images for QRB transport paths               | Follow the image/encoding contracts of the connected nodes          |
-
-Inference input and output use `qrb_ros_tensor_list_msgs/msg/TensorList`. Camera and overlay images use `sensor_msgs/msg/Image`. Postprocessing converts raw tensors to application messages: `vision_msgs/msg/Detection2DArray` for detection, or `qrb_ros_vision_msgs/msg/Detection2DWithMaskArray` for instance segmentation.
-
-A launch file connects these components with **remappings**, which change the topic names a node uses. A **namespace** adds a shared prefix so two model stages can coexist without consuming each other's tensors. Each inference component has its own `model_path`. In these tutorials, `backend_option` is `/usr/lib/libQnnHtp.so`, selecting the Qualcomm Neural Network (QNN) SDK's Hexagon Tensor Processor backend for NPU execution.
-
-The preprocessing configuration used in this series resizes directly to 640×640 and uses RGB float values from 0 to 1 in NHWC order: batch, height, width, channels. Detection coordinates refer to that resized image.
-
-Preserve timestamps across stages and map coordinates back before cropping a differently sized camera frame. Color images use `rgb8`, and segmentation masks use `mono8`.
 
 ## Goals
 
@@ -73,6 +46,33 @@ Preserve timestamps across stages and map coordinates back before cropping a dif
 Use Ubuntu 24.04 and ROS 2 Jazzy on the VENTUNO Q. These examples use inference package 1.1.1 and QAI Runtime 2.46.0. Check your installed versions before choosing a compiled model. Newer packages may need a different model export.
 
 </Alert>
+
+## How the Vision Pipeline Works
+
+The vision tutorials use this sequence:
+
+```text
+camera image -> preprocessing -> inference -> postprocessing -> objects or masks
+```
+
+A **tensor** is a numeric array with a defined shape and data type. Inference receives and publishes tensors. Postprocessing turns the model outputs into application messages.
+
+The model's input format specifies its image size, color order, layout, and value range. Its output format determines which postprocessor can interpret it.
+
+| SDK package                        | Responsibility                                               | Interface used in this series                                       |
+|------------------------------------|--------------------------------------------------------------|---------------------------------------------------------------------|
+| `qrb_ros_cv_tensor_common_process` | Resize and normalize images, then arrange the numeric input  | `input_image` → `encoded_image`, also publishes `resized_image`     |
+| `qrb_ros_nn_inference`             | Load and execute the model                                   | `qrb_inference_input_tensor` → `qrb_inference_output_tensor`        |
+| `qrb_ros_yolo_process`             | Interpret supported YOLO outputs and optionally draw results | Detection or segmentation tensor topics → result and overlay topics |
+| `qrb_ros_transport_image_type`     | Adapt supported images for QRB transport paths               | Follow the image/encoding contracts of the connected nodes          |
+
+Inference input and output use `qrb_ros_tensor_list_msgs/msg/TensorList`. Camera and overlay images use `sensor_msgs/msg/Image`. Postprocessing converts raw tensors to application messages: `vision_msgs/msg/Detection2DArray` for detection, or `qrb_ros_vision_msgs/msg/Detection2DWithMaskArray` for instance segmentation.
+
+A launch file connects these components with **remappings**, which change the topic names a node uses. A **namespace** adds a shared prefix so two model stages can coexist without consuming each other's tensors. Each inference component has its own `model_path`. In these tutorials, `backend_option` is `/usr/lib/libQnnHtp.so`, selecting the QNN SDK's Hexagon Tensor Processor backend for NPU execution.
+
+The preprocessing configuration used in this series resizes directly to 640×640 and uses RGB float values from 0 to 1 in NHWC order: batch, height, width, channels. Detection coordinates refer to that resized image.
+
+Preserve timestamps across stages and map coordinates back before cropping a differently sized camera frame. Color images use `rgb8`, and segmentation masks use `mono8`.
 
 ## Instructions
 
@@ -116,7 +116,7 @@ printf '%s\n' "$ROS_DISTRO"
 
 Expect `jazzy`. If the operating system, architecture, or ROS distribution does not match these requirements, or the ROS setup file is missing, complete the linked Arduino ROS 2 setup before installing SDK packages.
 
-On every board terminal used in this series, run:
+In every board terminal used in this series, run:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
@@ -132,7 +132,7 @@ The [multi-model tutorial](https://docs.arduino.cc/tutorials/ventuno-q/nn-infere
 
 ### 2. Install the Robotics SDK
 
-On the VENTUNO Q, add the two package sources used by this workflow:
+On the VENTUNO Q, add the two package sources used by this workflow.
 
 Refresh the package index before installing the repository management tools:
 
@@ -192,9 +192,9 @@ To identify your board image build, run:
 cat /etc/buildinfo
 ```
 
-The demos in this series were successfully run on the `monza-20260729-248.tar.zst` board image, identified by `BUILD_ID=20260729-248` in `/etc/buildinfo`, with Ubuntu 24.04.4 LTS. Use this as a tested image reference when comparing your setup. A minimum supported image version has not been established.
+The demos in this series were successfully run on a board image reporting `BUILD_ID=20260729-248` in `/etc/buildinfo`, with Ubuntu 24.04.4 LTS. Use this as a tested image reference when comparing your setup. A minimum supported image version has not been established.
 
-Complete the SDK installation below and the additional package installation steps in your chosen task tutorial. Installed packages can change after flashing, so compare the inference and runtime versions as well as the image build; the image identifier alone does not establish the installed package versions.
+Complete the SDK installation below and the additional package installation steps in your chosen task tutorial. Installed packages can change after flashing, so compare the inference and runtime versions as well as the image build. The image identifier alone does not establish the installed package versions.
 
 Install the common vision components:
 
@@ -238,7 +238,11 @@ Look for `CvTensorCommonProcessNode`, `QrbRosInferenceNode`, `YoloDetPostProcess
 
 ![ROS package paths and registered vision components.](assets/sdk-components.png)
 
-*Each package resolves to `/opt/ros/jazzy`. The component lists include the inference, preprocessing, and YOLO classes needed by the tutorials.*
+<Alert type="info">
+
+Each package resolves to `/opt/ros/jazzy`. The component lists include the inference, preprocessing, and YOLO classes needed by the tutorials.
+
+</Alert>
 
 Next, check that the NPU backend library and device interface are present. The QNN SDK uses the Hexagon Tensor Processor (HTP) backend to run a model on the NPU.
 
@@ -262,7 +266,11 @@ These checks confirm that the required files are installed. You will check model
 
 ![Ubuntu, ROS and QNN runtime checks.](assets/sdk-versions.png)
 
-*Check that the system reports arm64, ROS reports jazzy, and the HTP library and FastRPC device are present. Keep the package versions with your model information.*
+<Alert type="info">
+
+Check that the system reports arm64, ROS reports jazzy, and the HTP library and FastRPC device are present. Keep the package versions with your model information.
+
+</Alert>
 
 ### 4. Prepare the Host Model Tools
 
@@ -397,7 +405,7 @@ If you encounter any issues or have questions while working with the VENTUNO Q, 
 
 ### Help Center
 
-Explore our Help Center, which offers a comprehensive collection of articles and guides for the VENTUNO Q. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+Explore our Help Center, which offers a comprehensive collection of articles and guides for Arduino products. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
 - [Arduino Help Center](https://support.arduino.cc/hc)
 

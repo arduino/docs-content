@@ -97,7 +97,7 @@ Look for `model`, `label_file`, `target_res`, `score_thres`, and `iou_thres`. If
 
 ### 2. Export the Detection Model
 
-On your host computer, activate the model-tools environment from the setup tutorial and install the detection model's dependencies:
+On your host computer, activate the model-tools environment from the setup tutorial:
 
 ```bash
 source ~/ventuno-model-tools/bin/activate
@@ -308,7 +308,7 @@ If you encounter any issues or have questions while working with the VENTUNO Q, 
 
 ### Help Center
 
-Explore our Help Center, which offers a comprehensive collection of articles and guides for the VENTUNO Q. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+Explore our Help Center, which offers a comprehensive collection of articles and guides for Arduino products. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
 - [Arduino Help Center](https://support.arduino.cc/hc)
 

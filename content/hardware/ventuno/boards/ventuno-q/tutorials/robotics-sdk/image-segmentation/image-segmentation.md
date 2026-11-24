@@ -385,7 +385,11 @@ Use the individual `instance_mask` entries when your application needs separate 
 
 ![Three person masks displayed over a test photograph in rqt.](assets/segmentation-viewer.png)
 
+<Alert type="info">
+
 Each person has a separate mask in `/segmentation/yolo_segment_overlay`. Compare each mask edge with the person it covers.
+
+</Alert>
 
 To check how often results are published, run:
 
@@ -405,21 +409,31 @@ When finished, close the viewer and press `Ctrl+C` in the segmentation terminal,
 
 ### When the Processing Stage Does Not Start
 
-First check that camera images are arriving, then inspect the segmentation terminal for a model-loading error. Keep the file paths from Step 3 and domain 87 in every terminal; the screenshot's example paths and domain are not settings to copy.
+First check that camera images are arriving, then inspect the segmentation terminal for a model-loading error. Keep the file paths from Step 3 and domain 87 in every terminal. The screenshot's example paths and domain are not settings to copy.
 
 ![A segmentation launch stalls before producing a result.](assets/segmentation-result.png)
 
-*The image input is available, but the segmentation stage does not become ready. The bounded inspector is terminated with exit code 137. Check the model, runtime and node startup before retrying; this is different from a normal ten-second no-result timeout.*
+<Alert type="info">
+
+The image input is available, but the segmentation stage does not become ready. The bounded inspector is terminated with exit code 137. Check the model, runtime, and node startup before retrying. This is different from a normal ten-second no-result timeout.
+
+</Alert>
 
 ### When the Inspector Receives No Result
 
 Use domain 87 and the script path from Step 5 when checking your pipeline. A terminal on another domain cannot receive its results.
 
-The inspector distinguishes receiving nothing from receiving only empty arrays. If no result arrived, check publishers and ROS discovery. If only empty results arrived, check the input scene, labels and model contract. Both cases return exit code 1.
+The inspector distinguishes receiving nothing from receiving only empty arrays. If no result arrived, check publishers and ROS discovery.
+
+If only empty results arrived, check the input scene, labels, and model output format. Both cases return exit code 1.
 
 ![The inspector waits ten seconds without receiving a segmentation result.](assets/segmentation-timeouts.png)
 
+<Alert type="info">
+
 No result arrived within ten seconds. Check the result publisher and make sure your inspection terminal uses the same ROS domain as the segmentation nodes.
+
+</Alert>
 
 | Symptom                                                    | Action                                                                                                                                                 |
 |------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -454,7 +468,7 @@ If you encounter any issues or have questions while working with the VENTUNO Q, 
 
 ### Help Center
 
-Explore our Help Center, which offers a comprehensive collection of articles and guides for the VENTUNO Q. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+Explore our Help Center, which offers a comprehensive collection of articles and guides for Arduino products. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
 - [Arduino Help Center](https://support.arduino.cc/hc)
 
