@@ -49,7 +49,7 @@ content/hardware/<family>/<product-type>/<product>/
       <tutorial>/content.md
 ```
 
-* An article may use `content.md` or a filename matching its directory, such as `blink/blink.md`. Follow neighboring maintained pages in that section.
+* Hardware tutorials commonly use `content.md` (or a filename matching the directory, such as `blink/blink.md`). Shared tutorials under top-level `content/tutorials/<group>/<slug>/` must match their directory name (`<slug>.md` or `<slug>-en.md`).
 * `product.md` is a hardware product page, not a generic replacement for category or software overview files.
 
 ### Overview Files and Fragments
@@ -243,7 +243,7 @@ Default **Relevance** ordering on `/hardware` is controlled centrally by [`conte
 | `overview.md` | Prepends an **Overview** tab with an embedded video (`url`) and quickstart cards (`info` array of `{ icon, title, description, link }`). |
 | `cardList.md` | Renders a resource card section (`title` plus `cards` array of `{ icon, title, description, link, external }`). |
 | `communityProjects.md` | Renders featured Project Hub cards under the **Tutorials** tab (`description` plus `communityProjects` array of `{ title, description, label, value, url, image }`). |
-| `features.md` / `tech-specs.yml` / `tech-specs.md` / `essentials.md` / `compatibility.yml` | Populate the **Features** and **Tech Specs** tabs, the **Suggested Libraries** section, and compatibility badges. |
+| `features.md` / `tech-specs.yml` / `tech-specs.md` / `compatibility.yml` / `essentials.md` | Populate the **Features**, **Tech Specs**, and **Compatibility** tabs and the **Suggested Libraries** section. |
 
 ## Links, Routing, and Downloadable Resources
 
