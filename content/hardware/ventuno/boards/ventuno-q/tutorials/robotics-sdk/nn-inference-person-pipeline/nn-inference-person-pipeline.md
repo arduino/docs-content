@@ -735,11 +735,11 @@ ros2 topic info /camera/color/image_raw --verbose --no-daemon
 
 Expect `/person_gate`, `/mask_to_face_roi`, and input publishers. Reliable subscriptions require reliable publishers. If the graph is incomplete, check that every terminal uses `rmw_cyclonedds_cpp`, the same domain, and `LOCALHOST` discovery. Check `net.core.rmem_max` again if large image topics stall.
 
-![Adapter nodes exist but there is no detection publisher.](assets/pipeline-adapter-check.png)
+![Adapter nodes exist, but camera and detection publishers are missing.](assets/pipeline-adapter-check.png)
 
 <Alert type="info">
 
-The adapter is running, but the detector has no publisher. Start the detector from Step 3, then check `/person_roi` again.
+The adapter is running, but the camera and detector have no publishers. Start the camera and detector from Step 3, then check `/person_roi` again.
 
 </Alert>
 
