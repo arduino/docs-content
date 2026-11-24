@@ -34,7 +34,7 @@ content/hardware/<family>/<product-type>/<product>/
   overview.md               # Optional Overview tab (video + quickstart cards)
   cardList.md               # Optional resource card strip
   communityProjects.md      # Optional Project Hub showcase cards
-  essentials.md             # Optional Essentials tab items
+  essentials.md             # Optional Suggested Libraries section
   compatibility.yml         # Optional hardware/software compatibility data
   image.svg                 # Product illustration
   certifications/           # Optional regulatory/compliance files
@@ -243,7 +243,7 @@ Default **Relevance** ordering on `/hardware` is controlled centrally by [`conte
 | `overview.md` | Prepends an **Overview** tab with an embedded video (`url`) and quickstart cards (`info` array of `{ icon, title, description, link }`). |
 | `cardList.md` | Renders a resource card section (`title` plus `cards` array of `{ icon, title, description, link, external }`). |
 | `communityProjects.md` | Renders featured Project Hub cards under the **Tutorials** tab (`description` plus `communityProjects` array of `{ title, description, label, value, url, image }`). |
-| `features.md` / `tech-specs.yml` / `tech-specs.md` / `essentials.md` / `compatibility.yml` | Populate the **Features**, **Tech Specs**, and **Essentials** tabs and compatibility badges. |
+| `features.md` / `tech-specs.yml` / `tech-specs.md` / `essentials.md` / `compatibility.yml` | Populate the **Features** and **Tech Specs** tabs, the **Suggested Libraries** section, and compatibility badges. |
 
 ## Links, Routing, and Downloadable Resources
 
@@ -289,14 +289,13 @@ Several routes on `docs.arduino.cc` are built from other repositories or React p
 
 ### Downloadable Product Resources
 
-Files placed in a product's `downloads/` directory populate the **Downloadable resources** panel when their filenames end with a recognized suffix (`[SKU]-` prefix recommended):
+Files placed in a product's `downloads/` directory populate the **Downloadable resources** panel when their filenames end with a recognized suffix. A `<SKU>-` prefix is **required** for the types copied to `/resources/` (`*-full-pinout.pdf`, `*-schematics.pdf`, and `*-step.zip` are copied into flat folders by [`copy-static-files`](../.github/actions/copy-static-files/action.yml), so a bare `schematics.pdf` is never copied and a SKU-less name collides across products) and recommended for all other downloads:
 
-| Filename Suffix in `downloads/` | Resource Label | Published `/resources/` Copy |
+| Filename Pattern in `downloads/` | Resource Label | Published `/resources/` Copy |
 | --- | --- | --- |
-| `full-pinout.pdf` | Pinout (PDF) | `/resources/pinouts/<filename>` |
-| `pinout.png` | Interactive/Simplified Pinout | `/resources/pinouts/<filename>` |
-| `schematics.pdf` | Schematics | `/resources/schematics/<filename>` |
-| `step.zip` | STEP Files | `/resources/models/<filename>` |
+| `<SKU>-full-pinout.pdf` | Pinout (PDF) | `/resources/pinouts/<filename>` |
+| `<SKU>-schematics.pdf` | Schematics | `/resources/schematics/<filename>` |
+| `<SKU>-step.zip` | STEP Files | `/resources/models/<filename>` |
 | `cad-files.zip` (or `eagle-files.zip`) | CAD Files | Served via Gatsby static asset URL |
 | `altium-files.zip` | Altium Files | Served via Gatsby static asset URL |
 | `fritzing.fzpz` | Fritzing Files | Served via Gatsby static asset URL |
@@ -306,17 +305,18 @@ Files placed in a product's `downloads/` directory populate the **Downloadable r
 | `power-tree.pdf` | Power Tree | Served via Gatsby static asset URL |
 | `block-diagram.pdf` | Block Diagram | Served via Gatsby static asset URL |
 
+Files in `interactive/` render in the product header: `<SKU>-pinout.png` powers the simplified pinout viewer (and is copied to `/resources/pinouts/<SKU>-pinout.png`), while `<SKU>-altium.zip` (or `<SKU>-altium.zip.gpg`) powers the Interactive Viewer modal.
+
 Datasheet PDFs are rendered at build time from `datasheet/[<lang>-]datasheet.md` to `/resources/datasheets/<identifier>[-<lang>]-datasheet.pdf`. Keep file extensions intact whenever linking to assets or downloads, and state the file format in the link text (for example `[ABX00181 schematics (PDF)](/resources/schematics/ABX00181-schematics.pdf)`). `relative_links.py` strictly validates links into `/resources/pinouts/`, `/resources/schematics/`, and `/resources/models/` against `downloads/` in this repository; `/resources/datasheets/` also hosts external IC datasheets, so unmatched datasheet URLs are skipped rather than flagged as broken.
 
 #### Multiple Schematics and Pinouts
 
-When a product's `downloads/` directory contains two or more `*-schematics.pdf` or `*-full-pinout.pdf` files (for example across SKU variants or hardware revisions), **Downloadable resources** automatically groups them into a dropdown. Entry labels are derived from `[SKU]-[version]-schematics.pdf` / `[SKU]-[version]-full-pinout.pdf`, where versions match `v1`, `v1.2`, or `rev3`:
+When a product's `downloads/` directory contains two or more `*-schematics.pdf` or `*-full-pinout.pdf` files (for example across SKU variants or hardware revisions), **Downloadable resources** automatically groups them into a dropdown. Entry labels are derived from `<SKU>-[version]-schematics.pdf` / `<SKU>-[version]-full-pinout.pdf`, where versions match `v1`, `v1.2`, or `rev3`:
 
 | Filename | Dropdown Label |
 | --- | --- |
 | `ABX00023-v1.2-schematics.pdf` | `ABX00023 - v1.2` |
 | `ABX00023-schematics.pdf` | `ABX00023` |
-| `v1.2-schematics.pdf` | `v1.2` |
 
 ### Repository Documentation Links
 
