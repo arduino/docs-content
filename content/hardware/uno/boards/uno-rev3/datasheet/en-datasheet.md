@@ -79,22 +79,16 @@ The UNO board is the flagship product of Arduino. Regardless if you are new to t
 
 ### Recommended Operating Conditions
 
-| Symbol | Description                                      | Min            | Max            |
-| ------ | ------------------------------------------------ | -------------- | -------------- |
-|        | Conservative thermal limits for the whole board: | -40 °C (-40 °F) | 85 °C ( 185 °F) |
-
->**NOTE:** In extreme temperatures, EEPROM, voltage regulator, and the crystal oscillator, might not work as expected.
-
 ### Power Consumption
 
-| Symbol | Description                  | Min | Typ | Max | Unit |
-| ------ | ---------------------------- | --- | --- | --- | ---- |
-| VIN    | DC Barrel Jack Voltage Range | 7   | -   | 12  | V    |
-| VUSB   | USB connector Voltage        |     | -   | 5.5 | V    |
-| PMax   | Maximum Power Consumption    | -   | -   | xx  | mA   |
+| Symbol          | Description                  | Min  | Typ | Max | Unit |
+| --------------- | ---------------------------- | ---- | --- | --- | ---- |
+| V<sub>USB</sub> | USB connector Voltage (recommended) |      | -   | 5.5 | V    |
+| V<sub>IN</sub>  | DC Barrel Jack Voltage Range | 7    | -   | 12  | V    |
+|                 | Operating Temperature        | -40  | -   | 85  | °C   |
 
-> [!WARNING]
-> **NOTE:** The VIN input voltage can get up to 20V, but this is its absolute maximum rating, and we do not recommend to work up to that value.
+>[!NOTE]
+>In extreme temperatures, EEPROM, voltage regulator, and the crystal oscillator, might not work as expected.
 
 ## Functional Overview
 
@@ -306,4 +300,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 25/04/2024 | 3            | Updated link to new Cloud Editor                  |
 | 20/10/2026 | 4            | Added note for Intended Use, and divided language |
 | 12/11/2026 | 5            | Input voltage range updated                       |
+| 17/11/2026 | 6            | Recommended Power table updated                   |
 
