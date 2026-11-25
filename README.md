@@ -55,7 +55,3 @@ Before opening a pull request, read [CONTRIBUTING.md](CONTRIBUTING.md) for workf
 | **Maintenance Scripts** | [`scripts/maintenance/README.md`](scripts/maintenance/README.md) | Auto-generators for App Lab Bricks, Examples, AI Models tables, and CLI command reference |
 | **Playwright Automation** | [`scripts/playwright/README.md`](scripts/playwright/README.md) | Automated UI screenshot capture, cropping, and callout overlays |
 | **Datasheet Rendering** | [`scripts/datasheet-rendering/`](scripts/datasheet-rendering/) | Docker-based PDF rendering configs and styles for English and localized datasheets |
-
-## License
-
-Content in this repository is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/). See [LICENSE.md](LICENSE.md) for details.
