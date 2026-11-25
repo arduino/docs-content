@@ -34,15 +34,15 @@ The Modulino Knob is based on the **PEC11J-9215F-S0015** incremental rotary enco
 
 The main characteristics of the Modulino Knob are summarized in the following table:
 
-|       **Parameter**       |                 **Value**                 |
-|:-------------------------:|:-----------------------------------------:|
-|        Encoder Type       |       Incremental, quadrature output      |
-|          Rotation         |        360° (continuous, no stops)        |
-|   Pulses per Revolution   |                     15                    |
-|   Detents per Revolution  |                     30                    |
-|  Position Steps per Turn  |                     30                    |
-|       Position Value      |  Signed 16-bit integer (-32768 to +32767) |
-|        Push Button        | Momentary, actuated by pressing the shaft |
+|         **Parameter**         |                 **Value**                 |
+|:-----------------------------:|:-----------------------------------------:|
+|          Encoder Type         |       Incremental, quadrature output      |
+|            Rotation           |        360° (continuous, no stops)        |
+|     Pulses per Revolution     |                     15                    |
+|     Detents per Revolution    |                     30                    |
+| Position Steps per Revolution |                     30                    |
+|         Position Value        |  Signed 16-bit integer (-32768 to +32767) |
+|          Push Button          | Momentary, actuated by pressing the shaft |
 
 <Alert type="note">
 
@@ -111,7 +111,7 @@ The J3 header provides access to the encoder signals and to the programming and 
 |   PA0   |          Encoder channel A         |
 |   PA1   |          Encoder channel B         |
 
-The `PA0`, `PA1`, and `PA2` pins connect to both the encoder and the onboard microcontroller inputs, so they can be used to monitor the encoder signals while the node is operating. These lines have no pull-up resistors on the board; the firmware enables the microcontroller's internal pull-up resistors. **The Modulino library does not use the J3 header**.
+The `PA0`, `PA1`, and `PA2` pins connect to both the encoder and the onboard microcontroller inputs, so they can be used to monitor the encoder signals while the node is operating. These lines have no pull-up resistors on the board; the firmware enables the microcontroller's internal pull-up resistors. **The Modulino library does not use the J3 header.**
 
 ### Power Specifications
 
@@ -179,7 +179,7 @@ The Modulino Knob's onboard microcontroller runs its own firmware, which reads t
 
 <Alert type="note">
 
-**Note**:  Use the `FirmwareUpdater` sketch to update the Modulino Knob to the latest firmware version for improved stability and performance.
+**Note**: Use the `FirmwareUpdater` sketch to update the Modulino Knob to the latest firmware version for improved stability and performance.
 
 </Alert>
 
@@ -203,53 +203,53 @@ Name: modulino_knob_basic.ino
 Purpose: This sketch demonstrates how to read the position and
 the button state of the Modulino Knob and print them to the
 Serial Monitor each time they change.
- 
+
 @author Arduino Product Experience Team
-@version 1.0 13/11/26
+@version 1.0 24/11/26
 */
- 
+
 #include <Arduino_Modulino.h>
- 
+
 // Modulino Knob object
 ModulinoKnob knob;
- 
+
 // Last position and button state reported
 int lastPosition = 0;
 bool lastPressed = false;
- 
+
 void setup() {
   // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
   for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
- 
+
   // Initialize the Modulino system (I2C bus)
   Modulino.begin();
- 
+
   // Initialize the Modulino Knob and halt if the node is not detected
   if (!knob.begin()) {
     Serial.println("- Modulino Knob not detected! Check the Qwiic connection...");
     while (1);
   }
- 
+
   // Start counting from zero
   knob.set(0);
- 
+
   // Startup message
   Serial.println("- Arduino Modulino Knob - Basic Example started...");
 }
- 
+
 void loop() {
   // Read the position and the button state
   int position = knob.get();
   bool pressed = knob.isPressed();
- 
+
   // Print the position when the knob is rotated
   if (position != lastPosition) {
     Serial.print("- Position: ");
     Serial.println(position);
     lastPosition = position;
   }
- 
+
   // Print the button state when the knob is pressed or released
   if (pressed != lastPressed) {
     if (pressed) {
@@ -259,7 +259,7 @@ void loop() {
     }
     lastPressed = pressed;
   }
- 
+
   // Wait 10 milliseconds before the next reading
   delay(10);
 }
@@ -268,9 +268,9 @@ void loop() {
 After uploading the sketch, open the Serial Monitor at 115200 baud and rotate or press the knob to see the position and the button state.
 
 ### Key Functions
- 
-The basic example above relies on the following functions of the `Arduino_Modulino` library:
- 
+
+The basic example above and the menu navigation example below rely on the following functions of the `Arduino_Modulino` library:
+
 - `Modulino.begin()`: Initializes the Modulino system (uses `Wire1` on boards with an onboard Qwiic connector).
 - `begin()`: Detects the Modulino Knob and initializes it. Returns `true` if the node responded on the I²C bus.
 - `get()`: Returns the current position as a signed 16-bit integer (`int16_t`). The value increases with clockwise rotation and decreases with counterclockwise rotation.
@@ -284,11 +284,10 @@ The basic example above relies on the following functions of the `Arduino_Moduli
 
 </Alert>
 
-
 ### Advanced Example - Menu Navigation
- 
+
 This example uses the rotation direction to move through the options of a menu shown in the Serial Monitor, and the button to confirm the selected option. The selection wraps around at both ends of the menu:
- 
+
 ```arduino
 /**
 Menu Navigation Example for the Arduino Modulino Knob
@@ -297,31 +296,31 @@ Purpose: This sketch demonstrates how to use the Modulino Knob
 to navigate a menu shown in the Serial Monitor: rotating the
 knob moves the selection, and pressing it confirms the selected
 option.
- 
+
 @author Arduino Product Experience Team
-@version 1.0 13/11/26
+@version 1.0 24/11/26
 */
- 
+
 #include <Arduino_Modulino.h>
- 
+
 // Menu options
 const int MENU_SIZE = 5;
 String menuOptions[MENU_SIZE] = {"Settings", "Display", "Audio", "Network", "Exit"};
- 
+
 // Modulino Knob object
 ModulinoKnob knob;
- 
+
 // Option currently selected (0 is the first option of the menu)
 int currentSelection = 0;
- 
+
 // Button state in the previous reading
 bool lastPressed = false;
- 
+
 // Print the menu with a marker next to the selected option
 void printMenu() {
   Serial.println();
   Serial.println("- Menu (rotate to navigate, press to select):");
- 
+
   for (int i = 0; i < MENU_SIZE; i++) {
     if (i == currentSelection) {
       Serial.print("  > ");
@@ -331,73 +330,73 @@ void printMenu() {
     Serial.println(menuOptions[i]);
   }
 }
- 
+
 void setup() {
   // Initialize serial communication and wait up to 2.5 seconds for a connection
   Serial.begin(115200);
   for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
- 
+
   // Initialize the Modulino system (I2C bus)
   Modulino.begin();
- 
+
   // Initialize the Modulino Knob and halt if the node is not detected
   if (!knob.begin()) {
     Serial.println("- Modulino Knob not detected! Check the Qwiic connection...");
     while (1);
   }
- 
+
   // Startup message
   Serial.println("- Arduino Modulino Knob - Menu Navigation Example started...");
   printMenu();
 }
- 
+
 void loop() {
   // Read the rotation direction since the previous reading:
   // 1 (clockwise), -1 (counterclockwise) or 0 (no rotation)
   int direction = knob.getDirection();
- 
+
   // Clockwise rotation: move to the next option
   if (direction == 1) {
     currentSelection = currentSelection + 1;
- 
+
     // After the last option, go back to the first one
     if (currentSelection > MENU_SIZE - 1) {
       currentSelection = 0;
     }
- 
+
     printMenu();
   }
- 
+
   // Counterclockwise rotation: move to the previous option
   if (direction == -1) {
     currentSelection = currentSelection - 1;
- 
+
     // Before the first option, go to the last one
     if (currentSelection < 0) {
       currentSelection = MENU_SIZE - 1;
     }
- 
+
     printMenu();
   }
- 
+
   // Read the button state
   bool pressed = knob.isPressed();
- 
+
   // Confirm the selection only at the moment the knob is pressed:
   // it is pressed now and it was not pressed in the previous reading
   if (pressed == true && lastPressed == false) {
     Serial.print("- Selected: ");
     Serial.println(menuOptions[currentSelection]);
   }
- 
+
   // Store the button state for the next reading
   lastPressed = pressed;
- 
+
   // Wait 10 milliseconds before the next reading
   delay(10);
 }
 ```
- 
+
 <Alert type="note">
 
 **Note**: `getDirection()` reports one step per call and ignores new rotation for 30 ms after each detected step, which suits menu navigation. When your application needs every step of a fast rotation, read the position with `get()` and compute the difference with the previous value instead.
@@ -412,7 +411,7 @@ The Modulino Knob is supported by the [Modulino MicroPython package](https://git
 
 To follow the MicroPython examples in this tutorial, you will need the following:
 
-- * An Arduino board that officially supports MicroPython, such as the **Nano ESP32**, **Nano RP2040 Connect**, **Nano 33 BLE Sense**, **GIGA R1 WiFi**, or **Portenta H7**. Mount a Nano form-factor board on the **Nano Connector Carrier** to connect the Modulino Knob through Qwiic
+- An Arduino board that officially supports MicroPython, such as the **Nano ESP32**, **Nano RP2040 Connect**, **Nano 33 BLE Sense**, **GIGA R1 WiFi**, or **Portenta H7**. Mount a Nano form factor board on the **Nano Connector Carrier** to connect the Modulino Knob through Qwiic
 - A Qwiic cable
 - The Modulino MicroPython package, installed with the [Arduino MicroPython Package Installer](https://labs.arduino.cc/en/labs/micropython-package-installer) by searching for **Modulino**, or from a terminal with `mpremote` and `mip`:
 
@@ -437,7 +436,7 @@ the button of the Modulino Knob using callbacks, and how to limit
 the position value to a range.
 
 @author Arduino Product Experience Team
-@version 1.0 12/11/26
+@version 1.0 24/11/26
 """
 
 from modulino import ModulinoKnob
@@ -491,7 +490,7 @@ while True:
 
 ### Key Properties
 
-The basic example above relies on the following properties and methods of the `ModulinoKnob` class:
+The `ModulinoKnob` class provides the following properties and methods, most of which are used in the basic example above:
 
 - `.update()`: Reads the Modulino Knob and calls the callbacks of the events detected. Returns `True` if the value or the button state changed since the previous call.
 - `.value`: Gets or sets the current value.
@@ -532,7 +531,7 @@ as a volume control: rotating the knob changes the volume between
 0 and 100, and pressing it mutes or unmutes the output.
 
 @author Arduino Product Experience Team
-@version 1.0 12/11/26
+@version 1.0 24/11/26
 """
 
 from modulino import ModulinoKnob
@@ -648,6 +647,6 @@ In this tutorial, you learned about the Modulino Knob hardware, how to connect i
 
 For more information, refer to the following resources:
 
-- [Modulino Knob page](https://docs.arduino.cc/hardware/modulinos/modulino-knob), with the datasheet, the schematic, and the pinout
+- [Modulino Knob page](https://docs.arduino.cc/hardware/modulino-knob/), with the datasheet, the schematic, and the pinout
 - [Arduino_Modulino library](https://github.com/arduino-libraries/Arduino_Modulino)
 - [Modulino MicroPython package](https://github.com/arduino/arduino-modulino-mpy)
