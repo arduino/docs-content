@@ -1,6 +1,6 @@
 # Documentation Validation Suite
 
-This directory contains the automated validation tools for `arduino/docs-content`. The suite ensures formatting quality, link integrity, asset tracking, and metadata compliance across all documentation pages.
+This directory contains the automated validation tools for `arduino/docs-content`. The suite checks formatting, links, assets, and selected metadata. Coverage varies by tool, content type, and ignore configuration; see [Validation and Preview](../../CONTRIBUTING.md#validation-and-preview).
 
 ---
 
@@ -10,16 +10,16 @@ This directory contains the automated validation tools for `arduino/docs-content
 | :--- | :--- | :--- | :--- |
 | **Markdown Lint** | `scripts/validation/markdownlint/markdownlint.py` | `Markdown Check` | Enforces Markdown formatting standards with hierarchical config inheritance. |
 | **Alert Blocks** | `scripts/validation/alert_tags/alert_tags.py` | `Alert Check` | Enforces and formats empty-line spacing and indentation for MDX `<Alert>` blocks. |
-| **Relative Links** | `scripts/validation/relative_links/relative_links.py` | `Link Check` | Validates all relative links and `#heading-slug` anchors against production route mappings. |
+| **Relative Links** | `scripts/validation/relative_links/relative_links.py` | `Link Check` | Checks internal article links, heading anchors, shared symlinked pages, and `/resources/` downloads against the route index. |
 | **Image & Assets** | `scripts/validation/image_links/image_links.py` | `Image Check` | Flags broken image references and identifies orphaned files in `assets/` folders. |
-| **Content Linter (Legacy)** | `scripts/validation/content-lint.sh` | `Content Linter` | Runs legacy YAML frontmatter schema checks for hardware tutorials during migration. |
 | **MDX Compile** | `scripts/validation/mdx/mdx-check.js` | `MDX Check` | Compiles every page with the MDX version that builds the site, so unclosed or mismatched HTML tags fail before the deploy. |
+| **Content Linter (Legacy)** | `scripts/validation/content-lint.sh` | `Content Linter` | Checks selected hardware tutorial and datasheet metadata and content using its own configuration. |
 
 ---
 
 ## Quickstart (Running Checks Locally)
 
-Run all checks from the repository root:
+Run these checks from the repository root:
 
 ```bash
 # 1. Validate Markdown formatting
@@ -31,40 +31,43 @@ python3 scripts/validation/alert_tags/alert_tags.py validate content
 # 3. Validate internal links and heading anchors
 python3 scripts/validation/relative_links/relative_links.py validate content
 
-# 4. Validate image references and orphaned assets
+# 4. Validate image references
 python3 scripts/validation/image_links/image_links.py validate content
 
-# 5. Spell check
-codespell -I scripts/resources/spell-check-ignore-list.txt ./content/
-
-# 6. Compile every page as the build does (needs Node.js)
+# 5. Compile every page as the build does (needs Node.js)
 npm ci --prefix scripts/validation/mdx
 node scripts/validation/mdx/mdx-check.js content
 ```
+
+For spelling checks and their language-specific exclusions, follow the commands in the [validation workflow](../../.github/workflows/workflow-validate.yaml). The legacy content linter must run from `scripts/validation`; see [Frontmatter Validation](../../CONTRIBUTING.md#frontmatter-validation). Unlinked-asset reporting and removal use separate commands documented in the [image validator guide](image_links/README.md).
 
 ---
 
 ## Ignore System Architecture
 
-Validation tools traverse upwards from the target directory to the repository root to discover ignore files.
+The Python validation tools traverse upwards from the target directory to the repository root to discover ignore files. The legacy content linter uses [its own configuration](config/), and spelling checks use the exclusions in the workflow.
 
-### 1. Universal Content Ignore (`.lintignore`)
+### 1. Shared Python-Tool Ignore (`.lintignore`)
 
-Place a `.lintignore` file in `content/` or any subdirectory to exclude unmigrated directories across **all** validation tools:
+Place a `.lintignore` file in `content/` or any subdirectory to exclude unmigrated directories from the Python Markdown, Alert, link, and image checks. It does not control the legacy content linter or spelling checks:
 
 ```gitignore
-# Exclude legacy hardware directories from all validation checks
-hardware/01.mkr/
-hardware/08.legacy/
+# Exclude legacy hardware directories from the Python checks
+hardware/mkr
+hardware/nano
 ```
 
-The MDX Check is the exception: the build compiles every page, ignored or not, so it checks them all.
+Two behaviors apply across ignored paths:
+
+- **MDX Check exception:** The site build compiles every Markdown page in `content/`, ignored or not, so `mdx-check.js` checks all files regardless of `.lintignore`.
+- **Link route discovery:** Ignored files are skipped when checking outbound links, but they remain indexed in `relative_links.py`'s route map so maintained pages can link to them without false positives.
 
 ### 2. Tool-Specific Ignores & Retention
 
 When a directory needs a specific tool bypassed or assets preserved:
 
 - **`.markdownlintignore`**: Skips Markdown formatting checks (e.g. for auto-generated docs or complex MDX).
+- **`.alertlintignore`**: Skips Alert formatting checks.
 - **`.linklintignore`**: Skips relative link validation (e.g. for draft docs with pending route targets).
 - **`.imagelintignore`**: Skips image asset validation.
 - **`.assetsignore` / `.keepassets`**: Preserves unreferenced, standalone, or dynamically loaded image assets in `assets/` folders without triggering orphaned asset errors or removals during `validate-unlinked` / `remove-unlinked`.
