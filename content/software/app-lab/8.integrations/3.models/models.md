@@ -42,7 +42,7 @@ The options shown depend on the Brick.
 
 ## Train Models on Edge Impulse
 
-You can train a custom model in **Edge Impulse Studio** for vision, audio, or sensor Bricks and install it on your board from App Lab.
+You can train a custom model in **Edge Impulse Studio** for vision, audio, or sensor Bricks and install it on your board from Arduino App Lab.
 
 ### Connect to Edge Impulse Studio
 
@@ -55,10 +55,10 @@ You can train a custom model in **Edge Impulse Studio** for vision, audio, or se
 
 ### Prepare Your Edge Impulse Project
 
-App Lab lists Edge Impulse projects that target a supported board and match the selected Brick:
+Arduino App Lab lists Edge Impulse projects that target a supported board and match the selected Brick:
 
-- **Target device:** When you create a project from App Lab, App Lab sets the target device to your board automatically. For an existing project, open **Target** in the top-right corner of Edge Impulse Studio. Select your board (for example `Arduino UNO Q (Qualcomm QRB2210)`) and select **Save**. Edge Impulse uses this setting to estimate inference time and memory usage for your board.
-- **Project type:** App Lab filters projects by the project type Edge Impulse assigns from your data and learning block:
+- **Target device:** When you create a project from Arduino App Lab, it sets the target device to your board automatically. For an existing project, open **Target** in the top-right corner of Edge Impulse Studio. Select your board (for example `Arduino UNO Q (Qualcomm QRB2210)`) and select **Save**. Edge Impulse uses this setting to estimate inference time and memory usage for your board.
+- **Project type:** Arduino App Lab filters projects by the project type Edge Impulse assigns from your data and learning block:
 
 <!-- app-lab-edge-impulse table start -->
 | Edge Impulse project type | Compatible Bricks |
