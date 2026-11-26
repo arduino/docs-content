@@ -160,7 +160,7 @@ The `SCx` and `SDx` pins are **not** the clock and data lines of the SPI interfa
 Because the `CS` and `SDO/SA0` pins are connected to solder jumpers by default, you must modify the board before using SPI. To prepare the Modulino Movement, follow these steps:
 
 1. Disconnect the Modulino Movement from any power source.
-2. Open the solder jumper conencting `CS` to `VDDIO`, so the host board can drive the chip select line.
+2. Open the solder jumper connecting `CS` to `VDDIO`, so the host board can drive the chip select line.
 3. Open both I²C address solder jumpers so the `SDO/SA0` pin is no longer connected to GND or `VDDIO` and can function as the data output.
 4. Wire the node to the host board through the J3 and J4 headers, including the `3V3` and `GND` pins.
 
