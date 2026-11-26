@@ -79,7 +79,7 @@ To change the address of the node to `0x6B`, follow these steps:
 
 <Alert type="warning">
 
-Never leave both jumpers closed at the same time. With both jumpers closed, the node's +3.3 VDC supply is shorted to GND, which can damage the Modulino Movement and the host board.
+**Warning**: Never leave both jumpers closed at the same time. With both jumpers closed, the node's +3.3 VDC supply is shorted to GND, which can damage the Modulino Movement and the host board.
 
 </Alert>
 
@@ -111,7 +111,7 @@ The J4 header exposes the same I²C bus and power lines as the Qwiic connectors,
 
 <Alert type="note">
 
-The Modulino Movement does not include pull-up resistors on the `SDA` and `SCL` lines. Arduino boards with an onboard Qwiic connector provide them; if you wire the node to a different board through the J4 header, confirm that your board's I²C bus has pull-up resistors to +3.3 VDC.
+**Note**: The Modulino Movement does not include pull-up resistors on the `SDA` and `SCL` lines. Arduino boards with an onboard Qwiic connector provide them; if you wire the node to a different board through the J4 header, confirm that your board's I²C bus has pull-up resistors to +3.3 VDC.
 
 </Alert>
 
@@ -125,18 +125,18 @@ The J3 header provides access to the I/O supply, the interrupt outputs, and the 
 |   GND   |                            Ground                           |
 |   INT1  |               Programmable interrupt output 1               |
 |   INT2  |               Programmable interrupt output 2               |
-|   SDO   |        SPI data output / I²C address selection input        |
+| SDO/SA0 |        SPI data output / I²C address selection input        |
 |   SCx   | Auxiliary clock (sensor hub I²C or auxiliary SPI interface) |
 |   SDx   |  Auxiliary data (sensor hub I²C or auxiliary SPI interface) |
 |    CS   |    SPI chip select (I²C enabled when high, SPI when low)    |
-| SDO/SA0 |                  Auxiliary SPI data output                  |
+|  SDOAUX |                  Auxiliary SPI data output                  |
 |  OCSAUX |                  Auxiliary SPI chip select                  |
 
 Several of these pins are connected to solder jumpers on the board, all of them closed by default, that set the default configuration of the sensor: `VDDIO` is connected to +3.3 VDC, `CS` is connected to `VDDIO` to select the I²C interface, `SDO/SA0` is connected to GND to select the address `0x6A`, and `SCx` and `SDx` are connected to GND, as required by the sensor when its auxiliary interfaces are not used. **The Modulino libraries do not use the `INT1`, `INT2`, `SCx`, `SDx`, `SDOAUX`, and `OCSAUX` pins.**
 
 <Alert type="note">
 
-On a limited number of early batches, the `SDOAUX` pin is marked `SDO/SA0` on the silkscreen and the `SDO/SA0` pin is marked `SDO`. This difference is cosmetic only; the pin positions and functions are the same.
+**Note**: On a limited number of early batches, the `SDOAUX` pin is marked `SDO/SA0` on the silkscreen and the `SDO/SA0` pin is marked `SDO`. This difference is cosmetic only; the pin positions and functions are the same.
 
 </Alert>
 
@@ -153,7 +153,7 @@ The LSM6DSOXTR sensor can also communicate over a 4-wire SPI interface, which is
 
 <Alert type="note">
 
-The `SCx` and `SDx` pins are **not** the clock and data lines of the SPI interface. They belong to the sensor's auxiliary interfaces and must be left unconnected.
+**Note**: The `SCx` and `SDx` pins are **not** the clock and data lines of the SPI interface. They belong to the sensor's auxiliary interfaces and must be left unconnected.
 
 </Alert>
 
@@ -166,7 +166,7 @@ Because the `CS` and `SDO/SA0` pins are connected to solder jumpers by default, 
 
 <Alert type="warning">
 
-Do not drive the `CS` or `SDO/SA0` pins while their solder jumpers are closed. The jumpers connect these pins directly to `VDDIO` or GND, so driving them shorts the host board or sensor output to the supply.
+**Warning**: Do not drive the `CS` or `SDO/SA0` pins while their solder jumpers are closed. The jumpers connect these pins directly to `VDDIO` or GND, so driving them shorts the host board or sensor output to the supply or to GND.
 
 </Alert>
 
@@ -188,10 +188,11 @@ The Modulino Movement is powered at +3.3 VDC through the Qwiic connectors, as pe
 
 <Alert type="note">
 
-The currents above are those of the LSM6DSOXTR sensor **alone**. The Modulino Movement's total consumption is higher, as the board also includes an always-on power LED. The Modulino libraries enable the accelerometer and gyroscope together in high-performance mode, so the first supply current in the table applies when the node is used with them.
+**Note**: The currents above are those of the LSM6DSOXTR sensor **alone**. The Modulino Movement's total consumption is higher, as the board also includes an always-on power LED. The Modulino libraries enable the accelerometer and gyroscope together in high-performance mode, so the first supply current in the table applies when the node is used with them.
+
 </Alert>
 
-On the board, the supply pin (`VDD`) is connected directly to the +3.3 VDC line, and its I/O supply pin (`VDDIO`) is connected to the same line through a solder jumper. The `VDDIO` pin of the J3 header is connected to the sensor's I/O supply, so with the jumper closed, it is at +3.3 VDC.
+On the board, the sensor's supply pin (`VDD`) is connected directly to the +3.3 VDC line, and its I/O supply pin (`VDDIO`) is connected to the same line through a solder jumper. The `VDDIO` pin of the J3 header is connected to the sensor's I/O supply, so with the jumper closed, it is at +3.3 VDC.
 
 ### Block Diagram
 
@@ -223,11 +224,11 @@ The Modulino Movement requires no configuration. To add it to your project, foll
 2. If your project uses other Modulino nodes, connect the next node to the second Qwiic connector of the Modulino Movement to continue the chain.
 3. Power your Arduino board. The green power LED of the Modulino Movement turns on, and the node is ready to use.
 
-Boards with an onboard Qwiic connector, such as the **UNO R4 WiFi**, the **UNO Q**, and the **Nano R4**, connect directly to the Modulino Movement. Boards in the Nano form factor without a Qwiic connector can be mounted on the Nano Connector Carrier, which adds Qwiic connectors. Alternatively, you can wire the Modulino Movement to the I²C pins of any board through the optional J4 header.
+Boards with an onboard Qwiic connector, such as the **UNO R4 WiFi**, the **UNO Q**, and the **Nano R4**, connect directly to the Modulino Movement. Boards in the Nano form factor without a Qwiic connector can be mounted on the **Nano Connector Carrier**, which adds Qwiic connectors. Alternatively, you can wire the Modulino Movement to the I²C pins of any board through the optional J4 header.
 
 <Alert type="note">
 
-The Modulino Movement operates at +3.3 VDC. The Arduino boards listed above supply that voltage through the Qwiic connector and handle logic-level translation, so no additional circuitry is required. If you wire the node through the J4 header instead, confirm that your board drives the I²C lines at +3.3 VDC and that its I²C bus has pull-up resistors.
+**Note**: The Modulino Movement operates at +3.3 VDC. The Arduino boards listed above supply that voltage through the Qwiic connector and handle logic-level translation, so no additional circuitry is required. If you wire the node through the J4 header instead, confirm that your board drives the I²C lines at +3.3 VDC and that its I²C bus has pull-up resistors.
 
 </Alert>
 
@@ -328,13 +329,14 @@ The basic example above relies on the following functions of the `Arduino_Moduli
 
 <Alert type="note">
 
-Despite their names, `getRoll()`, `getPitch()`, and `getYaw()` do not return orientation angles. They return the **angular velocity** measured by the gyroscope around each axis, that is, how fast the node is rotating. The value is 0 dps while the node is at rest, regardless of its orientation.
+**Note**: Despite their names, `getRoll()`, `getPitch()`, and `getYaw()` do not return orientation angles. They return the **angular velocity** measured by the gyroscope around each axis, that is, how fast the node is rotating. The value is 0 dps while the node is at rest, regardless of its orientation.
+
 </Alert>
 
 
 <Alert type="note">
 
-If you changed the I²C address of the node to `0x6B` with the solder jumpers, pass the address when you create the object: `ModulinoMovement movement(0x6B);`. This also lets you use two Modulino Movement nodes on the same bus, one at each address.
+**Note**: If you changed the I²C address of the node to `0x6B` with the solder jumpers, pass the address when you create the object: `ModulinoMovement movement(0x6B);`. This also lets you use two Modulino Movement nodes on the same bus, one at each address.
 
 </Alert>
 
@@ -469,13 +471,13 @@ void calibrate() {
 
 <Alert type="note">
 
-The thresholds in this example are arbitrary. Lower them to detect slight movements, or raise them if the example reports movement while the node is at rest. Since the readings at rest include the effect of gravity on each axis, tilting the node to a new position is also reported as a movement; reset the board to measure the readings at rest again.
+**Note**: The thresholds in this example are arbitrary. Lower them to detect slight movements, or raise them if the example reports movement while the node is at rest. Since the readings at rest include the effect of gravity on each axis, tilting the node to a new position is also reported as a movement; reset the board to measure the readings at rest again.
 
 </Alert>
 
 ## Programming with MicroPython
 
-The Modulino Movement package supports [Modulino MicroPython](https://github.com/arduino/arduino-modulino-mpy). The following examples show how to read acceleration and angular velocity and how to build a step counter with the pedometer built into the sensor.
+The Modulino Movement is supported by the [Modulino MicroPython package](https://github.com/arduino/arduino-modulino-mpy). The following examples show how to read acceleration and angular velocity and how to build a step counter with the pedometer built into the sensor.
 
 ### Prerequisites
 
@@ -489,7 +491,7 @@ To follow the MicroPython examples of this tutorial, you will need the following
   mpremote mip install github:arduino/arduino-modulino-mpy
   ```
 
-- Arduino Lab for MicroPython, to run the scripts on the board
+- Arduino Lab for MicroPython, to run the scripts on the board.
 
 On Arduino boards, the package detects the correct I²C interface automatically, so `ModulinoMovement()` needs no arguments. It also finds the node at either of its two addresses, `0x6A` or `0x6B`, without changing the script. For detailed instructions, refer to the [Getting Started with Modulinos](../how-general) guide.
 
@@ -545,7 +547,7 @@ The basic example above relies on the first two properties of the following list
 
 <Alert type="note">
 
-Each access to `.acceleration`, `.angular_velocity`, or `.acceleration_magnitude` reads the sensor. To use all three components of a reading together, store the named tuple in a variable, as the basic example does, instead of accessing each property separately.
+**Note**: Each access to `.acceleration`, `.angular_velocity`, or `.acceleration_magnitude` reads the sensor. To use all three components of a reading together, store the named tuple in a variable, as the basic example does, instead of accessing each property separately.
 
 </Alert>
 
@@ -564,7 +566,7 @@ The MicroPython implementation is not a direct port of the Arduino one. The foll
 |    Sensor not detected   |            `begin()` returns `false`             |  `ModulinoMovement()` raises a `RuntimeError`  |
 |      Sensor settings     |                    Not exposed                   |        Sensor driver exposed via `.sensor`         |
 
-### Advanced Example - Step Counter
+### Advanced Example (Step Counter)
 
 This example uses the pedometer built into the LSM6DSOXTR sensor to count steps and to estimate the distance walked. The step detection runs on the sensor itself, so the script only has to read the count:
 
@@ -617,7 +619,7 @@ while True:
 
 <Alert type="note">
 
-The first steps are not reported immediately: the pedometer waits until it has detected the number of consecutive steps set in `DEBOUNCE_STEPS`, which filters out false detections caused by shaking the node. The stride length in this example is an approximation; adjust `STRIDE_LENGTH_M` to your own stride for a better distance estimate.
+**Note**: The first steps are not reported immediately: the pedometer waits until it has detected the number of consecutive steps set in `DEBOUNCE_STEPS`, which filters out false detections caused by shaking the node. The stride length in this example is an approximation; adjust `STRIDE_LENGTH_M` to your own stride for a better distance estimate.
 
 </Alert>
 
@@ -635,7 +637,7 @@ An I²C scanner sketch reports a device at address `0x7E` whenever a Modulino Mo
 
 ### Two Nodes Do Not Work on the Same Bus
 
-Two Modulino Movement nodes with the same address cannot share the same I²C bus. Change one of their addresses to`0x6B` with the solder jumpers. To use more than two nodes in the same project, connect them through a [Modulino Hub](https://store.arduino.cc/products/modulino-hub).
+Two Modulino Movement nodes with the same address cannot share the same I²C bus. Change one of their addresses to `0x6B` with the solder jumpers. To use more than two nodes in the same project, connect them through a [Modulino Hub](https://store.arduino.cc/products/modulino-hub).
 
 ### Readings Do Not Change
 
@@ -677,6 +679,6 @@ In this tutorial, you learned about the Modulino Movement hardware, including it
 
 For more information, refer to the following resources:
 
-- [Modulino Movement page](https://docs.arduino.cc/hardware/modulino-movement), with the datasheet, the schematic, and the pinout
+- [Modulino Movement page](https://docs.arduino.cc/hardware/modulino-movement/), with the datasheet, the schematic, and the pinout
 - [Arduino_Modulino library](https://github.com/arduino-libraries/Arduino_Modulino)
 - [Modulino MicroPython package](https://github.com/arduino/arduino-modulino-mpy)
