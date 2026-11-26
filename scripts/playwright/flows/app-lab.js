@@ -115,27 +115,16 @@ async function createAwesomeApp(page) {
     await page.locator('div[class*="app-actions"]').first().waitFor({ state: 'visible', timeout: 15000 });
 }
 
-// Opens AwesomeApp in the editor, creating it first when a step runs on its own, and ensures main.py and sketch.ino tabs are open.
-async function openAwesomeApp(page) {
-    await dismissAnyOpenModals(page);
-    await goToApps(page);
-    const existingApp = page.locator('div[class*="app-link"]').filter({ hasText: /AwesomeApp/i }).first();
-    if (await existingApp.isVisible({ timeout: 3000 }).catch(() => false)) {
-        await existingApp.click({ force: true });
-        await page.locator('div[class*="app-actions"]').first().waitFor({ state: 'visible', timeout: 15000 });
-    } else {
-        await createAwesomeApp(page);
-    }
-    await page.waitForTimeout(1500);
-    await closeConsole(page);
-
-    const tabsList = page.locator('ul[class*="tabs-list"]');
-    const mainPyTab = tabsList.locator('[data-file-id*="main.py"]').first();
-    const sketchTab = tabsList.locator('[data-file-id*="sketch.ino"]').first();
+// Ensures python/main.py and sketch/sketch.ino are opened in the exact tab order: README.md, main.py, sketch.ino, with main.py active.
+async function ensureEditorTabs(page, populateSketch = false) {
     const pythonFolder = page.locator('div[role="treeitem"]').filter({ hasText: /^python$/i }).first();
     const sketchFolder = page.locator('div[role="treeitem"]').filter({ hasText: /^sketch$/i }).first();
     const mainPyFile = page.locator('div[role="treeitem"]').filter({ hasText: /main\.py/i }).first();
     const sketchFile = page.locator('div[role="treeitem"]').filter({ hasText: /sketch\.ino/i }).first();
+    const tabsList = page.locator('ul[class*="tabs-list"]');
+    const mainPyTab = tabsList.locator('[data-file-id*="main.py"]').first();
+    const sketchTab = tabsList.locator('[data-file-id*="sketch.ino"]').first();
+    const editorInput = page.getByRole('textbox').first();
 
     if (!(await mainPyFile.isVisible({ timeout: 500 }).catch(() => false)) && await pythonFolder.isVisible({ timeout: 1000 }).catch(() => false)) {
         await pythonFolder.click({ force: true }).catch(() => {});
@@ -145,18 +134,97 @@ async function openAwesomeApp(page) {
         await sketchFolder.click({ force: true }).catch(() => {});
         await sketchFile.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
     }
-    if (!(await mainPyTab.isVisible({ timeout: 500 }).catch(() => false)) && await mainPyFile.isVisible({ timeout: 1000 }).catch(() => false)) {
-        await mainPyFile.dblclick({ force: true }).catch(() => {});
-        await page.waitForTimeout(300);
+
+    // 1. Open and pin main.py first (so it sits immediately after README.md, not in preview mode)
+    const mainIsPreview = await mainPyTab.evaluate(el => Array.from(el.classList).some(c => c.includes('preview'))).catch(() => false);
+    if (!(await mainPyTab.isVisible({ timeout: 500 }).catch(() => false)) || mainIsPreview) {
+        if (await mainPyFile.isVisible({ timeout: 1000 }).catch(() => false)) {
+            await mainPyFile.dblclick({ force: true }).catch(() => {});
+            await mainPyTab.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+            await page.waitForTimeout(400);
+        }
     }
-    if (!(await sketchTab.isVisible({ timeout: 500 }).catch(() => false)) && await sketchFile.isVisible({ timeout: 1000 }).catch(() => false)) {
+
+    // 2. Open and pin sketch.ino second (so it sits after main.py)
+    const sketchIsPreview = await sketchTab.evaluate(el => Array.from(el.classList).some(c => c.includes('preview'))).catch(() => false);
+    if (populateSketch || !(await sketchTab.isVisible({ timeout: 500 }).catch(() => false)) || sketchIsPreview) {
+        if (await sketchFile.isVisible({ timeout: 1000 }).catch(() => false)) {
+            await sketchFile.dblclick({ force: true }).catch(() => {});
+            await sketchTab.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+            await page.waitForTimeout(400);
+            if (populateSketch) {
+                const sketchPath = path.join(__dirname, '../sketch.ino');
+                if (fs.existsSync(sketchPath)) {
+                    const sketchCode = fs.readFileSync(sketchPath, 'utf8');
+                    await editorInput.focus().catch(() => {});
+                    await page.keyboard.press('ControlOrMeta+A').catch(() => {});
+                    await page.keyboard.insertText(sketchCode).catch(() => {});
+                    await page.waitForTimeout(500);
+                }
+            }
+        }
+    }
+
+    // 3. Verify tab order is main.py before sketch.ino; if reversed, close sketch.ino and re-open it after main.py
+    const orderOk = await tabsList.evaluate(ul => {
+        const ids = Array.from(ul.querySelectorAll('[data-file-id]')).map(el => el.getAttribute('data-file-id') || '');
+        const m = ids.findIndex(id => id.includes('main.py'));
+        const s = ids.findIndex(id => id.includes('sketch.ino'));
+        return m !== -1 && s !== -1 && m < s;
+    }).catch(() => true);
+    if (!orderOk && await sketchFile.isVisible({ timeout: 1000 }).catch(() => false)) {
+        const closeSketchBtn = sketchTab.locator('button[aria-label="Close"], button[title="Close"]').first();
+        if (await closeSketchBtn.isVisible({ timeout: 500 }).catch(() => false)) {
+            await closeSketchBtn.click({ force: true }).catch(() => {});
+            await sketchTab.waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {});
+            await page.waitForTimeout(300);
+        }
+        if (!(await mainPyTab.isVisible({ timeout: 500 }).catch(() => false)) && await mainPyFile.isVisible({ timeout: 1000 }).catch(() => false)) {
+            await mainPyFile.dblclick({ force: true }).catch(() => {});
+            await mainPyTab.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+            await page.waitForTimeout(400);
+        }
         await sketchFile.dblclick({ force: true }).catch(() => {});
-        await page.waitForTimeout(300);
+        await sketchTab.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+        await page.waitForTimeout(400);
     }
+
+    // 4. Focus main.py tab
     if (await mainPyTab.isVisible({ timeout: 1000 }).catch(() => false)) {
         await mainPyTab.click({ force: true }).catch(() => {});
         await page.waitForTimeout(300);
     }
+}
+
+// Recreates AwesomeApp with main.py and sketch.ino so every step gets a clean App.
+async function resetAwesomeApp(page) {
+    await cleanupExistingAwesomeApp(page);
+    await createAwesomeApp(page);
+    await ensureEditorTabs(page, true);
+}
+
+// Opens AwesomeApp in the editor, recreating it if missing or if a previous step added a Brick, and ensures main.py and sketch.ino tabs are open.
+async function openAwesomeApp(page) {
+    await dismissAnyOpenModals(page);
+    await goToApps(page);
+    const existingApp = page.locator('div[class*="app-link"]').filter({ hasText: /AwesomeApp/i }).first();
+    if (await existingApp.isVisible({ timeout: 3000 }).catch(() => false)) {
+        await existingApp.click({ force: true });
+        await page.locator('div[class*="app-actions"]').first().waitFor({ state: 'visible', timeout: 15000 });
+    } else {
+        await resetAwesomeApp(page);
+        return;
+    }
+    await page.waitForTimeout(1500);
+    await closeConsole(page);
+
+    const noBricksEmpty = page.locator('#side').getByText('No Bricks added yet', { exact: true }).first();
+    if (!(await noBricksEmpty.isVisible({ timeout: 1000 }).catch(() => false))) {
+        await resetAwesomeApp(page);
+        return;
+    }
+
+    await ensureEditorTabs(page, false);
 }
 
 module.exports = async function runAppLabFlow(page, outDir, options = {}) {
@@ -421,30 +489,7 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
         await capture(page, 'editor/editor-folders-expanded-sidepanel-hl.png', outDir, { highlight: editorSidePanel, insetHighlight: true });
         await capture(page, 'editor/editor-folders-expanded-files-hl.png', outDir, { highlight: [pythonFolder, appYamlFile], insetHighlight: true, percentage: 'top 75%' });
 
-        // Edit Code in Sketch and Python
-        const editorInput = page.getByRole('textbox').first();
-        if (await mainPyFile.isVisible({ timeout: 1000 }).catch(() => false)) {
-            await mainPyFile.dblclick({ force: true }).catch(() => {});
-            await editorInput.focus().catch(() => {});
-            await editorInput.press('Space').catch(() => {});
-            await editorInput.press('Backspace').catch(() => {});
-        }
-
-        if (await sketchFile.isVisible({ timeout: 1000 }).catch(() => false)) {
-            await sketchFile.dblclick({ force: true }).catch(() => {});
-            const sketchPath = path.join(__dirname, '../sketch.ino');
-            if (fs.existsSync(sketchPath)) {
-                const sketchCode = fs.readFileSync(sketchPath, 'utf8');
-                await editorInput.focus().catch(() => {});
-                await page.keyboard.press('ControlOrMeta+A').catch(() => {});
-                await page.keyboard.insertText(sketchCode).catch(() => {});
-                await page.waitForTimeout(500);
-            }
-        }
-
-        if (await mainPyTab.isVisible({ timeout: 1000 }).catch(() => false)) {
-            await mainPyTab.click({ force: true }).catch(() => {});
-        }
+        await ensureEditorTabs(page, true);
 
         await capture(page, 'editor/add-brick-button.png', outDir, { highlight: addBrickButton, percentage: 'top 25%' });
         await capture(page, 'editor/add-library-button.png', outDir, { highlight: addLibraryButton, percentage: 'top 25%' });
@@ -479,8 +524,9 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
             // While starting: 'Running...' next to Stop, and only the App launch tab in the Console
             await capture(page, 'editor/console/app-launch-starting.png', outDir, { highlight: consolePanel, insetHighlight: true });
             
-            // Wait for compile/upload to complete (up to 2 minutes)
-            await expect(startingAppText).toBeHidden({ timeout: 120000 }).catch(() => {});
+            // Wait for compile/upload to complete (up to 3 minutes)
+            await expect(startingAppText).toBeHidden({ timeout: 180000 }).catch(() => {});
+            await stopButtonBottom.waitFor({ state: 'visible', timeout: 120000 }).catch(() => {});
             await page.waitForTimeout(3000);
 
             await capture(page, 'editor/stop-button-bottom.png', outDir, { highlight: stopButtonBottom, percentage: 'bottom 25%' });
@@ -580,6 +626,17 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
         await capture(page, 'editor/agent-panel-open.png', outDir, { highlight: agentPanelSidebar, insetHighlight: true });
         await agentPanelButton.click({ force: true });
         await page.waitForTimeout(500);
+
+        await agentModeButton.click({ force: true });
+        await page.getByText('Connect an AI to start building', { exact: true }).waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
+        await dismissToasts(page);
+        await page.waitForTimeout(800);
+        await capture(page, 'agent/agent-mode-connect.png', outDir, {});
+        const editorModeButton = statusbar.locator('button[aria-label="Editor mode" i]').or(page.getByRole('button', { name: /Editor mode/i })).first();
+        if (await editorModeButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+            await editorModeButton.click({ force: true });
+            await page.waitForTimeout(800);
+        }
     }
 
     // ==========================================
@@ -588,6 +645,13 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
     if (step === 'all' || step === 'models') {
         console.log('\n--- Step: AI Models ---');
         await openAwesomeApp(page);
+
+        // Focus sketch.ino before adding the Brick so the Brick tab opens at the end (README.md, main.py, sketch.ino, Large Language Model (LLM))
+        const sketchTab = page.locator('ul[class*="tabs-list"] [data-file-id*="sketch.ino"]').first();
+        if (await sketchTab.isVisible({ timeout: 1000 }).catch(() => false)) {
+            await sketchTab.click({ force: true }).catch(() => {});
+            await page.waitForTimeout(300);
+        }
 
         // Add the Language model Brick unless a previous run already did
         const llmBrickRow = page.locator('#side').getByText(/Large Language Model/i).first();
@@ -617,6 +681,7 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
         await page.waitForTimeout(800);
         await capture(page, 'bricks/hugging-face-add-model-dialog.png', outDir, {});
         await closeDialog(page);
+        await resetAwesomeApp(page);
     }
 
     // ==========================================

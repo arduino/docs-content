@@ -343,13 +343,33 @@ def main(argv=None):
         
         if unlinked:
             print(f"Removing {len(unlinked)} unlinked images...")
+            ledger_path = os.path.join(repo_root, 'scripts', 'playwright', 'capture-ledger.json')
+            ledger = None
+            if os.path.exists(ledger_path):
+                try:
+                    import json
+                    with open(ledger_path, 'r', encoding='utf-8') as lf:
+                        ledger = json.load(lf)
+                except Exception:
+                    ledger = None
+            ledger_changed = False
             for img in unlinked:
                 try:
                     os.remove(img)
                     print(f"  Deleted: {os.path.relpath(img, root_path)}")
+                    if isinstance(ledger, dict):
+                        rel_repo = os.path.relpath(img, repo_root).replace('\\', '/')
+                        if rel_repo in ledger:
+                            del ledger[rel_repo]
+                            ledger_changed = True
                 except Exception as e:
                     print(f"  Error deleting {img}: {e}")
                     has_errors = True
+            if ledger_changed and isinstance(ledger, dict):
+                import json
+                with open(ledger_path, 'w', encoding='utf-8') as lf:
+                    json.dump(dict(sorted(ledger.items())), lf, indent=2)
+                    lf.write('\n')
         else:
             print("No unlinked images to remove.")
 

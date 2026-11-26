@@ -1,0 +1,63 @@
+Board:
+  Name: Arduino® Nano XL Link
+  SKU: ABX00182
+Microcontroller:
+  Model: Microchip® PIC32CK2051SG01144
+  Core: 32-bit Arm® Cortex®-M33
+  Security: Integrated hardware security module (HSM)
+  Clock Source: 12 MHz quartz crystal
+Memory:
+  Flash: 2 MB
+  RAM: 512 kB
+  Sketch Memory: 728 kB (flash partition available for sketches)
+Pins:
+  Headers: 2x 2x15 (J3 and J4), 2.54 mm pitch, 60 pins in total
+  Digital I/O: 26 (D0-D13, D22-D33)
+  Analog Inputs: 8 (A0-A7), 12-bit ADC
+  PWM Pins: 8 (D2-D9)
+  I/O Voltage: +3.3 VDC
+  Max Current per Pin: 7 mA sink / 11 mA source
+Communication:
+  UART: 2 on headers (Serial1, Serial2), 1 internal for RS-485 (Serial3)
+  SPI: 2 (SPI, SPI1)
+  I2C: 2 (Wire on Qwiic connector, Wire1 on D26/D27)
+  USB: USB-C® (programming, power and serial communication)
+  Qwiic Connector: Yes (I2C, +3.3 VDC, 5.1 kΩ pull-up resistors)
+Industrial Interfaces:
+  CAN FD:
+    Transceiver: Texas Instruments® TCAN3414
+    Protocols: Classic CAN and CAN FD
+    Arbitration Bitrate: 125, 250, 500 kbps and 1 Mbps
+    Data Bitrate: Up to 8 Mbps (CAN FD)
+    Termination: 120 Ω onboard, solder jumper SJ1 (closed by default)
+  RS-485:
+    Transceiver: Texas Instruments® THVD2410
+    Mode: Half-duplex
+    Data Rate: Up to 500 kbps
+    Termination: 120 Ω onboard, solder jumper SJ2 (closed by default)
+  Ethernet:
+    PHY: Microchip® KSZ8081RNAIA
+    Speed: 10/100 Mbps, auto-negotiation
+    Interface: RMII (internal), differential pairs on headers
+    Connector: RJ45 with magnetics on the Nano Connector Carrier
+Onboard Components:
+  RGB LED: User-programmable, PWM capable (LEDR, LEDG, LEDB)
+  User LED: Orange, user-programmable (LED_BUILTIN)
+  Power LED: Green, +3.3 VDC rail
+  Reset Button: Yes
+  Debug: SWD on J3 header (SWDIO, SWCLK) and bottom-side test points
+Power:
+  Input Voltage (VIN): +7-24 VDC
+  USB Input: 5 V via USB-C®
+  3V3 Pin: Input or output, 1 A max (output)
+  VBUS Pin: Output only, 5 V, 500 mA max (USB-powered only)
+  Regulator: MPQ4334 buck converter
+Software:
+  Core: Arduino Zephyr core
+  Bootloader: MCUboot (USB serial recovery)
+Operating Conditions:
+  Operating Temperature: -20 °C to +85 °C
+Physical Specifications:
+  Dimensions:
+    Width: 23 mm
+    Length: 43 mm

@@ -1,0 +1,22 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+hardware:
+  shields: ~
+  carriers: ~
+  boards:
+    - nano-xl-link
+  modulino-nodes:
+    - modulino-buttons
+    - modulino-buzzer
+    - modulino-distance
+    - modulino-joystick
+    - modulino-knob
+    - modulino-latch
+    - modulino-light
+    - modulino-matrix
+    - modulino-movement
+    - modulino-pixels
+    - modulino-thermo
+    - modulino-vibro

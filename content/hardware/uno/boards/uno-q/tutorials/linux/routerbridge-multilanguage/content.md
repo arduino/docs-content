@@ -193,6 +193,7 @@ Create a header file `arduino_bridge.hpp` with the complete implementation:
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <unistd.h>
+#include <utility>
 #include <vector>
 #include <string>
 #include <sstream>
@@ -286,7 +287,7 @@ public:
             return Response{false, msgpack::object_handle(), "Timeout"};
         }
         
-        Response response = pending_responses[msgid];
+        Response response = std::move(pending_responses[msgid]);
         pending_responses.erase(msgid);
         
         return response;
@@ -309,6 +310,9 @@ public:
     
     void disconnect() {
         running = false;
+        if (sock_fd >= 0) {
+            shutdown(sock_fd, SHUT_RDWR);
+        }
         if (recv_thread.joinable()) {
             recv_thread.join();
         }
@@ -357,7 +361,9 @@ private:
         auto it = pending_responses.find(msgid);
         if (it != pending_responses.end()) {
             if (!arr.ptr[2].is_nil()) {
-                it->second.error = arr.ptr[2].as<std::string>();
+                std::ostringstream oss;
+                oss << arr.ptr[2];
+                it->second.error = oss.str();
             } else {
                 it->second.success = true;
                 it->second.result = msgpack::clone(arr.ptr[3]);

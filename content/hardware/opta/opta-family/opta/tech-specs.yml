@@ -22,6 +22,7 @@ Relays:
   Maximum peak current per relay: 15 A
 Connectivity and communication:
   Expansion Port: Up to 5 expansion modules (e.g., AFX00005, AFX00006, AFX00007)
+  Expansion Compatibility: Designed and tested with Arduino Opta® expansions. Compatibility with non-Arduino expansions is not ensured
   USB-C®: 
     For programming and data logging: All variants
   Ethernet: 

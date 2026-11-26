@@ -15,7 +15,7 @@ A command-line tool used to access the board's Linux shell over a USB connection
 
 ## Agent Mode
 
-The AI coding agent built into App Lab. The agent can edit App files, manage Bricks and AI models, run Apps, and read their logs, asking for your approval before any change. It runs on your computer with your own Claude account. **Agent mode** also refers to the full-screen view of the agent, opened from the status bar. See [Agent Mode](../../integrations/agent-mode/).
+The AI coding agent built into App Lab. The agent can edit App files, manage Bricks and AI models, run Apps, and read their logs, asking for your approval before any change. It runs on your computer with **Claude Code** or **OpenCode**. **Agent mode** also refers to the full-screen view of the agent, opened from the status bar. See [Agent Mode](../../integrations/agent-mode/).
 
 ## Agent Panel
 

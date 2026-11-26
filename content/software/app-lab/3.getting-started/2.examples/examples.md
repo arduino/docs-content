@@ -73,11 +73,11 @@ Inspirations and examples can only be viewed in Arduino App Lab when connected t
 | Person Classifier on Camera | This example showcases person classification on camera, using a camera stream | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/video-person-classification) |
 | QR and Barcode Scanner | This example showcases how to use the Camera Code Detector Brick to detect barcodes and QR codes and display the results in a web application as well as saving the results to an SQL database. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/code-detector) |
 | Real-time Accelerometer Data | Real-time Accelerometer data visualization and movement detection using Modulino Movement sensor | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/real-time-accelerometer) |
+| Smartphone Sensor Stream | This example visualizes live sensor data streamed from a smartphone in an interactive web dashboard. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/mobile-remote-sensor) |
 | System Resources Logger | A simple data logger that gets system resources usage from the board and stores them in a database. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/system-resources-logger) |
 | Telegram Bot | Control your board through a Telegram bot | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/telegram-bot) |
 | Theremin Simulator | A simple theremin simulator that generates audio based on user input. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/theremin) |
 | Vibration Anomaly Detection | Monitor fan vibrations and detect anomalies | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/vibration-anomaly-detection) |
-| Visualize Smartphone Sensors | This example visualizes live sensor data streamed from a smartphone in an interactive web dashboard. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/mobile-remote-sensor) |
 | Weather Forecast on LED Matrix | A weather forecast system that get the current weather and display it on LED matrix. | [GitHub](https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/weather-forecast) |
 
 ### Inspirations for UNO Q

@@ -45,7 +45,8 @@ When a step fails, the runner writes a DOM dump, a screenshot, and the error det
 
 ## Modifying Locators and Adding Flows
 
-- `core/capture.js`: Contains reusable visual capture logic, orthogonal connector drawing, label distribution, and toast suppression.
+- `core/capture.js`: Contains reusable visual capture logic, orthogonal connector drawing, label distribution, toast suppression, and updates `capture-ledger.json` with the capture date (`YYYY-MM-DD`) of every screenshot taken.
+- `capture-ledger.json`: Records the last capture date (`YYYY-MM-DD`) for each screenshot path relative to the repository root.
 - `core/app-lab.js`: Shared App Lab navigation (board selection, Apps page, opening an App, App menu, dialogs, console). Flows and other Playwright scripts use it, so a locator changed for a new App Lab version is fixed in one place.
 - `flows/app-lab.js`: Contains the sequence of interactions and locators for App Lab.
 - `flows/renders.js`: Generates cropped board hardware callout diagrams (such as the `JCTL` boot pins for UNO Q and VENTUNO Q) directly from the board renders in `content/software/app-lab/assets/renders/` (`node runner.js --flow renders`).

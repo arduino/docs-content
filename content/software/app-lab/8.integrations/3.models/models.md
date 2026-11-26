@@ -18,7 +18,7 @@ AI-powered Bricks, such as **Video Object Detection** or **Large Language Model 
 
 <Alert type="info">
 
-**Note:** Models are stored on the board and shared between Apps. They can take up a lot of storage, so check **Disk storage** in [Settings](../../configure/settings/#device-details) before downloading large models. Models can't be changed in built-in examples; select **Copy and edit App** first.
+**Note:** Models are stored on the board and shared between Apps. They can take up a lot of storage, so check **Disk storage** in [Settings](../../configure/settings/#device-details) before downloading large models. Models can't be changed in read-only Apps (built-in examples and installed [App releases](../../apps/manage-apps/#install-an-app-release)). Select **Copy and edit App** first.
 
 </Alert>
 

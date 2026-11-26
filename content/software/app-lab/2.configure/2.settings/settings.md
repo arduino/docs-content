@@ -139,4 +139,4 @@ This section manages the board's Wi-Fi connection.
 
 ### Agent
 
-This section lists the AI coding agents you can use in [Agent Mode](../../integrations/agent-mode/). Select **Install** on an agent card to install it on your computer, then connect your account. After installing, you can set the default agent, manage the sign-in, and update or uninstall the agent runtime.
+This section lists the AI coding agents you can use in [Agent Mode](../../integrations/agent-mode/), including **Claude Code** and **OpenCode**. Select **Install** on an agent card to install it on your computer, then connect your account or configure **AI model providers**. After installing, you can choose the default agent (**Set as default**) and manage its sign-in or provider keys. You can also check or uninstall the agent runtime under **Runtime & Packages**.
