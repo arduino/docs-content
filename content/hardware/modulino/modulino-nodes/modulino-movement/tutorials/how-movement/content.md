@@ -243,7 +243,7 @@ To follow the Arduino examples in this tutorial, you will need the following:
 
 - An Arduino board with an onboard Qwiic connector (**UNO R4 WiFi**, **UNO Q**, or **Nano R4**), or a Nano form factor board mounted on the **Nano Connector Carrier**.
 - A Qwiic cable.
-- * The `Arduino_Modulino` library, installed from the Library Manager of the Arduino IDE. The Library Manager also installs the `Arduino_LSM6DSOX` library, which `Arduino_Modulino` uses to communicate with the sensor. If you use the Arduino Cloud Editor, the library is already available, and no installation is required.
+- The `Arduino_Modulino` library, installed from the Library Manager of the Arduino IDE. The Library Manager also installs the `Arduino_LSM6DSOX` library, which `Arduino_Modulino` uses to communicate with the sensor. If you use the Arduino Cloud Editor, the library is already available, and no installation is required.
 
 On the UNO R4 WiFi, the UNO Q, and the Nano R4, the Qwiic connector is wired to the secondary I²C interface, and `Modulino.begin()` automatically selects `Wire1`. On any other board, the library defaults to `Wire`. **You do not need to specify the interface in your sketch**.
 
