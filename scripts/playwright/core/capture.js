@@ -48,6 +48,7 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
                 fixedY: def.fixedY !== undefined ? def.fixedY : null,
                 fixedX: def.fixedX !== undefined ? def.fixedX : null,
                 connectorMidX: def.connectorMidX !== undefined ? def.connectorMidX : null,
+                gap: def.gap !== undefined ? def.gap : null,
                 shape: def.shape || 'box',
                 fill: def.fill || null,
                 outlineWidth: def.outlineWidth || 4,
@@ -178,7 +179,8 @@ async function highlightElement(page, highlightDefs, isInsetGlobal = false) {
                 if (first.cx < lLimit) first.cx = lLimit;
             }
             group.forEach(item => {
-                item.finalY = side === 'top' ? item.box.top - item.h - gap : item.box.bottom + gap;
+                const itemGap = item.def.gap !== null ? item.def.gap : gap;
+                item.finalY = side === 'top' ? item.box.top - item.h - itemGap : item.box.bottom + itemGap;
                 item.finalX = item.cx - item.w / 2;
             });
         });

@@ -1,7 +1,7 @@
 ---
 title: AI Models in Arduino App Lab
 overwriteSidebar: AI Models
-description: Learn how to download and select AI models for your Bricks, add models from Hugging Face, and browse the model catalog of Arduino App Lab.
+description: Learn how to download and select AI models for your Bricks, train custom models on Edge Impulse, add models from Hugging Face, and browse the model catalog of Arduino App Lab.
 author: Arduino
 tags: [App Lab, AI, Models, Machine Learning]
 difficulty: beginner
@@ -11,25 +11,79 @@ AI-powered Bricks, such as **Video Object Detection** or **Large Language Model 
 
 ## Use a Model with a Brick
 
-1. [Open an App](../../apps/manage-apps/#open-an-app) that uses an AI Brick, and select the Brick in the **Bricks** section of the Editor sidebar.
-2. Open the **AI Models** tab. The **Suggested models** section lists the models compatible with the Brick and your board.
-3. Select **Download** on a model card to download it to your board. The card shows **Installed** when the download completes.
-4. Select the model you want the Brick to use. The selected model is marked **Model in use**.
+Each AI Brick has an **AI Models** tab with two areas:
+
+- **Suggested models**: Pre-trained models from the built-in catalog. They work without signing in and install directly to your board.
+- **Custom models** (shown below **Suggested models**): Depending on the Brick, **Train new AI Model on Edge Impulse** lists projects from your Edge Impulse Studio account. On the LLM Brick, **Bring your own model** adds Hugging Face models.
+
+To download and select a catalog model:
+
+1. Open an editable App that includes an AI Brick:
+   - **From scratch:** [Create a new App](../../apps/manage-apps/#create-a-new-app) and [add an AI Brick](../../bricks/use-bricks/#add-an-arduino-brick) from the **Add Brick** toolbar icon.
+   - **From an example or Inspiration:** Open it and select **Copy and edit App** first. Built-in examples and installed [App releases](../../apps/manage-apps/#install-an-app-release) are read-only and lock model selection.
+2. Under **Bricks** in the Editor sidebar, select the Brick to open its detail view, then select the **AI Models** tab.
+3. Under **Suggested models**, select **Download** on a model card. Uninstalled cards stay dimmed until the download finishes and the card shows **Installed**.
+4. Select the installed model card to mark it **Model in use**.
 
 <Alert type="info">
 
-**Note:** Models are stored on the board and shared between Apps. They can take up a lot of storage, so check **Disk storage** in [Settings](../../configure/settings/#device-details) before downloading large models. Models can't be changed in read-only Apps (built-in examples and installed [App releases](../../apps/manage-apps/#install-an-app-release)). Select **Copy and edit App** first.
+**Note:** Models are stored on the board and shared between Apps. They can take up a lot of storage, so check **Disk storage** in [Settings](../../configure/settings/#device-details) before downloading large models.
 
 </Alert>
 
 ## Add Your Own Models
 
-Under **Bring your own model** in the **AI Models** tab, you can add models that are not in the catalog:
+Below **Suggested models** in the **AI Models** tab, you can add models that are not in the catalog:
 
-- **Train new AI Model on Edge Impulse**: Train a model on your own data for vision, audio, and sensor Bricks. See [Custom AI Models](../ai-models/).
+- **Train new AI Model on Edge Impulse**: Connect your Edge Impulse Studio account and train a model on your own data for vision, audio, and sensor Bricks. See [Train Models on Edge Impulse](#train-models-on-edge-impulse).
 - **Add model from Hugging Face**: Download a language model for the LLM Brick. See [Add Models from Hugging Face](#add-models-from-hugging-face).
 
 The options shown depend on the Brick.
+
+## Train Models on Edge Impulse
+
+You can train a custom model in **Edge Impulse Studio** for vision, audio, or sensor Bricks and install it on your board from App Lab.
+
+### Connect to Edge Impulse Studio
+
+1. Open an editable App with a compatible AI Brick. [Create a new App](../../apps/manage-apps/#create-a-new-app) and [add an AI Brick](../../bricks/use-bricks/#add-an-arduino-brick) such as **Video Object Detection**, or open an example and select **Copy and edit App**.
+2. In the **Bricks** section of the Editor sidebar, select the Brick to open its tab in the Editor.
+3. Select the **AI Models** tab.
+4. Below **Suggested models**, find **Train new AI Model on Edge Impulse** and select **Train new AI Model**.
+   ![Navigating to Train new AI Model in the AI Models tab](../../assets/playwright/bricks/video-object-detection-train-model-hl.png)
+5. Follow the **Train your AI Model with Edge Impulse Studio** prompts to sign in and connect Edge Impulse Studio. Select **Start to train your AI Model** to open Edge Impulse Studio in your browser.
+
+### Prepare Your Edge Impulse Project
+
+App Lab lists Edge Impulse projects that target a supported board and match the selected Brick:
+
+- **Target device:** When you create a project from App Lab, App Lab sets the target device to your board automatically. For an existing project, open **Target** in the top-right corner of Edge Impulse Studio. Select your board (for example `Arduino UNO Q (Qualcomm QRB2210)`) and select **Save**. Edge Impulse uses this setting to estimate inference time and memory usage for your board.
+- **Project type:** App Lab filters projects by the project type Edge Impulse assigns from your data and learning block:
+
+<!-- app-lab-edge-impulse table start -->
+| Edge Impulse project type | Compatible Bricks |
+| :--- | :--- |
+| Object detection | Object Detection, Video Object Detection |
+| Images (classification) | Image Classification, Video Image Classification |
+| Images (visual anomaly detection) | Visual Anomaly Detection |
+| Audio | Audio Classification |
+| Keyword spotting | Audio Classification, Keyword Spotting |
+| Accelerometer | Motion detection, Vibration Anomaly detection |
+<!-- app-lab-edge-impulse table end -->
+
+Newly created projects without a learning block appear under every AI Brick. Their **Download** button stays inactive until you train an impulse in Edge Impulse Studio.
+
+For step-by-step training instructions, see the [Edge Impulse guide for Arduino App Lab](https://docs.edgeimpulse.com/hardware/deployments/run-arduino-app-lab) or the [Custom AI Models for Arduino App Lab](/tutorials/uno-q/custom-ai-models/) tutorial for the Arduino UNO Q.
+
+### Install and Update Your Model
+
+Once you have trained an impulse in Edge Impulse Studio:
+
+1. Return to the Brick's **AI Models** tab in App Lab. Your compatible Edge Impulse projects appear under **Train new AI Model on Edge Impulse**.
+2. If your project has multiple impulses, choose one from **Select Impulse** on the model card.
+3. Select **Download** on the model card (shown as a download icon when the project has multiple impulses). App Lab builds the model in Edge Impulse Studio, installs it on your board, and marks it **Installed** and **Model in use**.
+
+App Lab records the selected model in `app.yaml`, and [App releases](../../apps/manage-apps/#create-an-app-release) bundle custom models trained in your Edge Impulse projects. If you retrain the impulse later, select **Update** on the model card to install the updated version. Use the Brick's Python API as usual, matching the class labels defined in your Edge Impulse project.
 
 ## Add Models from Hugging Face
 
