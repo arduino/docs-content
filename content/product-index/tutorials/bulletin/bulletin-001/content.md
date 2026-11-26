@@ -5,7 +5,7 @@ author: Arduino Team
 ---
 
 **Document Type:** End of Sales - End of Life  
-**Date Issued:** 2026-11-16
+**Date Issued:** 2026-11-30
 
 This bulletin informs customers and partners about the planned **End‑of‑Life (EOL)** for selected products. These products will be phased out of active sales and support due to components unavailability or changes in regulations that prevent Arduino from producing or maintaining them. As part of our portfolio strategy, Arduino will continue evolving its products to implement the latest technologies and comply with current standards.
 

@@ -167,7 +167,7 @@ certification-bundle-kit-exam:
   SKU: AKX00020
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -178,7 +178,7 @@ explore-iot-kit-rev2:
   SKU: AKX00044
   Status: End of Life
   Release Date: 2023-04-12
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -189,7 +189,7 @@ mkr-can-shield:
   SKU: ASX00005
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -200,7 +200,7 @@ education-starter-kit:
   SKU: AKX00023
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -233,7 +233,7 @@ mkr-connector-carrier:
   SKU: ASX00007
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -255,7 +255,7 @@ mkr-env-shield-rev2:
   SKU: ASX00029
   Status: End of Life
   Release Date: 2021-02-22
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -266,7 +266,7 @@ mkr-eth-shield:
   SKU: ASX00006
   Status: End of Life
   Release Date: 2021-01-05
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -299,7 +299,7 @@ mkr-gps-shield:
   SKU: ASX00017
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -321,7 +321,7 @@ mkr-iot-carrier-rev2:
   SKU: ABX00073
   Status: End of Life
   Release Date: 2023-01-09
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -354,7 +354,7 @@ mkr-nb-1500:
   SKU: ABX00019
   Status: End of Life
   Release Date: 2021-01-19
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -442,7 +442,7 @@ mkr-proto-shield:
   SKU: TSX00001
   Status: End of Life
   Release Date: 2021-01-05
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -453,7 +453,7 @@ mkr-relay-proto-shield:
   SKU: TSX00003
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -464,7 +464,7 @@ mkr-wan-1310:
   SKU: ABX00029
   Status: End of Life
   Release Date: 2021-01-05
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -475,7 +475,7 @@ mkr-wan-1310-antenna:
   SKU: ABX00039
   Status: End of Life
   Release Date: 2021-01-31
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -486,7 +486,7 @@ mkr-wifi-1010:
   SKU: ABX00023
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -497,7 +497,7 @@ mkr-zero:
   SKU: ABX00012
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -541,7 +541,7 @@ nano-33-ble-rev2:
   SKU: ABX00071
   Status: End of Life
   Release Date: 2023-11-17
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement: nano-esp32
@@ -552,7 +552,7 @@ nano-33-ble-rev2-with-headers:
   SKU: ABX00072
   Status: End of Life
   Release Date: 2023-11-17
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement: nano-esp32
@@ -585,7 +585,7 @@ nano-33-ble-sense-rev2:
   SKU: ABX00069
   Status: End of Life
   Release Date: 2022-10-13
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement: nano-esp32
@@ -596,7 +596,7 @@ nano-33-ble-sense-rev2-with-headers:
   SKU: ABX00070
   Status: End of Life
   Release Date: 2022-10-17
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement: nano-esp32
@@ -607,7 +607,7 @@ nano-33-iot:
   SKU: ABX00027
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement: nano-esp32
@@ -618,7 +618,7 @@ nano-33-iot-with-headers:
   SKU: ABX00032
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement: nano-esp32
@@ -629,7 +629,7 @@ opla-iot-kit:
   SKU: AKX00026
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -651,7 +651,7 @@ portenta-cat-m1-nb-iot-gnss-shield:
   SKU: ASX00027
   Status: End of Life
   Release Date: 2022-01-26
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -662,7 +662,7 @@ portenta-max-carrier:
   SKU: ABX00043
   Status: End of Life
   Release Date: 2022-06-10
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -673,7 +673,7 @@ starter-kit-portuguese:
   SKU: K060007
   Status: End of Life
   Release Date: 2021-02-02
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -695,7 +695,7 @@ mkr-wan-1300:
   SKU: ABX00017
   Status: End of Life
   Release Date: 2021-01-14
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -717,7 +717,7 @@ tiny-machine-learning-kit:
   SKU: AKX00028
   Status: End of Life
   Release Date: 2021-01-09
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -728,7 +728,7 @@ uno-wifi-rev2:
   SKU: ABX00021
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement: uno-r4-wifi
@@ -739,7 +739,7 @@ zero:
   SKU: ABX00003
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement: uno-r4-wifi
@@ -1465,7 +1465,7 @@ nano-motor-carrier:
   SKU: ABX00041
   Status: End of Life
   Release Date: 2021-06-15
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -1762,7 +1762,7 @@ portenta-x8:
   SKU: ABX00049
   Status: End of Life
   Release Date: 2021-05-28
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -1916,7 +1916,7 @@ student-kit-english:
   SKU: AKX00025
   Status: End of Life
   Release Date: 2021-01-04
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -2235,7 +2235,7 @@ edge-ai-ml-vision-and-speech-kit:
   SKU: AKX00058
   Status: End of Life
   Release Date: 2023-12-18
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -2246,7 +2246,7 @@ industrial-automation-and-lighting-kit:
   SKU: AKX00056
   Status: End of Life
   Release Date: 2023-12-18
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -2268,7 +2268,7 @@ smart-industry-oem-condition-monitoring-kit:
   SKU: AKX00057
   Status: End of Life
   Release Date: 2023-12-18
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -2279,7 +2279,7 @@ smart-industry-predictive-maintenance-kit:
   SKU: AKX00059
   Status: End of Life
   Release Date: 2023-12-18
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
@@ -2290,7 +2290,7 @@ smart-industry-prototyping-kit:
   SKU: AKX00060
   Status: End of Life
   Release Date: 2023-12-18
-  End of Life: 2026-11-16
+  End of Life: 2026-11-30
   End of Sales: 2026-12-15
   End of Support: 2028-12-15
   Replacement:
