@@ -144,7 +144,7 @@ If you prefer not to use a custom keyword, you can use the built-in model.
 
 <Alert type="note">
 
-Learn more in the [Custom AI Models guide](https://docs.arduino.cc/software/app-lab/integrations/ai-models/).
+Learn more in [Train Models on Edge Impulse](/software/app-lab/integrations/models/#train-models-on-edge-impulse).
 
 </Alert>
 

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { expect } = require('@playwright/test');
-const { capture, suppressToasts, dismissToasts } = require('../core/capture');
+const { CONFIG, capture, suppressToasts, dismissToasts } = require('../core/capture');
 const {
     ensureBoardSelected, goToApps, dismissAnyOpenModals, stopRunningAppIfAny,
     closeConsole, openAppActionsMenu, closeDialog,
@@ -681,6 +681,74 @@ module.exports = async function runAppLabFlow(page, outDir, options = {}) {
         await page.waitForTimeout(800);
         await capture(page, 'bricks/hugging-face-add-model-dialog.png', outDir, {});
         await closeDialog(page);
+        await resetAwesomeApp(page);
+    }
+
+    // ==========================================
+    // STEP: EDGE IMPULSE (Video Object Detection)
+    // ==========================================
+    if (step === 'all' || step === 'edge-impulse') {
+        console.log('\n--- Step: Edge Impulse ---');
+        await openAwesomeApp(page);
+
+        // Focus sketch.ino before adding the Video Object Detection Brick so the Brick tab opens at the end
+        const sketchTab = page.locator('ul[class*="tabs-list"] [data-file-id*="sketch.ino"]').first();
+        if (await sketchTab.isVisible({ timeout: 1000 }).catch(() => false)) {
+            await sketchTab.click({ force: true }).catch(() => {});
+            await page.waitForTimeout(300);
+        }
+
+        const vodBrickRow = page.locator('#side').getByText(/Video Object Detection/i).first();
+        if (!(await vodBrickRow.isVisible({ timeout: 1000 }).catch(() => false))) {
+            await page.locator('button[aria-label="Add Brick" i]').first().click({ force: true });
+            const addBrickDialog = page.locator('[role="dialog"]').last();
+            await addBrickDialog.getByText('Video Object Detection', { exact: true }).click({ timeout: 10000 });
+            await page.waitForTimeout(500);
+            await addBrickDialog.getByRole('button', { name: 'Add', exact: true }).click({ force: true });
+            await page.getByRole('button', { name: /Check usage examples/i }).waitFor({ state: 'visible', timeout: 30000 }).catch(() => {});
+            await closeDialog(page);
+        } else {
+            await vodBrickRow.click({ force: true });
+        }
+
+        const vodAiModelsTab = page.getByText('AI Models', { exact: true }).last();
+        await vodAiModelsTab.waitFor({ state: 'visible', timeout: 10000 });
+        await vodAiModelsTab.click({ force: true });
+        const trainNewModelButton = page.getByRole('button', { name: /Train new AI Model/i }).first();
+        await trainNewModelButton.waitFor({ state: 'visible', timeout: 15000 });
+        // Hide any linked personal Edge Impulse projects so the screenshot matches a clean account
+        await page.evaluate(() => {
+            for (const el of Array.from(document.querySelectorAll('[class*="section"] [class*="title"]'))) {
+                if ((el.textContent || '').trim() === 'Train new AI Model on Edge Impulse') {
+                    const header = el.closest('[class*="header"]');
+                    const section = header && header.parentElement;
+                    if (section) {
+                        Array.from(section.children).filter(c => c !== header).forEach(c => c.style.setProperty('display', 'none', 'important'));
+                    }
+                }
+            }
+        }).catch(() => {});
+
+        // Use a taller viewport for this shot so Suggested models and Train new AI Model fit without clipping
+        const originalViewport = page.viewportSize() || CONFIG.viewport;
+        try {
+            await page.setViewportSize({ width: originalViewport.width, height: 940 });
+            await page.waitForTimeout(500);
+            const vodBrickItem = page.locator('#side [class*="brick-item"], #side button, #side li').filter({ hasText: /^Video Object Detection$/i }).first();
+            const brickTarget = (await vodBrickItem.isVisible({ timeout: 1000 }).catch(() => false)) ? vodBrickItem : vodBrickRow;
+            const vodBrickTab = page.locator('ul[class*="tabs-list"] > *').filter({ hasText: /Video Object Detection/i }).first();
+            await capture(page, 'bricks/video-object-detection-train-model-hl.png', outDir, {
+                highlight: [
+                    { locators: brickTarget, label: '1. SELECT BRICK', labelSide: 'bottom', connectorSide: 'bottom', gap: 15, fontSize: 11, badgePadding: '2px 8px' },
+                    { locators: vodBrickTab, label: '2. BRICK TAB', labelSide: 'right', connectorSide: 'right', alignVertical: true, fontSize: 11, badgePadding: '2px 8px' },
+                    { locators: vodAiModelsTab, label: '3. AI MODELS', labelSide: 'right', connectorSide: 'right', alignVertical: true, fontSize: 11, badgePadding: '2px 8px' },
+                    { locators: trainNewModelButton, label: '4. TRAIN NEW AI MODEL', labelSide: 'left', connectorSide: 'left', alignVertical: true, fontSize: 11, badgePadding: '2px 8px' }
+                ]
+            });
+        } finally {
+            await page.setViewportSize(originalViewport);
+            await page.waitForTimeout(300);
+        }
         await resetAwesomeApp(page);
     }
 

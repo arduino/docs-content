@@ -60,7 +60,19 @@ Reads model definitions from `models-list.yaml` in `app-bricks-py` and updates t
   python3 scripts/maintenance/update_models_table.py
   ```
 
-### 4. Update CLI Command Reference (`update_cli_reference.py`)
+### 4. Update Edge Impulse Compatibility Table (`update_edge_impulse_table.py`)
+
+Reads the Edge Impulse project-type to Brick mapping (`isCompatibleEICategory`) from `cloud-editor-mono` and resolves Brick display names from `app-bricks-py`.
+
+- **Source Repositories:** `bcmi-labs/cloud-editor-mono` (`app/core-ui/src/app-lab/providers/ai-models/utils.ts`) and [`arduino/app-bricks-py`](https://github.com/arduino/app-bricks-py)
+- **Environment Variable Overrides:** `CLOUD_EDITOR_MONO_DIR` / `UI_DIR` and `BRICKS_DIR`
+- **Target Markers:** `<!-- app-lab-edge-impulse table start -->` and `<!-- app-lab-edge-impulse table end -->`
+- **Usage:**
+  ```bash
+  python3 scripts/maintenance/update_edge_impulse_table.py
+  ```
+
+### 5. Update CLI Command Reference (`update_cli_reference.py`)
 
 Generates the complete command-line reference from the `arduino-app-cli` Cobra command definitions. Preserves page frontmatter, intro prose, and linter directives.
 
@@ -83,5 +95,6 @@ To update all auto-generated content at once:
 python3 scripts/maintenance/update_bricks_table.py
 python3 scripts/maintenance/update_examples_table.py
 python3 scripts/maintenance/update_models_table.py
+python3 scripts/maintenance/update_edge_impulse_table.py
 python3 scripts/maintenance/update_cli_reference.py
 ```

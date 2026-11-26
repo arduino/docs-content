@@ -103,7 +103,7 @@ A low-level boot mode used when flashing a new Linux image. You enter it by shor
 
 ## Edge Impulse
 
-A platform for training custom machine learning models. App Lab integrates with Edge Impulse Studio so you can train models for vision, audio, and sensor Bricks. See [Custom AI Models](../../integrations/ai-models/).
+A platform for training custom machine learning models. App Lab integrates with Edge Impulse Studio so you can train models for vision, audio, and sensor Bricks. See [Train Models on Edge Impulse](../../integrations/models/#train-models-on-edge-impulse).
 
 ## Examples
 

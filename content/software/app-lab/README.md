@@ -37,6 +37,7 @@ The tables in the documentation that list available Bricks, Examples, and Models
 * **Update Bricks**: Run `python3 scripts/maintenance/update_bricks_table.py`. It looks for `<!-- app-bricks-py table start -->` markers.
 * **Update Examples**: Run `python3 scripts/maintenance/update_examples_table.py`. It looks for `<!-- app-bricks-examples table start -->` markers.
 * **Update Models**: Run `python3 scripts/maintenance/update_models_table.py`. It looks for `<!-- app-lab-models table start -->` markers.
+* **Update Edge Impulse Compatibility**: Run `python3 scripts/maintenance/update_edge_impulse_table.py`. It looks for `<!-- app-lab-edge-impulse table start -->` markers.
 
 ### CLI Command Reference
 

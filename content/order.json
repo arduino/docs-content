@@ -55,7 +55,8 @@
         "guides": [
           "single-board-computer",
           "arduino-cloud",
-          "host-mode"
+          "host-mode",
+          "custom-ai-models"
         ],
         "linux": [
           "ssh",

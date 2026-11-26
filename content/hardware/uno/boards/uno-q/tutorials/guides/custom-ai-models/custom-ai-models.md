@@ -69,7 +69,7 @@ Instead of writing code to define the neural network, you use the Studio's visua
 
 When you export for the UNO Q, you get an **.eim (Edge Impulse Model)** file. This file acts as a container, holding all the logic and trained parameters needed to run the model.
 
-## Creating your Custom AI Model
+## Creating Your Custom AI Model
 
 - Inside the Arduino App Lab, navigate to **Apps** and click on **Create new App +**. Give it a name and save it.
 - In your App Python file, update the `main.py` script by copying and pasting this:
@@ -290,6 +290,6 @@ Your Bricks can now detect apples and bananas with a model trained on your own d
 * Try creating an audio classification model using a USB microphone to teach your board to recognize voice commands or environmental sounds.
 * Integrate your new custom model into a Logic flow within App Lab to trigger specific actions, such as turning on an LED or sending a notification, when a specific object is detected.
 * Export the `.eim` file manually from Edge Impulse to experiment with running your custom model in C++ or Python projects outside of Arduino App Lab.
-* Looking for a language model instead? [Add a model from Hugging Face](../models/#add-models-from-hugging-face) to the LLM Brick without training one.
+* Looking for a language model instead? [Add a model from Hugging Face](/software/app-lab/integrations/models/#add-models-from-hugging-face) to the LLM Brick without training one.
 
 <!-- markdownlint-disable-file -->
