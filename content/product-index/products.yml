@@ -267,8 +267,8 @@ mkr-eth-shield:
   Status: End of Life
   Release Date: 2021-01-05
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
@@ -443,8 +443,8 @@ mkr-proto-shield:
   Status: End of Life
   Release Date: 2021-01-05
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
@@ -465,8 +465,8 @@ mkr-wan-1310:
   Status: End of Life
   Release Date: 2021-01-05
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
@@ -498,8 +498,8 @@ mkr-zero:
   Status: End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
@@ -619,8 +619,8 @@ nano-33-iot-with-headers:
   Status: End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement: nano-esp32
   Bulletin: bulletin-001
 
@@ -652,8 +652,8 @@ portenta-cat-m1-nb-iot-gnss-shield:
   Status: End of Life
   Release Date: 2022-01-26
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
@@ -663,8 +663,8 @@ portenta-max-carrier:
   Status: End of Life
   Release Date: 2022-06-10
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
@@ -729,8 +729,8 @@ uno-wifi-rev2:
   Status: End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement: uno-r4-wifi
   Bulletin: bulletin-001
 
@@ -1917,8 +1917,8 @@ student-kit-english:
   Status: End of Life
   Release Date: 2021-01-04
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
@@ -2236,8 +2236,8 @@ edge-ai-ml-vision-and-speech-kit:
   Status: End of Life
   Release Date: 2023-12-18
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
@@ -2247,8 +2247,8 @@ industrial-automation-and-lighting-kit:
   Status: End of Life
   Release Date: 2023-12-18
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
@@ -2269,8 +2269,8 @@ smart-industry-oem-condition-monitoring-kit:
   Status: End of Life
   Release Date: 2023-12-18
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
@@ -2280,8 +2280,8 @@ smart-industry-predictive-maintenance-kit:
   Status: End of Life
   Release Date: 2023-12-18
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
@@ -2291,8 +2291,8 @@ smart-industry-prototyping-kit:
   Status: End of Life
   Release Date: 2023-12-18
   End of Life: 2026-11-30
-  End of Sales: 2026-12-18
-  End of Support: 2028-12-18
+  End of Sales: 2027-02-01
+  End of Support: 2029-02-01
   Replacement:
   Bulletin: bulletin-001
 
