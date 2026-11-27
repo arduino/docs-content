@@ -224,7 +224,7 @@ The Modulino Movement requires no configuration. To add it to your project, foll
 2. If your project uses other Modulino nodes, connect the next node to the second Qwiic connector of the Modulino Movement to continue the chain.
 3. Power your Arduino board. The green power LED of the Modulino Movement turns on, and the node is ready to use.
 
-Boards with an onboard Qwiic connector, such as the **UNO R4 WiFi**, the **UNO Q**, and the **Nano R4**, connect directly to the Modulino Movement. Boards in the Nano form factor without a Qwiic connector can be mounted on the **Nano Connector Carrier**, which adds Qwiic connectors. Alternatively, you can wire the Modulino Movement to the I²C pins of any board through the optional J4 header.
+Boards with an onboard Qwiic connector, such as the **UNO R4 WiFi**, the **UNO Q**, and the **Nano R4**, connect directly to the Modulino Movement. Boards in the Nano form-factor without a Qwiic connector can be mounted on the **Nano Connector Carrier**, which adds Qwiic connectors. Alternatively, you can wire the Modulino Movement to the I²C pins of any board through the optional J4 header.
 
 <Alert type="note">
 
