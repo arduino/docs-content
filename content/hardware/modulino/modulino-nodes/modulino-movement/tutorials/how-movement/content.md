@@ -26,7 +26,7 @@ The Modulino Movement is a Modulino node that measures linear acceleration and a
 
 Acceleration and angular velocity are the two measurements needed to detect how an object moves: whether it is tilted, shaken, rotated, dropped, or at rest. Measuring them with separate sensors requires two devices, two sets of connections, and readings taken at different times. The Modulino Movement integrates a 3-axis accelerometer and a 3-axis gyroscope in a single sensor that delivers its readings in digital form over I²C, so the host board reads acceleration in g and angular velocity in degrees per second (dps) directly, without conversion code.
 
-Because it uses the Modulino form factor, you can chain the Modulino Movement with other Modulino nodes on the same Qwiic bus, for example, with a Modulino Pixels to display the node's orientation or with a Modulino Buzzer to signal that movement was detected. You can change its I²C address with the solder jumpers on the board, so two Modulino Movement nodes can share the same bus, as described in the [General Characteristics](#general-characteristics) section.
+Because it uses the Modulino form-factor, you can chain the Modulino Movement with other Modulino nodes on the same Qwiic bus, for example, with a Modulino Pixels to display the node's orientation or with a Modulino Buzzer to signal that movement was detected. You can change its I²C address with the solder jumpers on the board, so two Modulino Movement nodes can share the same bus, as described in the [General Characteristics](#general-characteristics) section.
 
 ## Hardware Overview
 
