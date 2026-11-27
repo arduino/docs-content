@@ -481,7 +481,7 @@ The Modulino Movement is supported by the [Modulino MicroPython package](https:/
 
 ### Prerequisites
 
-To follow the MicroPython examples of this tutorial, you will need the following:
+To follow the MicroPython examples in this tutorial, you will need the following:
 
 - An Arduino board that officially supports MicroPython, such as the **Nano ESP32**, the **Nano RP2040 Connect**, the **Nano 33 BLE Sense**, the **GIGA R1 WiFi**, or the **Portenta H7**. Mount a Nano form-factor board on the **Nano Connector Carrier** to connect the Modulino Movement through Qwiic.
 - A Qwiic cable.
