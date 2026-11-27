@@ -551,7 +551,7 @@ The basic example above relies on the first two properties of the following list
 
 </Alert>
 
-### Differences from the Arduino Library
+### Differences From the Arduino Library
 
 The MicroPython implementation is not a direct port of the Arduino one. The following table summarizes the differences to keep in mind when moving an application between the two:
 
