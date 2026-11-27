@@ -53,7 +53,7 @@ And the pages themselves:
 | NAV     | Up         | Down         | Left / Right      | OK     |
 | POWER   | Nothing    | Nothing      | Nothing           | On/Off |
 
-The NAV page is for smart TV menus: tilt and roll to move the highlight, then press KEY1 to select. KEY1 fires when you let go of it, and only if the remote stayed still while you held it, so a button squeezed mid-swing is quietly ignored.
+The NAV page is for smart TV menus, though mostly for answering "Are you still watching?" before the countdown runs out. Tilt and roll to move the highlight, then press KEY1 to select. KEY1 fires when you let go of it, and only if the remote stayed still while you held it, so a button squeezed mid-swing is quietly ignored.
 
 KEY1 works even while gestures are locked. You can mute an ad with the remote lying on the armrest.
 
@@ -63,7 +63,7 @@ KEY1 works even while gestures are locked. You can mute an ad with the remote ly
 
 Hold it like any TV remote, roughly flat with the screen tilted toward you and the IR end pointing at the TV. The IR transmitter sits on the short end beyond the display. KEY1 is the long button under the screen, and KEY2 is on the side.
 
-Aim matters more than you'd expect. The IR LED is small and its beam is narrow, so point it at the TV's receiver, usually a small dark window at the bottom of the bezel. If the TV misses commands up close, take a step back. More than once during testing we were ready to blame the code, and the remote was simply pointed at the wrong part of the TV. Keep your fingers off the IR end, too.
+Aim matters more than you'd expect. The IR window is small and its beam is narrow, so point it at the TV's receiver. That's usually a small dark window at the bottom of the bezel, but manufacturers put it in different places, so look for it on yours. If the TV misses commands up close, take a step back. More than once during testing we were ready to blame the code, and the remote was simply pointed at the wrong part of the TV. Keep your fingers off the IR end, too. Obviously we never made that mistake (at least not more than a few times).
 
 That's also why the tilts are small. You can lean the remote and still keep the beam on the TV.
 
@@ -95,7 +95,7 @@ On the NAV page the remote also reacts to roll. Turn it like a key in a lock: cl
 
 A quick sideways swing barely changes how gravity hits the accelerometer. The gyroscope sees it clearly, as a short, sharp spike in rotation speed around the axis that points out of the screen. The sketch counts anything past a set speed as a flick, and the sign of the reading tells left from right.
 
-In our tests a deliberate swing peaked somewhere between 650 and 1000 degrees per second, while the little wind-up before a swing stayed under 300. The threshold sits at 400, in the gap. Wrists differ, so expect to tune it.
+In our tests a deliberate swing peaked somewhere between 650 and 1000 degrees per second, while the little wind-up before a swing stayed under 300. The threshold sits at 400, in the gap. Passion levels differ, so expect to tune it.
 
 ![Swinging left or right changes page, shown with real gyroscope readings](assets/gesture-swing.png)
 
@@ -103,10 +103,10 @@ In our tests a deliberate swing peaked somewhere between 650 and 1000 degrees pe
 
 Raw thresholds alone make for a jumpy remote. A few small rules calm it down:
 
-- Hysteresis: a tilt counts once it passes 12° and only resets once you're back within 5°. Without that gap, hovering near the threshold fires volume changes like a nervous woodpecker.
-- Auto-repeat: hold a tilt and the step repeats, faster past 25°.
-- Cooldown: your wrist swings back on its own after a flick, so motion is ignored for a moment afterwards.
-- Level first: after a flick or an unlock, tilts wait until you're back at level.
+- **Hysteresis**: a tilt counts once it passes 12° and only resets once you're back within 5°. Without that gap, hovering near the threshold fires volume changes like a nervous woodpecker.
+- **Auto-repeat**: hold a tilt and the step repeats, faster past 25°.
+- **Cooldown**: your wrist swings back on its own after a flick, so motion is ignored for a moment afterwards.
+- **Level first**: after a flick or an unlock, tilts wait until you're back at level.
 
 These values are simply what felt right to us. They all sit at the top of the sketch, so change them until the remote feels like yours.
 
@@ -136,9 +136,9 @@ Every TV brand speaks its own IR dialect. Each message carries an address, which
 | Philips     | RC6                  | `0x00`   | `0x0C` | `0x10` | `0x11` | `0x0D` | `0x20` | `0x21` | `0x38` |
 | Panasonic   | Panasonic (Kaseikyo) | `0x08`   | `0x3D` | `0x20` | `0x21` | `0x32` | `0x34` | `0x35` | `0x05` |
 | Toshiba     | NEC                  | `0x40`   | `0x12` | `0x1A` | `0x1E` | `0x10` | `0x1B` | `0x1F` | `0x0F` |
-| Philips RC5 | RC5                  | `0x00`   | `0x0C` | `0x10` | `0x11` | `0x0D` | `0x20` | `0x21` | `0x38` |
+| RC5         | RC5                  | `0x00`   | `0x0C` | `0x10` | `0x11` | `0x0D` | `0x20` | `0x21` | `0x38` |
 
-Most TVs from these brands have used these codes for years. Philips shows up twice because its newer TVs use RC6 and older ones RC5, and plenty of other brands borrow one of these sets.
+Most TVs from these brands have used these codes for years, and plenty of other brands borrow one of these sets. RC5 gets its own entry because it's an older protocol that several brands adopted.
 
 The NAV page uses a second set:
 
@@ -150,13 +150,13 @@ The NAV page uses a second set:
 | Philips     | `0x58` | `0x59` | `0x5A` | `0x5B` | `0x5C` |
 | Panasonic   | `0x4A` | `0x4B` | `0x4E` | `0x4F` | `0x49` |
 | Toshiba     | none   | none   | none   | none   | none   |
-| Philips RC5 | none   | none   | none   | none   | none   |
+| RC5         | none   | none   | none   | none   | none   |
 
-We don't have navigation codes for Toshiba or older Philips RC5 sets yet. Those entries say `NO_CODE`, and the remote shows "No code" instead of guessing. If you own one, you can capture the codes yourself, as described below.
+We don't have navigation codes for Toshiba or RC5 sets yet. Those entries say `NO_CODE`, and the remote shows "No code" instead of guessing. If you own one, you can capture the codes yourself, as described below.
 
 To switch brands, hold KEY2 for five seconds to open the brand menu, or use the web page. The remote remembers your choice.
 
-Not sure which set your TV uses? Choose **Scan...** at the end of the brand menu. After a short countdown to give you time to aim, it sends MUTE with each code set in turn and shows which one it just tried. Press KEY2 when the TV mutes, and that set gets saved. Trust the scan over your memory, by the way: one of our test TVs, which we were sure was an LG, turned out to be a Samsung.
+Not sure which set your TV uses? Choose **Scan...** at the end of the brand menu. After a short countdown to give you time to aim, it sends MUTE with each code set in turn and shows which one it just tried. Press KEY2 when the TV mutes, and that set gets saved. Trust the scan over your memory, by the way: one of our test TVs, which we were sure was one brand, turned out to be another.
 
 ![Hold KEY2 for the brand menu, then pick a brand or run a scan](assets/display-menus.png)
 
@@ -329,7 +329,7 @@ const TvBrand BRANDS[] = {
                                               0x4A, 0x4B, 0x4E, 0x4F, 0x49 } },
   { "Toshiba",     PROTO_NEC,       0x40,   { 0x12, 0x1A, 0x1E, 0x10, 0x1B, 0x1F, 0x0F,
                                               NO_CODE, NO_CODE, NO_CODE, NO_CODE, NO_CODE } },
-  { "Philips RC5", PROTO_RC5,       0x00,   { 0x0C, 0x10, 0x11, 0x0D, 0x20, 0x21, 0x38,
+  { "RC5",         PROTO_RC5,       0x00,   { 0x0C, 0x10, 0x11, 0x0D, 0x20, 0x21, 0x38,
                                               NO_CODE, NO_CODE, NO_CODE, NO_CODE, NO_CODE } },
 };
 const int BRAND_COUNT = sizeof(BRANDS) / sizeof(BRANDS[0]);
@@ -1204,7 +1204,7 @@ With the fix, bursts land within a few percent of spec for every brand in the ta
 
 ### The Scan
 
-The scan reuses `sendWithBrand()`. Every couple of seconds, `updateScan()` sends MUTE with the next entry in `BRANDS`. People react a little late, so a KEY2 press that lands right after a new send saves the set before it:
+The scan reuses `sendWithBrand()`. Every couple of seconds, `updateScan()` sends MUTE with the next entry in `BRANDS`. MUTE is deliberate: some TVs take several seconds to switch off or back on, so with POWER the scan would already be a code set or two further along by the time you noticed. People react a little late, so a KEY2 press that lands right after a new send saves the set before it:
 
 ```arduino
 bool tooSoon = scanSends > 1 && millis() - scanSentAt < SCAN_GRACE_MS;
@@ -1299,6 +1299,8 @@ A status bar runs along the top, with the page dots and title below it. The midd
 
 Once Wi-Fi connects, the sketch starts a small web server and announces itself as `nesso-remote.local`. It connects in the background, so the remote works from the moment it boots.
 
+***Your phone or computer has to be on the same network as the Nesso N1. Guest networks often keep devices apart, so if the page won't load, try your main network. There's no port to open: it's plain HTTP on the default port 80.***
+
 | Route            | What it does                                                    |
 | :--------------- | :-------------------------------------------------------------- |
 | `/`              | Serves the page with the brand picker and the ring button       |
@@ -1334,13 +1336,13 @@ Once Wi-Fi connects, the sketch starts a small web server and announces itself a
 
 ## Conclusions
 
-The common TV remote has had a long, quiet run in the cushions. This one evolved a little. Gravity on the accelerometer gives it tilt and roll, and the gyroscope catches the swings. A handful of thresholds and timers turn those twitchy signals into gestures that only fire when you mean them. And when it disappears anyway, the web page calls it back out.
+Let's be honest: this project is unlikely to trigger an extinction-level event for the common TV remote, leaving future civilizations to wonder what that oddly shaped fossil in the sofa was. It's a fun concept. Still, the next time "Are you still watching?" starts its countdown, every bit helps.
 
-Filtering raw motion and turning it into clean events works well beyond TVs, from game controllers to menus you can drive without looking.
+The more useful part is what it took to build. The Nesso N1 already carries a battery, a screen, buttons, an IR transmitter and a motion sensor, so turning an everyday object into something new mostly comes down to code. Once one small device can sense the physical world, the things you take for granted around the house start to look like prototypes.
 
 ## Next Steps
 
-- Use the touchscreen through the `NessoTouch` class for a number pad, so you can jump straight to channel 42.
+- Use the touchscreen through the `NessoTouch` class for a number pad, so you can type a channel number directly.
 - Let the BMI270's motion interrupt wake the board when you pick it up, and sleep the rest of the time.
 - Show when the remote is charging. `battery.getChargeStatus()` tells you.
 - Give the soundbar its own page, pointing at a different `BRANDS` entry.
